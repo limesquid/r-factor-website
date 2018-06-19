@@ -1,21 +1,22 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Col from 'react-bootstrap/es/Col';
-import Grid from 'react-bootstrap/es/Grid';
-import Row from 'react-bootstrap/es/Row';
+import Col from 'reactstrap/lib/Col';
+import Container from 'reactstrap/lib/Container';
+import Row from 'reactstrap/lib/Row';
 import Navigation from './components/navigation';
 import FeaturesPage from './pages/features';
 import HomePage from './pages/home';
 import IssuePage from './pages/issue';
 import LicensePage from './pages/license';
 import PurchasePage from './pages/purchase';
+import './styles.css';
 
 const App = () => (
   <BrowserRouter>
     <div>
       <Navigation />
 
-      <Grid>
+      <Container>
         <Row>
           <Col md={12}>
             <Route exact path="/" component={HomePage} />
@@ -25,7 +26,7 @@ const App = () => (
             <Route exact path="/purchase" component={PurchasePage} />
           </Col>
         </Row>
-      </Grid>
+      </Container>
     </div>
   </BrowserRouter>
 );

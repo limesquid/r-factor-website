@@ -1,8 +1,11 @@
 import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import Nav from 'react-bootstrap/es/Nav';
-import Navbar from 'react-bootstrap/es/Navbar';
-import NavItem from 'react-bootstrap/es/NavItem';
+import Container from 'reactstrap/lib/Container';
+import Nav from 'reactstrap/lib/Nav';
+import Navbar from 'reactstrap/lib/Navbar';
+import NavbarBrand from 'reactstrap/lib/NavbarBrand';
+import NavItem from 'reactstrap/lib/NavItem';
+import NavLink from 'reactstrap/lib/NavLink';
 
 const links = [
   { label: 'Features', to: '/features' },
@@ -12,24 +15,26 @@ const links = [
 ];
 
 const Navigation = () => (
-  <Navbar>
-    <Navbar.Header>
-      <Navbar.Brand>
-        <LinkContainer to="/">
-          <a href="#">R-Factor</a>
-        </LinkContainer>
-      </Navbar.Brand>
-    </Navbar.Header>
+  <Navbar dark expand fixed="top" color="primary">
+    <Container>
+      <LinkContainer to="/">
+        <NavbarBrand>
+          R-Factor
+        </NavbarBrand>
+      </LinkContainer>
 
-    <Nav pullRight>
-      {links.map(({ label, to }, index) => (
-        <LinkContainer key={index} to={to}>
-          <NavItem eventKey={index + 1}>
-            {label}
+      <Nav navbar>
+        {links.map(({ label, to }) => (
+          <NavItem key={to}>
+            <LinkContainer to={to}>
+              <NavLink>
+                {label}
+              </NavLink>
+            </LinkContainer>
           </NavItem>
-        </LinkContainer>
-      ))}
-    </Nav>
+        ))}
+      </Nav>
+    </Container>
   </Navbar>
 );
 

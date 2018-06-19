@@ -1,5 +1,5 @@
 import React from 'react';
-import Jumbotron from 'react-bootstrap/es/Jumbotron';
+import Jumbotron from 'reactstrap/lib/Jumbotron';
 
 const HomePage = () => (
   <div>
