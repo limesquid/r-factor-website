@@ -360,7 +360,7 @@ module.exports = {
     'react/jsx-wrap-multilines': 'error',
 
     // JSX-specific rules
-    'react/jsx-boolean-value': ['error', 'always'],
+    'react/jsx-boolean-value': ['error', 'never'],
     'react/jsx-closing-bracket-location': ['error', {
       'nonEmpty': 'after-props',
       'selfClosing': 'after-props'

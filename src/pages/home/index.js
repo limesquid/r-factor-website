@@ -1,14 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Jumbotron from 'react-bootstrap/es/Jumbotron';
 
-const Home = ({  }) => (
+const HomePage = () => (
   <div>
-    Home
+    <Jumbotron>
+      <h1>R-Factor</h1>
+      <p>R-Factor - React & Redux Refactoring Tools for Sublime Text 3</p>
+    </Jumbotron>
   </div>
 );
 
-Home.propTypes = {
-
-};
-
-export default Home;
+export default HomePage;
