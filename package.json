@@ -1,0 +1,38 @@
+{
+  "name": "r-factor-website",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "homepage": "https://bitbucket.org/kamilmielnik/r-factor-website#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://kamilmielnik@bitbucket.org/kamilmielnik/r-factor-website.git"
+  },
+  "scripts": {
+    "build": "better-npm-run build",
+    "start": "better-npm-run start"
+  },
+  "betterScripts": {
+    "build": {
+      "command": "react-scripts build",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "start": {
+      "command": "react-scripts start",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  },
+  "devDependencies": {
+    "better-npm-run": "^0.1.0",
+    "react-scripts": "^1.1.4"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  }
+}
