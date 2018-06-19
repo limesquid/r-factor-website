@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';
 import Container from 'reactstrap/lib/Container';
 import Nav from 'reactstrap/lib/Nav';
@@ -14,7 +16,7 @@ const links = [
   { label: 'Buy Now!', to: '/purchase' }
 ];
 
-const Navigation = () => (
+const Navigation = ({ location }) => (
   <Navbar dark expand fixed="top" color="primary">
     <Container>
       <LinkContainer to="/">
@@ -25,7 +27,7 @@ const Navigation = () => (
 
       <Nav navbar>
         {links.map(({ label, to }) => (
-          <NavItem key={to}>
+          <NavItem key={to} active={to === location.pathname}>
             <LinkContainer to={to}>
               <NavLink>
                 {label}
@@ -38,4 +40,10 @@ const Navigation = () => (
   </Navbar>
 );
 
-export default Navigation;
+Navigation.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired
+  }).isRequired
+};
+
+export default withRouter(Navigation);

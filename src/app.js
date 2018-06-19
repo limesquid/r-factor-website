@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Col from 'reactstrap/lib/Col';
 import Container from 'reactstrap/lib/Container';
 import Row from 'reactstrap/lib/Row';
@@ -19,11 +19,13 @@ const App = () => (
       <Container>
         <Row>
           <Col md={12}>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/features" component={FeaturesPage} />
-            <Route exact path="/issue" component={IssuePage} />
-            <Route exact path="/license" component={LicensePage} />
-            <Route exact path="/purchase" component={PurchasePage} />
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/features" component={FeaturesPage} />
+              <Route exact path="/issue" component={IssuePage} />
+              <Route exact path="/license" component={LicensePage} />
+              <Route exact path="/purchase" component={PurchasePage} />
+            </Switch>
           </Col>
         </Row>
       </Container>
