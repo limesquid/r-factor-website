@@ -6,10 +6,10 @@ import Row from 'reactstrap/lib/Row';
 import Navigation from './components/navigation';
 import FeaturesPage from './pages/features';
 import HomePage from './pages/home';
-import IssuePage from './pages/issue';
 import LicensePage from './pages/license';
 import PurchasePage from './pages/purchase';
-import './styles.css';
+import SuggestionPage from './pages/suggestion';
+import './styles/styles.css';
 
 const App = () => (
   <BrowserRouter>
@@ -22,9 +22,9 @@ const App = () => (
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route exact path="/features" component={FeaturesPage} />
-              <Route exact path="/issue" component={IssuePage} />
               <Route exact path="/license" component={LicensePage} />
               <Route exact path="/purchase" component={PurchasePage} />
+              <Route exact path="/suggestion" component={SuggestionPage} />
             </Switch>
           </Col>
         </Row>

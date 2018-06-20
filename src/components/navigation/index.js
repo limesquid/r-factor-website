@@ -11,8 +11,8 @@ import NavLink from 'reactstrap/lib/NavLink';
 
 const links = [
   { label: 'Features', to: '/features' },
-  { label: 'Issue', to: '/issue' },
   { label: 'License', to: '/license' },
+  { label: 'Submit Suggestion', to: '/suggestion' },
   { label: 'Buy Now!', to: '/purchase' }
 ];
 
