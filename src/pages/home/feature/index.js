@@ -4,22 +4,24 @@ import Media from 'reactstrap/lib/Media';
 import Icon from '../../../components/icon';
 
 const Feature = ({ name, description }) => (
-  <Media className="my-2 p-2 py-3 align-items-center border-light">
-    <Media className="px-4" left>
-      <Icon bsStyle="success" name="check" style={{ fontSize: '2rem' }} />
+  <Media className="my-2 py-2 border-light">
+    <Media className="px-2" left>
+      <Icon bsStyle="success" name="check" style={{ fontSize: '1.4rem' }} />
     </Media>
 
     <Media body className="px-2">
-      <Media heading>
+      <Media heading className="text-info">
         {name}
       </Media>
-      {description}
+      <div className="text-muted">
+        {description}
+      </div>
     </Media>
   </Media>
 );
 
 Feature.propTypes = {
-  description: PropTypes.string.isRequired,
+  description: PropTypes.node.isRequired,
   name: PropTypes.string.isRequired
 };
 
