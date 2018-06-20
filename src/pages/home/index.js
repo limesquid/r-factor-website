@@ -4,7 +4,7 @@ import Container from 'reactstrap/lib/Container';
 import Jumbotron from 'reactstrap/lib/Jumbotron';
 import Row from 'reactstrap/lib/Row';
 import Feature from './feature';
-import { reactFeatures, reduxFeatures } from './data';
+import { configurationFeatures, reactFeatures, reduxFeatures } from './data';
 
 const HomePage = () => (
   <div>
@@ -23,6 +23,13 @@ const HomePage = () => (
         <Col md={6}>
           <h2>Redux refactorings</h2>
           {reduxFeatures.map((feature) => (<Feature key={feature.id} {...feature} />))}
+        </Col>
+      </Row>
+
+      <Row>
+        <Col>
+          <h2>Configuration</h2>
+          {configurationFeatures.map((feature) => (<Feature key={feature.id} {...feature} />))}
         </Col>
       </Row>
     </Container>
