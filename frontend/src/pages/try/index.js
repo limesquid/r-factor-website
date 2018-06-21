@@ -26,7 +26,8 @@ class TryPage extends Component {
 
   onRefactor = async() => {
     try {
-      const refactoredCode = await postRefactor(this.state);
+      const response = await postRefactor(this.state);
+      const refactoredCode = await response.text();
       this.setState({ refactoredCode });
     } catch (error) {
       this.setState({ refactoredCode: `/* ${error} */` });
