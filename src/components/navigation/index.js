@@ -10,6 +10,7 @@ import NavItem from 'reactstrap/lib/NavItem';
 import NavLink from 'reactstrap/lib/NavLink';
 import BuyButton from 'components/buy-button';
 import { transparentLogoUrl } from 'data';
+import './styles.css';
 
 const links = [
   { label: 'Overview', to: '/' },
@@ -20,7 +21,7 @@ const links = [
 ];
 
 const Navigation = ({ location }) => (
-  <Navbar dark expand fixed="top" color="primary">
+  <Navbar className="navigation" dark expand fixed="top" color="primary">
     <Container>
       <LinkContainer to="/">
         <NavbarBrand className="d-flex align-items-center">
