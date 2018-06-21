@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Media from 'reactstrap/lib/Media';
-import Icon from '../../../components/icon';
+import Icon from 'components/icon';
 
 const Feature = ({ name, description }) => (
   <Media className="my-2 py-2 border-light">

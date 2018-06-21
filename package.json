@@ -16,13 +16,15 @@
     "build": {
       "command": "react-scripts build",
       "env": {
-        "NODE_ENV": "production"
+        "NODE_ENV": "production",
+        "NODE_PATH": "src/"
       }
     },
     "start": {
       "command": "react-scripts start",
       "env": {
-        "NODE_ENV": "development"
+        "NODE_ENV": "development",
+        "NODE_PATH": "src/"
       }
     }
   },

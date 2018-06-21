@@ -3,13 +3,13 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Col from 'reactstrap/lib/Col';
 import Container from 'reactstrap/lib/Container';
 import Row from 'reactstrap/lib/Row';
-import Navigation from './components/navigation';
-import FeaturesPage from './pages/features';
-import HomePage from './pages/home';
-import LicensePage from './pages/license';
-import PurchasePage from './pages/purchase';
-import SuggestionPage from './pages/suggestion';
-import './styles/styles.css';
+import Navigation from 'components/navigation';
+import FeaturesPage from 'pages/features';
+import HomePage from 'pages/home';
+import LicensePage from 'pages/license';
+import PurchasePage from 'pages/purchase';
+import SuggestionPage from 'pages/suggestion';
+import 'styles/styles.css';
 
 const App = () => (
   <BrowserRouter>
