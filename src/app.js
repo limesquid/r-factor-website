@@ -9,6 +9,7 @@ import HomePage from 'pages/home';
 import LicensePage from 'pages/license';
 import PurchasePage from 'pages/purchase';
 import SupportPage from 'pages/support';
+import TryPage from 'pages/try';
 import 'styles/styles.css';
 
 const App = () => (
@@ -25,6 +26,7 @@ const App = () => (
               <Route exact path="/license" component={LicensePage} />
               <Route exact path="/purchase" component={PurchasePage} />
               <Route exact path="/support" component={SupportPage} />
+              <Route exact path="/try" component={TryPage} />
             </Switch>
           </Col>
         </Row>

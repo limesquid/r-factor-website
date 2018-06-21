@@ -13,6 +13,7 @@ import { transparentLogoUrl } from 'data';
 
 const links = [
   { label: 'Overview', to: '/' },
+  { label: 'Try it', to: '/try' },
   { label: 'Documentation', to: '/documentation' },
   { label: 'Support', to: '/support' },
   { label: 'License', to: '/license' }
@@ -22,8 +23,8 @@ const Navigation = ({ location }) => (
   <Navbar dark expand fixed="top" color="primary">
     <Container>
       <LinkContainer to="/">
-        <NavbarBrand>
-          <img width="48" src={transparentLogoUrl} alt="R-Factor" />
+        <NavbarBrand className="d-flex align-items-center">
+          <img height="32" src={transparentLogoUrl} alt="R-Factor" />
           <span className="pl-2">R-Factor</span>
         </NavbarBrand>
       </LinkContainer>

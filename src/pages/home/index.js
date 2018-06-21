@@ -4,7 +4,9 @@ import Container from 'reactstrap/lib/Container';
 import Jumbotron from 'reactstrap/lib/Jumbotron';
 import Row from 'reactstrap/lib/Row';
 import BuyButton from 'components/buy-button';
-import Features from './features';
+import Features from 'components/features';
+import OsIcons from 'components/os-icons';
+import TryButton from 'components/try-button';
 import {
   configurationFeatures,
   reactFeatures,
@@ -12,9 +14,6 @@ import {
   transparentLogoUrl,
   videoUrl
 } from 'data';
-
-const firstHalfConfigurationFeatures = configurationFeatures.filter((_, index) => index % 2 === 0);
-const secondHalfConfigurationFeatures = configurationFeatures.filter((_, index) => index % 2 !== 0);
 
 const HomePage = () => (
   <div>
@@ -40,12 +39,13 @@ const HomePage = () => (
 
     <Container>
       <Row>
-        <Col className="d-flex justify-content-center m-4">
-          <BuyButton size="lg" />
+        <Col className="d-flex justify-content-center my-5">
+          <TryButton className="mx-3 px-5" size="lg" />
+          <BuyButton className="mx-3 px-5" size="lg" />
         </Col>
       </Row>
 
-      <Row>
+      <Row className="my-2">
         <Col lg={6}>
           <h2>React refactorings</h2>
           <Features features={reactFeatures} />
@@ -57,24 +57,21 @@ const HomePage = () => (
         </Col>
       </Row>
 
-      <Row>
-        <Col>
+      <Row className="my-2">
+        <Col lg={6}>
           <h2>Configuration</h2>
+          <Features features={configurationFeatures} />
+        </Col>
+        <Col lg={6}>
+          <h2>System requirements</h2>
+          <OsIcons className="py-2" />
         </Col>
       </Row>
 
       <Row>
-        <Col lg={6}>
-          <Features features={firstHalfConfigurationFeatures} />
-        </Col>
-        <Col lg={6}>
-          <Features features={secondHalfConfigurationFeatures} />
-        </Col>
-      </Row>
-
-      <Row>
-        <Col className="d-flex justify-content-center m-4">
-          <BuyButton size="lg" />
+        <Col className="d-flex justify-content-center my-5">
+          <TryButton className="mx-3 px-5" size="lg" />
+          <BuyButton className="mx-3 px-5" size="lg" />
         </Col>
       </Row>
     </Container>
