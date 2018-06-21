@@ -22,6 +22,7 @@ const HomePage = () => (
         alt="R-Factor"
         src={transparentLogoUrl}
         width="100" />
+
       <div className="pl-3">
         <h1>R-Factor</h1>
         <h4>React & Redux Refactoring Tools for Sublime Text 3</h4>
@@ -62,6 +63,7 @@ const HomePage = () => (
           <h2>Configuration</h2>
           <Features features={configurationFeatures} />
         </Col>
+
         <Col lg={6}>
           <h2>System requirements</h2>
           <OsIcons className="py-2" />

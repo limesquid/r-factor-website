@@ -1,3 +1,4 @@
+/* eslint max-len: 0 */
 import React from 'react';
 
 const Linux = (props) => (
@@ -9,6 +10,3 @@ const Linux = (props) => (
 );
 
 export default Linux;
-
-
-
