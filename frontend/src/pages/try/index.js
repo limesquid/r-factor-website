@@ -4,6 +4,7 @@ import Col from 'reactstrap/lib/Col';
 import Container from 'reactstrap/lib/Container';
 import Row from 'reactstrap/lib/Row';
 import Code from 'components/code';
+import RefactoringDropdown from 'components/refactoring-dropdown';
 import defaultCode from './default-code';
 
 const TryPage = () => (
@@ -21,7 +22,11 @@ const TryPage = () => (
     </Row>
 
     <Row>
-      <Col className="d-flex justify-content-end">
+      <Col md={10}>
+        <RefactoringDropdown />
+      </Col>
+
+      <Col md={2} className="d-flex justify-content-end">
         <Button color="primary" size="lg">
           Refactor
         </Button>
