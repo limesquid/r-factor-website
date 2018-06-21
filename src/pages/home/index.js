@@ -4,13 +4,22 @@ import Container from 'reactstrap/lib/Container';
 import Jumbotron from 'reactstrap/lib/Jumbotron';
 import Row from 'reactstrap/lib/Row';
 import Features from './features';
-import { configurationFeatures, reactFeatures, reduxFeatures } from 'data';
+import { configurationFeatures, reactFeatures, reduxFeatures, videoUrl } from 'data';
 
 const firstHalfConfigurationFeatures = configurationFeatures.filter((_, index) => index % 2 === 0);
 const secondHalfConfigurationFeatures = configurationFeatures.filter((_, index) => index % 2 !== 0);
 
 const HomePage = () => (
   <div>
+    <div className="embed-responsive embed-responsive-16by9">
+      <iframe
+        allowFullScreen
+        className="embed-responsive-item"
+        frameBorder="0"
+        src={videoUrl}
+        title="R-Factor demo" />
+    </div>
+
     <Jumbotron>
       <h1>R-Factor</h1>
       <p>R-Factor - React & Redux Refactoring Tools for Sublime Text 3</p>
