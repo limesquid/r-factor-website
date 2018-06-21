@@ -8,6 +8,7 @@ import Navbar from 'reactstrap/lib/Navbar';
 import NavbarBrand from 'reactstrap/lib/NavbarBrand';
 import NavItem from 'reactstrap/lib/NavItem';
 import NavLink from 'reactstrap/lib/NavLink';
+import { transparentLogoUrl } from 'data';
 
 const links = [
   { label: 'Features', to: '/features' },
@@ -21,7 +22,8 @@ const Navigation = ({ location }) => (
     <Container>
       <LinkContainer to="/">
         <NavbarBrand>
-          R-Factor
+          <img width="48" src={transparentLogoUrl} alt="R-Factor" />
+          <span className="pl-2">R-Factor</span>
         </NavbarBrand>
       </LinkContainer>
 

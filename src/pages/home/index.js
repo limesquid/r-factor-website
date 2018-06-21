@@ -4,14 +4,31 @@ import Container from 'reactstrap/lib/Container';
 import Jumbotron from 'reactstrap/lib/Jumbotron';
 import Row from 'reactstrap/lib/Row';
 import Features from './features';
-import { configurationFeatures, reactFeatures, reduxFeatures, videoUrl } from 'data';
+import {
+  configurationFeatures,
+  reactFeatures,
+  reduxFeatures,
+  transparentLogoUrl,
+  videoUrl
+} from 'data';
 
 const firstHalfConfigurationFeatures = configurationFeatures.filter((_, index) => index % 2 === 0);
 const secondHalfConfigurationFeatures = configurationFeatures.filter((_, index) => index % 2 !== 0);
 
 const HomePage = () => (
   <div>
-    <div className="embed-responsive embed-responsive-16by9">
+    <Jumbotron className="d-flex align-items-center p-4">
+      <img
+        alt="R-Factor"
+        src={transparentLogoUrl}
+        width="100" />
+      <div className="pl-3">
+        <h1>R-Factor</h1>
+        <h4>React & Redux Refactoring Tools for Sublime Text 3</h4>
+      </div>
+    </Jumbotron>
+
+    <div className="embed-responsive embed-responsive-16by9 mb-4">
       <iframe
         allowFullScreen
         className="embed-responsive-item"
@@ -19,11 +36,6 @@ const HomePage = () => (
         src={videoUrl}
         title="R-Factor demo" />
     </div>
-
-    <Jumbotron>
-      <h1>R-Factor</h1>
-      <p>R-Factor - React & Redux Refactoring Tools for Sublime Text 3</p>
-    </Jumbotron>
 
     <Container>
       <Row>
