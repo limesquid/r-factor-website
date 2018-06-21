@@ -5,6 +5,8 @@ import Jumbotron from 'reactstrap/lib/Jumbotron';
 import Row from 'reactstrap/lib/Row';
 import Feature from './feature';
 import { configurationFeatures, reactFeatures, reduxFeatures } from './data';
+const firstHalfConfigurationFeatures = configurationFeatures.filter((_, index) => index % 2 === 0);
+const secondHalfConfigurationFeatures = configurationFeatures.filter((_, index) => index % 2 !== 0);
 
 const HomePage = () => (
   <div>
@@ -15,12 +17,12 @@ const HomePage = () => (
 
     <Container>
       <Row>
-        <Col md={6}>
+        <Col lg={6}>
           <h2>React refactorings</h2>
           {reactFeatures.map((feature) => (<Feature key={feature.id} {...feature} />))}
         </Col>
 
-        <Col md={6}>
+        <Col lg={6}>
           <h2>Redux refactorings</h2>
           {reduxFeatures.map((feature) => (<Feature key={feature.id} {...feature} />))}
         </Col>
@@ -29,7 +31,15 @@ const HomePage = () => (
       <Row>
         <Col>
           <h2>Configuration</h2>
-          {configurationFeatures.map((feature) => (<Feature key={feature.id} {...feature} />))}
+        </Col>
+      </Row>
+
+      <Row>
+        <Col lg={6}>
+          {firstHalfConfigurationFeatures.map((feature) => (<Feature key={feature.id} {...feature} />))}
+        </Col>
+        <Col lg={6}>
+          {secondHalfConfigurationFeatures.map((feature) => (<Feature key={feature.id} {...feature} />))}
         </Col>
       </Row>
     </Container>
