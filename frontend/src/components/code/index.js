@@ -25,7 +25,20 @@ class Code extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      prevValue: props.value,
       value: props.value || ''
+    };
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.value === prevState.prevValue) {
+      return null;
+    }
+
+    return {
+      ...prevState,
+      prevValue: nextProps.value,
+      value: nextProps.value
     };
   }
 

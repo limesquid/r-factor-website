@@ -16,6 +16,7 @@
     "build": {
       "command": "react-scripts build",
       "env": {
+        "API_URL": "https://r-factor.io:5000",
         "NODE_ENV": "production",
         "NODE_PATH": "src/"
       }
@@ -23,6 +24,7 @@
     "start": {
       "command": "react-scripts start",
       "env": {
+        "API_URL": "http://localhost:5000",
         "NODE_ENV": "development",
         "NODE_PATH": "src/"
       }
