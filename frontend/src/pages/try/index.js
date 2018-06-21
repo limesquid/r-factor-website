@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'reactstrap/lib/Button';
 import Col from 'reactstrap/lib/Col';
 import Container from 'reactstrap/lib/Container';
 import Row from 'reactstrap/lib/Row';
@@ -15,7 +16,15 @@ const TryPage = () => (
 
       <Col md={6}>
         <h3>Output</h3>
-        <Code value={defaultCode} />
+        <Code disabled value={defaultCode} />
+      </Col>
+    </Row>
+
+    <Row>
+      <Col className="d-flex justify-content-end">
+        <Button color="primary" size="lg">
+          Refactor
+        </Button>
       </Col>
     </Row>
   </Container>

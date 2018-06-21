@@ -13,6 +13,7 @@ const options = {
 
 class Code extends Component {
   static propTypes = {
+    disabled: PropTypes.bool,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func
   };
@@ -28,14 +29,22 @@ class Code extends Component {
     };
   }
 
-  onBeforeChange = (editor, data, value) => this.setState({ value });
+  onBeforeChange = (editor, data, value) => {
+    if (!this.props.disabled) {
+      this.setState({ value });
+    }
+  };
 
-  onChange = (editor, data, value) => this.props.onChange(value);
+  onChange = (editor, data, value) => {
+    if (!this.props.disabled) {
+      this.props.onChange(value);
+    }
+  };
 
   render() {
     return (
       <CodeMirror
-        className="border border-light"
+        className="border border-light mb-4"
         options={options}
         value={this.state.value}
         onBeforeChange={this.onBeforeChange}
