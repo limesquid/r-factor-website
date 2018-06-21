@@ -3,6 +3,7 @@ import Col from 'reactstrap/lib/Col';
 import Container from 'reactstrap/lib/Container';
 import Jumbotron from 'reactstrap/lib/Jumbotron';
 import Row from 'reactstrap/lib/Row';
+import BuyButton from 'components/buy-button';
 import Features from './features';
 import {
   configurationFeatures,
@@ -28,7 +29,7 @@ const HomePage = () => (
       </div>
     </Jumbotron>
 
-    <div className="embed-responsive embed-responsive-16by9 mb-4">
+    <div className="embed-responsive embed-responsive-16by9">
       <iframe
         allowFullScreen
         className="embed-responsive-item"
@@ -38,6 +39,12 @@ const HomePage = () => (
     </div>
 
     <Container>
+      <Row>
+        <Col className="d-flex justify-content-center m-4">
+          <BuyButton size="lg" />
+        </Col>
+      </Row>
+
       <Row>
         <Col lg={6}>
           <h2>React refactorings</h2>
@@ -62,6 +69,12 @@ const HomePage = () => (
         </Col>
         <Col lg={6}>
           <Features features={secondHalfConfigurationFeatures} />
+        </Col>
+      </Row>
+
+      <Row>
+        <Col className="d-flex justify-content-center m-4">
+          <BuyButton size="lg" />
         </Col>
       </Row>
     </Container>

@@ -8,13 +8,14 @@ import Navbar from 'reactstrap/lib/Navbar';
 import NavbarBrand from 'reactstrap/lib/NavbarBrand';
 import NavItem from 'reactstrap/lib/NavItem';
 import NavLink from 'reactstrap/lib/NavLink';
+import BuyButton from 'components/buy-button';
 import { transparentLogoUrl } from 'data';
 
 const links = [
-  { label: 'Features', to: '/features' },
-  { label: 'License', to: '/license' },
-  { label: 'Submit Suggestion', to: '/suggestion' },
-  { label: 'Buy Now!', to: '/purchase' }
+  { label: 'Overview', to: '/' },
+  { label: 'Documentation', to: '/documentation' },
+  { label: 'Support', to: '/support' },
+  { label: 'License', to: '/license' }
 ];
 
 const Navigation = ({ location }) => (
@@ -29,7 +30,7 @@ const Navigation = ({ location }) => (
 
       <Nav navbar>
         {links.map(({ label, to }) => (
-          <NavItem key={to} active={to === location.pathname}>
+          <NavItem key={to} active={to === location.pathname} className="mx-2">
             <LinkContainer to={to}>
               <NavLink>
                 {label}
@@ -37,6 +38,10 @@ const Navigation = ({ location }) => (
             </LinkContainer>
           </NavItem>
         ))}
+
+        <NavItem className="ml-2">
+          <BuyButton />
+        </NavItem>
       </Nav>
     </Container>
   </Navbar>
