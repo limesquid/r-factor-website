@@ -22,7 +22,8 @@ class TryPage extends Component {
       settings: {
         'component-superclass': 'Component',
         'end-of-line': '\n',
-        'indent': '  '
+        indent: 2,
+        quotes: 'single'
       }
     };
   }
