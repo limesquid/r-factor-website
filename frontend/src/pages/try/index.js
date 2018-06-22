@@ -6,6 +6,7 @@ import Form from 'reactstrap/lib/Form';
 import Row from 'reactstrap/lib/Row';
 import Code from 'components/code';
 import RefactoringsSelect from 'components/refactorings-select';
+import Settings from 'components/settings';
 import defaultCode from './default-code';
 import { reactFeatures } from 'data';
 import { postRefactor } from './api';
@@ -17,7 +18,10 @@ class TryPage extends Component {
       code: defaultCode,
       isRefactoring: false,
       refactoring: reactFeatures[0].id,
-      refactoredCode: '/* Click "Refactor" to see something */'
+      refactoredCode: '/* Click "Refactor" to see something */',
+      settings: {
+        'component-superclass': 'Component'
+      }
     };
   }
 
@@ -36,8 +40,10 @@ class TryPage extends Component {
     }
   };
 
+  onSettingsChange = (settings) => this.setState({ settings });
+
   render() {
-    const { code, isRefactoring, refactoring, refactoredCode } = this.state;
+    const { code, isRefactoring, refactoring, refactoredCode, settings } = this.state;
 
     return (
       <Container>
@@ -55,8 +61,9 @@ class TryPage extends Component {
 
         <Row>
           <Col md={6}>
+            <RefactoringsSelect value={refactoring} onChange={this.onRefactoringChange} />
             <Form>
-              <RefactoringsSelect value={refactoring} onChange={this.onRefactoringChange} />
+              <Settings settings={settings} onChange={this.onSettingsChange} />
             </Form>
           </Col>
 
