@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { Controlled as CodeMirror } from 'react-codemirror2';
+import Spinner from 'components/spinner';
 import 'codemirror/addon/scroll/simplescrollbars';
 import 'codemirror/mode/jsx/jsx';
 import 'codemirror/addon/scroll/simplescrollbars.css';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
+import './styles.css';
 
 const options = {
   indentUnit: 2,
@@ -18,6 +21,7 @@ const options = {
 class Code extends Component {
   static propTypes = {
     disabled: PropTypes.bool,
+    isLoading: PropTypes.bool,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func
   };
@@ -59,13 +63,23 @@ class Code extends Component {
   };
 
   render() {
+    const { isLoading } = this.props;
+
     return (
-      <CodeMirror
-        className="border border-light mb-4"
-        options={options}
-        value={this.state.value}
-        onBeforeChange={this.onBeforeChange}
-        onChange={this.onChange} />
+      <div className="position-relative">
+        <CodeMirror
+          className={classNames('border border-light mb-4', { blurred: isLoading })}
+          options={options}
+          value={this.state.value}
+          onBeforeChange={this.onBeforeChange}
+          onChange={this.onChange} />
+
+        {isLoading && (
+          <div className="spinner-container">
+            <Spinner />
+          </div>
+        )}
+      </div>
     );
   }
 }
