@@ -2,8 +2,8 @@ import { spawn } from 'child_process';
 
 const MAX_CODE_LENGTH = 4000;
 const TIMEOUT = 30 * 1000;
-const TIMEOUT_MESSAGE = `Refactoring timed out (${TIMEOUT / 1000}s)`;
-const UNKNOWN_REFACTORING_MESSAGE = 'Unknown refactoring method';
+const TIMEOUT_MESSAGE = `Refactoring timed out (${TIMEOUT / 1000}s).`;
+const UNKNOWN_REFACTORING_MESSAGE = 'Unknown refactoring method.';
 const TOO_LONG_INPUT_MESSAGE = `You cannot refactor more than ${MAX_CODE_LENGTH} characters here. Buy the plugin.`;
 const REFACTORINGS = [
   'add-classname',
@@ -55,7 +55,7 @@ export default (request, response) => {
   child.on('close', () => {
     clearTimeout(timeout);
     if (stderr) {
-      response.status(404).send(stderr);
+      response.status(500).send(stderr);
     } else {
       response.send(stdout);
     }
