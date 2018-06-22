@@ -1,7 +1,5 @@
-import path from 'path';
 import { spawn } from 'child_process';
 
-const BIN_PATH = path.join('C:', 'Users', 'Kamil', 'AppData', 'Roaming', 'Sublime Text 3', 'Packages', 'r-factor', 'dist', 'index.js');
 const MAX_CODE_LENGTH = 4000;
 const TIMEOUT = 30 * 1000;
 const TIMEOUT_MESSAGE = `Refactoring timed out (${TIMEOUT / 1000}s)`;
@@ -39,7 +37,7 @@ export default (request, response) => {
 
   let stdout = '';
   let stderr = '';
-  const child = spawn('node', [ BIN_PATH, '-r', refactoring, '-s', settings ]);
+  const child = spawn('node', [ process.env.BIN_PATH, '-r', refactoring, '-s', settings ]);
   const timeout = setTimeout(() => {
     response.status(500).send(TIMEOUT_MESSAGE);
     child.kill();
@@ -48,8 +46,12 @@ export default (request, response) => {
   child.stdin.setEncoding('utf-8');
   child.stdin.write(code);
   child.stdin.end();
-  child.stdout.on('data', (data) => { stdout += data.toString(); });
-  child.stderr.on('data', (data) => { stderr += data.toString(); });
+  child.stdout.on('data', (data) => {
+    stdout += data.toString();
+  });
+  child.stderr.on('data', (data) => {
+    stderr += data.toString();
+  });
   child.on('close', () => {
     clearTimeout(timeout);
     if (stderr) {
@@ -58,6 +60,8 @@ export default (request, response) => {
       response.send(stdout);
     }
   });
+
+  return null;
 };
 
 const parseRequest = ({ body }) => ({
