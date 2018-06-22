@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import FormGroup from 'reactstrap/lib/FormGroup';
 import Input from 'reactstrap/lib/Input';
 import Label from 'reactstrap/lib/Label';
-import { reactFeatures, reduxFeatures } from 'data';
 
 const optionsLabels = {
   1: '1 space',

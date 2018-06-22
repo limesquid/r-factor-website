@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import EndOfLine from './end-of-line';
 import Indent from './indent';
 import Quotes from './quotes';
+import Semicolons from './semicolons';
 import Superclass from './superclass';
 
 class Settings extends Component {
@@ -13,7 +14,7 @@ class Settings extends Component {
 
   onEndOfLineChange = (endOfLine) => this.props.onChange({
     ...this.props.settings,
-    ['end-of-line']: endOfLine
+    'end-of-line': endOfLine
   });
 
   onIndentChange = (indent) => this.props.onChange({
@@ -26,13 +27,18 @@ class Settings extends Component {
     quotes
   });
 
+  onSemicolonsChange = (semicolons) => this.props.onChange({
+    ...this.props.settings,
+    semicolons
+  });
+
   onSuperclassChange = (superclass) => this.props.onChange({
     ...this.props.settings,
-    ['component-superclass']: superclass
+    'component-superclass': superclass
   });
 
   render() {
-    const { settings, onChange } = this.props;
+    const { settings } = this.props;
 
     return (
       <div>
@@ -40,6 +46,7 @@ class Settings extends Component {
         <EndOfLine value={settings['end-of-line']} onChange={this.onEndOfLineChange} />
         <Indent value={settings.indent} onChange={this.onIndentChange} />
         <Quotes value={settings.quotes} onChange={this.onQuotesChange} />
+        <Semicolons value={settings.semicolons} onChange={this.onSemicolonsChange} />
       </div>
     );
   }
