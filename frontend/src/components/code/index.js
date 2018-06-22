@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Controlled as CodeMirror } from 'react-codemirror2';
+import 'codemirror/addon/scroll/simplescrollbars';
 import 'codemirror/mode/jsx/jsx';
+import 'codemirror/addon/scroll/simplescrollbars.css';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
 
 const options = {
+  indentUnit: 2,
+  lineNumbers: true,
   mode: 'jsx',
-  theme: 'monokai',
-  lineNumbers: true
+  scrollbarStyle: 'overlay',
+  theme: 'monokai'
 };
 
 class Code extends Component {
