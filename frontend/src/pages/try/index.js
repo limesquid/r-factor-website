@@ -15,6 +15,7 @@ class TryPage extends Component {
     super(props);
     this.state = {
       code: defaultCode,
+      isRefactoring: false,
       refactoring: reactFeatures[0].id,
       refactoredCode: '/* Click "Refactor" to see something */'
     };
@@ -25,17 +26,18 @@ class TryPage extends Component {
   onRefactoringChange = (refactoring) => this.setState({ refactoring });
 
   onRefactor = async() => {
+    this.setState({ isRefactoring: true });
     try {
       const response = await postRefactor(this.state);
       const refactoredCode = await response.text();
-      this.setState({ refactoredCode });
+      this.setState({ isRefactoring: false, refactoredCode });
     } catch (error) {
-      this.setState({ refactoredCode: `/* ${error} */` });
+      this.setState({ isRefactoring: false, refactoredCode: `/* ${error} */` });
     }
   };
 
   render() {
-    const { code, refactoring, refactoredCode } = this.state;
+    const { code, isRefactoring, refactoring, refactoredCode } = this.state;
 
     return (
       <Container>
@@ -47,7 +49,7 @@ class TryPage extends Component {
 
           <Col md={6}>
             <h3>Output</h3>
-            <Code disabled value={refactoredCode} />
+            <Code disabled isLoading={isRefactoring} value={refactoredCode} />
           </Col>
         </Row>
 
@@ -59,7 +61,7 @@ class TryPage extends Component {
           </Col>
 
           <Col md={2} className="d-flex justify-content-end">
-            <Button color="primary" size="lg" onClick={this.onRefactor}>
+            <Button color="primary" disabled={isRefactoring} size="lg" onClick={this.onRefactor}>
               Refactor
             </Button>
           </Col>
