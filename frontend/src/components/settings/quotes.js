@@ -6,12 +6,13 @@ import Label from 'reactstrap/lib/Label';
 import { reactFeatures, reduxFeatures } from 'data';
 
 const optionsLabels = {
-  '\n': 'Unix (\\n)',
-  '\r\n': 'Windows (\\r\\n)'
+  single: 'Single (\')',
+  double: 'Double (")',
+  backtick: 'Backtick (`)'
 };
 const options = Object.keys(optionsLabels);
 
-class EndOfLine extends Component {
+class Quotes extends Component {
   static propTypes = {
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired
@@ -22,14 +23,14 @@ class EndOfLine extends Component {
   render() {
     return (
       <FormGroup>
-        <Label for="end-of-line-select">
-          End of line
+        <Label for="quotes-select">
+          Quotes
         </Label>
 
         <Input
           type="select"
-          id="end-of-line-select"
-          name="end-of-line-select"
+          id="quotes-select"
+          name="quotes-select"
           value={this.props.value}
           onChange={this.onChange}>
           {options.map((option) => (
@@ -43,4 +44,4 @@ class EndOfLine extends Component {
   }
 }
 
-export default EndOfLine;
+export default Quotes;

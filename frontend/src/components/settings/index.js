@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import EndOfLine from './end-of-line';
 import Indent from './indent';
+import Quotes from './quotes';
 import Superclass from './superclass';
 
 class Settings extends Component {
@@ -20,6 +21,11 @@ class Settings extends Component {
     indent
   });
 
+  onQuotesChange = (quotes) => this.props.onChange({
+    ...this.props.settings,
+    quotes
+  });
+
   onSuperclassChange = (superclass) => this.props.onChange({
     ...this.props.settings,
     ['component-superclass']: superclass
@@ -33,6 +39,7 @@ class Settings extends Component {
         <Superclass value={settings['component-superclass']} onChange={this.onSuperclassChange} />
         <EndOfLine value={settings['end-of-line']} onChange={this.onEndOfLineChange} />
         <Indent value={settings.indent} onChange={this.onIndentChange} />
+        <Quotes value={settings.quotes} onChange={this.onQuotesChange} />
       </div>
     );
   }

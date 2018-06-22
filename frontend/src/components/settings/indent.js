@@ -6,23 +6,20 @@ import Label from 'reactstrap/lib/Label';
 import { reactFeatures, reduxFeatures } from 'data';
 
 const optionsLabels = {
-  ' ': '1 space',
-  '  ': '2 spaces',
-  '   ': '3 spaces',
-  '    ': '4 spaces',
-  '        ': '8 spaces',
-  '\t': '1 tab',
-  '\t\t': '1 tabs',
+  1: '1 space',
+  2: '2 spaces',
+  4: '4 spaces',
+  8: '8 spaces'
 };
-const options = Object.keys(optionsLabels);
+const options = Object.keys(optionsLabels).map(Number);
 
 class Indent extends Component {
   static propTypes = {
-    value: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
     onChange: PropTypes.func.isRequired
   };
 
-  onChange = (event) => this.props.onChange(event.target.value);
+  onChange = (event) => this.props.onChange(Number(event.target.value));
 
   render() {
     return (
