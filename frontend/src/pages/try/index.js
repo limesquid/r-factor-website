@@ -20,7 +20,9 @@ class TryPage extends Component {
       refactoring: reactFeatures[0].id,
       refactoredCode: '/* Click "Refactor" to see something */',
       settings: {
-        'component-superclass': 'Component'
+        'component-superclass': 'Component',
+        'end-of-line': '\n',
+        'indent': '  '
       }
     };
   }
