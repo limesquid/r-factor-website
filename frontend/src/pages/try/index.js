@@ -23,7 +23,8 @@ class TryPage extends Component {
         'component-superclass': 'Component',
         'end-of-line': '\n',
         indent: 2,
-        quotes: 'single'
+        quotes: 'single',
+        semicolons: true
       }
     };
   }
