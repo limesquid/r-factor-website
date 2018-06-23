@@ -106,7 +106,7 @@ class TryPage extends Component {
         </Row>
 
         <Row>
-          <Col>
+          <Col lg={6}>
             <Form>
               <h3 className="d-flex justify-content-between">
                 <span>Settings</span>
@@ -117,9 +117,7 @@ class TryPage extends Component {
               <Settings settings={settings} onChange={this.onSettingsChange} />
             </Form>
           </Col>
-        </Row>
 
-        <Row>
           <Col lg={6}>
             <h3 className="d-flex justify-content-between">
               <span>Generated settings file</span>
