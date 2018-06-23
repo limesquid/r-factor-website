@@ -61,6 +61,7 @@ class TryPage extends Component {
   render() {
     const { code, isRefactoring, refactoring, refactoredCode, settings } = this.state;
     const lineSeparator = settings['end-of-line'];
+    const generatedSettings = JSON.stringify(settings, null, settings.indent);
 
     return (
       <Container>
@@ -115,6 +116,18 @@ class TryPage extends Component {
               </h3>
               <Settings settings={settings} onChange={this.onSettingsChange} />
             </Form>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col lg={6}>
+            <h3 className="d-flex justify-content-between">
+              <span>Generated settings file</span>
+              <Button color="link" data-clipboard-text={generatedSettings}>
+                Copy to clipboard
+              </Button>
+            </h3>
+            <Code disabled value={generatedSettings} />
           </Col>
         </Row>
       </Container>
