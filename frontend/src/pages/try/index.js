@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from 'reactstrap/lib/Button';
 import Col from 'reactstrap/lib/Col';
 import Container from 'reactstrap/lib/Container';
 import Form from 'reactstrap/lib/Form';
@@ -29,6 +30,10 @@ class TryPage extends Component {
   }
 
   onCodeChange = (code) => this.setState({ code });
+
+  onCopyToInput = () => this.setState((prevState) => ({
+    code: prevState.refactoredCode
+  }));
 
   onRefactoringChange = (refactoring) => this.setState({ refactoring });
 
@@ -74,7 +79,12 @@ class TryPage extends Component {
           </Col>
 
           <Col md={6}>
-            <h3>Output</h3>
+            <h3 className="d-flex justify-content-between">
+              <span>Output</span>
+              <Button color="link" onClick={this.onCopyToInput}>
+                Copy to input
+              </Button>
+            </h3>
             <Code
               disabled
               isLoading={isRefactoring}
