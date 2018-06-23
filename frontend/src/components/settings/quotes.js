@@ -2,9 +2,9 @@ import React from 'react';
 import RadioSetting from './radio-setting';
 
 const options = {
-  single: 'Single (\')',
-  double: 'Double (")',
-  backtick: 'Backtick (`)'
+  single: 'Single',
+  double: 'Double',
+  backtick: 'Backtick'
 };
 
 const Quotes = (props) => (

@@ -2,8 +2,8 @@ import React from 'react';
 import RadioSetting from './radio-setting';
 
 const options = {
-  '\n': 'Unix (LF)',
-  '\r\n': 'Windows (CRLF)'
+  '\n': 'LF',
+  '\r\n': 'CRLF'
 };
 
 const EndOfLine = (props) => (
