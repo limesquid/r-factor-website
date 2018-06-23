@@ -72,13 +72,17 @@ class Code extends Component {
   };
 
   render() {
-    const { isLoading, options } = this.props;
+    const { disabled, isLoading, options } = this.props;
 
     return (
       <div className="position-relative">
         <CodeMirror
           className={classNames('border border-light mb-4', { blurred: isLoading })}
-          options={{ ...defaultOptions, ...options }}
+          options={{
+            ...defaultOptions,
+            cursorHeight: disabled ? 0 : 1,
+            ...options
+          }}
           value={this.state.value}
           onBeforeChange={this.onBeforeChange}
           onChange={this.onChange} />
