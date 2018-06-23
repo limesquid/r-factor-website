@@ -64,7 +64,7 @@ class TryPage extends Component {
 
     return (
       <Container>
-        <Row className="border border-dark pt-3 px-1 mb-4">
+        <Row>
           <Col md={6}>
             <h3>Refactoring</h3>
             <RefactoringsSelect
@@ -75,7 +75,7 @@ class TryPage extends Component {
           </Col>
         </Row>
 
-        <Row className="border border-dark pt-3 px-1 mb-4">
+        <Row>
           <Col lg={6}>
             <h3 className="d-flex justify-content-between">
               <span>Input</span>
@@ -104,7 +104,7 @@ class TryPage extends Component {
           </Col>
         </Row>
 
-        <Row className="border border-dark pt-3 px-1 mb-4">
+        <Row>
           <Col>
             <Form>
               <h3 className="d-flex justify-content-between">
