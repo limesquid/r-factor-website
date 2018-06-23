@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Button from 'reactstrap/lib/Button';
 import Col from 'reactstrap/lib/Col';
 import Container from 'reactstrap/lib/Container';
 import Form from 'reactstrap/lib/Form';
@@ -56,6 +55,17 @@ class TryPage extends Component {
       <Container>
         <Row>
           <Col md={6}>
+            <h3>Refactoring</h3>
+            <RefactoringsSelect
+              disabled={isRefactoring}
+              value={refactoring}
+              onChange={this.onRefactoringChange}
+              onSubmit={this.onRefactor} />
+          </Col>
+        </Row>
+
+        <Row>
+          <Col md={6}>
             <h3>Input</h3>
             <Code
               options={{ lineSeparator }}
@@ -74,17 +84,11 @@ class TryPage extends Component {
         </Row>
 
         <Row>
-          <Col md={6}>
-            <RefactoringsSelect value={refactoring} onChange={this.onRefactoringChange} />
+          <Col md={12}>
             <Form>
+              <h3>Settings</h3>
               <Settings settings={settings} onChange={this.onSettingsChange} />
             </Form>
-          </Col>
-
-          <Col md={2} className="d-flex justify-content-end">
-            <Button color="primary" disabled={isRefactoring} size="lg" onClick={this.onRefactor}>
-              Refactor
-            </Button>
           </Col>
         </Row>
       </Container>

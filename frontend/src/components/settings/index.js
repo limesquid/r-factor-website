@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Col from 'reactstrap/lib/Col';
+import Row from 'reactstrap/lib/Row';
 import EndOfLine from './end-of-line';
 import Indent from './indent';
 import Quotes from './quotes';
@@ -41,13 +43,23 @@ class Settings extends Component {
     const { settings } = this.props;
 
     return (
-      <div>
-        <Superclass value={settings['component-superclass']} onChange={this.onSuperclassChange} />
-        <EndOfLine value={settings['end-of-line']} onChange={this.onEndOfLineChange} />
-        <Indent value={settings.indent} onChange={this.onIndentChange} />
-        <Quotes value={settings.quotes} onChange={this.onQuotesChange} />
-        <Semicolons value={settings.semicolons} onChange={this.onSemicolonsChange} />
-      </div>
+      <Row>
+        <Col>
+          <Indent value={settings.indent} onChange={this.onIndentChange} />
+        </Col>
+        <Col>
+          <Quotes value={settings.quotes} onChange={this.onQuotesChange} />
+        </Col>
+        <Col>
+          <EndOfLine value={settings['end-of-line']} onChange={this.onEndOfLineChange} />
+        </Col>
+        <Col>
+          <Superclass value={settings['component-superclass']} onChange={this.onSuperclassChange} />
+        </Col>
+        <Col>
+          <Semicolons value={settings.semicolons} onChange={this.onSemicolonsChange} />
+        </Col>
+      </Row>
     );
   }
 }
