@@ -1,29 +1,20 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import CustomInput from 'reactstrap/lib/CustomInput';
-import FormGroup from 'reactstrap/lib/FormGroup';
+import React from 'react';
+import RadioSetting from './radio-setting';
 
-class Semicolons extends Component {
-  static propTypes = {
-    value: PropTypes.bool.isRequired,
-    onChange: PropTypes.func.isRequired
-  };
+const options = {
+  true: 'Yes',
+  false: 'No'
+};
 
-  onChange = (event) => this.props.onChange(event.target.checked);
+const stringToBoolean = (value) => value === 'true';
 
-  render() {
-    return (
-      <FormGroup>
-        <CustomInput
-          type="checkbox"
-          checked={this.props.value}
-          id="semicolons-input"
-          label="Semicolons"
-          inline
-          onChange={this.onChange} />
-      </FormGroup>
-    );
-  }
-}
+const Semicolons = (props) => (
+  <RadioSetting
+    id="semicolons-select"
+    label="Semicolons"
+    mapValue={stringToBoolean}
+    options={options}
+    {...props} />
+);
 
 export default Semicolons;
