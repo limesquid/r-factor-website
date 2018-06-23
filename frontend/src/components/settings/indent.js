@@ -1,5 +1,5 @@
 import React from 'react';
-import Setting from './setting';
+import RadioSetting from './radio-setting';
 
 const options = {
   1: '1 space',
@@ -9,7 +9,7 @@ const options = {
 };
 
 const Indent = (props) => (
-  <Setting
+  <RadioSetting
     id="indent-select"
     label="Indent"
     mapValue={Number}

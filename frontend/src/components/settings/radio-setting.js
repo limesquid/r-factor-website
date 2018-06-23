@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FormGroup from 'reactstrap/lib/FormGroup';
-import Input from 'reactstrap/lib/Input';
+import CustomInput from 'reactstrap/lib/CustomInput';
 import Label from 'reactstrap/lib/Label';
 
-class Setting extends Component {
+class RadioSetting extends Component {
   static propTypes = {
     id: PropTypes.any,
     label: PropTypes.any,
@@ -18,7 +18,7 @@ class Setting extends Component {
     mapValue: (value) => value
   };
 
-  onChange = (event) => this.props.onChange(event.target.value);
+  createOnChange = (value) => () => this.props.onChange(value);
 
   render() {
     const { id, label, mapValue, options, value } = this.props;
@@ -29,21 +29,22 @@ class Setting extends Component {
           {label}
         </Label>
 
-        <Input
-          type="select"
-          id={id}
-          name={id}
-          value={mapValue(value)}
-          onChange={this.onChange}>
-          {Object.keys(options).map((option) => (
-            <option key={option} value={mapValue(option)}>
-              {options[option]}
-            </option>
+        <div className="text-muted">
+          {Object.keys(options).map(mapValue).map((option) => (
+            <CustomInput
+              key={option}
+              type="radio"
+              checked={value === option}
+              id={`${id}-${option}`}
+              label={options[option]}
+              name={id}
+              value={option}
+              onChange={this.createOnChange(option)} />
           ))}
-        </Input>
+        </div>
       </FormGroup>
     );
   }
 }
 
-export default Setting;
+export default RadioSetting;

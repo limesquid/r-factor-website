@@ -1,5 +1,5 @@
 import React from 'react';
-import Setting from './setting';
+import RadioSetting from './radio-setting';
 
 const options = {
   single: 'Single (\')',
@@ -8,7 +8,7 @@ const options = {
 };
 
 const Quotes = (props) => (
-  <Setting
+  <RadioSetting
     id="quotes-select"
     label="Quotes"
     options={options}

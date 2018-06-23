@@ -1,5 +1,5 @@
 import React from 'react';
-import Setting from './setting';
+import RadioSetting from './radio-setting';
 
 const options = {
   '\n': 'Unix (LF)',
@@ -7,7 +7,7 @@ const options = {
 };
 
 const EndOfLine = (props) => (
-  <Setting
+  <RadioSetting
     id="end-of-line-select"
     label="End of line"
     options={options}
