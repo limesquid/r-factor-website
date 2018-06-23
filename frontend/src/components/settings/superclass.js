@@ -1,5 +1,5 @@
 import React from 'react';
-import Setting from './setting';
+import RadioSetting from './radio-setting';
 
 const options = {
   Component: 'Component',
@@ -7,7 +7,7 @@ const options = {
 };
 
 const Superclass = (props) => (
-  <Setting
+  <RadioSetting
     id="component-superclass-select"
     label="Component superclass"
     options={options}
