@@ -11,6 +11,14 @@ import defaultCode from './default-code';
 import { reactFeatures } from 'data';
 import { postRefactor } from './api';
 
+const defaultSettings = {
+  'component-superclass': 'Component',
+  'end-of-line': '\n',
+  indent: 2,
+  quotes: 'single',
+  semicolons: true
+};
+
 class TryPage extends Component {
   constructor(props) {
     super(props);
@@ -19,13 +27,7 @@ class TryPage extends Component {
       isRefactoring: false,
       refactoring: reactFeatures[0].id,
       refactoredCode: '/* Click "Refactor" to see something */',
-      settings: {
-        'component-superclass': 'Component',
-        'end-of-line': '\n',
-        indent: 2,
-        quotes: 'single',
-        semicolons: true
-      }
+      settings: defaultSettings
     };
   }
 
@@ -50,6 +52,10 @@ class TryPage extends Component {
     }
   };
 
+  onResetCode = () => this.setState({ code: defaultCode });
+
+  onResetSettings = () => this.setState({ settings: defaultSettings });
+
   onSettingsChange = (settings) => this.setState({ settings });
 
   render() {
@@ -58,7 +64,7 @@ class TryPage extends Component {
 
     return (
       <Container>
-        <Row>
+        <Row className="border border-dark pt-3 px-1 mb-4">
           <Col md={6}>
             <h3>Refactoring</h3>
             <RefactoringsSelect
@@ -69,16 +75,21 @@ class TryPage extends Component {
           </Col>
         </Row>
 
-        <Row>
-          <Col md={6}>
-            <h3>Input</h3>
+        <Row className="border border-dark pt-3 px-1 mb-4">
+          <Col lg={6}>
+            <h3 className="d-flex justify-content-between">
+              <span>Input</span>
+              <Button color="link" onClick={this.onResetCode}>
+                Reset
+              </Button>
+            </h3>
             <Code
               options={{ lineSeparator }}
               value={code}
               onChange={this.onCodeChange} />
           </Col>
 
-          <Col md={6}>
+          <Col lg={6}>
             <h3 className="d-flex justify-content-between">
               <span>Output</span>
               <Button color="link" onClick={this.onCopyToInput}>
@@ -93,10 +104,15 @@ class TryPage extends Component {
           </Col>
         </Row>
 
-        <Row>
-          <Col md={12}>
+        <Row className="border border-dark pt-3 px-1 mb-4">
+          <Col>
             <Form>
-              <h3>Settings</h3>
+              <h3 className="d-flex justify-content-between">
+                <span>Settings</span>
+                <Button color="link" onClick={this.onResetSettings}>
+                  Reset
+                </Button>
+              </h3>
               <Settings settings={settings} onChange={this.onSettingsChange} />
             </Form>
           </Col>
