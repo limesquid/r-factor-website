@@ -25,7 +25,7 @@ class RadioSetting extends Component {
 
     return (
       <FormGroup>
-        <Label for={id}>
+        <Label className="text-nowrap" for={id}>
           {label}
         </Label>
 
