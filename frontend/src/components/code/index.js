@@ -10,23 +10,30 @@ import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
 import './styles.css';
 
-const options = {
+const defaultOptions = {
   indentUnit: 2,
   lineNumbers: true,
+  lineSeparator: '\n',
   mode: 'jsx',
   scrollbarStyle: 'overlay',
   theme: 'monokai'
 };
 
+export const sanitize = (code, lineSeparator = defaultOptions.lineSeparator) => code
+  .replace(/\r\n/g, '\n')
+  .replace(/\n/g, lineSeparator);
+
 class Code extends Component {
   static propTypes = {
     disabled: PropTypes.bool,
     isLoading: PropTypes.bool,
+    options: PropTypes.object,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func
   };
 
   static defaultProps = {
+    options: {},
     onChange: () => null
   };
 
@@ -34,7 +41,7 @@ class Code extends Component {
     super(props);
     this.state = {
       prevValue: props.value,
-      value: props.value || ''
+      value: sanitize(props.value || '', props.options.lineSeparator)
     };
   }
 
@@ -46,30 +53,32 @@ class Code extends Component {
     return {
       ...prevState,
       prevValue: nextProps.value,
-      value: nextProps.value
+      value: sanitize(nextProps.value, nextProps.options.lineSeparator)
     };
   }
 
   onBeforeChange = (editor, data, value) => {
-    if (!this.props.disabled) {
-      this.setState({ value });
+    const { disabled, options } = this.props;
+    if (!disabled) {
+      this.setState({ value: sanitize(value, options.lineSeparator) });
     }
   };
 
   onChange = (editor, data, value) => {
-    if (!this.props.disabled) {
-      this.props.onChange(value);
+    const { disabled, options, onChange } = this.props;
+    if (!disabled) {
+      onChange(sanitize(value, options.lineSeparator));
     }
   };
 
   render() {
-    const { isLoading } = this.props;
+    const { isLoading, options } = this.props;
 
     return (
       <div className="position-relative">
         <CodeMirror
           className={classNames('border border-light mb-4', { blurred: isLoading })}
-          options={options}
+          options={{ ...defaultOptions, ...options }}
           value={this.state.value}
           onBeforeChange={this.onBeforeChange}
           onChange={this.onChange} />

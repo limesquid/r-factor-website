@@ -5,8 +5,8 @@ import Input from 'reactstrap/lib/Input';
 import Label from 'reactstrap/lib/Label';
 
 const optionsLabels = {
-  '\n': 'Unix (\\n)',
-  '\r\n': 'Windows (\\r\\n)'
+  '\n': 'Unix (LF)',
+  '\r\n': 'Windows (CRLF)'
 };
 const options = Object.keys(optionsLabels);
 
