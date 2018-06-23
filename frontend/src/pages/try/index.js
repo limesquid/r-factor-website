@@ -10,6 +10,7 @@ import Settings from 'components/settings';
 import defaultCode from './default-code';
 import { reactFeatures } from 'data';
 import { postRefactor } from './api';
+import './styles.css';
 
 const defaultSettings = {
   'component-superclass': 'Component',
@@ -118,14 +119,17 @@ class TryPage extends Component {
             </Form>
           </Col>
 
-          <Col lg={6}>
+          <Col lg={6} className="codemirror-height-auto">
             <h3 className="d-flex justify-content-between">
               <span>Generated settings file</span>
               <Button color="link" data-clipboard-text={generatedSettings}>
                 Copy to clipboard
               </Button>
             </h3>
-            <Code disabled value={generatedSettings} />
+            <Code
+              disabled
+              options={{ viewportMargin: Infinity }}
+              value={generatedSettings} />
           </Col>
         </Row>
       </Container>
