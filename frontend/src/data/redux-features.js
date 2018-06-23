@@ -40,21 +40,21 @@ export default [
     )
   },
   {
-    id: 'disconnect-map-state',
-    name: 'Disconnect component (mapStateToProps)',
-    description: (
-      <div>
-        Disconnects <code>mapStateToProps</code> from a component connected to a redux store.
-        Disconnects completely if possible.
-      </div>
-    )
-  },
-  {
     id: 'disconnect-map-dispatch',
     name: 'Disconnect component (mapDispatchToProps)',
     description: (
       <div>
         Disconnects <code>mapDispatchToProps</code> from a component connected to a redux store.
+        Disconnects completely if possible.
+      </div>
+    )
+  },
+  {
+    id: 'disconnect-map-state',
+    name: 'Disconnect component (mapStateToProps)',
+    description: (
+      <div>
+        Disconnects <code>mapStateToProps</code> from a component connected to a redux store.
         Disconnects completely if possible.
       </div>
     )

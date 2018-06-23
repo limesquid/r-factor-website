@@ -4,7 +4,7 @@ import Col from 'reactstrap/lib/Col';
 import Container from 'reactstrap/lib/Container';
 import Form from 'reactstrap/lib/Form';
 import Row from 'reactstrap/lib/Row';
-import Code from 'components/code';
+import Code, { sanitize } from 'components/code';
 import RefactoringsSelect from 'components/refactorings-select';
 import Settings from 'components/settings';
 import defaultCode from './default-code';
@@ -36,7 +36,9 @@ class TryPage extends Component {
   onRefactor = async() => {
     this.setState({ isRefactoring: true });
     try {
-      const response = await postRefactor(this.state);
+      const { code: oldCode, refactoring, settings } = this.state;
+      const code = sanitize(oldCode, settings['end-of-line']);
+      const response = await postRefactor({ code, refactoring, settings });
       const refactoredCode = await response.text();
       this.setState({ isRefactoring: false, refactoredCode });
     } catch (error) {
@@ -48,18 +50,26 @@ class TryPage extends Component {
 
   render() {
     const { code, isRefactoring, refactoring, refactoredCode, settings } = this.state;
+    const lineSeparator = settings['end-of-line'];
 
     return (
       <Container>
         <Row>
           <Col md={6}>
             <h3>Input</h3>
-            <Code value={code} onChange={this.onCodeChange} />
+            <Code
+              options={{ lineSeparator }}
+              value={code}
+              onChange={this.onCodeChange} />
           </Col>
 
           <Col md={6}>
             <h3>Output</h3>
-            <Code disabled isLoading={isRefactoring} value={refactoredCode} />
+            <Code
+              disabled
+              isLoading={isRefactoring}
+              options={{ lineSeparator }}
+              value={refactoredCode} />
           </Col>
         </Row>
 
