@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
 import EndOfLine from './end-of-line';
+import FunctionalComponent from './functional-component';
 import Indent from './indent';
 import Quotes from './quotes';
 import Semicolons from './semicolons';
@@ -17,6 +18,11 @@ class Settings extends Component {
   onEndOfLineChange = (endOfLine) => this.props.onChange({
     ...this.props.settings,
     'end-of-line': endOfLine
+  });
+
+  onFunctionalComponentChange = (functionalComponent) => this.props.onChange({
+    ...this.props.settings,
+    'functional-component': functionalComponent
   });
 
   onIndentChange = (indent) => this.props.onChange({
@@ -54,10 +60,13 @@ class Settings extends Component {
           <EndOfLine value={settings['end-of-line']} onChange={this.onEndOfLineChange} />
         </Col>
         <Col>
+          <Semicolons value={settings.semicolons} onChange={this.onSemicolonsChange} />
+        </Col>
+        <Col>
           <Superclass value={settings['component-superclass']} onChange={this.onSuperclassChange} />
         </Col>
         <Col>
-          <Semicolons value={settings.semicolons} onChange={this.onSemicolonsChange} />
+          <FunctionalComponent value={settings['functional-component']} onChange={this.onFunctionalComponentChange} />
         </Col>
       </Row>
     );

@@ -15,6 +15,7 @@ import './styles.css';
 const defaultSettings = {
   'component-superclass': 'Component',
   'end-of-line': '\n',
+  'functional-component': 'arrow',
   indent: 2,
   quotes: 'single',
   semicolons: true
