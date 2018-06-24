@@ -6,6 +6,7 @@ import Row from 'reactstrap/lib/Row';
 import BuyButton from 'components/buy-button';
 import Features from 'components/features';
 import OsIcons from 'components/os-icons';
+import SoftwareIcons from 'components/software-icons';
 import TryButton from 'components/try-button';
 import {
   configurationFeatures,
@@ -46,27 +47,39 @@ const HomePage = () => (
         </Col>
       </Row>
 
-      <Row className="my-2">
+      <Row className="my-4">
         <Col lg={6}>
-          <h2>React refactorings</h2>
+          <h2 className="text-nowrap">React refactorings</h2>
           <Features features={reactFeatures} />
         </Col>
 
         <Col lg={6}>
-          <h2>Redux refactorings</h2>
+          <h2 className="text-nowrap">Redux refactorings</h2>
           <Features features={reduxFeatures} />
         </Col>
       </Row>
 
-      <Row className="my-2">
+      <Row className="my-4">
         <Col lg={6}>
-          <h2>Configuration</h2>
+          <h2 className="text-nowrap">Configuration</h2>
           <Features features={configurationFeatures} />
         </Col>
 
         <Col lg={6}>
-          <h2>System requirements</h2>
-          <OsIcons className="py-2" />
+          <Container>
+            <Row className="mb-4">
+              <Col className="mb-4" md={6} lg={12}>
+                <h2 className="text-nowrap">Supported systems</h2>
+                <OsIcons className="py-2" />
+              </Col>
+              <Col className="mb-4" md={6} lg={12}>
+                <h2 className="text-nowrap">Requirements</h2>
+                <div className="d-flex">
+                  <SoftwareIcons className="py-2" />
+                </div>
+              </Col>
+            </Row>
+          </Container>
         </Col>
       </Row>
 
