@@ -30,12 +30,21 @@ export default [
     )
   },
   {
+    id: 'connect-with-merge-props',
+    name: 'Connect component (mergeProps)',
+    description: (
+      <div>
+        Connects a component to redux store and generates <code>mergeProps</code> only.
+      </div>
+    )
+  },
+  {
     id: 'disconnect',
     name: 'Disconnect component',
     description: (
       <div>
         Disconnects a component from redux store and removes
-        both <code>mapStateToProps</code> & <code>mapDispatchToProps</code>.
+        all <code>mapStateToProps</code>, <code>mapDispatchToProps</code> & <code>mergeProps</code>.
       </div>
     )
   },
@@ -55,6 +64,16 @@ export default [
     description: (
       <div>
         Disconnects <code>mapStateToProps</code> from a component connected to a redux store.
+        Disconnects completely if possible.
+      </div>
+    )
+  },
+  {
+    id: 'disconnect-merge-props',
+    name: 'Disconnect component (mergeProps)',
+    description: (
+      <div>
+        Disconnects <code>mergeProps</code> from a component connected to a redux store.
         Disconnects completely if possible.
       </div>
     )
