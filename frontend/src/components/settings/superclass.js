@@ -1,10 +1,10 @@
 import React from 'react';
 import RadioSetting from './radio-setting';
 
-const options = {
-  Component: 'Component',
-  PureComponent: 'PureComponent'
-};
+const options = [
+  { label: 'Component', value: 'Component' },
+  { label: 'PureComponent', value: 'PureComponent' }
+];
 
 const Superclass = (props) => (
   <RadioSetting

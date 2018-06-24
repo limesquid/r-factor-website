@@ -4,7 +4,10 @@ const MAX_CODE_LENGTH = 4000;
 const TIMEOUT = 30 * 1000;
 const TIMEOUT_MESSAGE = `Refactoring timed out (${TIMEOUT / 1000}s).`;
 const UNKNOWN_REFACTORING_MESSAGE = 'Unknown refactoring method.';
-const TOO_LONG_INPUT_MESSAGE = `You cannot refactor more than ${MAX_CODE_LENGTH} characters here. Buy the plugin.`;
+const TOO_LONG_INPUT_MESSAGE = [
+  `You cannot refactor more than ${MAX_CODE_LENGTH} characters here.`,
+  'The plugin does not have this limit though.'
+].join('\n');
 const REFACTORINGS = [
   'add-classname',
   'convert-to-class-component',

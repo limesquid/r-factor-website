@@ -1,10 +1,10 @@
 import React from 'react';
 import RadioSetting from './radio-setting';
 
-const options = {
-  '\n': 'LF',
-  '\r\n': 'CRLF'
-};
+const options = [
+  { label: 'LF', value: '\n' },
+  { label: 'CRLF', value: '\r\n' }
+];
 
 const EndOfLine = (props) => (
   <RadioSetting

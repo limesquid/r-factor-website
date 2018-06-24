@@ -8,20 +8,15 @@ class RadioSetting extends Component {
   static propTypes = {
     id: PropTypes.any,
     label: PropTypes.any,
-    mapValue: PropTypes.func,
-    options: PropTypes.object.isRequired,
+    options: PropTypes.array.isRequired,
     value: PropTypes.any.isRequired,
     onChange: PropTypes.func.isRequired
-  };
-
-  static defaultProps = {
-    mapValue: (value) => value
   };
 
   createOnChange = (value) => () => this.props.onChange(value);
 
   render() {
-    const { id, label, mapValue, options, value } = this.props;
+    const { id, label, options, value } = this.props;
 
     return (
       <FormGroup>
@@ -30,16 +25,16 @@ class RadioSetting extends Component {
         </Label>
 
         <div className="text-muted">
-          {Object.keys(options).map(mapValue).map((option) => (
+          {options.map((option) => (
             <CustomInput
-              key={option}
+              key={option.value}
               type="radio"
-              checked={value === option}
-              id={`${id}-${option}`}
-              label={options[option]}
+              checked={value === option.value}
+              id={`${id}-${option.value}`}
+              label={option.label}
               name={id}
-              value={option}
-              onChange={this.createOnChange(option)} />
+              value={option.value}
+              onChange={this.createOnChange(option.value)} />
           ))}
         </div>
       </FormGroup>
