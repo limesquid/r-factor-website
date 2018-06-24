@@ -1,18 +1,16 @@
 import React from 'react';
 import RadioSetting from './radio-setting';
 
-const options = {
-  1: '1 space',
-  2: '2 spaces',
-  4: '4 spaces',
-  8: '8 spaces'
-};
+const options = [
+  { label: '2 spaces', value: 2 },
+  { label: '4 spaces', value: 4 },
+  { label: 'Tab', value: 'tab' }
+];
 
 const Indent = (props) => (
   <RadioSetting
     id="indent-select"
     label="Indent"
-    mapValue={Number}
     options={options}
     {...props} />
 );

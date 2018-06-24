@@ -1,8 +1,6 @@
 export default (...params) => fetch(...params).then((response) => {
-  if (response.status < 200 || response.status >= 300) {
-    const error = new Error(response.statusText || response.status);
-    error.response = response;
-    return Promise.reject(error);
+  if (!response.ok) {
+    return response.text().then((error) => Promise.reject(error));
   }
 
   return Promise.resolve(response);

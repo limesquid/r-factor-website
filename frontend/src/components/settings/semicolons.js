@@ -1,18 +1,15 @@
 import React from 'react';
 import RadioSetting from './radio-setting';
 
-const options = {
-  true: 'Yes',
-  false: 'No'
-};
-
-const stringToBoolean = (value) => value === 'true';
+const options = [
+  { label: 'Yes', value: true },
+  { label: 'No', value: false }
+];
 
 const Semicolons = (props) => (
   <RadioSetting
     id="semicolons-select"
     label="Semicolons"
-    mapValue={stringToBoolean}
     options={options}
     {...props} />
 );

@@ -27,7 +27,7 @@ class TryPage extends Component {
       code: defaultCode,
       isRefactoring: false,
       refactoring: reactFeatures[0].id,
-      refactoredCode: '/* Click "Refactor" to see something */',
+      refactoredCode: '// Click "Refactor" to see something',
       settings: defaultSettings
     };
   }
@@ -49,7 +49,8 @@ class TryPage extends Component {
       const refactoredCode = await response.text();
       this.setState({ isRefactoring: false, refactoredCode });
     } catch (error) {
-      this.setState({ isRefactoring: false, refactoredCode: `/* ${error} */` });
+      const formattedError = error.split('\n').filter(Boolean).map((line) => `// ${line}`).join('\n');
+      this.setState({ isRefactoring: false, refactoredCode: formattedError });
     }
   };
 
@@ -62,7 +63,9 @@ class TryPage extends Component {
   render() {
     const { code, isRefactoring, refactoring, refactoredCode, settings } = this.state;
     const lineSeparator = settings['end-of-line'];
-    const generatedSettings = JSON.stringify(settings, null, settings.indent);
+    const indent = settings.indent === 'tab' ? '\t' : settings.indent;
+    const tabSize = settings.indent === 'tab' ? 4 : settings.indent;
+    const generatedSettings = JSON.stringify(settings, null, indent);
 
     return (
       <Container>
@@ -86,7 +89,7 @@ class TryPage extends Component {
               </Button>
             </h3>
             <Code
-              options={{ lineSeparator }}
+              options={{ lineSeparator, tabSize }}
               value={code}
               onChange={this.onCodeChange} />
           </Col>
@@ -101,7 +104,7 @@ class TryPage extends Component {
             <Code
               disabled
               isLoading={isRefactoring}
-              options={{ lineSeparator }}
+              options={{ lineSeparator, tabSize }}
               value={refactoredCode} />
           </Col>
         </Row>
@@ -128,7 +131,7 @@ class TryPage extends Component {
             </h3>
             <Code
               disabled
-              options={{ viewportMargin: Infinity }}
+              options={{ lineSeparator, tabSize, viewportMargin: Infinity }}
               value={generatedSettings} />
           </Col>
         </Row>
