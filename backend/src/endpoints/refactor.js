@@ -11,7 +11,8 @@ const TOO_LONG_INPUT_MESSAGE = [
 const REFACTORINGS = [
   'add-classname',
   'convert-to-class-component',
-  'convert-to-functional-component',
+  'convert-to-functional-component-arrow',
+  'convert-to-functional-component-function',
   'generate-prop-types',
   'move-default-props-out-of-class',
   'move-default-props-to-class',
@@ -19,6 +20,7 @@ const REFACTORINGS = [
   'move-prop-types-to-class',
   'sort-attributes',
   'sort-imports',
+  'toggle-component-type',
   'connect',
   'connect-with-map-dispatch',
   'connect-with-map-state',
