@@ -1,7 +1,7 @@
 import configurationFeatures from './configuration';
 import otherFeatures from './other-features';
 import reactFeatures from './react-features';
-import reduxFeatures from './redux-features';
+import reduxFeatures from './redux';
 import transparentLogoUrl from 'assets/logo-transparent.png';
 
 export const videoUrl = 'https://www.youtube.com/embed/dQw4w9WgXcQ';
