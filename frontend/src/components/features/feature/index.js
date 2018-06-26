@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Media from 'reactstrap/lib/Media';
 import Icon from 'components/icon';
 
-const Feature = ({ name, description }) => (
+const Feature = ({ name, summary }) => (
   <Media className="my-2 py-2 border-light">
     <Media className="px-2" left>
       <Icon bsStyle="success" name="check" style={{ fontSize: '1.4rem' }} />
@@ -14,14 +14,14 @@ const Feature = ({ name, description }) => (
         {name}
       </Media>
       <div className="text-muted">
-        {description}
+        {summary}
       </div>
     </Media>
   </Media>
 );
 
 Feature.propTypes = {
-  description: PropTypes.node.isRequired,
+  summary: PropTypes.node.isRequired,
   name: PropTypes.string.isRequired
 };
 
