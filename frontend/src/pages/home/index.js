@@ -23,7 +23,7 @@ const systemsIcons = [
 
 const requirementsIcons = [
   { id: 'node', label: 'Node.js', subLabel: '>= 6.x.x' },
-  { id: 'python', label: 'Python', subLabel: '>= 2.7.x' }
+  { id: 'python', label: 'Python', subLabel: '2.7.x' }
 ];
 
 const editorsIcons = [
@@ -64,33 +64,33 @@ const HomePage = () => (
 
       <Row className="my-4">
         <Col lg={6}>
-          <h2 className="text-nowrap">React refactorings</h2>
+          <h3 className="text-nowrap">React refactorings</h3>
           <Features features={reactFeatures} />
         </Col>
 
         <Col lg={6}>
-          <h2 className="text-nowrap">Redux refactorings</h2>
+          <h3 className="text-nowrap">Redux refactorings</h3>
           <Features features={reduxFeatures} />
         </Col>
       </Row>
 
       <Row className="my-4">
         <Col className="mb-4" lg={6}>
-          <h2 className="text-nowrap">Other refactorings</h2>
+          <h3 className="text-nowrap">Other refactorings</h3>
           <Features features={otherFeatures} />
 
-          <h2 className="text-nowrap mt-4">Supported systems</h2>
+          <h3 className="text-nowrap mt-4">Supported systems</h3>
           <Icons icons={systemsIcons} />
 
-          <h2 className="text-nowrap mt-4">Supported editors</h2>
+          <h3 className="text-nowrap mt-4">Supported editors</h3>
           <Icons icons={editorsIcons} />
 
-          <h2 className="text-nowrap mt-4">Requirements</h2>
+          <h3 className="text-nowrap mt-4">Requirements</h3>
           <Icons icons={requirementsIcons} />
         </Col>
 
         <Col lg={6}>
-          <h2 className="text-nowrap">Configuration</h2>
+          <h3 className="text-nowrap">Configuration</h3>
           <Features features={configurationFeatures} />
         </Col>
       </Row>
