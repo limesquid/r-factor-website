@@ -4,9 +4,11 @@ import Button from 'reactstrap/lib/Button';
 import Form from 'reactstrap/lib/Form';
 import FormGroup from 'reactstrap/lib/FormGroup';
 import Input from 'reactstrap/lib/Input';
-import { reactFeatures, reduxFeatures } from 'data';
+import { otherFeatures, reactFeatures, reduxFeatures } from 'data';
 
-const allFeatures = [ ...reactFeatures, ...reduxFeatures ];
+const allFeatures = [ ...reactFeatures, ...reduxFeatures, ...otherFeatures ].sort(
+  (a, b) => a.name.localeCompare(b.name)
+);
 
 class RefactoringsSelect extends Component {
   static propTypes = {

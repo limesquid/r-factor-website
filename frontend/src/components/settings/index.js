@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
 import EndOfLine from './end-of-line';
-import FunctionalComponent from './functional-component';
+import FunctionalComponentType from './functional-component-type';
 import Indent from './indent';
 import Quotes from './quotes';
 import Semicolons from './semicolons';
@@ -20,9 +20,9 @@ class Settings extends Component {
     'end-of-line': endOfLine
   });
 
-  onFunctionalComponentChange = (functionalComponent) => this.props.onChange({
+  onFunctionalComponentTypeChange = (functionalComponent) => this.props.onChange({
     ...this.props.settings,
-    'functional-component': functionalComponent
+    'functional-component-type': functionalComponent
   });
 
   onIndentChange = (indent) => this.props.onChange({
@@ -51,22 +51,34 @@ class Settings extends Component {
     return (
       <Row>
         <Col>
-          <Indent value={settings.indent} onChange={this.onIndentChange} />
+          <Indent
+            value={settings.indent}
+            onChange={this.onIndentChange} />
         </Col>
         <Col>
-          <Quotes value={settings.quotes} onChange={this.onQuotesChange} />
+          <Quotes
+            value={settings.quotes}
+            onChange={this.onQuotesChange} />
         </Col>
         <Col>
-          <EndOfLine value={settings['end-of-line']} onChange={this.onEndOfLineChange} />
+          <EndOfLine
+            value={settings['end-of-line']}
+            onChange={this.onEndOfLineChange} />
         </Col>
         <Col>
-          <Semicolons value={settings.semicolons} onChange={this.onSemicolonsChange} />
+          <Semicolons
+            value={settings.semicolons}
+            onChange={this.onSemicolonsChange} />
         </Col>
         <Col>
-          <Superclass value={settings['component-superclass']} onChange={this.onSuperclassChange} />
+          <Superclass
+            value={settings['component-superclass']}
+            onChange={this.onSuperclassChange} />
         </Col>
         <Col>
-          <FunctionalComponent value={settings['functional-component']} onChange={this.onFunctionalComponentChange} />
+          <FunctionalComponentType
+            value={settings['functional-component-type']}
+            onChange={this.onFunctionalComponentTypeChange} />
         </Col>
       </Row>
     );

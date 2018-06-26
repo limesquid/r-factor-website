@@ -2,17 +2,8 @@ import React from 'react';
 
 export default [
   {
-    id: 'component-superclass',
-    name: 'Component superclass',
-    description: (
-      <div>
-        Which superclass to use when converting a functional component to a class component.
-      </div>
-    )
-  },
-  {
     id: 'end-of-line',
-    name: 'EOL',
+    name: 'End of line',
     description: (
       <div>
         End-of-line character(s).
@@ -52,6 +43,24 @@ export default [
     description: (
       <div>
         Some people like ASI and some don't.
+      </div>
+    )
+  },
+  {
+    id: 'component-superclass',
+    name: 'Component superclass',
+    description: (
+      <div>
+        Which superclass to use when converting a functional component to a class component.
+      </div>
+    )
+  },
+  {
+    id: 'functional-component-type',
+    name: 'Functional component type',
+    description: (
+      <div>
+        Which functional component notation to use when toggling component type.
       </div>
     )
   }
