@@ -6,12 +6,12 @@ const options = [
   { label: 'Function', value: 'function' }
 ];
 
-const FunctionalComponent = (props) => (
+const FunctionalComponentType = (props) => (
   <RadioSetting
-    id="functional-component-select"
-    label="Functional component"
+    id="functional-component-type-select"
+    label="Functional component type"
     options={options}
     {...props} />
 );
 
-export default FunctionalComponent;
+export default FunctionalComponentType;

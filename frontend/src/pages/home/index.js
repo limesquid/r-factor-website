@@ -1,34 +1,49 @@
 import React from 'react';
 import Col from 'reactstrap/lib/Col';
 import Container from 'reactstrap/lib/Container';
-import Jumbotron from 'reactstrap/lib/Jumbotron';
 import Row from 'reactstrap/lib/Row';
 import BuyButton from 'components/buy-button';
 import Features from 'components/features';
-import OsIcons from 'components/os-icons';
-import SoftwareIcons from 'components/software-icons';
+import Icons from 'components/icons';
 import TryButton from 'components/try-button';
 import {
   configurationFeatures,
+  otherFeatures,
   reactFeatures,
   reduxFeatures,
   transparentLogoUrl,
   videoUrl
 } from 'data';
 
+const systemsIcons = [
+  { id: 'windows', label: 'Windows' },
+  { id: 'linux', label: 'Linux' },
+  { id: 'macos', label: 'macOS' }
+];
+
+const requirementsIcons = [
+  { id: 'node', label: 'Node.js', subLabel: '>= 6.x.x' },
+  { id: 'python', label: 'Python', subLabel: '>= 2.7.x' }
+];
+
+const editorsIcons = [
+  { id: 'sublime', label: 'Sublime Text 3' }
+];
+
 const HomePage = () => (
   <div>
-    <Jumbotron className="d-flex align-items-center p-4">
+    <div className="d-flex align-items-center mb-5">
       <img
         alt="R-Factor"
+        className="mr-3"
         src={transparentLogoUrl}
         width="100" />
 
-      <div className="pl-3">
+      <div>
         <h1>R-Factor</h1>
-        <h4>React & Redux Refactoring Tools for Sublime Text 3</h4>
+        <h4 className="mb-0">React & Redux Refactoring Tools for Sublime Text 3</h4>
       </div>
-    </Jumbotron>
+    </div>
 
     <div className="embed-responsive embed-responsive-16by9">
       <iframe
@@ -60,26 +75,23 @@ const HomePage = () => (
       </Row>
 
       <Row className="my-4">
-        <Col lg={6}>
-          <h2 className="text-nowrap">Configuration</h2>
-          <Features features={configurationFeatures} />
+        <Col className="mb-4" lg={6}>
+          <h2 className="text-nowrap">Other refactorings</h2>
+          <Features features={otherFeatures} />
+
+          <h2 className="text-nowrap mt-4">Supported systems</h2>
+          <Icons icons={systemsIcons} />
+
+          <h2 className="text-nowrap mt-4">Supported editors</h2>
+          <Icons icons={editorsIcons} />
+
+          <h2 className="text-nowrap mt-4">Requirements</h2>
+          <Icons icons={requirementsIcons} />
         </Col>
 
         <Col lg={6}>
-          <Container>
-            <Row className="mb-4">
-              <Col className="mb-4" md={6} lg={12}>
-                <h2 className="text-nowrap">Supported systems</h2>
-                <OsIcons className="py-2" />
-              </Col>
-              <Col className="mb-4" md={6} lg={12}>
-                <h2 className="text-nowrap">Requirements</h2>
-                <div className="d-flex">
-                  <SoftwareIcons className="py-2" />
-                </div>
-              </Col>
-            </Row>
-          </Container>
+          <h2 className="text-nowrap">Configuration</h2>
+          <Features features={configurationFeatures} />
         </Col>
       </Row>
 
@@ -90,7 +102,6 @@ const HomePage = () => (
         </Col>
       </Row>
     </Container>
-
   </div>
 );
 

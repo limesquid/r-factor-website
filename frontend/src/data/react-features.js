@@ -12,29 +12,29 @@ export default [
     )
   },
   {
+    id: 'convert-to-arrow-component',
+    name: 'Convert to arrow component',
+    description: (
+      <div>
+        Turns a component into a functional component defined as an arrow function.
+      </div>
+    )
+  },
+  {
+    id: 'convert-to-function-component',
+    name: 'Convert to function component',
+    description: (
+      <div>
+        Turns a component into a functional component defined as a function.
+      </div>
+    )
+  },
+  {
     id: 'convert-to-class-component',
     name: 'Convert to class component',
     description: (
       <div>
-        Turns a functional component into a class component.
-      </div>
-    )
-  },
-  {
-    id: 'convert-to-functional-component-arrow',
-    name: 'Convert to functional component (arrow)',
-    description: (
-      <div>
-        Turns a class component into a functional component defined as an arrow function.
-      </div>
-    )
-  },
-  {
-    id: 'convert-to-functional-component-function',
-    name: 'Convert to functional component (function)',
-    description: (
-      <div>
-        Turns a class component into a functional component defined as a function.
+        Turns a component into a class component.
       </div>
     )
   },
@@ -80,26 +80,6 @@ export default [
     description: (
       <div>
         Turns a plain <code>propTypes</code> assignment into a static property in a class component.
-      </div>
-    )
-  },
-  {
-    id: 'sort-attributes',
-    name: 'Sort attributes in objects',
-    description: (
-      <div>
-        Sorts attributes of every object literal in a selection alphabetically.
-        Attributes prefixed with <code>on</code> will appear at the end.
-      </div>
-    )
-  },
-  {
-    id: 'sort-imports',
-    name: 'Sort imports',
-    description: (
-      <div>
-        Sorts import statements according to an order defined in settings.
-        You can choose an alphabetic order or specify a fixed order.
       </div>
     )
   },

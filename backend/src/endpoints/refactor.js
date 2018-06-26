@@ -10,9 +10,9 @@ const TOO_LONG_INPUT_MESSAGE = [
 ].join('\n');
 const REFACTORINGS = [
   'add-classname',
+  'convert-to-arrow-component',
   'convert-to-class-component',
-  'convert-to-functional-component-arrow',
-  'convert-to-functional-component-function',
+  'convert-to-function-component',
   'generate-prop-types',
   'move-default-props-out-of-class',
   'move-default-props-to-class',
@@ -22,11 +22,13 @@ const REFACTORINGS = [
   'sort-imports',
   'toggle-component-type',
   'connect',
-  'connect-with-map-dispatch',
-  'connect-with-map-state',
+  'connect-map-dispatch',
+  'connect-map-state',
+  'connect-merge-props',
   'disconnect',
   'disconnect-map-state',
-  'disconnect-map-dispatch'
+  'disconnect-map-dispatch',
+  'disconnect-merge-props'
 ];
 
 export default (request, response) => {
