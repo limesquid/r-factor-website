@@ -1,4 +1,4 @@
-import configurationFeatures from './configuration-features';
+import configurationFeatures from './configuration';
 import otherFeatures from './other-features';
 import reactFeatures from './react-features';
 import reduxFeatures from './redux-features';
