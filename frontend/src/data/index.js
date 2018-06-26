@@ -1,6 +1,6 @@
 import configurationFeatures from './configuration';
-import otherFeatures from './other-features';
-import reactFeatures from './react-features';
+import otherFeatures from './other';
+import reactFeatures from './react';
 import reduxFeatures from './redux';
 import transparentLogoUrl from 'assets/logo-transparent.png';
 
