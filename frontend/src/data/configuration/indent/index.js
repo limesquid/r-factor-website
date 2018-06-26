@@ -3,7 +3,7 @@ import React from 'react';
 export default {
   id: 'indent',
   name: 'Indent',
-  description: (
+  summary: (
     <div>
       Indent characters(s).
     </div>

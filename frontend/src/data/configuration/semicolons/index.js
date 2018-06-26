@@ -3,7 +3,7 @@ import React from 'react';
 export default {
   id: 'semicolons',
   name: 'Semicolons',
-  description: (
+  summary: (
     <div>
       Some people like ASI and some don't.
     </div>
