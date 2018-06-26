@@ -1,11 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import { allFeatures, configurationFeatures } from 'data';
 
 const features = [ ...allFeatures, ...configurationFeatures ];
 
 const Feature = ({ match }) => {
   const feature = features.find(({ id }) => id === match.params.featureId);
+
+  if (!feature) {
+    return (
+      <Redirect to="/documentation" />
+    );
+  }
+
   const { name, summary } = feature;
 
   return (
