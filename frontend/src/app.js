@@ -19,14 +19,14 @@ const App = () => (
 
       <Container>
         <Row>
-          <Col md={12}>
+          <Col>
             <Switch>
               <Route exact path="/" component={HomePage} />
-              <Route exact path="/documentation" component={DocumentationPage} />
-              <Route exact path="/license" component={LicensePage} />
-              <Route exact path="/purchase" component={PurchasePage} />
-              <Route exact path="/support" component={SupportPage} />
-              <Route exact path="/try" component={TryPage} />
+              <Route path="/documentation" component={DocumentationPage} />
+              <Route path="/license" component={LicensePage} />
+              <Route path="/purchase" component={PurchasePage} />
+              <Route path="/support" component={SupportPage} />
+              <Route path="/try" component={TryPage} />
             </Switch>
           </Col>
         </Row>
