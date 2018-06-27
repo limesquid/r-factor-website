@@ -13,7 +13,7 @@ export default {
     </div>
   ),
   actions: (
-    <ul>
+    <ul className="text-muted">
       <li>Adds <code>propTypes</code> definition to the component if not present</li>
       <li>Adds <code>prop-types</code> import statement if not present</li>
       <li>Adds <code>className</code> to <code>propTypes</code> definition if not present</li>

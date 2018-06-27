@@ -44,7 +44,7 @@ const Feature = ({ match }) => {
       <Row className="mb-4">
         <Col>
           <h3>How it works</h3>
-          <div className="text-muted">
+          <div>
             {actions}
           </div>
         </Col>
