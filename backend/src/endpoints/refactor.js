@@ -21,6 +21,7 @@ const REFACTORINGS = [
   'sort-attributes',
   'sort-imports',
   'toggle-component-type',
+  'toggle-withrouter-hoc',
   'connect',
   'connect-map-dispatch',
   'connect-map-state',

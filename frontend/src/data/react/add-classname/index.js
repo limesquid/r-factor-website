@@ -1,6 +1,7 @@
 import React from 'react';
 import example1 from './example1';
 import example2 from './example2';
+import example3 from './example3';
 
 export default {
   id: 'add-classname',
@@ -22,7 +23,7 @@ export default {
         If root JSX element already has <code>className</code> defined its value will
         be preserved by applying <code>classNames</code> function
       </li>
-      <li>Adds <code>classnames</code> import statement if necessary</li>
+      <li>Adds <code>classNames</code> import statement if necessary</li>
     </ul>
   ),
   worksWith: [ 'arrow', 'function', 'class' ],
@@ -33,6 +34,12 @@ export default {
   ],
   examples: [
     example1,
-    example2
+    example2,
+    example3
+  ],
+  configuration: [
+    'end-of-line',
+    'indent',
+    'quotes'
   ]
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 import Col from 'reactstrap/lib/Col';
 import Container from 'reactstrap/lib/Container';
 import Row from 'reactstrap/lib/Row';
@@ -14,6 +15,9 @@ const WORKS_WITH = {
 };
 
 const features = [ ...allFeatures, ...configurationFeatures ];
+const getConfigurationName = (id) => configurationFeatures.find(
+  (feature) => feature.id === id
+).name;
 
 const Feature = ({ match }) => {
   const feature = features.find(({ id }) => id === match.params.featureId);
@@ -24,7 +28,9 @@ const Feature = ({ match }) => {
     );
   }
 
-  const { actions, examples, dependencies, name: featureName, summary, worksWith } = feature;
+  const {
+    actions, configuration, examples, dependencies, name: featureName, summary, worksWith
+  } = feature;
 
   return (
     <Container>
@@ -45,7 +51,7 @@ const Feature = ({ match }) => {
       </Row>
 
       <Row className="mb-4">
-        <Col lg={6}>
+        <Col>
           <h3>Works with</h3>
           <ul className="text-muted">
             {worksWith.map((componentType) => (
@@ -56,12 +62,27 @@ const Feature = ({ match }) => {
           </ul>
         </Col>
 
-        <Col lg={6}>
+        <Col lg={3}>
           <h3>Dependencies</h3>
           <ul className="text-muted">
             {dependencies.map(({ name, type }) => (
               <li key={name}>
                 <code>{name}</code> - {type}
+              </li>
+            ))}
+          </ul>
+        </Col>
+
+        <Col lg={3}>
+          <h3>Configuration</h3>
+          <ul className="text-muted">
+            {configuration.map((id) => (
+              <li key={id}>
+                <LinkContainer to={`/documentation/${id}`}>
+                  <a href={`/documentation/${id}`}>
+                    {getConfigurationName(id)}
+                  </a>
+                </LinkContainer>
               </li>
             ))}
           </ul>
