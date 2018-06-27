@@ -21,8 +21,8 @@ const Feature = ({ name, summary }) => (
 );
 
 Feature.propTypes = {
-  summary: PropTypes.node.isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  summary: PropTypes.node.isRequired
 };
 
 export default Feature;
