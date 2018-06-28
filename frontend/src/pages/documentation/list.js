@@ -27,7 +27,7 @@ const List = () => (
             {' '}
             rule
           </li>
-          <li>Prefer the fanciest, sweetest syntax possible</li>
+          <li>Prefer the fanciest, sweetest syntax possible (think ES6+)</li>
         </ul>
       </Col>
 
@@ -36,8 +36,14 @@ const List = () => (
         <ul className="text-muted mb-4">
           <li>Thou shalt not refactor invalid JavaScript</li>
           <li>Thou shalt not refactor code formatted against provided configuration</li>
+          <li>Thou shalt not declare multiple React components in a single file</li>
+          <li>Thou shalt not refactor any other foolish constructions</li>
           <li>Use the most recent JavaScript features</li>
-          <li><LinkContainer to="/support"><a href="/support">Report your ideas & bugs</a></LinkContainer></li>
+          <li>
+            <LinkContainer to="/support">
+              <a href="/support">Report your ideas & bugs</a>
+            </LinkContainer>
+          </li>
         </ul>
       </Col>
     </Row>
@@ -45,6 +51,13 @@ const List = () => (
     <Row>
       <Col>
         <h3>Installation</h3>
+
+        <h5>Prerequisites</h5>
+        <div className="text-muted mb-4">
+          You must have Node.js <code>6.0.0</code> or later installed.
+        </div>
+
+        <h5>Installation</h5>
         <div className="text-muted mb-4">
           TODO
         </div>
