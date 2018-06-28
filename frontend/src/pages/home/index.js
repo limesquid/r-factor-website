@@ -71,15 +71,20 @@ const HomePage = () => (
         <Col lg={6}>
           <h3 className="text-nowrap">Redux refactorings</h3>
           <Features features={reduxFeatures} />
+
+          <h3 className="text-nowrap mt-4">Other refactorings</h3>
+          <Features features={otherFeatures} />
         </Col>
       </Row>
 
       <Row className="my-4">
-        <Col className="mb-4" lg={6}>
-          <h3 className="text-nowrap">Other refactorings</h3>
-          <Features features={otherFeatures} />
+        <Col lg={6}>
+          <h3 className="text-nowrap">Configuration</h3>
+          <Features features={configurationFeatures} />
+        </Col>
 
-          <h3 className="text-nowrap mt-4">Supported systems</h3>
+        <Col lg={6}>
+          <h3 className="text-nowrap">Supported systems</h3>
           <Icons icons={systemsIcons} />
 
           <h3 className="text-nowrap mt-4">Supported editors</h3>
@@ -87,11 +92,6 @@ const HomePage = () => (
 
           <h3 className="text-nowrap mt-4">Requirements</h3>
           <Icons icons={requirementsIcons} />
-        </Col>
-
-        <Col lg={6}>
-          <h3 className="text-nowrap">Configuration</h3>
-          <Features features={configurationFeatures} />
         </Col>
       </Row>
 
