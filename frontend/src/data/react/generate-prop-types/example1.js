@@ -1,27 +1,36 @@
 const input = `import React from 'react';
 
-const Input = ({ className, type, disabled, value, onChange }) => (
-  <Input
-    className={className}
-    type={type}
-    disabled={disabled}
-    value={value}
-    onChange={onChange} />
-);
+const Input = ({ className, type, value, ...props }) => {
+  const disabled = props.disabled;
+  const { onChange } = props;
+  return (
+    <Input
+      className={className}
+      type={type}
+      disabled={disabled}
+      value={value}
+      onChange={onChange} />
+  );
+};
 
-export default Input;`;
+export default Input;
+`;
 
 const output = `import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({ className, type, disabled, value, onChange }) => (
-  <Input
-    className={className}
-    type={type}
-    disabled={disabled}
-    value={value}
-    onChange={onChange} />
-);
+const Input = ({ className, type, value, ...props }) => {
+  const disabled = props.disabled;
+  const { onChange } = props;
+  return (
+    <Input
+      className={className}
+      type={type}
+      disabled={disabled}
+      value={value}
+      onChange={onChange} />
+  );
+};
 
 Input.propTypes = {
   className: PropTypes.string,
@@ -31,6 +40,7 @@ Input.propTypes = {
   onChange: PropTypes.func
 };
 
-export default Input;`;
+export default Input;
+`;
 
 export default { input, output };
