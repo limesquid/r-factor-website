@@ -14,11 +14,11 @@ export default {
   ),
   actions: (
     <ul className="text-muted">
-      <li>Adds <code>propTypes</code> definition to the component if not present</li>
-      <li>Adds <code>prop-types</code> import statement if not present</li>
-      <li>Adds <code>className</code> to <code>propTypes</code> definition if not present</li>
-      <li>Declares <code>className</code> in render body or functional component arguments if not present</li>
-      <li>Uses <code>className</code> on root JSX element if not present</li>
+      <li>Adds <code>propTypes</code> definition to the component (if not present)</li>
+      <li>Adds <code>prop-types</code> import statement (if not present)</li>
+      <li>Adds <code>className</code> to <code>propTypes</code> definition (if not present)</li>
+      <li>Declares <code>className</code> in render body or functional component arguments (if not present)</li>
+      <li>Uses <code>className</code> on root JSX element (if not present)</li>
       <li>
         If root JSX element already has <code>className</code> defined its value will
         be preserved by applying <code>classNames</code> function

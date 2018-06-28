@@ -21,8 +21,8 @@ export default {
       <h5>With class component</h5>
       <ul className="text-muted">
         <li>Removes component superclass from import statement</li>
-        <li>Moves static <code>propTypes</code> declaration below the component if present</li>
-        <li>Moves static <code>defaultProps</code> declaration below the component if present</li>
+        <li>Moves static <code>propTypes</code> declaration below the component (if present)</li>
+        <li>Moves static <code>defaultProps</code> declaration below the component (if present)</li>
         <li>Removes constructor, every static property & every component method except <code>render</code></li>
         <li>Transforms remaining class component into an arrow function</li>
       </ul>
