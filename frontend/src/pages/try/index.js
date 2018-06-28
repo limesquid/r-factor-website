@@ -33,6 +33,8 @@ class TryPage extends Component {
     };
   }
 
+  onClearCode = () => this.setState({ code: '' });
+
   onCodeChange = (code) => this.setState({ code });
 
   onCopyToInput = () => this.setState((prevState) => ({
@@ -85,9 +87,15 @@ class TryPage extends Component {
           <Col lg={6}>
             <h3 className="d-flex justify-content-between">
               <span>Input</span>
-              <Button color="link" onClick={this.onResetCode}>
-                Reset
-              </Button>
+
+              <div className="d-flex">
+                <Button color="link" onClick={this.onClearCode}>
+                  Clear
+                </Button>
+                <Button color="link" onClick={this.onResetCode}>
+                  Reset
+                </Button>
+              </div>
             </h3>
             <Code
               options={{ lineSeparator, tabSize }}
