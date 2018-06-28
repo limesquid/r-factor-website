@@ -18,8 +18,8 @@ export default {
       <li>
         Adds component superclass (see
         {' '}
-        <LinkContainer to={`/documentation/component-superclass`}>
-          <a href={`/documentation/component-superclass`}>
+        <LinkContainer to="/documentation/component-superclass">
+          <a href="/documentation/component-superclass">
             component-superclass
           </a>
         </LinkContainer>

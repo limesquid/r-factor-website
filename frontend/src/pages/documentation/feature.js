@@ -29,7 +29,14 @@ const Feature = ({ match }) => {
   }
 
   const {
-    actions, configuration, examples, dependencies, name: featureName, summary, worksWith
+    actions,
+    configuration,
+    description,
+    examples,
+    dependencies,
+    name: featureName,
+    summary,
+    worksWith
   } = feature;
 
   return (
@@ -38,6 +45,9 @@ const Feature = ({ match }) => {
         <Col>
           <h1>{featureName}</h1>
           <p className="text-muted">{summary}</p>
+          {description && (
+            <div className="text-muted">{description}</div>
+          )}
         </Col>
       </Row>
 
