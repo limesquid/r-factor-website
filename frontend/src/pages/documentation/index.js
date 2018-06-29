@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, Route, Switch } from 'react-router-dom';
+import Card from 'reactstrap/lib/Card';
+import CardBody from 'reactstrap/lib/CardBody';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
-import {
-  configurationFeatures,
-  otherFeatures,
-  reactFeatures,
-  reduxFeatures
-} from 'data';
 import Commandments from './commandments';
 import Feature from './feature';
 import Installation from './installation';
@@ -16,6 +12,12 @@ import Navigation from './navigation';
 import Promises from './promises';
 import Usage from './usage';
 import WhatIs from './what-is';
+import {
+  configurationFeatures,
+  otherFeatures,
+  reactFeatures,
+  reduxFeatures
+} from 'data';
 
 const mapFeature = ({ id, name }) => ({ label: name, to: `/documentation/${id}` });
 
@@ -44,13 +46,17 @@ const DocumentationPage = ({ location, match }) => {
 
   return (
     <Row>
-      <Col md={5} lg={3}>
-        {docs.map(({ title, links }, index) => (
-          <div key={index} className="mb-4">
-            <h3>{index + 1}. {title}</h3>
-            <Navigation links={links} />
-          </div>
-        ))}
+      <Col lg={4} className="mb-4">
+        <Card>
+          <CardBody>
+            {docs.map(({ title, links }, index) => (
+              <div key={index} className="mb-4">
+                <h3>{index + 1}. {title}</h3>
+                <Navigation links={links} />
+              </div>
+            ))}
+          </CardBody>
+        </Card>
       </Col>
 
       <Col>
