@@ -2,7 +2,7 @@ import React from 'react';
 
 export default {
   id: 'connect',
-  name: 'Connect component',
+  name: 'Connect',
   summary: (
     <div>
       Connects a component to redux store and generates

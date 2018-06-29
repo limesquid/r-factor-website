@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import Col from 'reactstrap/lib/Col';
-import Container from 'reactstrap/lib/Container';
 import Row from 'reactstrap/lib/Row';
 import Code from 'components/code';
 import { allFeatures, configurationFeatures } from 'data';
@@ -40,7 +39,7 @@ const Feature = ({ match }) => {
   } = feature;
 
   return (
-    <Container>
+    <Fragment>
       <Row className="mb-4">
         <Col>
           <h1>{featureName}</h1>
@@ -71,8 +70,10 @@ const Feature = ({ match }) => {
             ))}
           </ul>
         </Col>
+      </Row>
 
-        <Col lg={3}>
+      <Row className="mb-4">
+        <Col sm={6}>
           <h3>Dependencies</h3>
           <ul className="text-muted">
             {dependencies.map(({ name, type }) => (
@@ -83,7 +84,7 @@ const Feature = ({ match }) => {
           </ul>
         </Col>
 
-        <Col lg={3}>
+        <Col sm={6}>
           <h3>Configuration</h3>
           <ul className="text-muted">
             {configuration.map((id) => (
@@ -118,7 +119,7 @@ const Feature = ({ match }) => {
           </Col>
         </Row>
       ))}
-    </Container>
+    </Fragment>
   );
 };
 

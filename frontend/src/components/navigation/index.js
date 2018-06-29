@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-import { LinkContainer } from 'react-router-bootstrap';
+import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
 import Container from 'reactstrap/lib/Container';
 import Nav from 'reactstrap/lib/Nav';
 import Navbar from 'reactstrap/lib/Navbar';
@@ -33,11 +33,11 @@ const Navigation = ({ location }) => (
       <Nav navbar>
         {links.map(({ label, to }) => (
           <NavItem key={to} active={to === location.pathname} className="mx-2">
-            <LinkContainer to={to}>
+            <IndexLinkContainer to={to}>
               <NavLink>
                 {label}
               </NavLink>
-            </LinkContainer>
+            </IndexLinkContainer>
           </NavItem>
         ))}
 

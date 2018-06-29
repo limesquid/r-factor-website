@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Col from 'reactstrap/lib/Col';
-import Container from 'reactstrap/lib/Container';
 import Row from 'reactstrap/lib/Row';
 import BuyButton from 'components/buy-button';
 import Features from 'components/features';
@@ -31,78 +30,84 @@ const editorsIcons = [
 ];
 
 const HomePage = () => (
-  <div>
-    <div className="d-flex align-items-center mb-5">
-      <img
-        alt="R-Factor"
-        className="mr-3"
-        src={transparentLogoUrl}
-        width="100" />
+  <Fragment>
+    <Row className="mb-5">
+      <Col>
+        <div className="d-flex align-items-center">
+          <img
+            alt="R-Factor"
+            className="mr-3"
+            src={transparentLogoUrl}
+            width="100" />
 
-      <div>
-        <h1>R-Factor</h1>
-        <h4 className="mb-0">React & Redux Refactoring Tools for Sublime Text 3</h4>
-      </div>
-    </div>
+          <div>
+            <h1>R-Factor</h1>
+            <h4 className="mb-0">React & Redux Refactoring Tools for Sublime Text 3</h4>
+          </div>
+        </div>
+      </Col>
+    </Row>
 
-    <div className="embed-responsive embed-responsive-16by9">
-      <iframe
-        allowFullScreen
-        className="embed-responsive-item"
-        frameBorder="0"
-        src={videoUrl}
-        title="R-Factor demo" />
-    </div>
+    <Row>
+      <Col>
+        <div className="embed-responsive embed-responsive-16by9">
+          <iframe
+            allowFullScreen
+            className="embed-responsive-item"
+            frameBorder="0"
+            src={videoUrl}
+            title="R-Factor demo" />
+        </div>
+      </Col>
+    </Row>
 
-    <Container>
-      <Row>
-        <Col className="d-flex justify-content-center my-5">
-          <TryButton className="mx-3 px-5" size="lg" />
-          <BuyButton className="mx-3 px-5" size="lg" />
-        </Col>
-      </Row>
+    <Row className="my-5">
+      <Col className="d-flex justify-content-center">
+        <TryButton className="mx-3 px-5" size="lg" />
+        <BuyButton className="mx-3 px-5" size="lg" />
+      </Col>
+    </Row>
 
-      <Row className="my-4">
-        <Col lg={6}>
-          <h3 className="text-nowrap">React refactorings</h3>
-          <Features features={reactFeatures} />
-        </Col>
+    <Row className="mt-4">
+      <Col lg={6} className="mb-4">
+        <h3 className="text-nowrap">React refactorings</h3>
+        <Features features={reactFeatures} />
+      </Col>
 
-        <Col lg={6}>
-          <h3 className="text-nowrap">Redux refactorings</h3>
-          <Features features={reduxFeatures} />
+      <Col lg={6} className="mb-4">
+        <h3 className="text-nowrap">Redux refactorings</h3>
+        <Features features={reduxFeatures} />
 
-          <h3 className="text-nowrap mt-4">Other refactorings</h3>
-          <Features features={otherFeatures} />
-        </Col>
-      </Row>
+        <h3 className="text-nowrap mt-4">Other refactorings</h3>
+        <Features features={otherFeatures} />
+      </Col>
+    </Row>
 
-      <Row className="my-4">
-        <Col lg={6}>
-          <h3 className="text-nowrap">Configuration</h3>
-          <Features features={configurationFeatures} />
-        </Col>
+    <Row>
+      <Col lg={6} className="mb-4">
+        <h3 className="text-nowrap">Configuration</h3>
+        <Features features={configurationFeatures} />
+      </Col>
 
-        <Col lg={6}>
-          <h3 className="text-nowrap">Supported systems</h3>
-          <Icons icons={systemsIcons} />
+      <Col lg={6} className="mb-4">
+        <h3 className="text-nowrap">Supported systems</h3>
+        <Icons icons={systemsIcons} />
 
-          <h3 className="text-nowrap mt-4">Supported editors</h3>
-          <Icons icons={editorsIcons} />
+        <h3 className="text-nowrap mt-4">Supported editors</h3>
+        <Icons icons={editorsIcons} />
 
-          <h3 className="text-nowrap mt-4">Requirements</h3>
-          <Icons icons={requirementsIcons} />
-        </Col>
-      </Row>
+        <h3 className="text-nowrap mt-4">Requirements</h3>
+        <Icons icons={requirementsIcons} />
+      </Col>
+    </Row>
 
-      <Row>
-        <Col className="d-flex justify-content-center my-5">
-          <TryButton className="mx-3 px-5" size="lg" />
-          <BuyButton className="mx-3 px-5" size="lg" />
-        </Col>
-      </Row>
-    </Container>
-  </div>
+    <Row>
+      <Col className="d-flex justify-content-center my-5">
+        <TryButton className="mx-3 px-5" size="lg" />
+        <BuyButton className="mx-3 px-5" size="lg" />
+      </Col>
+    </Row>
+  </Fragment>
 );
 
 export default HomePage;
