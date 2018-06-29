@@ -6,11 +6,7 @@ import example3 from './example3';
 export default {
   id: 'convert-to-function-component',
   name: 'Convert to function component',
-  summary: (
-    <div>
-      Turns a component into a functional component defined as a function.
-    </div>
-  ),
+  summary: 'Turns a component into a functional component defined as a function.',
   actions: (
     <React.Fragment>
       <h5>With arrow component</h5>

@@ -7,11 +7,7 @@ import example3 from './example3';
 export default {
   id: 'convert-to-class-component',
   name: 'Convert to class component',
-  summary: (
-    <div>
-      Turns a functional component into a class component.
-    </div>
-  ),
+  summary: 'Turns a functional component into a class component.',
   actions: (
     <ul className="text-muted">
       <li>Transforms function component into a class</li>

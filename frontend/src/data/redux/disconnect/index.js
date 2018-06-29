@@ -2,7 +2,7 @@ import React from 'react';
 
 export default {
   id: 'disconnect',
-  name: 'Disconnect component',
+  name: 'Disconnect',
   summary: (
     <div>
       Disconnects a component from redux store and removes

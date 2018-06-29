@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Col from 'reactstrap/lib/Col';
 import Container from 'reactstrap/lib/Container';
-import Row from 'reactstrap/lib/Row';
 import Navigation from 'components/navigation';
 import DocumentationPage from 'pages/documentation';
 import HomePage from 'pages/home';
@@ -18,18 +16,14 @@ const App = () => (
       <Navigation />
 
       <Container>
-        <Row>
-          <Col>
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route path="/documentation" component={DocumentationPage} />
-              <Route path="/license" component={LicensePage} />
-              <Route path="/purchase" component={PurchasePage} />
-              <Route path="/support" component={SupportPage} />
-              <Route path="/try" component={TryPage} />
-            </Switch>
-          </Col>
-        </Row>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/documentation" component={DocumentationPage} />
+          <Route path="/license" component={LicensePage} />
+          <Route path="/purchase" component={PurchasePage} />
+          <Route path="/support" component={SupportPage} />
+          <Route path="/try" component={TryPage} />
+        </Switch>
       </Container>
     </div>
   </BrowserRouter>
