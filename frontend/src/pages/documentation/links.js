@@ -4,17 +4,17 @@ import { LinkContainer } from 'react-router-bootstrap';
 import Button from 'reactstrap/lib/Button';
 
 const Links = ({ className, features }) => (
-  <div className={className}>
+  <ul className={className}>
     {features.map(({ id, name }) => (
-      <div key={id}>
+      <li key={id}>
         <LinkContainer to={`/documentation/${id}`}>
-          <Button color="link">
+          <a href={`/documentation/${id}`}>
             {name}
-          </Button>
+          </a>
         </LinkContainer>
-      </div>
+      </li>
     ))}
-  </div>
+  </ul>
 );
 
 Links.propTypes = {
