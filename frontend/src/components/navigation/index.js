@@ -20,6 +20,13 @@ const links = [
   { label: 'License', to: '/license' }
 ];
 
+const isActive = ({ location, to }) => {
+  if (to === '/') {
+    return to === location.pathname;
+  }
+  return location.pathname.startsWith(to);
+};
+
 const Navigation = ({ location }) => (
   <Navbar className="navigation" dark expand fixed="top" color="primary">
     <Container>
@@ -31,8 +38,8 @@ const Navigation = ({ location }) => (
       </LinkContainer>
 
       <Nav navbar>
-        {links.map(({ label, to }) => (
-          <NavItem key={to} active={to === location.pathname} className="mx-2">
+        {links.map(({ label, to }, index) => (
+          <NavItem key={index} active={isActive({ location, to })} className="mx-2">
             <IndexLinkContainer to={to}>
               <NavLink>
                 {label}
