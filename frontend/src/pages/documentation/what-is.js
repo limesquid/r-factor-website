@@ -1,9 +1,19 @@
 import React, { Fragment } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
+import { transparentLogoUrl } from 'data';
+
+const IMAGE_SIZE = 160;
 
 const WhatIs = () => (
   <Fragment>
     <h1>What is R-Factor?</h1>
+    <div className="d-flex justify-content-center my-4">
+      <img
+        alt="R-Factor"
+        src={transparentLogoUrl}
+        width={IMAGE_SIZE}
+        height={IMAGE_SIZE} />
+    </div>
     <div className="text-muted mb-4">
       <p>
         R-Factor is an automated refactoring tool for JavaScript designed

@@ -16,14 +16,30 @@ export default {
         {' '}
         <LinkContainer to="/documentation/component-superclass">
           <a href="/documentation/component-superclass">
-            component-superclass
+            Component superclass
           </a>
         </LinkContainer>
         {' '}
         configuration option) import statement (if not present)
       </li>
-      <li>Transforms <code>propTypes</code> declaration into a static class property (if present)</li>
-      <li>Transforms <code>defaultProps</code> declaration into a static class property (if present)</li>
+      <li>
+        Performs
+        {' '}
+        <LinkContainer to="/documentation/move-prop-types-to-class">
+          <a href="/documentation/move-prop-types-to-class">
+            Move propTypes to class
+          </a>
+        </LinkContainer>
+      </li>
+      <li>
+        Performs
+        {' '}
+        <LinkContainer to="/documentation/move-default-props-to-class">
+          <a href="/documentation/move-default-props-to-class">
+            Move defaultProps to class
+          </a>
+        </LinkContainer>
+      </li>
     </ul>
   ),
   worksWith: [ 'arrow', 'function' ],
