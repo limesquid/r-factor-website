@@ -20,4 +20,8 @@ const Button = () => (
 export default Button;
 `;
 
-export default { input, output };
+export default {
+  name: 'Converts class component',
+  input,
+  output
+};

@@ -48,4 +48,8 @@ class Header extends Component {
 export default Header;
 `;
 
-export default { input, output };
+export default {
+  name: 'Converts arrow component with function attributes',
+  input,
+  output
+};

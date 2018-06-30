@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
-import Code from 'components/code';
+import Example from './example';
 import { allFeatures, configurationFeatures } from 'data';
 
 const WORKS_WITH = {
@@ -74,11 +74,11 @@ const Feature = ({ match }) => {
 
       <Row className="mb-4">
         <Col sm={6}>
-          <h3>Dependencies</h3>
+          <h3>Packages</h3>
           <ul className="text-muted">
-            {dependencies.map(({ name, type }) => (
+            {dependencies.map(({ name }) => (
               <li key={name}>
-                <code>{name}</code> - {type}
+                <code>{name}</code>
               </li>
             ))}
           </ul>
@@ -106,18 +106,8 @@ const Feature = ({ match }) => {
         </Col>
       </Row>
 
-      {examples.map(({ input, output }, index) => (
-        <Row key={index} className="mb-2">
-          <Col lg={6}>
-            <h4>#{index + 1} Input</h4>
-            <Code disabled value={input} />
-          </Col>
-
-          <Col lg={6}>
-            <h4>#{index + 1} Output</h4>
-            <Code disabled value={output} />
-          </Col>
-        </Row>
+      {examples.map((example, index) => (
+        <Example key={index} {...example} index={index} />
       ))}
     </Fragment>
   );

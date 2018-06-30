@@ -2,4 +2,8 @@ const input = ``;
 
 const output = ``;
 
-export default { input, output };
+export default {
+  name: '',
+  input,
+  output
+};

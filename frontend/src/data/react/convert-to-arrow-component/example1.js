@@ -30,4 +30,8 @@ const Button = () => {
 export default Button;
 `;
 
-export default { input, output };
+export default {
+  name: 'Converts function component',
+  input,
+  output
+};

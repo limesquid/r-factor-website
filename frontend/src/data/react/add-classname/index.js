@@ -8,7 +8,7 @@ export default {
   name: 'Add className',
   summary: (
     <span>
-      Adds className prop to a component and applies it for its root JSX element.
+      Adds className prop to a component and applies it to its root JSX element.
       Uses <code>classNames</code> if necessary.
     </span>
   ),

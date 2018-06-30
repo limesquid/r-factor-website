@@ -91,13 +91,13 @@ const HomePage = () => (
 
       <Col lg={6} className="mb-4">
         <h3 className="text-nowrap">Supported systems</h3>
-        <Icons icons={systemsIcons} />
+        <Icons className="py-2" icons={systemsIcons} />
 
         <h3 className="text-nowrap mt-4">Supported editors</h3>
-        <Icons icons={editorsIcons} />
+        <Icons className="py-2" icons={editorsIcons} />
 
         <h3 className="text-nowrap mt-4">Requirements</h3>
-        <Icons icons={requirementsIcons} />
+        <Icons className="py-2" icons={requirementsIcons} />
       </Col>
     </Row>
 
