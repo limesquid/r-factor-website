@@ -1,5 +1,5 @@
 import React from 'react';
-import { LinkContainer } from 'react-router-bootstrap';
+import Link from 'components/link';
 
 export default {
   id: 'toggle-component-type',
@@ -17,11 +17,7 @@ export default {
         <li>
           Performs
           {' '}
-          <LinkContainer to="/documentation/convert-to-class-component">
-            <a href="/documentation/convert-to-class-component">
-              Convert to class component
-            </a>
-          </LinkContainer>
+          <Link href="/documentation/convert-to-class-component" label="Convert to class component" />
         </li>
       </ul>
 
@@ -30,25 +26,13 @@ export default {
         <li>
           Performs either
           {' '}
-          <LinkContainer to="/documentation/convert-to-arrow-component">
-            <a href="/documentation/convert-to-arrow-component">
-              Convert to arrow component
-            </a>
-          </LinkContainer>
+          <Link href="/documentation/convert-to-arrow-component" label="Convert to arrow component" />
           {' or '}
-          <LinkContainer to="/documentation/convert-to-function-component">
-            <a href="/documentation/convert-to-function-component">
-              Convert to function component
-            </a>
-          </LinkContainer>
+          <Link href="/documentation/convert-to-function-component" label="Convert to function component" />
           {' '}
           based on
           {' '}
-          <LinkContainer to="/documentation/functional-component-type">
-            <a href="/documentation/functional-component-type">
-              Functional component type
-            </a>
-          </LinkContainer>
+          <Link href="/documentation/functional-component-type" label="Functional component type" />
           {' '}
           setting
         </li>

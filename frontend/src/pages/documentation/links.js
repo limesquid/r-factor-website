@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LinkContainer } from 'react-router-bootstrap';
+import Link from 'components/link';
 
 const Links = ({ className, features }) => (
   <ul className={className}>
     {features.map(({ id, name }) => (
       <li key={id}>
-        <LinkContainer to={`/documentation/${id}`}>
-          <a href={`/documentation/${id}`}>
-            {name}
-          </a>
-        </LinkContainer>
+        <Link href={`/documentation/${id}`} label={name} />
       </li>
     ))}
   </ul>

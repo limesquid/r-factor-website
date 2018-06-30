@@ -1,5 +1,5 @@
 import React from 'react';
-import { LinkContainer } from 'react-router-bootstrap';
+import Link from 'components/link';
 import example1 from './example1';
 
 export default {
@@ -15,11 +15,7 @@ export default {
     <span>
       An inverse of
       {' '}
-      <LinkContainer to="/documentation/move-default-props-out-of-class">
-        <a href="/documentation/move-default-props-out-of-class">
-          Move defaultProps out of class
-        </a>
-      </LinkContainer>
+      <Link href="/documentation/move-default-props-out-of-class" label="Move defaultProps out of class" />
       .
     </span>
   ),
