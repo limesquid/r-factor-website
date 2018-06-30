@@ -46,7 +46,7 @@ const DocumentationPage = ({ location, match }) => {
 
   return (
     <Row>
-      <Col lg={4} className="mb-4">
+      <Col md={4} className="mb-4">
         <Card>
           <CardBody>
             {docs.map(({ title, links }, index) => (
@@ -59,7 +59,7 @@ const DocumentationPage = ({ location, match }) => {
         </Card>
       </Col>
 
-      <Col>
+      <Col md={8}>
         <Switch>
           {rFactorDocs.map(({ to, Component }) => (
             <Route key={to} exact path={to} component={Component} />

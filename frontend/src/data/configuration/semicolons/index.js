@@ -4,8 +4,8 @@ export default {
   id: 'semicolons',
   name: 'Semicolons',
   summary: (
-    <div>
+    <span>
       Some people like ASI and some don't.
-    </div>
+    </span>
   )
 };

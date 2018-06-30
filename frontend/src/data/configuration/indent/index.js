@@ -4,8 +4,8 @@ export default {
   id: 'indent',
   name: 'Indent',
   summary: (
-    <div>
+    <span>
       Indent characters(s).
-    </div>
+    </span>
   )
 };

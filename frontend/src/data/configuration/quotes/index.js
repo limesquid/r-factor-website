@@ -4,8 +4,8 @@ export default {
   id: 'quotes',
   name: 'Quotes',
   summary: (
-    <div>
+    <span>
       Which quotation marks to use for strings.
-    </div>
+    </span>
   )
 };
