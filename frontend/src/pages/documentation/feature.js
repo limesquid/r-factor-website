@@ -15,7 +15,6 @@ const WORKS_WITH = {
   'object-literal': 'Object literals'
 };
 
-
 const features = [ ...allFeatures, ...configurationFeatures ];
 const getConfigurationName = (id) => configurationFeatures.find(
   (feature) => feature.id === id
