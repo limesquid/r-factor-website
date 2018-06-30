@@ -14,4 +14,4 @@ export default [
   semicolons,
   componentSuperclass,
   functionalComponentType
-];
+].sort((a, b) => a.name.localeCompare(b.name));

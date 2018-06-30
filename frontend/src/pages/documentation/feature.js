@@ -6,6 +6,7 @@ import Row from 'reactstrap/lib/Row';
 import { Helmet } from 'react-helmet';
 import Link from 'components/link';
 import Example from './example';
+import Setting from './setting';
 import { allFeatures, configurationFeatures } from 'data';
 
 const WORKS_WITH = {
@@ -33,10 +34,12 @@ const Feature = ({ match }) => {
   const {
     actions,
     configuration,
+    dependencies,
     description,
     examples,
-    dependencies,
+    id,
     name: featureName,
+    setting,
     summary,
     worksWith
   } = feature;
@@ -56,6 +59,10 @@ const Feature = ({ match }) => {
           )}
         </Col>
       </Row>
+
+      {setting && (
+        <Setting id={id} setting={setting} />
+      )}
 
       {actions && (
         <Row className="mb-4">
@@ -88,9 +95,9 @@ const Feature = ({ match }) => {
           <Col sm={dependencies && dependencies.length > 0 ? 6 : 12}>
             <h3>Configuration</h3>
             <ul className="text-muted">
-              {configuration.map((id) => (
-                <li key={id}>
-                  <Link href={`/documentation/${id}`} label={getConfigurationName(id)} />
+              {configuration.map((settingId) => (
+                <li key={settingId}>
+                  <Link href={`/documentation/${settingId}`} label={getConfigurationName(settingId)} />
                 </li>
               ))}
             </ul>

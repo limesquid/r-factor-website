@@ -1,14 +1,17 @@
 import React, { Fragment } from 'react';
 import { Helmet } from 'react-helmet';
+import Icon from 'components/icon';
 import Link from 'components/link';
 
 const Usage = () => (
   <Fragment>
     <Helmet>
-      <title>R-Factor - Usage instructions</title>
+      <title>R-Factor - Usage</title>
     </Helmet>
 
-    <h1>Usage instructions</h1>
+    <h1>Usage</h1>
+
+    <h3>Instructions</h3>
     <ul className="text-muted mb-4">
       <li>Refactoring will be performed on your selection or else on an entire file</li>
       <li>Selection must be a valid JavaScript Program (e.g. <code>{'{ a: 1, b: 2 }'}</code> will not do!)</li>
@@ -31,7 +34,7 @@ const Usage = () => (
     </ul>
 
     <h3>Sublime Text 3</h3>
-    <div className="text-muted mb-4">
+    <div className="text-muted">
       <p>
         Every refactoring is available as a command in the
         {' '}
@@ -51,6 +54,18 @@ const Usage = () => (
         name - <code>rfctcc</code> will suffice.
       </p>
     </div>
+
+    <h5>Configuration</h5>
+    <div className="text-muted mb-4">
+      Open up <code>Preferences</code> <Icon name="arrow-right" /> <code>Package Settings</code>
+      {' '}
+      <Icon name="arrow-right" /> <code>R-Factor</code> <Icon name="arrow-right" />
+      {' '}
+      <code>Settings - User</code> in Sublime menu. Whatever settings file our
+      {' '}
+      <Link href="/try" label="Try it" /> online tool generates you can paste there.
+    </div>
+
   </Fragment>
 );
 
