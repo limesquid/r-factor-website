@@ -6,6 +6,7 @@ const LicensePage = () => (
     <Helmet>
       <title>R-Factor - License</title>
     </Helmet>
+    LicensePage
   </div>
 );
 

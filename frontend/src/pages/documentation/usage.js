@@ -17,6 +17,8 @@ const Usage = () => (
         to validate your code before
         you <Link href="/support" label="submit an issue" />
       </li>
+      <li>If refactoring cannot be performed nothing will happen to your code</li>
+      <li>If refactoring can be partially performed it may be partially performed</li>
       <li>
         Code is refactored on your machine. When you use the plugin, no code is ever
         transmitted over the network. The plugin works offline. You're safe.
@@ -27,6 +29,28 @@ const Usage = () => (
         That's why you should use it for evaluation purposes with some dummy code only.
       </li>
     </ul>
+
+    <h3>Sublime Text 3</h3>
+    <div className="text-muted mb-4">
+      <p>
+        Every refactoring is available as a command in the
+        {' '}
+        <a href="http://docs.sublimetext.info/en/latest/extensibility/command_palette.html">
+          Command Palette
+        </a>
+        .
+      </p>
+      <p>
+        Command name corresponts to a refactoring name, but is prefixed with <code>R-Factor: </code>.
+        So for example
+        {' '}
+        <Link href="/documentation/convert-to-class-component" label="Convert to class component" />
+        {' '}
+        refactoring will appear as <code>R-Factor: Convert to class component</code>.
+        Remember to use fuzzy search, so that you do not have to type the whole refactoring
+        name - <code>rfctcc</code> will suffice.
+      </p>
+    </div>
   </Fragment>
 );
 
