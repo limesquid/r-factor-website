@@ -10,12 +10,12 @@ export default {
   summary: 'Turns a component into a functional component defined as an arrow function.',
   actions: (
     <React.Fragment>
-      <h5>With function component</h5>
+      <h5>On function component</h5>
       <ul className="text-muted">
         <li>Transforms component function into an arrow function</li>
       </ul>
 
-      <h5>With class component</h5>
+      <h5>On class component</h5>
       <ul className="text-muted">
         <li>Removes component superclass from import statement</li>
         <li>

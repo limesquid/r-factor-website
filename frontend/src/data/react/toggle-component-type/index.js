@@ -12,7 +12,7 @@ export default {
   ),
   actions: (
     <React.Fragment>
-      <h5>With functional component</h5>
+      <h5>On functional component</h5>
       <ul className="text-muted">
         <li>
           Performs
@@ -25,7 +25,7 @@ export default {
         </li>
       </ul>
 
-      <h5>With class component</h5>
+      <h5>On class component</h5>
       <ul className="text-muted">
         <li>
           Performs either
