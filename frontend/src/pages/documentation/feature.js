@@ -8,10 +8,13 @@ import Example from './example';
 import { allFeatures, configurationFeatures } from 'data';
 
 const WORKS_WITH = {
-  arrow: 'Functional component defined as an arrow function',
-  class: 'Class component',
-  function: 'Functional component defined as a function'
+  arrow: 'Functional components defined as an arrow function',
+  class: 'Class components',
+  function: 'Functional components defined as a function',
+  'import-statement': 'Import statements',
+  'object-literal': 'Object literals'
 };
+
 
 const features = [ ...allFeatures, ...configurationFeatures ];
 const getConfigurationName = (id) => configurationFeatures.find(
@@ -61,18 +64,20 @@ const Feature = ({ match }) => {
         </Row>
       )}
 
-      <Row className="mb-4">
-        <Col>
-          <h3>Works on</h3>
-          <ul className="text-muted">
-            {worksWith.map((componentType) => (
-              <li key={componentType}>
-                {WORKS_WITH[componentType]}
-              </li>
-            ))}
-          </ul>
-        </Col>
-      </Row>
+      {worksWith && worksWith.length > 0 && (
+        <Row className="mb-4">
+          <Col>
+            <h3>Works on</h3>
+            <ul className="text-muted">
+              {worksWith.map((componentType) => (
+                <li key={componentType}>
+                  {WORKS_WITH[componentType]}
+                </li>
+              ))}
+            </ul>
+          </Col>
+        </Row>
+      )}
 
       <Row className="mb-4">
         {configuration && configuration.length > 0 && (
