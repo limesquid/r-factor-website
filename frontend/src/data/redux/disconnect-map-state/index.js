@@ -4,9 +4,9 @@ export default {
   id: 'disconnect-map-state',
   name: 'Disconnect mapStateToProps',
   summary: (
-    <div>
+    <span>
       Disconnects <code>mapStateToProps</code> from a component connected to a redux store.
       Disconnects completely if possible.
-    </div>
+    </span>
   )
 };

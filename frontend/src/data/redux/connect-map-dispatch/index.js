@@ -4,8 +4,8 @@ export default {
   id: 'connect-map-dispatch',
   name: 'Connect mapDispatchToProps',
   summary: (
-    <div>
+    <span>
       Connects a component to redux store and generates <code>mapDispatchToProps</code> only.
-    </div>
+    </span>
   )
 };

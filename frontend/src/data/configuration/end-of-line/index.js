@@ -4,8 +4,8 @@ export default {
   id: 'end-of-line',
   name: 'End of line',
   summary: (
-    <div>
+    <span>
       End-of-line character(s).
-    </div>
+    </span>
   )
 };

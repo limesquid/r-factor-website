@@ -4,8 +4,8 @@ export default {
   id: 'modules-order',
   name: 'Modules order',
   summary: (
-    <div>
+    <span>
       Order used when sorting import statements.
-    </div>
+    </span>
   )
 };

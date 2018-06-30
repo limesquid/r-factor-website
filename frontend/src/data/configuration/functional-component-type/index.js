@@ -4,8 +4,8 @@ export default {
   id: 'functional-component-type',
   name: 'Functional component type',
   summary: (
-    <div>
+    <span>
       Which functional component notation to use when toggling component type.
-    </div>
+    </span>
   )
 };
