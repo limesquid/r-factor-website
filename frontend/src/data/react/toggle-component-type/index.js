@@ -30,7 +30,7 @@ export default {
           {' or '}
           <Link href="/documentation/convert-to-function-component" label="Convert to function component" />
           {' '}
-          based on
+          based on your
           {' '}
           <Link href="/documentation/functional-component-type" label="Functional component type" />
           {' '}
