@@ -17,6 +17,17 @@ const DosAndDonts = () => (
       <li>
         <Link href="/support" label="Submit ideas & report bugs" />
       </li>
+      <li>
+        Compensate for missing R-Factor configuration with
+        {' '}
+        <a href="https://eslint.org/">ESLint</a>
+        {' '}
+        <a href="https://eslint.org/docs/user-guide/migrating-from-jscs#--fix">
+          <code>--fix</code>
+        </a>
+        {' '}
+        command line option
+      </li>
     </ul>
 
     <h5>Don't</h5>
