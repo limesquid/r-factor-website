@@ -1,4 +1,5 @@
 import React from 'react';
+import { LinkContainer } from 'react-router-bootstrap';
 import example1 from './example1';
 import example2 from './example2';
 import example3 from './example3';
@@ -17,9 +18,25 @@ export default {
       <h5>With class component</h5>
       <ul className="text-muted">
         <li>Removes component superclass from import statement</li>
-        <li>Moves static <code>propTypes</code> declaration below the component (if present)</li>
-        <li>Moves static <code>defaultProps</code> declaration below the component (if present)</li>
-        <li>Removes constructor, every static property & every component method except <code>render</code></li>
+        <li>
+          Performs
+          {' '}
+          <LinkContainer to="/documentation/move-prop-types-out-of-class">
+            <a href="/documentation/move-prop-types-out-of-class">
+              Move propTypes out of class
+            </a>
+          </LinkContainer>
+        </li>
+        <li>
+          Performs
+          {' '}
+          <LinkContainer to="/documentation/move-default-props-out-of-class">
+            <a href="/documentation/move-default-props-out-of-class">
+              Move defaultProps out of class
+            </a>
+          </LinkContainer>
+        </li>
+        <li>Removes (unsafely) everything from class except <code>render</code></li>
         <li>Transforms remaining class component into an arrow function</li>
       </ul>
     </React.Fragment>

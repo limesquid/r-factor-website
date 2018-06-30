@@ -75,16 +75,18 @@ const Feature = ({ match }) => {
       </Row>
 
       <Row className="mb-4">
-        <Col sm={6}>
-          <h3>Packages</h3>
-          <ul className="text-muted">
-            {dependencies.map(({ name }) => (
-              <li key={name}>
-                <code>{name}</code>
-              </li>
-            ))}
-          </ul>
-        </Col>
+        {dependencies && (
+          <Col sm={6}>
+            <h3>Packages</h3>
+            <ul className="text-muted">
+              {dependencies.map(({ name }) => (
+                <li key={name}>
+                  <code>{name}</code>
+                </li>
+              ))}
+            </ul>
+          </Col>
+        )}
 
         <Col sm={6}>
           <h3>Configuration</h3>
@@ -102,15 +104,19 @@ const Feature = ({ match }) => {
         </Col>
       </Row>
 
-      <Row className="mb-2">
-        <Col>
-          <h3>Examples</h3>
-        </Col>
-      </Row>
+      {examples && examples.length > 0 && (
+        <Fragment>
+          <Row className="mb-2">
+            <Col>
+              <h3>Examples</h3>
+            </Col>
+          </Row>
 
-      {examples.map((example, index) => (
-        <Example key={index} {...example} index={index} />
-      ))}
+          {examples.map((example, index) => (
+            <Example key={index} {...example} index={index} />
+          ))}
+        </Fragment>
+      )}
     </Fragment>
   );
 };
