@@ -10,7 +10,7 @@ const DosAndDonts = () => (
 
     <h1>Dos and don'ts</h1>
 
-    <h5>Do:</h5>
+    <h5>Do</h5>
     <ul className="text-muted mb-4">
       <li>Use the most recent JavaScript features</li>
       <li>Commit before you refactor</li>
@@ -19,7 +19,7 @@ const DosAndDonts = () => (
       </li>
     </ul>
 
-    <h5>Don't:</h5>
+    <h5>Don't</h5>
     <ul className="text-muted mb-4">
       <li>Refactor invalid JavaScript</li>
       <li>Refactor code formatted against provided configuration</li>

@@ -23,9 +23,9 @@ const mapFeature = ({ id, name }) => ({ label: name, to: `/documentation/${id}` 
 
 const rFactorDocs = [
   { label: 'What is R-Factor?', to: '/documentation/what-is-r-factor', Component: WhatIs },
-  { label: 'Dos and don\'ts', to: '/documentation/dos-and-donts', Component: DosAndDonts },
   { label: 'Installation', to: '/documentation/installation', Component: Installation },
-  { label: 'Usage instructions', to: '/documentation/usage', Component: Usage }
+  { label: 'Usage', to: '/documentation/usage', Component: Usage },
+  { label: 'Dos and don\'ts', to: '/documentation/dos-and-donts', Component: DosAndDonts }
 ];
 
 const docs = [

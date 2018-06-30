@@ -44,7 +44,7 @@ const WhatIs = () => (
       </p>
     </div>
     <div>
-      <h5>R-Factor aims to:</h5>
+      <h5>R-Factor aims to</h5>
       <ul className="text-muted mb-4">
         <li>Not break your code</li>
         <li>
