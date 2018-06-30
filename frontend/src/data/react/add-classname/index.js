@@ -14,8 +14,8 @@ export default {
   ),
   actions: (
     <ul className="text-muted">
-      <li>Adds <code>propTypes</code> definition to the component (if not present)</li>
       <li>Adds <code>prop-types</code> import statement (if not present)</li>
+      <li>Adds <code>propTypes</code> definition to the component (if not present)</li>
       <li>Adds <code>className</code> to <code>propTypes</code> definition (if not present)</li>
       <li>Sorts <code>propTypes</code> definitions</li>
       <li>Declares <code>className</code> in render body or functional component arguments (if not present)</li>
@@ -28,7 +28,7 @@ export default {
         If root JSX element already has <code>className</code> defined its value will
         be preserved by applying <code>classNames</code> function
       </li>
-      <li>Adds <code>classNames</code> import statement if necessary</li>
+      <li>Adds <code>classnames</code> import statement if necessary</li>
     </ul>
   ),
   worksWith: [ 'arrow', 'function', 'class' ],

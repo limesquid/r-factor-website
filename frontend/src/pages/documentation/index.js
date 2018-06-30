@@ -10,7 +10,6 @@ import Commandments from './commandments';
 import Feature from './feature';
 import Installation from './installation';
 import Navigation from './navigation';
-import Promises from './promises';
 import Usage from './usage';
 import WhatIs from './what-is';
 import {
@@ -24,7 +23,6 @@ const mapFeature = ({ id, name }) => ({ label: name, to: `/documentation/${id}` 
 
 const rFactorDocs = [
   { label: 'What is R-Factor?', to: '/documentation/what-is-r-factor', Component: WhatIs },
-  { label: 'R-Factor promises', to: '/documentation/r-factor-promises', Component: Promises },
   { label: 'User commandments', to: '/documentation/user-commandments', Component: Commandments },
   { label: 'Installation', to: '/documentation/installation', Component: Installation },
   { label: 'Usage instructions', to: '/documentation/usage', Component: Usage }

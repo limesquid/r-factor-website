@@ -43,6 +43,18 @@ const WhatIs = () => (
         interest is this tool going to get.
       </p>
     </div>
+    <div>
+      <h3>R-Factor aims to</h3>
+      <ul className="text-muted mb-4">
+        <li>Not break your code</li>
+        <li>
+          Keep your formatting
+          (but remember: <a href="https://en.wikipedia.org/wiki/Garbage_in,_garbage_out">garbage in, garbage out</a>)
+        </li>
+        <li>Refactor reasonably sized files in reasonable time</li>
+        <li>Support & prefer the fanciest, sweetest syntax possible (think ES6+)</li>
+      </ul>
+    </div>
   </Fragment>
 );
 

@@ -5,7 +5,7 @@ export default {
   name: 'Modules order',
   summary: (
     <span>
-      Order used when sorting import statements.
+      Order used when sorting <code>import</code> statements.
     </span>
   )
 };
