@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import Link from 'components/link';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
+import { Helmet } from 'react-helmet';
+import Link from 'components/link';
 import Example from './example';
 import { allFeatures, configurationFeatures } from 'data';
 
@@ -42,6 +43,10 @@ const Feature = ({ match }) => {
 
   return (
     <Fragment>
+      <Helmet>
+        <title>R-Factor - {featureName}</title>
+      </Helmet>
+
       <Row className="mb-4">
         <Col>
           <h1>{featureName}</h1>

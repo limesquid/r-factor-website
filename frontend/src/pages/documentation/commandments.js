@@ -1,8 +1,12 @@
 import React, { Fragment } from 'react';
+import { Helmet } from 'react-helmet';
 import Link from 'components/link';
 
 const Commandments = () => (
   <Fragment>
+    <Helmet>
+      <title>R-Factor - User commandments</title>
+    </Helmet>
     <h1>User commandments</h1>
     <ul className="text-muted mb-4">
       <li>Thou shalt not refactor invalid JavaScript</li>

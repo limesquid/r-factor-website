@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 /*
   - bug
     - input
@@ -12,6 +13,9 @@ import React from 'react';
 */
 const SupportPage = () => (
   <div>
+    <Helmet>
+      <title>R-Factor - Support</title>
+    </Helmet>
     SupportPage
   </div>
 );

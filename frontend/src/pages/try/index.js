@@ -4,6 +4,7 @@ import Col from 'reactstrap/lib/Col';
 import Container from 'reactstrap/lib/Container';
 import Form from 'reactstrap/lib/Form';
 import Row from 'reactstrap/lib/Row';
+import { Helmet } from 'react-helmet';
 import Code, { sanitize } from 'components/code';
 import RefactoringsSelect from 'components/refactorings-select';
 import Settings from 'components/settings';
@@ -72,6 +73,10 @@ class TryPage extends Component {
 
     return (
       <Container>
+        <Helmet>
+          <title>R-Factor - Try</title>
+        </Helmet>
+
         <Row>
           <Col md={6}>
             <h3>Refactoring</h3>
