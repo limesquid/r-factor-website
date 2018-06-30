@@ -6,7 +6,7 @@ import CardBody from 'reactstrap/lib/CardBody';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
 import { Helmet } from 'react-helmet';
-import Commandments from './commandments';
+import DosAndDonts from './dos-and-donts';
 import Feature from './feature';
 import Installation from './installation';
 import Navigation from './navigation';
@@ -23,7 +23,7 @@ const mapFeature = ({ id, name }) => ({ label: name, to: `/documentation/${id}` 
 
 const rFactorDocs = [
   { label: 'What is R-Factor?', to: '/documentation/what-is-r-factor', Component: WhatIs },
-  { label: 'User commandments', to: '/documentation/user-commandments', Component: Commandments },
+  { label: 'Dos and don\'ts', to: '/documentation/dos-and-donts', Component: DosAndDonts },
   { label: 'Installation', to: '/documentation/installation', Component: Installation },
   { label: 'Usage instructions', to: '/documentation/usage', Component: Usage }
 ];
