@@ -1,7 +1,11 @@
 import React, { Fragment } from 'react';
+import { Helmet } from 'react-helmet';
 
 const Installation = () => (
   <Fragment>
+    <Helmet>
+      <title>R-Factor - Installation</title>
+    </Helmet>
     <h1>Installation</h1>
 
     <h5>Prerequisites</h5>

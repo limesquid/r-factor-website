@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
+import { Helmet } from 'react-helmet';
 import BuyButton from 'components/buy-button';
 import Features from 'components/features';
 import Icons from 'components/icons';
@@ -31,6 +32,10 @@ const editorsIcons = [
 
 const HomePage = () => (
   <Fragment>
+    <Helmet>
+      <title>R-Factor - React & Redux Refactoring Tools for Sublime Text 3</title>
+    </Helmet>
+
     <Row className="mb-5">
       <Col>
         <div className="d-flex align-items-center">

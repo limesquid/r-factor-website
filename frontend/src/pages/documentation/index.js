@@ -5,6 +5,7 @@ import Card from 'reactstrap/lib/Card';
 import CardBody from 'reactstrap/lib/CardBody';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
+import { Helmet } from 'react-helmet';
 import Commandments from './commandments';
 import Feature from './feature';
 import Installation from './installation';
@@ -46,6 +47,10 @@ const DocumentationPage = ({ location, match }) => {
 
   return (
     <Row>
+      <Helmet>
+        <title>R-Factor - Documentation</title>
+      </Helmet>
+
       <Col md={4} className="mb-4">
         <Card>
           <CardBody>

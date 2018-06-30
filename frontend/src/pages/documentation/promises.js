@@ -1,7 +1,12 @@
 import React, { Fragment } from 'react';
+import { Helmet } from 'react-helmet';
 
 const Promises = () => (
   <Fragment>
+    <Helmet>
+      <title>R-Factor - Promises</title>
+    </Helmet>
+
     <h1>R-Factor promises to</h1>
     <ul className="text-muted mb-4">
       <li>Try its best to not break your code</li>

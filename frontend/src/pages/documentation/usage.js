@@ -1,8 +1,13 @@
 import React, { Fragment } from 'react';
+import { Helmet } from 'react-helmet';
 import Link from 'components/link';
 
 const Usage = () => (
   <Fragment>
+    <Helmet>
+      <title>R-Factor - Usage instructions</title>
+    </Helmet>
+
     <h1>Usage instructions</h1>
     <ul className="text-muted mb-4">
       <li>Refactoring will be performed on your selection or else on an entire file</li>
