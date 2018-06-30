@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { LinkContainer } from 'react-router-bootstrap';
+import Link from 'components/link';
 
 const Commandments = () => (
   <Fragment>
@@ -12,9 +12,7 @@ const Commandments = () => (
       <li>Use the most recent JavaScript features</li>
       <li>Commit before you refactor</li>
       <li>
-        <LinkContainer to="/support">
-          <a href="/support">Report your ideas & bugs</a>
-        </LinkContainer>
+        <Link href="/support" label="Report your ideas & bugs" />
       </li>
     </ul>
   </Fragment>

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import { LinkContainer } from 'react-router-bootstrap';
+import Link from 'components/link';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
 import Example from './example';
@@ -75,6 +75,17 @@ const Feature = ({ match }) => {
       </Row>
 
       <Row className="mb-4">
+        <Col sm={dependencies ? 6 : 12}>
+          <h3>Configuration</h3>
+          <ul className="text-muted">
+            {configuration.map((id) => (
+              <li key={id}>
+                <Link href={`/documentation/${id}`} label={getConfigurationName(id)} />
+              </li>
+            ))}
+          </ul>
+        </Col>
+
         {dependencies && (
           <Col sm={6}>
             <h3>Packages</h3>
@@ -87,21 +98,6 @@ const Feature = ({ match }) => {
             </ul>
           </Col>
         )}
-
-        <Col sm={6}>
-          <h3>Configuration</h3>
-          <ul className="text-muted">
-            {configuration.map((id) => (
-              <li key={id}>
-                <LinkContainer to={`/documentation/${id}`}>
-                  <a href={`/documentation/${id}`}>
-                    {getConfigurationName(id)}
-                  </a>
-                </LinkContainer>
-              </li>
-            ))}
-          </ul>
-        </Col>
       </Row>
 
       {examples && examples.length > 0 && (

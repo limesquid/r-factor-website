@@ -1,5 +1,5 @@
 import React from 'react';
-import { LinkContainer } from 'react-router-bootstrap';
+import Link from 'components/link';
 import example1 from './example1';
 import example2 from './example2';
 import example3 from './example3';
@@ -21,20 +21,12 @@ export default {
         <li>
           Performs
           {' '}
-          <LinkContainer to="/documentation/move-prop-types-out-of-class">
-            <a href="/documentation/move-prop-types-out-of-class">
-              Move propTypes out of class
-            </a>
-          </LinkContainer>
+          <Link href="/documentation/move-prop-types-out-of-class" label="Move propTypes out of class" />
         </li>
         <li>
           Performs
           {' '}
-          <LinkContainer to="/documentation/move-default-props-out-of-class">
-            <a href="/documentation/move-default-props-out-of-class">
-              Move defaultProps out of class
-            </a>
-          </LinkContainer>
+          <Link href="/documentation/move-default-props-out-of-class" label="Move defaultProps out of class" />
         </li>
         <li>Removes (unsafely) everything from class except <code>render</code></li>
         <li>Transforms remaining class component into a function</li>

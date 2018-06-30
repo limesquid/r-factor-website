@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { LinkContainer } from 'react-router-bootstrap';
+import Link from 'components/link';
 import { transparentLogoUrl } from 'data';
 
 const IMAGE_SIZE = 160;
@@ -32,13 +32,9 @@ const WhatIs = () => (
         While our initial goal was to provide React & Redux refactorings only, some cool
         side effects appeared along the way. That is why now you can also enjoy features like
         {' '}
-        <LinkContainer to="/documentation/sort-imports">
-          <a href="/documentation/sort-imports">Sort imports</a>
-        </LinkContainer>
+        <Link href="/documentation/sort-imports" label="Sort imports" />
         {' & '}
-        <LinkContainer to="/documentation/sort-object-attributes">
-          <a href="/documentation/sort-object-attributes">Sort object attributes</a>
-        </LinkContainer>
+        <Link href="/documentation/sort-object-attributes" label="Sort object attributes" />
         {' .'}
       </p>
       <p>
