@@ -75,19 +75,21 @@ const Feature = ({ match }) => {
       </Row>
 
       <Row className="mb-4">
-        <Col sm={dependencies ? 6 : 12}>
-          <h3>Configuration</h3>
-          <ul className="text-muted">
-            {configuration.map((id) => (
-              <li key={id}>
-                <Link href={`/documentation/${id}`} label={getConfigurationName(id)} />
-              </li>
-            ))}
-          </ul>
-        </Col>
+        {configuration && configuration.length > 0 && (
+          <Col sm={dependencies && dependencies.length > 0 ? 6 : 12}>
+            <h3>Configuration</h3>
+            <ul className="text-muted">
+              {configuration.map((id) => (
+                <li key={id}>
+                  <Link href={`/documentation/${id}`} label={getConfigurationName(id)} />
+                </li>
+              ))}
+            </ul>
+          </Col>
+        )}
 
-        {dependencies && (
-          <Col sm={6}>
+        {dependencies && dependencies.length > 0 && (
+          <Col sm={configuration && configuration.length > 0 ? 6 : 12}>
             <h3>Packages</h3>
             <ul className="text-muted">
               {dependencies.map(({ name }) => (
