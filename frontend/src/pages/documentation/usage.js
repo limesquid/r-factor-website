@@ -13,7 +13,7 @@ const Usage = () => (
         you <Link href="/support" label="submit an issue" />
       </li>
       <li>
-        Code is refactored on your machine. If you use the plugin, no code will ever be
+        Code is refactored on your machine. When you use the plugin, no code is ever
         transmitted over the network. The plugin works offline. You're safe.
       </li>
       <li>
