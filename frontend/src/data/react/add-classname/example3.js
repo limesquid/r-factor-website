@@ -37,4 +37,8 @@ Button.propTypes = {
 export default Button;
 `;
 
-export default { input, output };
+export default {
+  name: 'Adds className to function component',
+  input,
+  output
+};

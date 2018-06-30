@@ -1,3 +1,8 @@
+.documentation-navigation {
+  -webkit-padding-start: 20px;
+  padding-left: 20px;
+}
+
 .documentation-navigation a.active {
   color: var(--green) !important;
 }

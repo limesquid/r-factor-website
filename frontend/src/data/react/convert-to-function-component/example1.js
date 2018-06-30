@@ -30,4 +30,8 @@ function Button() {
 export default Button;
 `;
 
-export default { input, output };
+export default {
+  name: 'Converts arrow component with body',
+  input,
+  output
+};

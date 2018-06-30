@@ -36,4 +36,8 @@ class Button extends Component {
 export default Button;
 `;
 
-export default { input, output };
+export default {
+  name: 'Adds className to class component',
+  input,
+  output
+};

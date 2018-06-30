@@ -20,4 +20,8 @@ class Button extends Component {
 export default Button;
 `;
 
-export default { input, output };
+export default {
+  name: 'Converts arrow component',
+  input,
+  output
+};

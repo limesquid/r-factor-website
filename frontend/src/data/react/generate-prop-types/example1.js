@@ -43,4 +43,8 @@ Input.propTypes = {
 export default Input;
 `;
 
-export default { input, output };
+export default {
+  name: 'Generates new arrow component propTypes',
+  input,
+  output
+};

@@ -50,4 +50,8 @@ Header.defaultProps = {
 export default Header;
 `;
 
-export default { input, output };
+export default {
+  name: 'Converts class component with static fields',
+  input,
+  output
+};

@@ -61,4 +61,8 @@ class Input extends Component {
 export default Input;
 `;
 
-export default { input, output };
+export default {
+  name: 'Extends exisiting class propTypes',
+  input,
+  output
+};
