@@ -9,7 +9,7 @@ export default {
   name: 'Sort imports',
   summary: (
     <span>
-      Sorts import statements according to an order defined in settings.
+      Sorts <code>import</code> statements according to an order defined in settings.
       You can choose an alphabetic order or specify a fixed order.
     </span>
   ),
@@ -17,7 +17,7 @@ export default {
     <Fragment>
       <p>
         See <Link href="/documentation/modules-order" label="Modules order" /> for configuration.
-        Keeps grouped import statements together.
+        Keeps grouped <code>import</code> statements together. Does not work with <code>require</code>.
       </p>
       <p>
         If your <Link href="/documentation/quotes" label="Quotes" /> settings is set
