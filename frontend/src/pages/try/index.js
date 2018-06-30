@@ -77,7 +77,7 @@ class TryPage extends Component {
     return (
       <Container>
         <Helmet>
-          <title>R-Factor - Try</title>
+          <title>R-Factor - Try it</title>
         </Helmet>
 
         <Row>
