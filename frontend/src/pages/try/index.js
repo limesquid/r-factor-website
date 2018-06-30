@@ -53,7 +53,10 @@ class TryPage extends Component {
       const refactoredCode = await response.text();
       this.setState({ isRefactoring: false, refactoredCode });
     } catch (error) {
-      const formattedError = error.split('\n').filter(Boolean).map((line) => `// ${line}`).join('\n');
+      let formattedError = 'Network error occurred. Check your internet connection and try again.';
+      if (Array.isArray(error)) {
+        formattedError = error.split('\n').filter(Boolean).map((line) => `// ${line}`).join('\n');
+      }
       this.setState({ isRefactoring: false, refactoredCode: formattedError });
     }
   };
