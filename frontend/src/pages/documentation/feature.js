@@ -50,18 +50,20 @@ const Feature = ({ match }) => {
         </Col>
       </Row>
 
-      <Row className="mb-4">
-        <Col>
-          <h3>How it works</h3>
-          <div>
-            {actions}
-          </div>
-        </Col>
-      </Row>
+      {actions && (
+        <Row className="mb-4">
+          <Col>
+            <h3>How it works</h3>
+            <div>
+              {actions}
+            </div>
+          </Col>
+        </Row>
+      )}
 
       <Row className="mb-4">
         <Col>
-          <h3>Works with</h3>
+          <h3>Works on</h3>
           <ul className="text-muted">
             {worksWith.map((componentType) => (
               <li key={componentType}>
