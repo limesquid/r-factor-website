@@ -65,7 +65,7 @@ class Example extends Component {
             <Row>
               <Col md={12} className="hide-lg">
                 <h5>Input</h5>
-                <Code autoHeight disabled value={input} />
+                <Code autoHeight className="mb-4" disabled value={input} />
               </Col>
 
               <Col md={12} className="hide-lg">

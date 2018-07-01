@@ -1,23 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { LinkContainer } from 'react-router-bootstrap';
 import { Helmet } from 'react-helmet';
-import Button from 'reactstrap/lib/Button';
 import ThankYou from './thank-you';
-import TypeChoice from './type-choice';
-import routes from './routes';
+import SupportForm from './support-form';
 
-/*
-  - bug
-    - input
-    - settings
-    - r-factor version (+ link how to check)
-    - expected output
-  - idea
-  - other
-
-  - do kazdego: email (+ captcha?)
-*/
 const SupportPage = () => (
   <div>
     <Helmet>
@@ -25,11 +11,8 @@ const SupportPage = () => (
     </Helmet>
 
     <Switch>
-      {routes.map(({ to, Component }) => (
-        <Route key={to} exact path={to} component={Component} />
-      ))}
       <Route path="/support/thank-you" component={ThankYou} />
-      <Route path="/support" component={TypeChoice} />
+      <Route path="/support" component={SupportForm} />
     </Switch>
   </div>
 );

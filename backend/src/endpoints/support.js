@@ -10,7 +10,7 @@ const TYPES_STRING = {
 
 
 module.exports = (request, response) => {
-  const { email, message, type } = parseRequest(request);
+  const { configuration, email, input, message, output, type } = parseRequest(request);
 
   const emailJson = {
     from: {
@@ -19,15 +19,35 @@ module.exports = (request, response) => {
     to: OUR_EMAIL,
     subject: `R-Factor | ${TYPES_STRING[type]}`,
     text: message,
-    // attachments: [
-    //   {
-    //     filename: `${year}.json`,
-    //     type: 'text/json',
-    //     disposition: 'attachment',
-    //     content: btoa(file)
-    //   }
-    // ]
+    attachments: []
   };
+
+  if (configuration) {
+    emailJson.attachments.push({
+      filename: 'configuration.js',
+      type: 'text/json',
+      disposition: 'attachment',
+      content: btoa(configuration)
+    });
+  }
+
+  if (input) {
+    emailJson.attachments.push({
+      filename: 'input.js',
+      type: 'text/json',
+      disposition: 'attachment',
+      content: btoa(input)
+    });
+  }
+
+  if (output) {
+    emailJson.attachments.push({
+      filename: 'output.js',
+      type: 'text/json',
+      disposition: 'attachment',
+      content: btoa(output)
+    });
+  }
 
   sgMail.send(emailJson)
     .then(() => response.send({ ok: true }))
@@ -40,8 +60,11 @@ module.exports = (request, response) => {
 };
 
 const parseRequest = ({ body }) => ({
+  configuration: body.configuration,
   email: body.email,
+  input: body.input,
   message: body.message,
+  output: body.output,
   type: body.type
 });
 
