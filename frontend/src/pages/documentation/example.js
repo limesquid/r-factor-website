@@ -1,28 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Dropdown from 'reactstrap/lib/Dropdown';
-import DropdownItem from 'reactstrap/lib/DropdownItem';
-import DropdownMenu from 'reactstrap/lib/DropdownMenu';
-import DropdownToggle from 'reactstrap/lib/DropdownToggle';
+import Button from 'reactstrap/lib/Button';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
+import Modal from 'reactstrap/lib/Modal';
+import ModalBody from 'reactstrap/lib/ModalBody';
+import ModalHeader from 'reactstrap/lib/ModalHeader';
 import Code from 'components/code';
 
-const views = [
-  { id: 'side-by-side', name: 'Side by side' },
-  { id: 'stacking', name: 'Stacking' },
-  { id: 'input', name: 'Input' },
-  { id: 'output', name: 'Output' }
-];
-
 const initialState = {
-  isDropdownOpen: false,
-  viewId: views[0].id
+  isOpen: false
 };
 
 class Example extends Component {
   static propTypes = {
-    index: PropTypes.number.isRequired,
+    config: PropTypes.string,
     input: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     output: PropTypes.string.isRequired
@@ -33,75 +25,56 @@ class Example extends Component {
     this.state = initialState;
   }
 
-  onChangeView = (viewId) => this.setState({ viewId });
-
-  onDropdownToggle = () => this.setState((prevState) => ({
-    isDropdownOpen: !prevState.isDropdownOpen
-  }));
+  onToggle = (event) => {
+    event.preventDefault();
+    this.setState((prevState) => ({
+      isOpen: !prevState.isOpen
+    }));
+  };
 
   render() {
-    const { index, input, output, name } = this.props;
-    const { isDropdownOpen, viewId } = this.state;
-    const viewName = views.find(({ id }) => id === viewId).name;
-
-    const header = (
-      <Col xs={12}>
-        <div className="d-flex justify-content-between align-items-end">
-          <h4>{index + 1}. {name}</h4>
-
-          <Dropdown
-            className="mb-2"
-            direction="left"
-            isOpen={isDropdownOpen}
-            size="sm"
-            toggle={this.onDropdownToggle}>
-            <DropdownToggle caret>
-              {viewName}
-            </DropdownToggle>
-            <DropdownMenu>
-              {views.map((view) => (
-                <DropdownItem
-                  key={view.id}
-                  active={view.id === viewId}
-                  onClick={() => this.onChangeView(view.id)}>
-                  {view.name}
-                </DropdownItem>
-              ))}
-            </DropdownMenu>
-          </Dropdown>
-        </div>
-      </Col>
-    );
-
-    if ([ 'input', 'output' ].includes(viewId)) {
-      return (
-        <Row className="mb-2">
-          {header}
-
-          <Col>
-            <h5>{viewName}</h5>
-            <Code disabled value={viewId === 'input' ? input : output} />
-          </Col>
-        </Row>
-      );
-    }
-
-    const codeColumns = viewId === 'stacking' ? 12 : 6;
+    const { config, input, output, name } = this.props;
+    const { isOpen } = this.state;
 
     return (
-      <Row className="mb-2">
-        {header}
+      <Fragment>
+        <li>
+          <Button className="py-0" color="link" onClick={this.onToggle}>
+            {name}
+          </Button>
+        </li>
 
-        <Col sm={codeColumns}>
-          <h5>Input</h5>
-          <Code disabled value={input} />
-        </Col>
+        <Modal isOpen={isOpen} size="lg" toggle={this.onToggle}>
+          <ModalHeader toggle={this.onToggle}>
+            {name}
+          </ModalHeader>
 
-        <Col sm={codeColumns}>
-          <h5>Output</h5>
-          <Code disabled value={output} />
-        </Col>
-      </Row>
+          <ModalBody>
+            {config && (
+              <Row>
+                <Col className="codemirror-height-auto">
+                  <h5>Custom config</h5>
+                  <Code autoHeight disabled value={config} />
+                </Col>
+              </Row>
+            )}
+
+            <Row>
+              <Col className="codemirror-height-auto">
+                <h5>Input</h5>
+                <Code autoHeight disabled value={input} />
+              </Col>
+            </Row>
+
+            <Row>
+              <Col className="codemirror-height-auto">
+                <h5>Output</h5>
+                <Code autoHeight disabled value={output} />
+              </Col>
+            </Row>
+          </ModalBody>
+        </Modal>
+      </Fragment>
     );
   }
 }

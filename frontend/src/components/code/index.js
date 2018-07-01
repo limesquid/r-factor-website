@@ -25,6 +25,7 @@ export const sanitize = (code, lineSeparator = defaultOptions.lineSeparator) => 
 
 class Code extends Component {
   static propTypes = {
+    autoHeight: PropTypes.bool,
     disabled: PropTypes.bool,
     isLoading: PropTypes.bool,
     options: PropTypes.object,
@@ -72,17 +73,21 @@ class Code extends Component {
   };
 
   render() {
-    const { disabled, isLoading, options } = this.props;
+    const { autoHeight, disabled, isLoading, options } = this.props;
+    const finalOptions = {
+      ...defaultOptions,
+      ...options,
+      cursorHeight: disabled ? 0 : 1
+    };
+    if (autoHeight) {
+      finalOptions.viewportMargin = Infinity;
+    }
 
     return (
       <div className="position-relative">
         <CodeMirror
           className={classNames('border border-light mb-4', { blurred: isLoading })}
-          options={{
-            ...defaultOptions,
-            cursorHeight: disabled ? 0 : 1,
-            ...options
-          }}
+          options={finalOptions}
           value={this.state.value}
           onBeforeChange={this.onBeforeChange}
           onChange={this.onChange} />

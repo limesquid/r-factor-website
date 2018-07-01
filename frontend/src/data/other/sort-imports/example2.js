@@ -18,8 +18,13 @@ import Button from './Button';
 import Modal from './Modal';
 `;
 
+const config = `{
+  "modules-order": "alphabetic"
+}`;
+
 export default {
   name: 'Sorts imports alphabetically in separate groups',
+  config,
   input,
   output
 };

@@ -119,17 +119,16 @@ const Feature = ({ match }) => {
       </Row>
 
       {examples && examples.length > 0 && (
-        <Fragment>
-          <Row className="mb-2">
-            <Col>
-              <h3>Examples</h3>
-            </Col>
-          </Row>
-
-          {examples.map((example, index) => (
-            <Example key={index} {...example} index={index} />
-          ))}
-        </Fragment>
+        <Row className="mb-2">
+          <Col>
+            <h3>Examples</h3>
+            <ul>
+              {examples.map((example, index) => (
+                <Example key={index} {...example} index={index} />
+              ))}
+            </ul>
+          </Col>
+        </Row>
       )}
     </Fragment>
   );

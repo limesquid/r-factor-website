@@ -10,8 +10,13 @@ import React from 'react';
 import { render } from 'react-dom';
 `;
 
+const config = `{
+  "modules-order": "alphabetic"
+}`;
+
 export default {
   name: 'Sorts imports alphabetically',
+  config,
   input,
   output
 };
