@@ -17,9 +17,9 @@ import { postSupport } from './api';
 
 const MIN_INPUT_LENGTH = 10;
 const typesOptions = [
-  { color: 'primary', label: 'Contact us', value: 'contact' },
-  { color: 'danger', label: 'Report an issue', value: 'issue' },
-  { color: 'success', label: 'Submit an idea', value: 'idea' }
+  { label: 'Contact us', value: 'contact' },
+  { label: 'Submit an idea', value: 'idea' },
+  { label: 'Report an issue', value: 'issue' }
 ];
 
 class SupportForm extends Component {
@@ -56,8 +56,8 @@ class SupportForm extends Component {
     } else {
       this.setState({ isSending: true, error: null });
       try {
-        const { attachCode, email, message, input, output, type } = this.state;
-        const data = { attachCode, email, message, input, output, type };
+        const { configuration, email, message, input, output, type } = this.state;
+        const data = { configuration, email, message, input, output, type };
         await postSupport(data);
         this.setState({ isSending: false, redirect: '/support/thank-you' });
       } catch (error) {
@@ -135,7 +135,6 @@ class SupportForm extends Component {
               <div
                 className={classNames(
                   'd-flex',
-                  'mb-2',
                   {
                     invisible: !allowCode
                   }
@@ -145,7 +144,7 @@ class SupportForm extends Component {
                   className="mr-4 text-muted"
                   checked={attachConfiguration}
                   id="attach-configuration"
-                  label="Attach configuration"
+                  label="Attach configuration file"
                   name="attach-configuration"
                   onChange={this.onAttachConfigurationChange} />
 
@@ -154,7 +153,7 @@ class SupportForm extends Component {
                   className="text-muted"
                   checked={attachCode}
                   id="attach-code"
-                  label="Attach code"
+                  label="Attach input / expected output"
                   name="attach-code"
                   onChange={this.onAttachCodeChange} />
               </div>

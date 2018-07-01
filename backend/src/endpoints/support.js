@@ -1,30 +1,50 @@
 const sgMail = require('@sendgrid/mail');
 
 const OUR_EMAIL = 'r.factor.js@gmail.com';
+const MAX_CODE_LENGTH = 4000;
+const MAX_MESSAGE_LENGTH = 4000;
+const TOO_LONG_MESSAGE = [
+  `Come on, that's an essay. TLDR. Please don't send messages longer than ${MAX_MESSAGE_LENGTH} characters.`
+].join(' ');
+const TOO_LONG_INPUT_MESSAGE = [
+  `You cannot submit more than ${MAX_CODE_LENGTH} characters as configuration, input code or expected output.`,
+  'Please make your samples concise.'
+].join(' ');
 
 const TYPES_STRING = {
-  bug: 'Bug',
+  issue: 'Issue',
   contact: 'Contact',
   idea: 'Idea'
 };
 
-
 module.exports = (request, response) => {
   const { configuration, email, input, message, output, type } = parseRequest(request);
 
+  const files = [ configuration, input, output ];
+  if (files.some((file) => file.length > MAX_CODE_LENGTH)) {
+    return response.status(400).send(TOO_LONG_INPUT_MESSAGE);
+  }
+
+  if (message.length > MAX_MESSAGE_LENGTH) {
+    return response.status(400).send(TOO_LONG_MESSAGE);
+  }
+
   const emailJson = {
     from: {
-      email: OUR_EMAIL || email
+      email: OUR_EMAIL
     },
     to: OUR_EMAIL,
     subject: `R-Factor | ${TYPES_STRING[type]}`,
-    text: message,
+    text: [
+      `Email: ${email}`,
+      `Message: ${message}`
+    ].join('\n\n\n'),
     attachments: []
   };
 
   if (configuration) {
     emailJson.attachments.push({
-      filename: 'configuration.js',
+      filename: 'configuration',
       type: 'text/json',
       disposition: 'attachment',
       content: btoa(configuration)
@@ -33,7 +53,7 @@ module.exports = (request, response) => {
 
   if (input) {
     emailJson.attachments.push({
-      filename: 'input.js',
+      filename: 'input',
       type: 'text/json',
       disposition: 'attachment',
       content: btoa(input)
@@ -42,7 +62,7 @@ module.exports = (request, response) => {
 
   if (output) {
     emailJson.attachments.push({
-      filename: 'output.js',
+      filename: 'output',
       type: 'text/json',
       disposition: 'attachment',
       content: btoa(output)
@@ -52,7 +72,6 @@ module.exports = (request, response) => {
   sgMail.send(emailJson)
     .then(() => response.send({ ok: true }))
     .catch((error) => {
-      console.log(error.toString());
       response.status(500).send(error.toString());
     });
 
