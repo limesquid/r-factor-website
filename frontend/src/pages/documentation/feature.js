@@ -122,7 +122,7 @@ const Feature = ({ match }) => {
         <Row className="mb-2">
           <Col>
             <h3>Examples</h3>
-            <ul>
+            <ul className="text-muted">
               {examples.map((example, index) => (
                 <Example key={index} {...example} index={index} />
               ))}

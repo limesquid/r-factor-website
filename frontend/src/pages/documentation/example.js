@@ -39,7 +39,10 @@ class Example extends Component {
     return (
       <Fragment>
         <li>
-          <Button className="py-0" color="link" onClick={this.onToggle}>
+          <Button
+            className="p-0 border-0 align-baseline"
+            color="link"
+            onClick={this.onToggle}>
             {name}
           </Button>
         </li>
