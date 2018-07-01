@@ -5,6 +5,7 @@ import Row from 'reactstrap/lib/Row';
 import EndOfLine from './end-of-line';
 import FunctionalComponentType from './functional-component-type';
 import Indent from './indent';
+import ModulesOrder from './modules-order';
 import Quotes from './quotes';
 import Semicolons from './semicolons';
 import Superclass from './superclass';
@@ -28,6 +29,11 @@ class Settings extends Component {
   onIndentChange = (indent) => this.props.onChange({
     ...this.props.settings,
     indent
+  });
+
+  onModulesOrderChange = (modulesOrder) => this.props.onChange({
+    ...this.props.settings,
+    'modules-order': modulesOrder
   });
 
   onQuotesChange = (quotes) => this.props.onChange({
@@ -79,6 +85,11 @@ class Settings extends Component {
           <FunctionalComponentType
             value={settings['functional-component-type']}
             onChange={this.onFunctionalComponentTypeChange} />
+        </Col>
+        <Col>
+          <ModulesOrder
+            value={settings['modules-order']}
+            onChange={this.onModulesOrderChange} />
         </Col>
       </Row>
     );

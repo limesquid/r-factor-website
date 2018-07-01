@@ -19,6 +19,6 @@ export default {
   ),
   setting: {
     type: 'String',
-    defaultValue: '"arrow"'
+    defaultValue: 'arrow'
   }
 };

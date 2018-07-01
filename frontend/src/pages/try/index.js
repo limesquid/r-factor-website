@@ -9,17 +9,16 @@ import Code, { sanitize } from 'components/code';
 import RefactoringsSelect from 'components/refactorings-select';
 import Settings from 'components/settings';
 import defaultCode from './default-code';
-import { reactFeatures } from 'data';
+import { reactFeatures, configurationFeatures } from 'data';
 import { postRefactor } from './api';
 
-const defaultSettings = {
-  'component-superclass': 'Component',
-  'end-of-line': '\n',
-  'functional-component-type': 'arrow',
-  indent: 2,
-  quotes: 'single',
-  semicolons: true
-};
+const defaultSettings = configurationFeatures.reduce(
+  (settings, feature) => ({
+    ...settings,
+    [feature.id]: feature.setting.defaultValue
+  }),
+  {}
+);
 
 class TryPage extends Component {
   constructor(props) {

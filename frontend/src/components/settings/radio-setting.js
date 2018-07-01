@@ -6,6 +6,7 @@ import Label from 'reactstrap/lib/Label';
 
 class RadioSetting extends Component {
   static propTypes = {
+    children: PropTypes.node,
     id: PropTypes.any,
     label: PropTypes.any,
     options: PropTypes.array.isRequired,
@@ -16,7 +17,7 @@ class RadioSetting extends Component {
   createOnChange = (value) => () => this.props.onChange(value);
 
   render() {
-    const { id, label, options, value } = this.props;
+    const { children, id, label, options, value } = this.props;
 
     return (
       <FormGroup>
@@ -24,7 +25,7 @@ class RadioSetting extends Component {
           {label}
         </Label>
 
-        <div className="text-muted">
+        <div className="position-relative text-muted">
           {options.map((option) => (
             <CustomInput
               key={option.value}
@@ -36,6 +37,8 @@ class RadioSetting extends Component {
               value={option.value}
               onChange={this.createOnChange(option.value)} />
           ))}
+
+          {children}
         </div>
       </FormGroup>
     );

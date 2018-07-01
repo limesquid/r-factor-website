@@ -35,7 +35,7 @@ const WhatIs = () => (
         <Link href="/documentation/sort-imports" label="Sort imports" />
         {' & '}
         <Link href="/documentation/sort-object-attributes" label="Sort object attributes" />
-        {' .'}
+        .
       </p>
       <p>
         As I am writing this we have over 30 ideas for other features, which would take months

@@ -38,7 +38,9 @@ const Setting = ({ id, setting }) => (
           <h6>
             <Badge color="primary">Default value</Badge>
             &nbsp;&nbsp;&nbsp;
-            <code style={{ whiteSpace: 'pre' }}>{setting.defaultValue}</code>
+            <code style={{ whiteSpace: 'pre' }}>
+              {JSON.stringify(setting.defaultValue, null, 2)}
+            </code>
           </h6>
         </div>
       </Col>
