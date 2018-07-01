@@ -24,6 +24,6 @@ export default {
   ),
   setting: {
     type: 'String',
-    defaultValue: '"single"'
+    defaultValue: 'single'
   }
 };

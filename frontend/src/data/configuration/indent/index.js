@@ -24,6 +24,6 @@ export default {
       'String',
       'Number'
     ],
-    defaultValue: '2'
+    defaultValue: 2
   }
 };

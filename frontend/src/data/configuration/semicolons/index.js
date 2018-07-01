@@ -10,6 +10,6 @@ export default {
   ),
   setting: {
     type: 'Boolean',
-    defaultValue: 'true'
+    defaultValue: true
   }
 };

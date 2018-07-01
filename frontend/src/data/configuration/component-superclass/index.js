@@ -16,6 +16,6 @@ export default {
   ),
   setting: {
     type: 'String',
-    defaultValue: '"Component"'
+    defaultValue: 'Component'
   }
 };

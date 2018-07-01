@@ -1,23 +1,23 @@
 import React, { Fragment } from 'react';
 
-const defaultValue = `[
-  "react",
-  "react-dom",
-  "prop-types",
-  "classnames",
-  "lodash",
-  "lodash-es",
-  "underscore",
-  "redux-saga",
-  "redux-saga/effects",
-  "react-redux",
-  "react-router-redux",
-  "redux-actions",
-  "reselect",
-  "re-reselect",
-  "react-router-dom",
-  "react-hot-loader"
-]`;
+const defaultValue = [
+  'react',
+  'react-dom',
+  'prop-types',
+  'classnames',
+  'lodash',
+  'lodash-es',
+  'underscore',
+  'redux-saga',
+  'redux-saga/effects',
+  'react-redux',
+  'react-router-redux',
+  'redux-actions',
+  'reselect',
+  're-reselect',
+  'react-router-dom',
+  'react-hot-loader'
+];
 
 export default {
   id: 'modules-order',

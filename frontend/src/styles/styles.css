@@ -3,6 +3,10 @@ body {
   padding: 120px 0;
 }
 
+.CodeMirror {
+  font-size: 12px;
+}
+
 .codemirror-height-auto .CodeMirror {
   height: auto;
 }
