@@ -10,6 +10,7 @@ import RefactoringsSelect from 'components/refactorings-select';
 import Settings from 'components/settings';
 import defaultCode from './default-code';
 import { reactFeatures, configurationFeatures } from 'data';
+import { formatError } from 'utils';
 import { postRefactor } from './api';
 
 const defaultSettings = configurationFeatures.reduce(
@@ -51,11 +52,7 @@ class TryPage extends Component {
       const refactoredCode = await response.text();
       this.setState({ isRefactoring: false, refactoredCode });
     } catch (error) {
-      let formattedError = 'Network error occurred. Check your internet connection and try again.';
-      if (Array.isArray(error)) {
-        formattedError = error.split('\n').filter(Boolean).map((line) => `// ${line}`).join('\n');
-      }
-      this.setState({ isRefactoring: false, refactoredCode: formattedError });
+      this.setState({ isRefactoring: false, refactoredCode: formatError(error) });
     }
   };
 
