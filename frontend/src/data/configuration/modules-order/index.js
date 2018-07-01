@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const defaultValue = `[
   "react",
@@ -24,26 +24,27 @@ export default {
   name: 'Modules order',
   summary: (
     <span>
-      Order used when sorting <code>import</code> statements.
+      What order to use when sorting imports.
     </span>
   ),
   description: (
-    <span>
-      When you provide an <code>Array</code> each <code>String</code> in it corresponds
-      to a module name. <code>import</code> statements will be sorted according to specified order
-      of modules. Modules that do not appear on the list will be moved to the bottom
-      of <code>import</code> statements block at the top of the file.
-    </span>
+    <Fragment>
+      <p>
+        When you set the value to an <code>Array</code> each <code>String</code> in it corresponds
+        to a module name. <code>import</code> statements will be sorted according to specified order
+        of modules. Modules that do not appear on the list will be moved to the bottom
+        of <code>import</code> statements block at the top of the file.
+      </p>
+      <p>
+        Set the value to <code>"alphabetic"</code> for lexicographical sorting by module name.
+      </p>
+    </Fragment>
   ),
   setting: {
     type: [
       'String',
       'Array'
     ],
-    defaultValue,
-    possibleValues: [
-      <span key="0"><code>"alphabetic"</code> - lexicographical sorting by module name</span>,
-      <span key="1"><code>[ "react" ]</code> - React import always first</span>
-    ]
+    defaultValue
   }
 };

@@ -1,23 +1,24 @@
-import React from 'react';
-import Link from 'components/link';
+import React, { Fragment } from 'react';
 
 export default {
   id: 'functional-component-type',
   name: 'Functional component type',
   summary: (
     <span>
-      Which functional component notation to use when performing
-      {' '}
-      <Link href="/documentation/toggle-component-type" label="Toggle component type" />
-      .
+      Which functional component notation to use when toggling component type.
     </span>
+  ),
+  description: (
+    <Fragment>
+      <span>Possible values are:</span>
+      <ul>
+        <li><code>"arrow"</code> - arrow function notation</li>
+        <li><code>"function"</code> - function declaration notation</li>
+      </ul>
+    </Fragment>
   ),
   setting: {
     type: 'String',
-    defaultValue: '"arrow"',
-    possibleValues: [
-      <code key="0">"arrow"</code>,
-      <code key="1">"function"</code>
-    ]
+    defaultValue: '"arrow"'
   }
 };

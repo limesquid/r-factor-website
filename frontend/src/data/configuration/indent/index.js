@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 export default {
   id: 'indent',
@@ -8,16 +8,22 @@ export default {
       Indent characters(s).
     </span>
   ),
+  description: (
+    <Fragment>
+      <p>
+        Set the value to <code>"tab"</code> to use 1-tab indentation.
+        Set the value to an integer to use space indentation of that size.
+      </p>
+      <p>
+        Configuration mimics the one in <a href="https://eslint.org/docs/rules/indent">ESLint</a>.
+      </p>
+    </Fragment>
+  ),
   setting: {
     type: [
       'String',
       'Number'
     ],
-    defaultValue: '2',
-    possibleValues: [
-      <span key="0"><code>"tab"</code> - 1 tab indent</span>,
-      <span key="1"><code>2</code> - 2 spaces indent</span>,
-      <span key="2"><code>4</code> - 4 spaces indent</span>
-    ]
+    defaultValue: '2'
   }
 };

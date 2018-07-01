@@ -7,7 +7,6 @@ export default {
   summary: (
     <span>
       Turns your component to either class or functional component of type defined in settings.
-      It uses "<i>Convert to X</i>" refactorings.
     </span>
   ),
   actions: (
@@ -42,6 +41,10 @@ export default {
   worksWith: [ 'arrow', 'class', 'function' ],
   examples: [],
   configuration: [
-    'functional-component-type'
+    'component-superclass',
+    'end-of-line',
+    'functional-component-type',
+    'indent',
+    'semicolons'
   ]
 };
