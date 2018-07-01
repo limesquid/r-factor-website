@@ -49,14 +49,6 @@ module.exports = {
   },
   plugins: [
     IS_DEV_ENV && new StartServerPlugin(BUNDLE_DIST),
-    IS_DEV_ENV && new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        API_HOST: JSON.stringify(process.env.API_HOST),
-        API_PORT: JSON.stringify(process.env.API_PORT),
-        BIN_PATH: JSON.stringify(process.env.BIN_PATH),
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-      }
-    })
+    IS_DEV_ENV && new webpack.HotModuleReplacementPlugin()
   ].filter(Boolean)
 };

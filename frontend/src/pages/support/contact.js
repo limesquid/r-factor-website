@@ -41,7 +41,7 @@ class Contact extends Component {
       this.setState({ isSending: true, error: null });
       try {
         const { email, message } = this.state;
-        await postSupport({ email, message });
+        await postSupport({ email, message, type: 'contact' });
         this.setState({ isSending: false, redirect: '/support/thank-you' });
       } catch (error) {
         this.setState({ isSending: false, error: formatError(error) });
