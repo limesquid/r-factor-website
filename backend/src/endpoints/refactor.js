@@ -1,4 +1,4 @@
-import { spawn } from 'child_process';
+const { spawn } = require('child_process');
 
 const MAX_CODE_LENGTH = 4000;
 const TIMEOUT = 30 * 1000;
@@ -32,7 +32,7 @@ const REFACTORINGS = [
   'disconnect-merge-props'
 ];
 
-export default (request, response) => {
+module.exports = (request, response) => {
   const { code, refactoring, settings } = parseRequest(request);
 
   if (!REFACTORINGS.includes(refactoring)) {
