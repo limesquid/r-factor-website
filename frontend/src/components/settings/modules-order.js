@@ -8,6 +8,8 @@ import ModalHeader from 'reactstrap/lib/ModalHeader';
 import RadioSetting from './radio-setting';
 import Code from 'components/code';
 
+const width = 135;
+
 const options = [
   { label: 'Custom', value: 'custom' },
   { label: 'Alphabetic', value: 'alphabetic' }
@@ -46,7 +48,6 @@ class ModulesOrder extends Component {
     if (modulesOrder === 'alphabetic') {
       onChange(modulesOrder);
     } else {
-      console.log('asd');
       onChange(customOrderToJson(this.state.customOrder));
     }
   };
@@ -65,7 +66,7 @@ class ModulesOrder extends Component {
     const radioValue = isAlphabetic ? value : 'custom';
 
     return (
-      <div>
+      <div style={{ minWidth: width, maxWidth: width }}>
         <RadioSetting
           id="modules-order-select"
           label="Modules order"
