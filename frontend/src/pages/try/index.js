@@ -11,7 +11,6 @@ import Settings from 'components/settings';
 import defaultCode from './default-code';
 import { reactFeatures } from 'data';
 import { postRefactor } from './api';
-import './styles.css';
 
 const defaultSettings = {
   'component-superclass': 'Component',
@@ -148,7 +147,8 @@ class TryPage extends Component {
             </h3>
             <Code
               disabled
-              options={{ lineSeparator, tabSize, viewportMargin: Infinity }}
+              autoHeight
+              options={{ lineSeparator, tabSize }}
               value={generatedSettings} />
           </Col>
         </Row>
