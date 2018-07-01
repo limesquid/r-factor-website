@@ -6,3 +6,24 @@ body {
 .codemirror-height-auto .CodeMirror {
   height: auto;
 }
+.modal-lg {
+  max-width: 980px !important;
+}
+
+@media (max-width: 992px) {
+  .modal-lg {
+    max-width: calc(100% - 1em) !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .hide-md {
+    display: none !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .hide-lg {
+    display: none !important;
+  }
+}

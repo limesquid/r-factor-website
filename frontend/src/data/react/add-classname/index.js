@@ -45,6 +45,7 @@ export default {
   configuration: [
     'end-of-line',
     'indent',
-    'quotes'
+    'quotes',
+    'semicolons'
   ]
 };

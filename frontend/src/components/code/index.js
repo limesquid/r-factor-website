@@ -79,12 +79,13 @@ class Code extends Component {
       ...options,
       cursorHeight: disabled ? 0 : 1
     };
+
     if (autoHeight) {
       finalOptions.viewportMargin = Infinity;
     }
 
     return (
-      <div className="position-relative">
+      <div className={classNames('position-relative', { 'codemirror-height-auto': autoHeight })}>
         <CodeMirror
           className={classNames('border border-light mb-4', { blurred: isLoading })}
           options={finalOptions}
