@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 export default {
   id: 'quotes',
@@ -9,18 +9,21 @@ export default {
     </span>
   ),
   description: (
-    <span>
-      Configuration is the same as String option
-      in <a href="https://eslint.org/docs/rules/quotes">ESLint</a>.
-    </span>
+    <Fragment>
+      <span>Possible values are:</span>
+      <ul>
+        <li><code>"single"</code> - stands for <code>'</code></li>
+        <li><code>"double"</code> - stands for <code>"</code></li>
+        <li><code>"backtick"</code> - stands for <code>`</code></li>
+      </ul>
+      <p>
+        Configuration is the same as String option
+        in <a href="https://eslint.org/docs/rules/quotes">ESLint</a>.
+      </p>
+    </Fragment>
   ),
   setting: {
     type: 'String',
-    defaultValue: '"single"',
-    possibleValues: [
-      <span key="0"><code>"single"</code> - <code>'</code></span>,
-      <span key="1"><code>"double"</code> - <code>"</code></span>,
-      <span key="2"><code>"backtick"</code> - <code>`</code></span>
-    ]
+    defaultValue: '"single"'
   }
 };
