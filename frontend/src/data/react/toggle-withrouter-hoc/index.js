@@ -11,9 +11,9 @@ export default {
     </span>
   ),
   description: (
-    <span>
+    <p>
       If your component is not wrapped, it will be. If it is, it won't be. It's compatible with React Router 4.
-    </span>
+    </p>
   ),
   actions: (
     <React.Fragment>
