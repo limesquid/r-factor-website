@@ -15,15 +15,15 @@ const Setting = ({ id, setting }) => (
       <Col className="mb-4" lg={6} md={12}>
         <div className="mb-4">
           <h3>Interface</h3>
-          <div>
+          <h6>
             <Badge color="primary">Name</Badge>
-            {' '}
+            &nbsp;&nbsp;&nbsp;
             <code>{id}</code>
-          </div>
+          </h6>
 
-          <div>
+          <h6>
             <Badge color="primary">Type</Badge>
-            {' '}
+            &nbsp;&nbsp;&nbsp;
             {Array.isArray(setting.type) && (
               <code>
                 {setting.type.join(', ')}
@@ -33,13 +33,13 @@ const Setting = ({ id, setting }) => (
             {!Array.isArray(setting.type) && (
               <code>{setting.type}</code>
             )}
-          </div>
+          </h6>
 
-          <div>
+          <h6>
             <Badge color="primary">Default value</Badge>
-            {' '}
+            &nbsp;&nbsp;&nbsp;
             <code style={{ whiteSpace: 'pre' }}>{setting.defaultValue}</code>
-          </div>
+          </h6>
         </div>
       </Col>
 
