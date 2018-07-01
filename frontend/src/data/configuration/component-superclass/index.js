@@ -9,10 +9,10 @@ export default {
     </span>
   ),
   description: (
-    <span>
+    <p>
       You can choose between <code>"Component"</code> & <code>"PureComponent"</code>.
       It will be imported from <code>react</code> module.
-    </span>
+    </p>
   ),
   setting: {
     type: 'String',

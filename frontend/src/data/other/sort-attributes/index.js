@@ -11,7 +11,9 @@ export default {
     </span>
   ),
   description: (
-    <span>Works with nested objects. Keeps multiline objects multiline, and inline objects inline.</span>
+    <p>
+      Works with nested objects. Keeps multiline objects multiline, and inline objects inline.
+    </p>
   ),
   worksWith: [ 'object-literal' ],
   examples: [

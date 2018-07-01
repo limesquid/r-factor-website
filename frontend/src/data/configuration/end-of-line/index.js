@@ -9,9 +9,9 @@ export default {
     </span>
   ),
   description: (
-    <span>
+    <p>
       Use <code>"\n"</code> for Unix style line endings & <code>"\r\n"</code> for Windows style line endings.
-    </span>
+    </p>
   ),
   setting: {
     type: 'String',

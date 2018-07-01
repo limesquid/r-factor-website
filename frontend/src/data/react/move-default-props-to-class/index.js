@@ -12,12 +12,12 @@ export default {
     </span>
   ),
   description: (
-    <span>
+    <p>
       An inverse of
       {' '}
       <Link href="/documentation/move-default-props-out-of-class" label="Move defaultProps out of class" />
       .
-    </span>
+    </p>
   ),
   worksWith: [ 'class' ],
   dependencies: [
