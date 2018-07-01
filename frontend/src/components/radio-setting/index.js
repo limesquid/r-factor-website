@@ -10,7 +10,7 @@ class RadioSetting extends Component {
     id: PropTypes.any,
     label: PropTypes.any,
     options: PropTypes.array.isRequired,
-    value: PropTypes.any.isRequired,
+    value: PropTypes.any,
     onChange: PropTypes.func.isRequired
   };
 

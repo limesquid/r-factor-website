@@ -1,5 +1,5 @@
 import React from 'react';
-import RadioSetting from './radio-setting';
+import RadioSetting from 'components/radio-setting';
 
 const options = [
   { label: '2 spaces', value: 2 },

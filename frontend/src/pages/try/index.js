@@ -101,6 +101,7 @@ class TryPage extends Component {
               </div>
             </h3>
             <Code
+              className="mb-4"
               options={{ lineSeparator, tabSize }}
               value={code}
               onChange={this.onCodeChange} />
@@ -114,6 +115,7 @@ class TryPage extends Component {
               </Button>
             </h3>
             <Code
+              className="mb-4"
               disabled
               isLoading={isRefactoring}
               options={{ lineSeparator, tabSize }}
@@ -142,6 +144,7 @@ class TryPage extends Component {
               </Button>
             </h3>
             <Code
+              className="mb-4"
               disabled
               autoHeight
               options={{ lineSeparator, tabSize }}

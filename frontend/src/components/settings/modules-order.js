@@ -5,7 +5,7 @@ import Modal from 'reactstrap/lib/Modal';
 import ModalBody from 'reactstrap/lib/ModalBody';
 import ModalFooter from 'reactstrap/lib/ModalFooter';
 import ModalHeader from 'reactstrap/lib/ModalHeader';
-import RadioSetting from './radio-setting';
+import RadioSetting from 'components/radio-setting';
 import Code from 'components/code';
 
 const width = 135;

@@ -26,6 +26,7 @@ export const sanitize = (code, lineSeparator = defaultOptions.lineSeparator) => 
 class Code extends Component {
   static propTypes = {
     autoHeight: PropTypes.bool,
+    className: PropTypes.string,
     disabled: PropTypes.bool,
     isLoading: PropTypes.bool,
     options: PropTypes.object,
@@ -73,7 +74,7 @@ class Code extends Component {
   };
 
   render() {
-    const { autoHeight, disabled, isLoading, options } = this.props;
+    const { autoHeight, className, disabled, isLoading, options } = this.props;
     const finalOptions = {
       ...defaultOptions,
       ...options,
@@ -87,7 +88,7 @@ class Code extends Component {
     return (
       <div className={classNames('position-relative', { 'codemirror-height-auto': autoHeight })}>
         <CodeMirror
-          className={classNames('border border-light mb-4', { blurred: isLoading })}
+          className={classNames('border border-light', className, { blurred: isLoading })}
           options={finalOptions}
           value={this.state.value}
           onBeforeChange={this.onBeforeChange}
