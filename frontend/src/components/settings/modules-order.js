@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Button from 'reactstrap/lib/Button';
-import Input from 'reactstrap/lib/Input';
 import Modal from 'reactstrap/lib/Modal';
 import ModalBody from 'reactstrap/lib/ModalBody';
 import ModalFooter from 'reactstrap/lib/ModalFooter';
 import ModalHeader from 'reactstrap/lib/ModalHeader';
 import RadioSetting from './radio-setting';
-import PropTypes from 'prop-types';
+import Code from 'components/code';
 
 const options = [
-  { label: 'Alphabetic', value: 'alphabetic' },
-  { label: 'Custom', value: 'custom' }
+  { label: 'Custom', value: 'custom' },
+  { label: 'Alphabetic', value: 'alphabetic' }
 ];
 
 const customOrderToJson = (customOrder) => customOrder
@@ -36,11 +36,9 @@ class ModulesOrder extends Component {
     };
   }
 
-  onCustomOrderChange = (event) => {
-    const { onChange } = this.props;
-    const { value } = event.target;
+  onCustomOrderChange = (value) => {
     this.setState({ customOrder: value });
-    onChange(customOrderToJson(value));
+    this.props.onChange(customOrderToJson(value));
   };
 
   onRadioChange = (modulesOrder) => {
@@ -79,7 +77,7 @@ class ModulesOrder extends Component {
             color="link"
             disabled={isAlphabetic}
             style={{
-              bottom: 0,
+              top: -2,
               right: 0,
               paddingTop: 0,
               paddingBottom: 0,
@@ -96,14 +94,15 @@ class ModulesOrder extends Component {
           </ModalHeader>
 
           <ModalBody>
-            <Input
-              type="textarea"
-              name="custom-order"
-              rows={15}
+            <p className="text-muted">Enter each module name in a separate line.</p>
+
+            <Code
+              options={{
+                lineNumbers: false,
+                mode: 'text'
+              }}
               value={customOrder}
               onChange={this.onCustomOrderChange} />
-
-            <p className="mt-2">Enter each module name in a separate line.</p>
           </ModalBody>
 
           <ModalFooter>
