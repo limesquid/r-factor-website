@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Helmet } from 'react-helmet';
 import Button from 'reactstrap/lib/Button';
+import ThankYou from './thank-you';
 import TypeChoice from './type-choice';
 import routes from './routes';
 
@@ -27,6 +28,7 @@ const SupportPage = () => (
       {routes.map(({ to, Component }) => (
         <Route key={to} exact path={to} component={Component} />
       ))}
+      <Route path="/support/thank-you" component={ThankYou} />
       <Route path="/support" component={TypeChoice} />
     </Switch>
   </div>

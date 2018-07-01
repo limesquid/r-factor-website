@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 import { LinkContainer } from 'react-router-bootstrap';
 import Button from 'reactstrap/lib/Button';
 import routes from './routes';
