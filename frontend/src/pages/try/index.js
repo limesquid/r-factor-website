@@ -138,7 +138,7 @@ class TryPage extends Component {
             </Form>
           </Col>
 
-          <Col lg={6} className="codemirror-height-auto">
+          <Col lg={6}>
             <h3 className="d-flex justify-content-between">
               <span>Generated settings file</span>
               <Button color="link" data-clipboard-text={generatedSettings}>

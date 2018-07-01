@@ -52,7 +52,7 @@ class Example extends Component {
           <ModalBody>
             {config && (
               <Row>
-                <Col className="codemirror-height-auto">
+                <Col>
                   <h5>Custom config</h5>
                   <Code autoHeight disabled value={config} />
                 </Col>
@@ -60,16 +60,24 @@ class Example extends Component {
             )}
 
             <Row>
-              <Col className="codemirror-height-auto">
+              <Col md={12} className="hide-lg">
                 <h5>Input</h5>
                 <Code autoHeight disabled value={input} />
               </Col>
-            </Row>
 
-            <Row>
-              <Col className="codemirror-height-auto">
+              <Col md={12} className="hide-lg">
                 <h5>Output</h5>
                 <Code autoHeight disabled value={output} />
+              </Col>
+
+              <Col lg={6} className="hide-md">
+                <h5>Input</h5>
+                <Code disabled value={input} />
+              </Col>
+
+              <Col lg={6} className="hide-md">
+                <h5>Output</h5>
+                <Code disabled value={output} />
               </Col>
             </Row>
           </ModalBody>
