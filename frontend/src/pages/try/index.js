@@ -6,7 +6,7 @@ import Form from 'reactstrap/lib/Form';
 import Row from 'reactstrap/lib/Row';
 import { Helmet } from 'react-helmet';
 import Code, { sanitize } from 'components/code';
-import Recaptcha, { RECAPTCHA_HEIGHT } from 'components/recaptcha';
+import Recaptcha from 'components/recaptcha';
 import RefactoringsSelect from 'components/refactorings-select';
 import Settings from 'components/settings';
 import defaultCode from './default-code';
@@ -57,7 +57,9 @@ class TryPage extends Component {
     } catch (error) {
       this.setState({ isRefactoring: false, refactoredCode: formatError(error) });
     }
-    this.recaptchaRef.current && this.recaptchaRef.current.reset();
+    if (this.recaptchaRef.current) {
+      this.recaptchaRef.current.reset();
+    }
   };
 
   onResetCode = () => this.setState({ code: defaultCode });
@@ -83,14 +85,12 @@ class TryPage extends Component {
 
         <Row>
           <Col md={6}>
-            <div style={{ minHeight: RECAPTCHA_HEIGHT }}>
-              <h3>Refactoring</h3>
-              <RefactoringsSelect
-                disabled={isRefactoring}
-                value={refactoring}
-                onChange={this.onRefactoringChange}
-                onSubmit={this.onRefactor} />
-            </div>
+            <h3>Refactoring</h3>
+            <RefactoringsSelect
+              disabled={isRefactoring}
+              value={refactoring}
+              onChange={this.onRefactoringChange}
+              onSubmit={this.onRefactor} />
           </Col>
 
           <Col md={6}>
