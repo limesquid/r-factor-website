@@ -2,6 +2,7 @@ const { spawn } = require('child_process');
 
 const MAX_CODE_LENGTH = 4000;
 const TIMEOUT = 30 * 1000;
+const RECAPTCHA_MESSAGE = 'You did not pass reCAPTCHA.';
 const TIMEOUT_MESSAGE = `Refactoring timed out (${TIMEOUT / 1000}s).`;
 const UNKNOWN_REFACTORING_MESSAGE = 'Unknown refactoring method.';
 const TOO_LONG_INPUT_MESSAGE = [
@@ -34,6 +35,10 @@ const REFACTORINGS = [
 
 module.exports = (request, response) => {
   const { code, refactoring, settings } = parseRequest(request);
+
+  if (request.recaptcha.error) {
+    return response.status(400).send(RECAPTCHA_MESSAGE);
+  }
 
   if (!REFACTORINGS.includes(refactoring)) {
     return response.status(400).send(UNKNOWN_REFACTORING_MESSAGE);
