@@ -57,7 +57,7 @@ class TryPage extends Component {
     } catch (error) {
       this.setState({ isRefactoring: false, refactoredCode: formatError(error) });
     }
-    this.recaptchaRef.current.reset();
+    this.recaptchaRef.current && this.recaptchaRef.current.reset();
   };
 
   onResetCode = () => this.setState({ code: defaultCode });

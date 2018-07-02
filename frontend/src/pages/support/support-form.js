@@ -66,7 +66,7 @@ class SupportForm extends Component {
       } catch (error) {
         this.setState({ isSending: false, error: formatError(error) });
       }
-      this.recaptchaRef.current.reset();
+      this.recaptchaRef.current && this.recaptchaRef.current.reset();
     }
   };
 
