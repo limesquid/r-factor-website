@@ -17,7 +17,7 @@ const links = [
   { label: 'Try it', to: '/try' },
   { label: 'Documentation', to: '/documentation' },
   { label: 'Support', to: '/support' },
-  { label: 'License', to: '/license' }
+  { label: 'EULA', to: '/eula' }
 ];
 
 const isActive = ({ location, to }) => {

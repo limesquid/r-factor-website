@@ -4,10 +4,10 @@ import { Helmet } from 'react-helmet';
 import ReactRecaptcha from 'react-recaptcha';
 import Label from 'reactstrap/lib/Label';
 
-export const RECAPTCHA_HEIGHT = 132;
+export const RECAPTCHA_HEIGHT = 108;
 
 const Recaptcha = ({ className, recaptchaRef, onVerify }) => (
-  <div className={className}>
+  <div className={className} style={{ minHeight: RECAPTCHA_HEIGHT }}>
     <Label>We've heard you're a robot</Label>
     <ReactRecaptcha
       ref={recaptchaRef}
