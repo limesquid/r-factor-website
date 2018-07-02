@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { createRef, Component } from 'react';
 import Button from 'reactstrap/lib/Button';
 import Col from 'reactstrap/lib/Col';
 import Container from 'reactstrap/lib/Container';
@@ -6,6 +6,7 @@ import Form from 'reactstrap/lib/Form';
 import Row from 'reactstrap/lib/Row';
 import { Helmet } from 'react-helmet';
 import Code, { sanitize } from 'components/code';
+import Recaptcha, { RECAPTCHA_HEIGHT } from 'components/recaptcha';
 import RefactoringsSelect from 'components/refactorings-select';
 import Settings from 'components/settings';
 import defaultCode from './default-code';
@@ -24,8 +25,10 @@ const defaultSettings = configurationFeatures.reduce(
 class TryPage extends Component {
   constructor(props) {
     super(props);
+    this.recaptchaRef = createRef();
     this.state = {
       code: defaultCode,
+      'g-recaptcha-response': null,
       isRefactoring: false,
       refactoring: reactFeatures[0].id,
       refactoredCode: '// Click "Refactor" to see something',
@@ -46,14 +49,15 @@ class TryPage extends Component {
   onRefactor = async() => {
     this.setState({ isRefactoring: true });
     try {
-      const { code: oldCode, refactoring, settings } = this.state;
+      const { code: oldCode, refactoring, settings, 'g-recaptcha-response': recaptcha } = this.state;
       const code = sanitize(oldCode, settings['end-of-line']);
-      const response = await postRefactor({ code, refactoring, settings });
+      const response = await postRefactor({ code, refactoring, settings, 'g-recaptcha-response': recaptcha });
       const refactoredCode = await response.text();
       this.setState({ isRefactoring: false, refactoredCode });
     } catch (error) {
       this.setState({ isRefactoring: false, refactoredCode: formatError(error) });
     }
+    this.recaptchaRef.current.reset();
   };
 
   onResetCode = () => this.setState({ code: defaultCode });
@@ -61,6 +65,8 @@ class TryPage extends Component {
   onResetSettings = () => this.setState({ settings: defaultSettings });
 
   onSettingsChange = (settings) => this.setState({ settings });
+
+  onVerify = (recaptcha) => this.setState({ 'g-recaptcha-response': recaptcha });
 
   render() {
     const { code, isRefactoring, refactoring, refactoredCode, settings } = this.state;
@@ -77,12 +83,21 @@ class TryPage extends Component {
 
         <Row>
           <Col md={6}>
-            <h3>Refactoring</h3>
-            <RefactoringsSelect
-              disabled={isRefactoring}
-              value={refactoring}
-              onChange={this.onRefactoringChange}
-              onSubmit={this.onRefactor} />
+            <div style={{ minHeight: RECAPTCHA_HEIGHT }}>
+              <h3>Refactoring</h3>
+              <RefactoringsSelect
+                disabled={isRefactoring}
+                value={refactoring}
+                onChange={this.onRefactoringChange}
+                onSubmit={this.onRefactor} />
+            </div>
+          </Col>
+
+          <Col md={6}>
+            <Recaptcha
+              className="mb-4"
+              recaptchaRef={this.recaptchaRef}
+              onVerify={this.onVerify} />
           </Col>
         </Row>
 

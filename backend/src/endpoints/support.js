@@ -3,6 +3,7 @@ const sgMail = require('@sendgrid/mail');
 const OUR_EMAIL = 'r.factor.js@gmail.com';
 const MAX_CODE_LENGTH = 4000;
 const MAX_MESSAGE_LENGTH = 4000;
+const RECAPTCHA_MESSAGE = 'You did not pass reCAPTCHA.';
 const TOO_LONG_MESSAGE = [
   `Come on, that's an essay. TLDR. Please don't send messages longer than ${MAX_MESSAGE_LENGTH} characters.`
 ].join(' ');
@@ -19,6 +20,10 @@ const TYPES_STRING = {
 
 module.exports = (request, response) => {
   const { configuration, email, input, message, output, type } = parseRequest(request);
+
+  if (request.recaptcha.error) {
+    return response.status(400).send(RECAPTCHA_MESSAGE);
+  }
 
   const files = [ configuration, input, output ];
   if (files.some((file) => file.length > MAX_CODE_LENGTH)) {
@@ -84,6 +89,7 @@ const parseRequest = ({ body }) => ({
   input: body.input,
   message: body.message,
   output: body.output,
+  response: body.response,
   type: body.type
 });
 

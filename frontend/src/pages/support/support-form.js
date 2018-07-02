@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { createRef, Component, Fragment } from 'react';
 import classNames from 'classnames';
 import { Redirect } from 'react-router-dom';
 import Button from 'reactstrap/lib/Button';
@@ -12,6 +12,7 @@ import Row from 'reactstrap/lib/Row';
 import isEmail from 'validator/lib/isEmail';
 import Code from 'components/code';
 import RadioSetting from 'components/radio-setting';
+import Recaptcha from 'components/recaptcha';
 import { formatError } from 'utils';
 import { postSupport } from './api';
 
@@ -25,12 +26,14 @@ const typesOptions = [
 class SupportForm extends Component {
   constructor(props) {
     super(props);
+    this.recaptchaRef = createRef();
     this.state = {
       attachCode: false,
       attachConfiguration: false,
       configuration: '',
       email: '',
       error: null,
+      'g-recaptcha-response': null,
       input: '',
       isSending: false,
       message: '',
@@ -56,19 +59,35 @@ class SupportForm extends Component {
     } else {
       this.setState({ isSending: true, error: null });
       try {
-        const { configuration, email, message, input, output, type } = this.state;
-        const data = { configuration, email, message, input, output, type };
+        const { configuration, email, message, input, output, 'g-recaptcha-response': recaptcha, type } = this.state;
+        const data = { configuration, email, message, input, output, 'g-recaptcha-response': recaptcha, type };
         await postSupport(data);
         this.setState({ isSending: false, redirect: '/support/thank-you' });
       } catch (error) {
         this.setState({ isSending: false, error: formatError(error) });
       }
+      this.recaptchaRef.current.reset();
     }
   };
 
-  validate = () => {
-    const { attachCode, attachConfiguration, configuration, email, message, input, output, type } = this.state;
+  onVerify = (recaptcha) => this.setState({ 'g-recaptcha-response': recaptcha });
 
+  validate = () => {
+    const {
+      attachCode,
+      attachConfiguration,
+      'g-recaptcha-response': recaptcha,
+      configuration,
+      email,
+      message,
+      input,
+      output,
+      type
+    } = this.state;
+
+    if (!recaptcha) {
+      return 'You did not pass reCAPTCHA.';
+    }
     if (!type) {
       return 'Please indicate whether you\'re reporting an issue, submitting an idea or wanting to contact us.';
     }
@@ -186,6 +205,11 @@ class SupportForm extends Component {
                   Optional. You don't have to provide one if you don't want us to contact you.
                 </p>
               </FormGroup>
+
+              <Recaptcha
+                className="mb-4"
+                recaptchaRef={this.recaptchaRef}
+                onVerify={this.onVerify} />
 
               <Button color="primary" disabled={isSending} onClick={this.onSubmit}>
                 Submit
