@@ -27,29 +27,34 @@ const requirementsIcons = [
 ];
 
 const editorsIcons = [
+  { id: 'vscode', label: 'VSCode' },
+  { id: 'atom', label: 'Atom' },
   { id: 'sublime', label: 'Sublime Text 3' }
 ];
 
 const HomePage = () => (
   <Fragment>
     <Helmet>
-      <title>R-Factor - React & Redux Refactoring Tools for Sublime Text 3</title>
+      <title>R-Factor - React & Redux Refactoring Tools</title>
     </Helmet>
 
     <Row className="mb-5">
-      <Col>
-        <div className="d-flex align-items-center">
+      <Col className="d-flex align-items-center justify-content-between flex-wrap">
+        <div className="d-flex align-items-center mr-4">
           <img
             alt="R-Factor"
+            title="R-Factor"
             className="mr-3"
             src={transparentLogoUrl}
-            width="100" />
+            width="111" />
 
           <div>
-            <h1>R-Factor</h1>
-            <h4 className="mb-0">React & Redux Refactoring Tools for Sublime Text 3</h4>
+            <h1 className="mb-0 text-nowrap" style={{ fontSize: 46, fontWeight: 300 }}>R-Factor</h1>
+            <h4 className="mb-0" style={{ fontSize: 20, fontWeight: 300 }}>React & Redux Refactoring Tools</h4>
           </div>
         </div>
+
+        <Icons className="py-2 my-2" hideLabels icons={editorsIcons} size={64} />
       </Col>
     </Row>
 
