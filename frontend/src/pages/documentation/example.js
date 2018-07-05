@@ -54,7 +54,7 @@ class Example extends Component {
 
           <ModalBody>
             {config && (
-              <Row>
+              <Row className="mb-4">
                 <Col>
                   <h5>Custom config</h5>
                   <Code autoHeight disabled value={config} />

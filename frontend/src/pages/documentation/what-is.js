@@ -10,6 +10,7 @@ const WhatIs = () => (
     <div className="d-flex justify-content-center my-4">
       <img
         alt="R-Factor"
+        title="R-Factor"
         src={transparentLogoUrl}
         width={IMAGE_SIZE}
         height={IMAGE_SIZE} />

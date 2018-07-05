@@ -5,15 +5,17 @@ import LabeledIcon from 'components/labeled-icon';
 
 const ICON_SIZE = 48;
 const ICONS = {
+  atom: require('./atom.svg'),
   linux: require('./linux.svg'),
   macos: require('./macos.svg'),
   node: require('./node.svg'),
   python: require('./python.svg'),
   sublime: require('./sublime.svg'),
+  vscode: require('./vscode.svg'),
   windows: require('./windows.svg')
 };
 
-const Icons = ({ className, icons, ...props }) => (
+const Icons = ({ className, icons, hideLabels, size = ICON_SIZE, ...props }) => (
   <div className={classNames('d-flex', 'flex-wrap', className)} {...props}>
     {icons.map(({ id, label, subLabel }, index) => (
       <LabeledIcon
@@ -22,9 +24,10 @@ const Icons = ({ className, icons, ...props }) => (
           'ml-3': index > 0,
           'mr-3': index < icons.length - 1
         })}
+        hideLabels={hideLabels}
         label={label}
         subLabel={subLabel}>
-        <img alt={label} src={ICONS[id]} height={ICON_SIZE} />
+        <img alt={label} src={ICONS[id]} height={size} title={label} />
       </LabeledIcon>
     ))}
   </div>
@@ -32,11 +35,13 @@ const Icons = ({ className, icons, ...props }) => (
 
 Icons.propTypes = {
   className: PropTypes.string,
+  hideLabels: PropTypes.bool,
   icons: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     label: PropTypes.node.isRequired,
     subLabel: PropTypes.string
-  })).isRequired
+  })).isRequired,
+  size: PropTypes.number
 };
 
 export default Icons;
