@@ -1,27 +1,37 @@
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const express = require('express');
 const sgMail = require('@sendgrid/mail');
-const refactor = require('./endpoints/refactor');
-const support = require('./endpoints/support');
-const recaptcha = require('./recaptcha');
+const router = require('./router');
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const initializeSendgrid = () => sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const app = express();
+const createApp = () => {
+  const middlewares = [ useBodyParser, useCors, useRouter ];
+  return middlewares.reduce((app, middleware) => middleware(app), express());
+};
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+const useBodyParser = (app) => {
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
+  return app;
+};
 
-if (process.env.NODE_ENV === 'development') {
-  const cors = require('cors');
-  app.use(cors());
-}
+const useCors = (app) => {
+  if (process.env.NODE_ENV === 'development') {
+    app.use(cors());
+  }
+  return app;
+};
 
-app.post('/refactor', recaptcha.middleware.verify, refactor);
-app.post('/support', recaptcha.middleware.verify, support);
+const useRouter = (app) => {
+  app.use(router());
+  return app;
+};
 
-app.listen(process.env.API_PORT, () => {
+initializeSendgrid();
+
+createApp().listen(process.env.API_PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`Listening at ${process.env.API_HOST}:${process.env.API_PORT}/`);
 });
-

@@ -1,25 +1,17 @@
 const sgMail = require('@sendgrid/mail');
-
-const OUR_EMAIL = 'r.factor.js@gmail.com';
-const MAX_CODE_LENGTH = 4000;
-const MAX_MESSAGE_LENGTH = 4000;
-const RECAPTCHA_MESSAGE = 'You did not pass reCAPTCHA.';
-const TOO_LONG_MESSAGE = [
-  `Come on, that's an essay. TLDR. Please don't send messages longer than ${MAX_MESSAGE_LENGTH} characters.`
-].join(' ');
-const TOO_LONG_INPUT_MESSAGE = [
-  `You cannot submit more than ${MAX_CODE_LENGTH} characters as configuration, input code or expected output.`,
-  'Please make your samples concise.'
-].join(' ');
-
-const TYPES_STRING = {
-  issue: 'Issue',
-  contact: 'Contact',
-  idea: 'Idea'
-};
+const {
+  OUR_EMAIL,
+  MAX_CODE_LENGTH,
+  MAX_MESSAGE_LENGTH,
+  RECAPTCHA_MESSAGE,
+  TOO_LONG_MESSAGE,
+  TOO_LONG_INPUT_MESSAGE,
+  TYPES_STRING
+} = require('./constants');
 
 module.exports = (request, response) => {
-  const { configuration, email, input, message, output, type } = parseRequest(request);
+  const payload = parseRequest(request);
+  const { configuration, input, message, output } = payload;
 
   if (request.recaptcha.error) {
     return response.status(400).send(RECAPTCHA_MESSAGE);
@@ -34,6 +26,27 @@ module.exports = (request, response) => {
     return response.status(400).send(TOO_LONG_MESSAGE);
   }
 
+  const email = createEmail(payload);
+  sgMail.send(email)
+    .then(() => response.send({ ok: true }))
+    .catch((error) => {
+      response.status(500).send(error.toString());
+    });
+
+  return null;
+};
+
+const parseRequest = ({ body }) => ({
+  configuration: body.configuration,
+  email: body.email,
+  input: body.input,
+  message: body.message,
+  output: body.output,
+  response: body.response,
+  type: body.type
+});
+
+const createEmail = ({ configuration, email, input, message, output, type }) => {
   const emailJson = {
     from: {
       email: OUR_EMAIL
@@ -74,24 +87,8 @@ module.exports = (request, response) => {
     });
   }
 
-  sgMail.send(emailJson)
-    .then(() => response.send({ ok: true }))
-    .catch((error) => {
-      response.status(500).send(error.toString());
-    });
-
-  return null;
+  return emailJson;
 };
-
-const parseRequest = ({ body }) => ({
-  configuration: body.configuration,
-  email: body.email,
-  input: body.input,
-  message: body.message,
-  output: body.output,
-  response: body.response,
-  type: body.type
-});
 
 const btoa = (data) => {
   const buffer = new Buffer(data);
