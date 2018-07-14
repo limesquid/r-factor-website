@@ -15,7 +15,7 @@
     "build": {
       "command": "react-scripts build",
       "env": {
-        "REACT_APP_API_URL": "https://r-factor.io:5000",
+        "REACT_APP_API_URL": "/api",
         "NODE_ENV": "production",
         "NODE_PATH": "src/"
       }
@@ -23,7 +23,7 @@
     "start": {
       "command": "react-scripts start",
       "env": {
-        "REACT_APP_API_URL": "http://localhost:5000",
+        "REACT_APP_API_URL": "http://127.0.0.1:8080/api",
         "NODE_ENV": "development",
         "NODE_PATH": "src/"
       }

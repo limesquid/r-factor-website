@@ -15,19 +15,43 @@ body {
 }
 
 @media (max-width: 992px) {
-  .modal-lg {
+  body .modal-lg {
     max-width: calc(100% - 1em) !important;
   }
 }
 
 @media (max-width: 992px) {
-  .hide-md {
+  body .hide-md {
     display: none !important;
   }
 }
 
 @media (min-width: 992px) {
-  .hide-lg {
+  body .hide-lg {
     display: none !important;
+  }
+}
+
+@media (min-width: 576px) {
+  body .container {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  body .container {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  body .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body .container {
+    max-width: 1140px;
   }
 }
