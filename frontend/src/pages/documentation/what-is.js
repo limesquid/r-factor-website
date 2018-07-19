@@ -66,7 +66,7 @@ const WhatIs = () => (
           We've gathered feedback from a few idependent developers. It's still just a software, but we feel we did our best.
         </p>
         <img src={randyUrl} alt="One of the testers after using R-Factor" title="One of the testers after using R-Factor" style={{ width: '100%', margin: '8px 0' }} />
-        <p className="text-center">One of the testers after using R-Factor</p>
+        <p className="text-center">One of our testers after using R-Factor</p>
       </div>
     </div>
   </Fragment>
