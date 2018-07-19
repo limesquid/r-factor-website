@@ -29,6 +29,7 @@ class RadioSetting extends Component {
           {options.map((option) => (
             <CustomInput
               key={option.value}
+              className="text-nowrap"
               type="radio"
               checked={value === option.value}
               id={`${id}-${option.value}`}

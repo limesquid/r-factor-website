@@ -28,6 +28,7 @@ const DosAndDonts = () => (
         {' '}
         command line option
       </li>
+      <li>Use <a href="https://prettier.io/">Prettier</a></li>
     </ul>
 
     <h5>Don't</h5>

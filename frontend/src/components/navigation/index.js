@@ -32,7 +32,7 @@ const Navigation = ({ location }) => (
     <Container>
       <LinkContainer to="/">
         <NavbarBrand className="d-flex align-items-center">
-          <img height="46" src={transparentLogoUrl} alt="R-Factor" title="R-Factor" style={{ margin: '-8px 0' }}/>
+          <img height="46" src={transparentLogoUrl} alt="R-Factor" title="R-Factor" style={{ margin: '-8px 0' }} />
           <span className="pl-2" style={{ fontSize: 20, fontWeight: 300 }}>R-Factor</span>
         </NavbarBrand>
       </LinkContainer>
