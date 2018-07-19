@@ -3,6 +3,7 @@ import otherFeatures from './other';
 import reactFeatures from './react';
 import reduxFeatures from './redux';
 import transparentLogoUrl from 'assets/logo-transparent.png';
+import randyUrl from 'assets/randy.jpg';
 
 export const videoUrl = 'https://www.youtube.com/embed/dQw4w9WgXcQ';
 
@@ -15,5 +16,6 @@ export {
   otherFeatures,
   reactFeatures,
   reduxFeatures,
+  randyUrl,
   transparentLogoUrl
 };
