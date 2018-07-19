@@ -38,7 +38,7 @@ export default {
       </ul>
     </React.Fragment>
   ),
-  worksWith: [ 'arrow', 'class', 'function' ],
+  worksWith: [ 'arrow', 'function', 'class' ],
   examples: [],
   configuration: [
     'component-superclass',

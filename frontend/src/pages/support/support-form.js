@@ -87,7 +87,7 @@ class SupportForm extends Component {
       type
     } = this.state;
 
-    if (!recaptcha) {
+    if (process.env.ENABLE_RECAPTCHA && !recaptcha) {
       return 'You did not pass reCAPTCHA.';
     }
     if (!type) {
@@ -97,7 +97,7 @@ class SupportForm extends Component {
       return 'Message is too short.';
     }
     if (email && !isEmail(email)) {
-      return 'Email is invalid.';
+      return 'Email is invalid. You do not have to provide one.';
     }
     if (attachConfiguration) {
       try {

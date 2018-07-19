@@ -39,9 +39,10 @@ const WhatIs = () => (
         .
       </p>
       <p>
-        As I am writing this we have over <span className="text-info">30</span> ideas for other features, which would take months
-        to implement. And yes, some of them go beyond React & Redux. First, we want to see how much
-        interest is this tool going to get.
+        As I am writing this we have over <span className="text-info">30</span> ideas for other features,
+        which would take months to implement.
+        And yes, some of them go beyond React & Redux.
+        First, we want to see how much interest is this tool going to get.
       </p>
     </div>
     <div>
@@ -62,10 +63,18 @@ const WhatIs = () => (
         <p>
           R-Factor has been thoroughly tested. We have <span className="text-info">100%</span> test coverage.
           Every statement, every branch, every function & every line is covered.
-          We have ran this tool on over <span className="text-info">50</span> different projects with different settings.
-          We've gathered feedback from a few idependent developers. It's still just a software, but we feel we did our best.
+          We have ran this tool on over <span className="text-info">50</span> different
+          projects with different settings. We've gathered feedback from a few idependent developers.
+          It's still just a software, but we feel we did our best.
         </p>
-        <img src={randyUrl} alt="One of the testers after using R-Factor" title="One of the testers after using R-Factor" style={{ width: '100%', margin: '8px 0' }} />
+        <img
+          src={randyUrl}
+          alt="One of the testers after using R-Factor"
+          title="One of the testers after using R-Factor"
+          style={{
+            width: '100%',
+            margin: '8px 0'
+          }} />
         <p className="text-center">One of our testers after using R-Factor</p>
       </div>
     </div>
