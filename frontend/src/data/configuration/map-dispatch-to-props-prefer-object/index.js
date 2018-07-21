@@ -4,7 +4,7 @@ export default {
   id: 'map-dispatch-to-props-prefer-object',
   name: 'Prefer object mapDispatchToProps',
   summary: (
-    <span>Which variant of <code>mapDispatchToProps</code> to use.</span>
+    <span>Which variant of <code>mapDispatchToProps</code> notation to use.</span>
   ),
   desription: (
     <span>

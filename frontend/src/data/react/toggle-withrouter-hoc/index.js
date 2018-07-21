@@ -40,6 +40,10 @@ export default {
     example2
   ],
   configuration: [
-    /* TODO */
+    'component-name-collision-pattern',
+    'default-component-name',
+    'default-hoc-component-name',
+    'end-of-line',
+    'semicolons'
   ]
 };

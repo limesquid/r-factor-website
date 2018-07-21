@@ -1,4 +1,9 @@
+import componentNameCollisionPattern from './component-name-collision-pattern';
+import componentSuperclass from './component-superclass';
+import defaultComponentName from './default-component-name';
+import defaultHocComponentName from './default-hoc-component-name';
 import endOfLine from './end-of-line';
+import functionalComponentType from './functional-component-type';
 import indent from './indent';
 import mapDispatchToPropsName from './map-dispatch-to-props-name';
 import mapDispatchToPropsPreferObject from './map-dispatch-to-props-prefer-object';
@@ -8,11 +13,14 @@ import mergePropsName from './merge-props-name';
 import modulesOrder from './modules-order';
 import quotes from './quotes';
 import semicolons from './semicolons';
-import componentSuperclass from './component-superclass';
-import functionalComponentType from './functional-component-type';
 
 export default [
+  componentNameCollisionPattern,
+  componentSuperclass,
+  defaultComponentName,
+  defaultHocComponentName,
   endOfLine,
+  functionalComponentType,
   indent,
   mapDispatchToPropsName,
   mapDispatchToPropsPreferObject,
@@ -21,7 +29,5 @@ export default [
   mergePropsName,
   modulesOrder,
   quotes,
-  semicolons,
-  componentSuperclass,
-  functionalComponentType
+  semicolons
 ].sort((a, b) => a.name.localeCompare(b.name));

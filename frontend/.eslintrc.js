@@ -60,6 +60,7 @@ module.exports = {
     'no-obj-calls': 'error',
     'no-regex-spaces': 'error',
     'no-sparse-arrays': 'error',
+    'no-template-curly-in-string': 'off',
     'no-unexpected-multiline': 'error',
     'no-unreachable': 'error',
     'no-unsafe-finally': 'error',
