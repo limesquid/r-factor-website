@@ -31,7 +31,7 @@ export default {
       <li>Adds <code>classnames</code> import statement if necessary</li>
     </ul>
   ),
-  worksWith: [ 'arrow', 'function', 'class' ],
+  worksWith: [ 'arrow', 'hoc-arrow', 'function', 'hoc-function', 'class', 'hoc-class' ],
   dependencies: [
     { name: 'react', type: 'always' },
     { name: 'prop-types', type: 'always' },
