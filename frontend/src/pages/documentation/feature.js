@@ -81,7 +81,7 @@ const Feature = ({ match }) => {
       {worksWith && worksWith.length > 0 && (
         <Row className="mb-4">
           <Col>
-            <h3>Works on</h3>
+            <h3>Works with</h3>
             <ul className="text-muted">
               {worksWith.map((componentType) => (
                 <li key={componentType}>
