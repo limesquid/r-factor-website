@@ -33,7 +33,7 @@ export default {
       </ul>
     </React.Fragment>
   ),
-  worksWith: [ 'function', 'class' ],
+  worksWith: [ 'arrow', 'hoc-arrow', 'function', 'hoc-function', 'class', 'hoc-class' ],
   dependencies: [
     { name: 'react', type: 'always' }
   ],

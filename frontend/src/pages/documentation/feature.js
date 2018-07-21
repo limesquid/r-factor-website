@@ -13,6 +13,9 @@ const WORKS_WITH = {
   arrow: 'Functional components defined as an arrow function',
   class: 'Class components',
   function: 'Functional components defined as a function',
+  'hoc-arrow': 'Higher order functional components defined as an arrow function',
+  'hoc-class': 'Higher order class components',
+  'hoc-function': 'Higher order functional components defined as a function',
   'import-statement': 'Import statements',
   'object-literal': 'Object literals'
 };

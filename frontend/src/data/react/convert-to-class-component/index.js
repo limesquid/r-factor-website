@@ -30,7 +30,7 @@ export default {
       </li>
     </ul>
   ),
-  worksWith: [ 'arrow', 'function' ],
+  worksWith: [ 'arrow', 'hoc-arrow', 'function', 'hoc-function', 'class', 'hoc-class' ],
   dependencies: [
     { name: 'react', type: 'always' }
   ],
