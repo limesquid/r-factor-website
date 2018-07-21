@@ -31,5 +31,8 @@ export default {
     'map-dispatch-to-props-name',
     'map-dispatch-to-props-prefer-object',
     'semicolons'
+  ],
+  examples: [
+    // TODO
   ]
 };
