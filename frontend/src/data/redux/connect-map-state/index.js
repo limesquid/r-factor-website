@@ -5,7 +5,7 @@ export default {
   name: 'Connect mapStateToProps',
   summary: (
     <span>
-      Connects a component to redux store and generates <code>mapStateToProps</code> only.
+      Connects a component to the redux store and generates <code>mapStateToProps</code> only.
     </span>
   )
 };
