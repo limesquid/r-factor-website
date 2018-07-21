@@ -30,7 +30,7 @@ export default {
       </ul>
     </React.Fragment>
   ),
-  worksWith: [ 'arrow', 'function', 'class' ],
+  worksWith: [ 'arrow', 'function', 'class', 'hoc-arrow', 'hoc-function', 'hoc-class' ],
   dependencies: [
     { name: 'react', type: 'always' },
     { name: 'react-router', type: 'always' }

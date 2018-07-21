@@ -19,7 +19,7 @@ export default {
       .
     </p>
   ),
-  worksWith: [ 'class' ],
+  worksWith: [ 'class', 'hoc-class' ],
   dependencies: [
     { name: 'react', type: 'always' },
     { name: 'prop-types', type: 'always' }
