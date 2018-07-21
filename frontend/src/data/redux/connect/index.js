@@ -5,7 +5,7 @@ export default {
   name: 'Connect',
   summary: (
     <span>
-      Connects a component to redux store with
+      Connects a component to the redux store with
       both <code>mapStateToProps</code> & <code>mapDispatchToProps</code> generated.
     </span>
   ),
@@ -13,8 +13,8 @@ export default {
     <ul className="text-muted">
       <li>Declares <code>mapStateToProps</code> below the component definition (if not present)</li>
       <li>Declares <code>mapDispatchToProps</code> below the component definition (if not present)</li>
-      <li>Wraps exported (returned if it's a HOC) component with <code>connect</code> (if not present)</li>
-      <li>Uses <code>mapStateToProps</code> & <code>mapDispatchToProps</code> with said <code>connect</code></li>
+      <li>Wraps exported (returned, if it's a HOC) component with <code>connect</code> (if not present)</li>
+      <li>Uses <code>mapStateToProps</code> & <code>mapDispatchToProps</code> with said <code>connect</code> (replacing <code>null</code> values if present)</li>
       <li>Adds <code>connect</code> import statement (if not present)</li>
     </ul>
   ),
