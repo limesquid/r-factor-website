@@ -12,7 +12,7 @@ export default {
   actions: (
     <ul className="text-muted">
       <li>Removes <code>mapDispatchToProps</code> definition (if present)</li>
-      <li>If <code>connect</code> is present and no parameters other than <code>mapDispatchToProps</code> are passed to it</li>
+      <li>If <code>connect</code> is present and no non-<code>null</code> parameters other than <code>mapDispatchToProps</code> are passed to it</li>
       <ul>
         <li>Unwraps exported (returned, if it's a HOC) component from <code>connect</code></li>
         <li>Removes <code>connect</code> import statement</li>
