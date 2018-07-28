@@ -44,6 +44,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-codemirror2": "^5.0.4",
+    "react-cookie-consent-wrapper": "git+https://github.com/yuriyyakym/react-cookie-consent-wrapper.git",
     "react-dom": "^16.4.1",
     "react-helmet": "^5.2.0",
     "react-recaptcha": "^2.3.9",
