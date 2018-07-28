@@ -8,7 +8,6 @@ import indent from './indent';
 import mapDispatchToPropsName from './map-dispatch-to-props-name';
 import mapDispatchToPropsPreferObject from './map-dispatch-to-props-prefer-object';
 import mapStateToPropsName from './map-state-to-props-name';
-import mapStateToPropsPreferOneLine from './map-state-to-props-prefer-one-line';
 import mergePropsName from './merge-props-name';
 import modulesOrder from './modules-order';
 import quotes from './quotes';
@@ -25,7 +24,6 @@ export default [
   mapDispatchToPropsName,
   mapDispatchToPropsPreferObject,
   mapStateToPropsName,
-  mapStateToPropsPreferOneLine,
   mergePropsName,
   modulesOrder,
   quotes,

@@ -7,5 +7,14 @@ export default {
     <span>
       Connects a component to the redux store and generates <code>mapStateToProps</code> only.
     </span>
-  )
+  ),
+  configuration: [
+    'component-name-collision-pattern',
+    'default-component-name',
+    'default-hoc-component-name',
+    'end-of-line',
+    'indent',
+    'map-state-to-props-name',
+    'semicolons'
+  ]
 };
