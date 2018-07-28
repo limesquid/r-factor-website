@@ -1,4 +1,6 @@
 import React from 'react';
+import example1 from './example1';
+import example2 from './example2';
 
 export default {
   id: 'connect-map-dispatch',
@@ -25,5 +27,9 @@ export default {
     'map-dispatch-to-props-name',
     'map-dispatch-to-props-prefer-object',
     'semicolons'
+  ],
+  examples: [
+    example1,
+    example2
   ]
 };
