@@ -1,4 +1,6 @@
 import React from 'react';
+import example1 from './example1';
+import example2 from './example2';
 
 export default {
   id: 'connect-merge-props',
@@ -24,5 +26,9 @@ export default {
     'indent',
     'merge-props-name',
     'semicolons'
+  ],
+  examples: [
+    example1,
+    example2
   ]
 };
