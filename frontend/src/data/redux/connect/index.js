@@ -24,10 +24,12 @@ export default {
     { name: 'react-redux', type: 'always' }
   ],
   configuration: [
+    'component-name-collision-pattern',
+    'default-component-name',
+    'default-hoc-component-name',
     'end-of-line',
     'indent',
     'map-state-to-props-name',
-    'map-state-to-props-prefer-one-line',
     'map-dispatch-to-props-name',
     'map-dispatch-to-props-prefer-object',
     'semicolons'
