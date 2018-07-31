@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'components/link';
 import example1 from './example1';
 
 export default {
@@ -6,13 +7,18 @@ export default {
   name: 'Default component name',
   summary: (
     <span>
-      How should component be named if it needs to be wrapped in HOC but is exported defaultly.
+      How should an unnamed component be named if it needs to be wrapped with a HOC.
     </span>
   ),
   description: (
     <p>
-      Component should be named somehow when refactoring you apply wraps this component in HOC.
-      If there is a collision <code>component-name-collision-pattern</code> along with <code>default-component-name</code> will be used.
+      If the refactoring you're applying is wrapping your unnamed component with a HOC,
+      it will have to be named somehow.
+      If there is a collision
+      {' '}
+      <Link href="/documentation/component-name-collision-pattern" label="Component name collision pattern" />
+      {' '}
+      will be used as well.
     </p>
   ),
   examples: [

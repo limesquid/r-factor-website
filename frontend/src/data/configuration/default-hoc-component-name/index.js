@@ -7,12 +7,13 @@ export default {
   name: 'Default HOC component name',
   summary: (
     <span>
-      How should unnamed component returned in HOC be named when needs to be wrapped.
+      How should an unnamed HOC component be named if it needs to be wrapped with another HOC.
     </span>
   ),
   description: (
     <p>
-      When component is returned from HOC but has no name and we want to wrap it in HOC, we need to name it somehow.
+      If the refactoring you're applying is wrapping your unnamed HOC component with another HOC,
+      it will have to be named somehow.
     </p>
   ),
   examples: [

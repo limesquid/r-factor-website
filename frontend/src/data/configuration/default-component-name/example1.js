@@ -24,7 +24,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Component);
 `;
 
 export default {
-  name: 'Connect component',
+  name: 'Connect unnamed component',
   input,
   output
 };

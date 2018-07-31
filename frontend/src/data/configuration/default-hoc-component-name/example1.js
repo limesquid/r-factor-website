@@ -26,7 +26,7 @@ export default hoc => {
 `;
 
 export default {
-  name: 'Connect component in HOC',
+  name: 'Connect HOC component',
   input,
   output
 };

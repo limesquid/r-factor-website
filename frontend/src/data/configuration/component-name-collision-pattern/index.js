@@ -11,10 +11,13 @@ export default {
   ),
   description: (
     <p>
-      Sometimes we need to rename your original component to retain code properiness.
-      For example you have an exported named component which you would like to connect to
-      Redux store without breaking your app, so we will use this setting to rename the component
-      according to your preferences.
+      Sometimes your component will have to be renamed in order to avoid naming collision.
+      This can happen e.g. when you have a non-default export of a component and you want it
+      to be connected to the redux store. A new export statement will be declared for the
+      new connected component with the current name, and your current component will be
+      renamed according to this setting. <code>{'${name}'}</code> will be replaced with
+      the name of your component before refactoring, so you can configure it
+      to have a prefix, suffix or just be a concrete name. It's best if you see the example.
     </p>
   ),
   examples: [
