@@ -7,6 +7,7 @@ import ScrollToTop from 'components/scroll-to-top';
 import DocumentationPage from 'pages/documentation';
 import HomePage from 'pages/home';
 import LicensePage from 'pages/license';
+import NotFound from 'pages/not-found';
 import PurchasePage from 'pages/purchase';
 import SupportPage from 'pages/support';
 import TryPage from 'pages/try';
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/purchase" component={PurchasePage} />
             <Route path="/support" component={SupportPage} />
             <Route path="/try" component={TryPage} />
+            <Route component={NotFound} />
           </Switch>
         </Container>
       </div>
