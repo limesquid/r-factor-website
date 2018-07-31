@@ -8,7 +8,10 @@ import 'styles/open-iconic-bootstrap.css';
 // eslint-disable-next-line no-unused-vars
 const clipboard = new Clipboard('.btn');
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+const rootElement = document.getElementById('root');
+
+if (rootElement.hasChildNodes()) {
+  ReactDOM.hydrate(<App />, rootElement);
+} else {
+  ReactDOM.render(<App />, rootElement);
+}
