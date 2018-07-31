@@ -8,8 +8,13 @@ export default {
   ),
   description: (
     <ul className="text-muted">
-      <li>When <code>true</code>, <code>mapDispatchToProps</code> will be generated as an object.</li>
-      <li>When <code>false</code>, <code>mapDispatchToProps</code> will be generated as an arrow function returning an object.</li>
+      <li>
+        When <code>true</code>, <code>mapDispatchToProps</code> will be generated as an object.
+      </li>
+      <li>
+        When <code>false</code>, <code>mapDispatchToProps</code> will be generated as an arrow
+        function returning an object.
+      </li>
     </ul>
   ),
   setting: {

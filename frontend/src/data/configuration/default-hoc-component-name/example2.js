@@ -18,7 +18,7 @@ export default hoc => {
 `;
 
 export default {
-  name: 'Wrap component with withRouter in HOC',
+  name: 'Wrap HOC with withRouter',
   input,
   output
 };

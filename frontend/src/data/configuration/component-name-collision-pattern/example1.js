@@ -24,7 +24,7 @@ export const Button = connect(mapStateToProps, mapDispatchToProps)(ButtonCompone
 `;
 
 export default {
-  name: 'Rename named component according pattern and connect it to Redux',
+  name: 'Rename component according to the pattern while connecting it to the Redux store',
   input,
   output
 };
