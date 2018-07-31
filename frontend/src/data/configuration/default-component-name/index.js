@@ -14,7 +14,7 @@ export default {
     <p>
       If the refactoring you're applying is wrapping your unnamed component with a HOC,
       it will have to be named somehow.
-      If there is a collision
+      If there will be a collision in scope
       {' '}
       <Link href="/documentation/component-name-collision-pattern" label="Component name collision pattern" />
       {' '}
