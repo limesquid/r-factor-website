@@ -1,4 +1,7 @@
 import React from 'react';
+import example1 from './example1';
+import example2 from './example2';
+import example3 from './example3';
 
 export default {
   id: 'connect',
@@ -24,15 +27,19 @@ export default {
     { name: 'react-redux', type: 'always' }
   ],
   configuration: [
+    'component-name-collision-pattern',
+    'default-component-name',
+    'default-hoc-component-name',
     'end-of-line',
     'indent',
     'map-state-to-props-name',
-    'map-state-to-props-prefer-one-line',
     'map-dispatch-to-props-name',
     'map-dispatch-to-props-prefer-object',
     'semicolons'
   ],
   examples: [
-    // TODO
+    example1,
+    example2,
+    example3
   ]
 };
