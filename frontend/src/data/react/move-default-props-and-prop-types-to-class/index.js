@@ -3,19 +3,21 @@ import Link from 'components/link';
 import example1 from './example1';
 
 export default {
-  id: 'move-default-props-to-class',
-  name: 'Move defaultProps to class',
+  id: 'move-default-props-and-prop-types-to-class',
+  name: 'Move defaultProps & propTypes to class',
   summary: (
     <span>
-      Converts <code>defaultProps</code> class property assignment into
-      a static property definition in a class component (if present).
+      Converts <code>defaultProps</code> & <code>propTypes</code> class property assignments into
+      static property definitions in a class component (if present).
     </span>
   ),
   description: (
     <p>
       An inverse of
       {' '}
-      <Link href="/documentation/move-default-props-out-of-class" label="Move defaultProps out of class" />
+      <Link
+        href="/documentation/move-default-props-and-prop-types-out-of-class"
+        label="Move defaultProps & propTypes out of class" />
       .
     </p>
   ),

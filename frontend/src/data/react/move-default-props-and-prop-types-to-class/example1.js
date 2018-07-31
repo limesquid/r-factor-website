@@ -3,10 +3,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Header extends Component {
-  static defaultProps = {
-    onClick: _.noop
-  };
-
   render() {
     const { onClick, children } = this.props;
 
@@ -23,6 +19,10 @@ Header.propTypes = {
   onClick: PropTypes.func
 };
 
+Header.defaultProps = {
+  onClick: _.noop
+};
+
 export default Header;
 `;
 
@@ -31,13 +31,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Header extends Component {
+  static defaultProps = {
+    onClick: _.noop
+  };
+
   static propTypes = {
     children: PropTypes.node,
     onClick: PropTypes.func
-  };
-
-  static defaultProps = {
-    onClick: _.noop
   };
 
   render() {
@@ -55,7 +55,7 @@ export default Header;
 `;
 
 export default {
-  name: 'Moves propTypes definition',
+  name: 'Moves defaultProps definition',
   input,
   output
 };

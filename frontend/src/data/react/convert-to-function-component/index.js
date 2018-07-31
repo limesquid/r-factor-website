@@ -21,12 +21,9 @@ export default {
         <li>
           Performs
           {' '}
-          <Link href="/documentation/move-prop-types-out-of-class" label="Move propTypes out of class" />
-        </li>
-        <li>
-          Performs
-          {' '}
-          <Link href="/documentation/move-default-props-out-of-class" label="Move defaultProps out of class" />
+          <Link
+            href="/documentation/move-default-props-and-prop-types-out-of-class"
+            label="Move defaultProps & propTypes out of class" />
         </li>
         <li>Removes (unsafely) everything from class except <code>render</code></li>
         <li>Transforms remaining class component into a function</li>

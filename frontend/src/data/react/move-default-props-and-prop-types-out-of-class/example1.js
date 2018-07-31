@@ -8,6 +8,10 @@ class Header extends Component {
     onClick: PropTypes.func
   };
 
+  static defaultProps = {
+    onClick: _.noop
+  };
+
   render() {
     const { onClick, children } = this.props;
 
@@ -18,10 +22,6 @@ class Header extends Component {
     );
   }
 }
-
-Header.defaultProps = {
-  onClick: _.noop
-};
 
 export default Header;
 `;
@@ -31,15 +31,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Header extends Component {
-  static defaultProps = {
-    onClick: _.noop
-  };
-
-  static propTypes = {
-    children: PropTypes.node,
-    onClick: PropTypes.func
-  };
-
   render() {
     const { onClick, children } = this.props;
 
@@ -50,6 +41,15 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  children: PropTypes.node,
+  onClick: PropTypes.func
+};
+
+Header.defaultProps = {
+  onClick: _.noop
+};
 
 export default Header;
 `;

@@ -21,12 +21,9 @@ export default {
       <li>
         Performs
         {' '}
-        <Link href="/documentation/move-prop-types-to-class" label="Move propTypes to class" />
-      </li>
-      <li>
-        Performs
-        {' '}
-        <Link href="/documentation/move-default-props-to-class" label="Move defaultProps to class" />
+        <Link
+          href="/documentation/move-default-props-and-prop-types-to-class"
+          label="Move defaultProps & propTypes to class" />
       </li>
     </ul>
   ),
