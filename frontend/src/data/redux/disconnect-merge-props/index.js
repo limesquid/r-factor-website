@@ -14,15 +14,29 @@ export default {
   ),
   actions: (
     <ul className="text-muted">
-      <li>Removes <code>mergeProps</code> definition (if present)</li>
-      <li>If <code>connect</code> is present and no non-<code>null</code> parameters other than <code>mergeProps</code> are passed to it</li>
+      <li>
+        Removes <code>mergeProps</code> definition (if present)
+      </li>
+      <li>
+        If <code>connect</code> is present and no non-<code>null</code> parameters
+        other than <code>mergeProps</code> are passed to it
+      </li>
       <ul>
-        <li>Unwraps exported (returned, if it's a HOC) component from <code>connect</code></li>
-        <li>Removes <code>connect</code> import statement</li>
+        <li>
+          Unwraps exported (returned, if it's a HOC) component from <code>connect</code>
+        </li>
+        <li>
+          Removes <code>connect</code> import statement
+        </li>
       </ul>
-      <li>If <code>connect</code> is present and <code>mapStateToProps</code> or <code>mapDispatchToProps</code> is passed to it</li>
+      <li>
+        If <code>connect</code> is present
+        and <code>mapStateToProps</code> or <code>mapDispatchToProps</code> is passed to it
+      </li>
       <ul>
-        <li>Removes <code>mergeProps</code> parameter from <code>connect</code> call (if present)</li>
+        <li>
+          Removes <code>mergeProps</code> parameter from <code>connect</code> call (if present)
+        </li>
       </ul>
     </ul>
   ),
