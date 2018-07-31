@@ -1,0 +1,33 @@
+const input = `import React from 'react';
+import { connect } from 'react-redux';
+
+const ButtonComponent = ({ value }) => (
+  <div>{value}</div>
+);
+
+const mapDispatchToProps = {};
+
+export const Button = connect(null, mapDispatchToProps)(ButtonComponent);
+`;
+
+const output = `import React from 'react';
+import { connect } from 'react-redux';
+
+const ButtonComponent = ({ value }) => (
+  <div>{value}</div>
+);
+
+const mapStateToProps = (state) => ({
+  
+});
+
+const mapDispatchToProps = {};
+
+export const Button = connect(mapStateToProps, mapDispatchToProps)(ButtonComponent);
+`;
+
+export default {
+  name: 'Connect already connected component with mapStateToProps',
+  input,
+  output
+};

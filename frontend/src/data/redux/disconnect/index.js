@@ -1,4 +1,6 @@
 import React from 'react';
+import example1 from './example1';
+import example2 from './example2';
 
 export default {
   id: 'disconnect',
@@ -25,6 +27,7 @@ export default {
   ],
   configuration: [],
   examples: [
-    // TODO
+    example1,
+    example2
   ]
 };
