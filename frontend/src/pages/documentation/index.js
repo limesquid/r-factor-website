@@ -10,6 +10,7 @@ import DosAndDonts from './dos-and-donts';
 import Feature from './feature';
 import Installation from './installation';
 import Navigation from './navigation';
+import Quality from './quality';
 import Usage from './usage';
 import WhatIs from './what-is';
 import {
@@ -25,7 +26,8 @@ const rFactorDocs = [
   { label: 'What is R-Factor?', to: '/documentation/what-is-r-factor', Component: WhatIs },
   { label: 'Installation', to: '/documentation/installation', Component: Installation },
   { label: 'Usage', to: '/documentation/usage', Component: Usage },
-  { label: 'Dos and don\'ts', to: '/documentation/dos-and-donts', Component: DosAndDonts }
+  { label: 'Dos and don\'ts', to: '/documentation/dos-and-donts', Component: DosAndDonts },
+  { label: 'Quality', to: '/documentation/quality', Component: Quality }
 ];
 
 const docs = [
