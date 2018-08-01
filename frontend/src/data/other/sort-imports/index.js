@@ -37,6 +37,7 @@ export default {
     'indent',
     'modules-order',
     'semicolons',
-    'quotes'
+    'quotes',
+    'trailing-commas'
   ]
 };

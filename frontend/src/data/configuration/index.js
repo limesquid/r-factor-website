@@ -12,6 +12,7 @@ import mergePropsName from './merge-props-name';
 import modulesOrder from './modules-order';
 import quotes from './quotes';
 import semicolons from './semicolons';
+import trailingCommas from './trailing-commas';
 
 export default [
   componentNameCollisionPattern,
@@ -27,5 +28,6 @@ export default [
   mergePropsName,
   modulesOrder,
   quotes,
-  semicolons
+  semicolons,
+  trailingCommas
 ].sort((a, b) => a.name.localeCompare(b.name));

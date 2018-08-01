@@ -46,6 +46,7 @@ export default {
     'end-of-line',
     'indent',
     'quotes',
-    'semicolons'
+    'semicolons',
+    'trailing-commas'
   ]
 };

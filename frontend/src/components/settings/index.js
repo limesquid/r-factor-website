@@ -1,54 +1,38 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
 import EndOfLine from './end-of-line';
 import FunctionalComponentType from './functional-component-type';
 import Indent from './indent';
+import MapDispatchToPropsPreferObject from './map-dispatch-to-props-prefer-object';
 import ModulesOrder from './modules-order';
 import Quotes from './quotes';
 import Semicolons from './semicolons';
 import Superclass from './superclass';
+import TrailingCommas from './trailing-commas';
 
-class Settings extends Component {
+const SETTINGS = [
+  { name: 'indent', Component: Indent },
+  { name: 'quotes', Component: Quotes },
+  { name: 'end-of-line', Component: EndOfLine },
+  { name: 'map-dispatch-to-props-prefer-object', Component: MapDispatchToPropsPreferObject },
+  { name: 'semicolons', Component: Semicolons },
+  { name: 'trailing-commas', Component: TrailingCommas },
+  { name: 'component-superclass', Component: Superclass },
+  { name: 'functional-component-type', Component: FunctionalComponentType },
+  { name: 'modules-order', Component: ModulesOrder }
+];
+
+class Settings extends PureComponent {
   static propTypes = {
-    settings: PropTypes.object,
-    onChange: PropTypes.func
+    settings: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired
   };
 
-  onEndOfLineChange = (endOfLine) => this.props.onChange({
+  createOnChange = (name) => (value) => this.props.onChange({
     ...this.props.settings,
-    'end-of-line': endOfLine
-  });
-
-  onFunctionalComponentTypeChange = (functionalComponent) => this.props.onChange({
-    ...this.props.settings,
-    'functional-component-type': functionalComponent
-  });
-
-  onIndentChange = (indent) => this.props.onChange({
-    ...this.props.settings,
-    indent
-  });
-
-  onModulesOrderChange = (modulesOrder) => this.props.onChange({
-    ...this.props.settings,
-    'modules-order': modulesOrder
-  });
-
-  onQuotesChange = (quotes) => this.props.onChange({
-    ...this.props.settings,
-    quotes
-  });
-
-  onSemicolonsChange = (semicolons) => this.props.onChange({
-    ...this.props.settings,
-    semicolons
-  });
-
-  onSuperclassChange = (superclass) => this.props.onChange({
-    ...this.props.settings,
-    'component-superclass': superclass
+    [name]: value
   });
 
   render() {
@@ -56,41 +40,13 @@ class Settings extends Component {
 
     return (
       <Row>
-        <Col>
-          <Indent
-            value={settings.indent}
-            onChange={this.onIndentChange} />
-        </Col>
-        <Col>
-          <Quotes
-            value={settings.quotes}
-            onChange={this.onQuotesChange} />
-        </Col>
-        <Col>
-          <EndOfLine
-            value={settings['end-of-line']}
-            onChange={this.onEndOfLineChange} />
-        </Col>
-        <Col>
-          <Semicolons
-            value={settings.semicolons}
-            onChange={this.onSemicolonsChange} />
-        </Col>
-        <Col>
-          <Superclass
-            value={settings['component-superclass']}
-            onChange={this.onSuperclassChange} />
-        </Col>
-        <Col>
-          <FunctionalComponentType
-            value={settings['functional-component-type']}
-            onChange={this.onFunctionalComponentTypeChange} />
-        </Col>
-        <Col>
-          <ModulesOrder
-            value={settings['modules-order']}
-            onChange={this.onModulesOrderChange} />
-        </Col>
+        {SETTINGS.map(({ name, Component }) => (
+          <Col key={name}>
+            <Component
+              value={settings[name]}
+              onChange={this.createOnChange(name)} />
+          </Col>
+        ))}
       </Row>
     );
   }
