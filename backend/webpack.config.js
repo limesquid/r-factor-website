@@ -8,7 +8,7 @@ const IS_PROD_ENV = process.env.NODE_ENV === 'production';
 
 const SRC_DIR = path.resolve(__dirname, 'src');
 const ENTRY_FILE = path.resolve(SRC_DIR, 'index.js');
-const DIST_DIR = path.resolve(__dirname, 'build');
+const DIST_DIR = path.resolve(__dirname, 'dist');
 const BUNDLE_DIST = 'index.js';
 
 module.exports = {
