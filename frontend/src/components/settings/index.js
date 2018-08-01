@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
 import RadioSetting from 'components/radio-setting';
+import TextSetting from 'components/text-setting';
 import ModulesOrder from './modules-order';
 
 const SETTINGS = [
@@ -41,6 +42,30 @@ const SETTINGS = [
   {
     ...require('data/configuration/modules-order').default,
     Component: ModulesOrder
+  },
+  {
+    ...require('data/configuration/component-name-collision-pattern').default,
+    Component: TextSetting
+  },
+  {
+    ...require('data/configuration/map-dispatch-to-props-name').default,
+    Component: TextSetting
+  },
+  {
+    ...require('data/configuration/map-state-to-props-name').default,
+    Component: TextSetting
+  },
+  {
+    ...require('data/configuration/merge-props-name').default,
+    Component: TextSetting
+  },
+  {
+    ...require('data/configuration/default-component-name').default,
+    Component: TextSetting
+  },
+  {
+    ...require('data/configuration/default-hoc-component-name').default,
+    Component: TextSetting
   }
 ];
 
