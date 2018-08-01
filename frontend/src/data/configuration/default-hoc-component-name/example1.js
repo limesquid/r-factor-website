@@ -17,9 +17,9 @@ export default hoc => {
     
   });
 
-  const mapDispatchToProps = {
+  const mapDispatchToProps = (dispatch) => ({
     
-  };
+  });
 
   return connect(mapStateToProps, mapDispatchToProps)(InnerComponent);
 };
