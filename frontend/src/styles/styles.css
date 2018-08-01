@@ -10,8 +10,17 @@ body {
 .codemirror-height-auto .CodeMirror {
   height: auto;
 }
+
 .modal-lg {
   max-width: 980px !important;
+}
+
+input,
+input:focus,
+textarea,
+textarea:focus {
+  color: #e4e4e4 !important;
+  background-color: #444444 !important;
 }
 
 @media (max-width: 992px) {
