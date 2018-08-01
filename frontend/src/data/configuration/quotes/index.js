@@ -25,5 +25,10 @@ export default {
   setting: {
     type: 'String',
     defaultValue: 'single'
-  }
+  },
+  options: [
+    { label: 'Single', value: 'single' },
+    { label: 'Double', value: 'double' },
+    { label: 'Backtick', value: 'backtick' }
+  ]
 };

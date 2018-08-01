@@ -46,5 +46,9 @@ export default {
       'Array'
     ],
     defaultValue
-  }
+  },
+  options: [
+    { label: 'Custom', value: 'custom' },
+    { label: 'Alphabetic', value: 'alphabetic' }
+  ]
 };

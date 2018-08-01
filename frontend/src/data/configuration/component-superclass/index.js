@@ -17,5 +17,9 @@ export default {
   setting: {
     type: 'String',
     defaultValue: 'Component'
-  }
+  },
+  options: [
+    { label: 'Component', value: 'Component' },
+    { label: 'PureComponent', value: 'PureComponent' }
+  ]
 };

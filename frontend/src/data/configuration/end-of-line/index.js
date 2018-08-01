@@ -16,5 +16,9 @@ export default {
   setting: {
     type: 'String',
     defaultValue: '\n'
-  }
+  },
+  options: [
+    { label: 'LF', value: '\n' },
+    { label: 'CRLF', value: '\r\n' }
+  ]
 };

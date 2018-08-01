@@ -2,26 +2,46 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
-import EndOfLine from './end-of-line';
-import FunctionalComponentType from './functional-component-type';
-import Indent from './indent';
-import MapDispatchToPropsPreferObject from './map-dispatch-to-props-prefer-object';
+import RadioSetting from 'components/radio-setting';
 import ModulesOrder from './modules-order';
-import Quotes from './quotes';
-import Semicolons from './semicolons';
-import Superclass from './superclass';
-import TrailingCommas from './trailing-commas';
 
 const SETTINGS = [
-  { name: 'indent', Component: Indent },
-  { name: 'quotes', Component: Quotes },
-  { name: 'end-of-line', Component: EndOfLine },
-  { name: 'map-dispatch-to-props-prefer-object', Component: MapDispatchToPropsPreferObject },
-  { name: 'semicolons', Component: Semicolons },
-  { name: 'trailing-commas', Component: TrailingCommas },
-  { name: 'component-superclass', Component: Superclass },
-  { name: 'functional-component-type', Component: FunctionalComponentType },
-  { name: 'modules-order', Component: ModulesOrder }
+  {
+    ...require('data/configuration/indent').default,
+    Component: RadioSetting
+  },
+  {
+    ...require('data/configuration/quotes').default,
+    Component: RadioSetting
+  },
+  {
+    ...require('data/configuration/end-of-line').default,
+    Component: RadioSetting
+  },
+  {
+    ...require('data/configuration/semicolons').default,
+    Component: RadioSetting
+  },
+  {
+    ...require('data/configuration/trailing-commas').default,
+    Component: RadioSetting
+  },
+  {
+    ...require('data/configuration/use-map-dispatch-to-props-shorthand').default,
+    Component: RadioSetting
+  },
+  {
+    ...require('data/configuration/component-superclass').default,
+    Component: RadioSetting
+  },
+  {
+    ...require('data/configuration/functional-component-type').default,
+    Component: RadioSetting
+  },
+  {
+    ...require('data/configuration/modules-order').default,
+    Component: ModulesOrder
+  }
 ];
 
 class Settings extends PureComponent {
@@ -30,9 +50,9 @@ class Settings extends PureComponent {
     onChange: PropTypes.func.isRequired
   };
 
-  createOnChange = (name) => (value) => this.props.onChange({
+  createOnChange = (id) => (value) => this.props.onChange({
     ...this.props.settings,
-    [name]: value
+    [id]: value
   });
 
   render() {
@@ -40,11 +60,14 @@ class Settings extends PureComponent {
 
     return (
       <Row>
-        {SETTINGS.map(({ name, Component }) => (
-          <Col key={name}>
+        {SETTINGS.map(({ id, name, options, Component }) => (
+          <Col key={id}>
             <Component
-              value={settings[name]}
-              onChange={this.createOnChange(name)} />
+              id={id}
+              label={name}
+              options={options}
+              value={settings[id]}
+              onChange={this.createOnChange(id)} />
           </Col>
         ))}
       </Row>

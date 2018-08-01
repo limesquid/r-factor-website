@@ -25,5 +25,10 @@ export default {
       'Number'
     ],
     defaultValue: 2
-  }
+  },
+  options: [
+    { label: '2 spaces', value: 2 },
+    { label: '4 spaces', value: 4 },
+    { label: 'Tab', value: 'tab' }
+  ]
 };

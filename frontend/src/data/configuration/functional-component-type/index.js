@@ -20,5 +20,9 @@ export default {
   setting: {
     type: 'String',
     defaultValue: 'arrow'
-  }
+  },
+  options: [
+    { label: 'Arrow function', value: 'arrow' },
+    { label: 'Function', value: 'function' }
+  ]
 };

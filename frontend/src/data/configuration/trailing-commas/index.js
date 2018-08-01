@@ -11,5 +11,9 @@ export default {
   setting: {
     type: 'Boolean',
     defaultValue: false
-  }
+  },
+  options: [
+    { label: 'No', value: false },
+    { label: 'Yes', value: true }
+  ]
 };
