@@ -8,7 +8,7 @@ export default (hoc) => ({ prop }) => (
 const output = `import React from 'react';
 import { connect } from 'react-redux';
 
-export default hoc => {
+export default (hoc) => {
   const InnerComponent = ({ prop }) => (
     <div>{hoc}Test{prop}</div>
   );
