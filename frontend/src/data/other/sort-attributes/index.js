@@ -12,7 +12,7 @@ export default {
   ),
   description: (
     <p>
-      Works with nested objects. Keeps multiline objects multiline, and inline objects inline.
+      Works with nested objects. Keeps multi-line objects multi-line, and inline objects inline.
     </p>
   ),
   worksWith: [ 'object-literal' ],
@@ -21,6 +21,7 @@ export default {
   ],
   configuration: [
     'end-of-line',
-    'indent'
+    'indent',
+    'trailing-commas'
   ]
 };
