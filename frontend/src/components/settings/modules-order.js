@@ -10,11 +10,6 @@ import Code from 'components/code';
 
 const width = 135;
 
-const options = [
-  { label: 'Custom', value: 'custom' },
-  { label: 'Alphabetic', value: 'alphabetic' }
-];
-
 const customOrderToJson = (customOrder) => customOrder
   .split('\n')
   .map((value) => value.trim())
@@ -22,6 +17,9 @@ const customOrderToJson = (customOrder) => customOrder
 
 class ModulesOrder extends Component {
   static propTypes = {
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    options: PropTypes.array.isRequired,
     value: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.array
@@ -61,15 +59,15 @@ class ModulesOrder extends Component {
 
   render() {
     const { customOrder, isOpen } = this.state;
-    const { value } = this.props;
+    const { id, label, options, value } = this.props;
     const isAlphabetic = value === 'alphabetic';
     const radioValue = isAlphabetic ? value : 'custom';
 
     return (
       <div style={{ minWidth: width, maxWidth: width }}>
         <RadioSetting
-          id="modules-order-select"
-          label="Modules order"
+          id={id}
+          label={label}
           options={options}
           value={radioValue}
           onChange={this.onRadioChange}>

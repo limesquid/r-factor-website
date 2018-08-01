@@ -70,12 +70,21 @@ class TryPage extends Component {
 
   onVerify = (recaptcha) => this.setState({ 'g-recaptcha-response': recaptcha });
 
+  generateSettings = () => {
+    const { settings } = this.state;
+    const indent = settings.indent === 'tab' ? '\t' : settings.indent;
+    const sortedSettings = {};
+    Object.keys(settings).sort().forEach((key) => {
+      sortedSettings[key] = settings[key];
+    });
+    return JSON.stringify(sortedSettings, null, indent);
+  };
+
   render() {
     const { code, isRefactoring, refactoring, refactoredCode, settings } = this.state;
     const lineSeparator = settings['end-of-line'];
-    const indent = settings.indent === 'tab' ? '\t' : settings.indent;
     const tabSize = settings.indent === 'tab' ? 4 : settings.indent;
-    const generatedSettings = JSON.stringify(settings, null, indent);
+    const generatedSettings = this.generateSettings();
 
     return (
       <Container>

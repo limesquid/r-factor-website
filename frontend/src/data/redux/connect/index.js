@@ -46,7 +46,7 @@ export default {
     'indent',
     'map-state-to-props-name',
     'map-dispatch-to-props-name',
-    'map-dispatch-to-props-prefer-object',
+    'use-map-dispatch-to-props-shorthand',
     'semicolons'
   ],
   examples: [

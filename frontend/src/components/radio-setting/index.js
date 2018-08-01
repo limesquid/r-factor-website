@@ -21,7 +21,7 @@ class RadioSetting extends Component {
 
     return (
       <FormGroup>
-        <Label className="text-nowrap" for={id}>
+        <Label className="text-nowrap" for={`${id}-radio`}>
           {label}
         </Label>
 
@@ -34,7 +34,7 @@ class RadioSetting extends Component {
               checked={value === option.value}
               id={`${id}-${option.value}`}
               label={option.label}
-              name={id}
+              name={`${id}-radio`}
               value={option.value}
               onChange={this.createOnChange(option.value)} />
           ))}

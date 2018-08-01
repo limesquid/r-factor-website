@@ -6,13 +6,13 @@ import endOfLine from './end-of-line';
 import functionalComponentType from './functional-component-type';
 import indent from './indent';
 import mapDispatchToPropsName from './map-dispatch-to-props-name';
-import mapDispatchToPropsPreferObject from './map-dispatch-to-props-prefer-object';
 import mapStateToPropsName from './map-state-to-props-name';
 import mergePropsName from './merge-props-name';
 import modulesOrder from './modules-order';
 import quotes from './quotes';
 import semicolons from './semicolons';
 import trailingCommas from './trailing-commas';
+import useMapDispatchToPropsShorthand from './use-map-dispatch-to-props-shorthand';
 
 export default [
   componentNameCollisionPattern,
@@ -23,11 +23,11 @@ export default [
   functionalComponentType,
   indent,
   mapDispatchToPropsName,
-  mapDispatchToPropsPreferObject,
   mapStateToPropsName,
   mergePropsName,
   modulesOrder,
   quotes,
   semicolons,
-  trailingCommas
+  trailingCommas,
+  useMapDispatchToPropsShorthand
 ].sort((a, b) => a.name.localeCompare(b.name));

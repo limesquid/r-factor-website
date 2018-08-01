@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default {
-  id: 'map-dispatch-to-props-prefer-object',
-  name: 'Prefer object mapDispatchToProps',
+  id: 'use-map-dispatch-to-props-shorthand',
+  name: 'Use mapDispatchToProps shorthand',
   summary: (
     <span>Which variant of <code>mapDispatchToProps</code> notation to use.</span>
   ),
@@ -20,5 +20,9 @@ export default {
   setting: {
     type: 'Boolean',
     defaultValue: false
-  }
+  },
+  options: [
+    { label: 'No', value: false },
+    { label: 'Yes', value: true }
+  ]
 };
