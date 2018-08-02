@@ -15,6 +15,7 @@ const defaultValue = [
   'redux-actions',
   'reselect',
   're-reselect',
+  'react-router',
   'react-router-dom',
   'react-hot-loader'
 ];
