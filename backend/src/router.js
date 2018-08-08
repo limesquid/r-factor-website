@@ -3,6 +3,7 @@ const path = require('path');
 const url = require('url');
 const refactor = require('./endpoints/refactor');
 const support = require('./endpoints/support');
+const buy = require('./endpoints/buy');
 const recaptcha = require('./recaptcha');
 
 const frontendPath = path.resolve(process.cwd(), 'frontend');
@@ -13,6 +14,7 @@ const getApiRouter = () => {
   const apiRouter = express.Router();
   apiRouter.post('/refactor', recaptcha.middleware.verify, refactor);
   apiRouter.post('/support', recaptcha.middleware.verify, support);
+  apiRouter.use('/buy', buy);
   return apiRouter;
 };
 
