@@ -1,21 +1,19 @@
 const express = require('express');
-const { generateLicence, verifyLicense } = require('./utils');
+const { generateLicence } = require('./utils');
+const { createPayment } = require('./paypal');
 
-// const postBuy = (request, response) => {
-
-// };
+const createNewPayment = async(request, response) => {
+  const payment = await createPayment();
+  response.send({
+    id: payment.id
+  });
+};
 
 const postGenerateLicence = (request, response) => {
   const { fullname, email } = request.body;
   response.send(generateLicence({ fullname, email }));
 };
 
-const checkLicense = (request, response) => {
-  const { license } = request.body;
-  verifyLicense(license);
-  response.send('');
-};
-
 module.exports = express.Router()
   .post('/generate', postGenerateLicence)
-  .post('/check', checkLicense);
+  .post('/create-payment', createNewPayment);
