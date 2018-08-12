@@ -15,6 +15,10 @@ body {
   max-width: 980px !important;
 }
 
+.dropdown-toggle:after {
+  margin-left: .51em !important;
+}
+
 input,
 input:focus,
 textarea,

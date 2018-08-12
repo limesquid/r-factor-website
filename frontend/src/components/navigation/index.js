@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
 import Container from 'reactstrap/lib/Container';
+import DropdownMenu from 'reactstrap/lib/DropdownMenu';
+import DropdownToggle from 'reactstrap/lib/DropdownToggle';
 import Nav from 'reactstrap/lib/Nav';
 import Navbar from 'reactstrap/lib/Navbar';
 import NavbarBrand from 'reactstrap/lib/NavbarBrand';
 import NavItem from 'reactstrap/lib/NavItem';
 import NavLink from 'reactstrap/lib/NavLink';
+import UncontrolledDropdown from 'reactstrap/lib/UncontrolledDropdown';
 import BuyButton from 'components/buy-button';
 import { transparentLogoUrl } from 'data';
 import './styles.css';
@@ -20,7 +23,7 @@ const links = [
   { label: 'EULA', to: '/eula' }
 ];
 
-const isActive = ({ location, to }) => {
+const isActive = (location, to) => {
   if (to === '/') {
     return to === location.pathname;
   }
@@ -39,7 +42,7 @@ const Navigation = ({ location }) => (
 
       <Nav navbar>
         {links.map(({ label, to }, index) => (
-          <NavItem key={index} active={isActive({ location, to })} className="mx-2">
+          <NavItem key={index} active={isActive(location, to)} className="mx-2 hide-md">
             <IndexLinkContainer to={to}>
               <NavLink>
                 {label}
@@ -47,6 +50,24 @@ const Navigation = ({ location }) => (
             </IndexLinkContainer>
           </NavItem>
         ))}
+
+        <UncontrolledDropdown className="hide-lg">
+          <DropdownToggle nav caret>
+            More
+          </DropdownToggle>
+
+          <DropdownMenu right>
+            {links.map(({ label, to }, index) => (
+              <NavItem key={index} active={isActive(location, to)} className="mx-2">
+                <IndexLinkContainer to={to}>
+                  <NavLink>
+                    {label}
+                  </NavLink>
+                </IndexLinkContainer>
+              </NavItem>
+            ))}
+          </DropdownMenu>
+        </UncontrolledDropdown>
 
         <NavItem className="ml-2">
           <BuyButton />
