@@ -13,13 +13,13 @@ export default {
   actions: (
     <ul className="text-muted">
       <li>
-        Declares <code>mapStateToProps</code> below the component definition (if not present)
+        Defines <code>mapStateToProps</code> below the component definition (if not present)
       </li>
       <li>
         Wraps exported (returned, if it's a HOC) component with <code>connect</code> (if not present)
       </li>
       <li>
-        Uses <code>mapStateToProps</code> with said <code>connect</code>
+        Uses <code>mapStateToProps</code> with aforementioned <code>connect</code>
         {' '}
         (replacing <code>null</code> values if present)
       </li>

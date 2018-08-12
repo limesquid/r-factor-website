@@ -13,13 +13,13 @@ export default {
   actions: (
     <ul className="text-muted">
       <li>
-        Declares <code>mergeProps</code> below the component definition (if not present)
+        Defines <code>mergeProps</code> below the component definition (if not present)
       </li>
       <li>
         Wraps exported (returned, if it's a HOC) component with <code>connect</code> (if not present)
       </li>
       <li>
-        Uses <code>mergeProps</code> with said <code>connect</code> (replacing <code>null</code> values if present)
+        Uses <code>mergeProps</code> with aforementioned <code>connect</code> (replacing <code>null</code> values if present)
       </li>
       <li>
         Adds <code>connect</code> import statement (if not present)

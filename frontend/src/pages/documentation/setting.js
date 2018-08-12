@@ -9,55 +9,61 @@ import { allFeatures } from 'data';
 const getUsedIn = (id) => allFeatures
   .filter(({ configuration }) => configuration && configuration.includes(id));
 
-const Setting = ({ id, setting }) => (
-  <Fragment>
-    <Row>
-      <Col className="mb-4" lg={6} md={12}>
-        <div className="mb-4">
-          <h3>Interface</h3>
-          <h6>
-            <Badge color="primary">Name</Badge>
-            &nbsp;&nbsp;&nbsp;
-            <code>{id}</code>
-          </h6>
+const Setting = ({ id, setting }) => {
+  const usedIn = getUsedIn(id);
 
-          <h6>
-            <Badge color="primary">Type</Badge>
-            &nbsp;&nbsp;&nbsp;
-            {Array.isArray(setting.type) && (
-              <code>
-                {setting.type.join(', ')}
+  return (
+    <Fragment>
+      <Row>
+        <Col className="mb-4" lg={6} md={12}>
+          <div className="mb-4">
+            <h3>Interface</h3>
+            <h6>
+              <Badge color="primary">Name</Badge>
+              &nbsp;&nbsp;&nbsp;
+              <code>{id}</code>
+            </h6>
+
+            <h6>
+              <Badge color="primary">Type</Badge>
+              &nbsp;&nbsp;&nbsp;
+              {Array.isArray(setting.type) && (
+                <code>
+                  {setting.type.join(', ')}
+                </code>
+              )}
+
+              {!Array.isArray(setting.type) && (
+                <code>{setting.type}</code>
+              )}
+            </h6>
+
+            <h6>
+              <Badge color="primary">Default value</Badge>
+              &nbsp;&nbsp;&nbsp;
+              <code style={{ whiteSpace: 'pre' }}>
+                {JSON.stringify(setting.defaultValue, null, 2)}
               </code>
-            )}
+            </h6>
+          </div>
+        </Col>
 
-            {!Array.isArray(setting.type) && (
-              <code>{setting.type}</code>
-            )}
-          </h6>
-
-          <h6>
-            <Badge color="primary">Default value</Badge>
-            &nbsp;&nbsp;&nbsp;
-            <code style={{ whiteSpace: 'pre' }}>
-              {JSON.stringify(setting.defaultValue, null, 2)}
-            </code>
-          </h6>
-        </div>
-      </Col>
-
-      <Col className="mb-4" lg={6} md={12}>
-        <h3>Used in</h3>
-        <ul className="text-muted">
-          {getUsedIn(id).map((feature) => (
-            <li key={feature.id}>
-              <Link href={`/documentation/${feature.id}`} label={feature.name} />
-            </li>
-          ))}
-        </ul>
-      </Col>
-    </Row>
-  </Fragment>
-);
+        {usedIn.length > 0 && (
+          <Col className="mb-4" lg={6} md={12}>
+            <h3>Used in</h3>
+            <ul className="text-muted">
+              {usedIn.map((feature) => (
+                <li key={feature.id}>
+                  <Link href={`/documentation/${feature.id}`} label={feature.name} />
+                </li>
+              ))}
+            </ul>
+          </Col>
+        )}
+      </Row>
+    </Fragment>
+  );
+};
 
 Setting.propTypes = {
   id: PropTypes.string.isRequired,

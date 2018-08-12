@@ -9,6 +9,7 @@ import mapDispatchToPropsName from './map-dispatch-to-props-name';
 import mapStateToPropsName from './map-state-to-props-name';
 import mergePropsName from './merge-props-name';
 import modulesOrder from './modules-order';
+import NODE_BIN from './NODE_BIN';
 import quotes from './quotes';
 import semicolons from './semicolons';
 import trailingCommas from './trailing-commas';
@@ -26,6 +27,7 @@ export default [
   mapStateToPropsName,
   mergePropsName,
   modulesOrder,
+  NODE_BIN,
   quotes,
   semicolons,
   trailingCommas,
