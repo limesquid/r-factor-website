@@ -1,3 +1,4 @@
+const btoa = require('btoa');
 const sgMail = require('@sendgrid/mail');
 const {
   OUR_EMAIL,
@@ -88,9 +89,4 @@ const createEmail = ({ configuration, email, input, message, output, type }) => 
   }
 
   return emailJson;
-};
-
-const btoa = (data) => {
-  const buffer = new Buffer(data);
-  return buffer.toString('base64');
 };

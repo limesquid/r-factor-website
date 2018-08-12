@@ -4,11 +4,11 @@ const certificate = require('../../../certificate/license.key');
 
 const sha256 = (string) => crypto.createHash('sha256').update(string).digest('hex');
 
-const generateLicence = ({ fullname, email }) => {
+const generateLicence = ({ fullName, email }) => {
   const licenseData = {
-    fullname,
+    fullName,
     email,
-    key: sha256(`${fullname}:${process.env.LICENSE_SECRET}:${email}`)
+    key: sha256(`${fullName}:${process.env.LICENSE_SECRET}:${email}`)
   };
   return jwt.sign(licenseData, certificate, { algorithm: 'RS256' });
 };

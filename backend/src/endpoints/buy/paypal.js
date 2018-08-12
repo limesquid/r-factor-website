@@ -1,53 +1,22 @@
 /* eslint-disable camelcase */
 
 const request = require('request-promise-native');
-const btoa = require('btoa');
+const payPalAccessTokenManager = require('../../utils/pay-pal-access-token-manager');
 
-const PAYPAL_API = 'https://api.sandbox.paypal.com/v1';
-const BASIC_AUTHENTICATION_TOKEN = btoa(`${process.env.PAYPAL_CLIENT_ID}:${process.env.PAYPAL_SECRET}`);
-
-const getNewAccessToken = () => request({
-  method: 'POST',
-  url: `${PAYPAL_API}/oauth2/token`,
-  qs: {
-    grant_type: 'client_credentials' // eslint-disable-line
-  },
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    Authorization: `Basic ${BASIC_AUTHENTICATION_TOKEN}`
-  },
-  json: true
-}).then(({ access_token, expires_in }) => ({
-  accessToken: access_token,
-  expiresIn: expires_in
-}));
-
-const getAccessToken = (() => {
-  let accessToken = null;
-  let expiresAt = null;
-
-  return async () => {
-    if (!accessToken || expiresAt <= Number(new Date())) {
-      const newAccessTokenDetails = await getNewAccessToken();
-      accessToken = newAccessTokenDetails.accessToken;
-      expiresAt = Number(new Date()) + newAccessTokenDetails.expiresIn;
-    }
-    return accessToken;
-  };
-})();
+const PAY_PAL_API = process.env.PAY_PAL_API;
 
 const createPayment = async () => request({
-  url: `${PAYPAL_API}/payments/payment`,
+  url: `${PAY_PAL_API}/payments/payment`,
   method: 'POST',
   json: true,
   headers: {
-    Authorization: `Bearer ${await getAccessToken()}`
+    Authorization: `Bearer ${await payPalAccessTokenManager.getToken()}`
   },
   body: {
     intent: 'sale',
     redirect_urls: {
-      return_url: 'http://example.com/your_redirect_url.html',
-      cancel_url: 'http://example.com/your_cancel_url.html'
+      return_url: 'http://r-factor.io/buy?success',
+      cancel_url: 'http://r-factor.io/buy?failure'
     },
     payer: {
       payment_method: 'paypal'
