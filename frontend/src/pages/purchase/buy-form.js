@@ -16,26 +16,30 @@ const paypalButtonStyle = {
 };
 
 class BuyForm extends Component {
-  constructor(props) {
-    super(props);
-    this.emailRef = React.createRef();
-    this.fullNameRef = React.createRef();
-    this.state = {
-      licenseKey: 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6Ill1cml5IFlha3ltIiwiZW1haWwiOiJ5YWt5bS55dXJpeUBnbWFpbC5jb20iLCJrZXkiOiJhMjZiNDU0MTg0ZGQwOTZhYTA1MWUzM2M5NTQyYjJjMzQ0MWZkZGJiNGEwZDgzZDNhZWQ3MTgxYjVkNWEwMTc3IiwiaWF0IjoxNTMzNjU4OTE1fQ.GsuDuiA5mJ03zJm7D-hKWyieZFPBF481lTRTQ7tHw1n2Gsan4Nj2lIxXHnZow3yCMvcpLYzXu9ohX_2PNRBVoR7lJXxAdgkDPFoobfWpm6kS5sBQv-EW3ShDO7e2uTGfvkgfdMQ6U4JT8UbYxF_jjlOBj4fnNzMCCVDj8EVmA9DZE1zWhL_TI5kDggX3Q2qocfHrnEmEnoVNORzqUq9uDgL8K-SHfsZ1k-ewuVR_3z0s5KljfZWMxwtCRQqjlGFsnqQBMwRcTJPLJJlesHoyrh764UgIpjo2RHFPOpWsm8gDH90j9jlHcC4DTB09DQOrf2u2MNeA1cxy270cNtCp9Q'
-    };
-  }
+  state = {
+    email: '',
+    fullName: '',
+    licenseKey: null
+  };
 
   onAuthorize = async (data, actions) => actions.payment.execute().then(async () => {
-    console.log(data);
-    const licenseKey = await completePayment();
+    const { paymentID: paymentId } = data;
+    const licenseKey = await completePayment(paymentId);
     this.setState({ licenseKey });
   });
 
   onLicenseClick = (event) => event.target.select();
 
+  onInputChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  }
+
   payment = () => createPayment({
-    fullName: this.fullNameRef.current.value,
-    email: this.emailRef.current.value
+    email: this.state.email,
+    fullName: this.state.fullName
   });
 
   render() {
@@ -66,17 +70,26 @@ class BuyForm extends Component {
         <FormGroup row>
           <Label sm={3} size="sm">Full name:</Label>
           <Col sm={9}>
-            <Input ref={this.fullNameRef} type="text" bsSize="sm" />
+            <Input
+              type="text"
+              name="fullName"
+              bsSize="sm"
+              onChange={this.onInputChange} />
           </Col>
         </FormGroup>
         <FormGroup row>
           <Label sm={3} size="sm">Email</Label>
           <Col sm={9}>
-            <Input ref={this.emailRef} type="email" bsSize="sm" />
+            <Input
+              type="email"
+              name="email"
+              bsSize="sm"
+              onChange={this.onInputChange} />
           </Col>
         </FormGroup>
         <PayPalButton
           commit
+          className="float-right"
           style={paypalButtonStyle}
           env="sandbox"
           client={{
