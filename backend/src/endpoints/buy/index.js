@@ -21,7 +21,12 @@ const createNewPayment = async(request, response) => {
 
 const completePayment = (request, response) => {
   const { paymentId } = request.body;
-  const { fullName, email } = licensesDb.getByPaymentId(paymentId);
+  const licenseDetails = licensesDb.getByPaymentId(paymentId);
+  if (!paymentId || !licenseDetails) {
+    response.status(404).send('Wrong payment id');
+    return;
+  }
+  const { fullName, email } = licenseDetails;
   const licenseKey = generateLicence({ fullName, email });
   licensesDb.setLicenseKey(paymentId, licenseKey);
   response.send({ licenseKey });
