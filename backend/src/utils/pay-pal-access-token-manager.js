@@ -2,7 +2,7 @@ const request = require('request-promise-native');
 const btoa = require('btoa');
 
 const PAY_PAL_API = process.env.PAY_PAL_API;
-const BASIC_AUTHENTICATION_TOKEN = btoa(`${process.env.PAYPAL_CLIENT_ID}:${process.env.PAYPAL_SECRET}`);
+const BASIC_AUTHENTICATION_TOKEN = btoa(`${process.env.PAY_PAL_CLIENT_ID}:${process.env.PAY_PAL_SECRET}`);
 const SESSTION_TIMEOUT_OFFSET = -10000;
 
 class PayPalAccessTokenManager {

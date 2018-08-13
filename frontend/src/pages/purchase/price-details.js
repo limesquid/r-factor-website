@@ -14,7 +14,6 @@ const PriceDetails = () => (
           on as many computers and operating systems as you wish with your license.
           <div><Link label="More" href="/eula" /></div>
         </li>
-        <li className="list-group-item">Support and updates included with subscription</li>
         <li className="list-group-item">
           <BuyForm />
         </li>
