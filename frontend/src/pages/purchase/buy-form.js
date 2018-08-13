@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Clipboard from 'react-clipboard.js';
 import paypal from 'paypal-checkout';
-import { Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Col } from 'reactstrap';
 import { completePayment, createPayment } from './api';
 
 const PayPalButton = paypal.Button.driver('react', { React, ReactDOM });
