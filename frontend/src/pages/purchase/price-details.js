@@ -12,7 +12,7 @@ const PriceDetails = () => (
         <li className="list-group-item text-justify">
           Licenses are per-user, rather than per-machine, so you can enjoy R-Factor
           on as many computers and operating systems as you wish with your license.
-          <div><Link label="More" href="/eula" /></div>
+          <div className="float-right mt-2"><Link label="More" href="/eula" /></div>
         </li>
         <li className="list-group-item">
           <BuyForm />
