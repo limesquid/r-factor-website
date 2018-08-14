@@ -6,6 +6,7 @@ import Form from 'reactstrap/lib/Form';
 import Row from 'reactstrap/lib/Row';
 import { Helmet } from 'react-helmet';
 import Code, { sanitize } from 'components/code';
+import RadioSetting from 'components/radio-setting';
 import Recaptcha from 'components/recaptcha';
 import RefactoringsSelect from 'components/refactorings-select';
 import Settings from 'components/settings';
@@ -22,12 +23,19 @@ const defaultSettings = configurationFeatures.reduce(
   {}
 );
 
+const editorOptions = [
+  { label: 'Atom', value: 'atom' },
+  { label: 'Sublime', value: 'sublime' },
+  { label: 'VSCode', value: 'vscode' }
+];
+
 class TryPage extends Component {
   constructor(props) {
     super(props);
     this.recaptchaRef = createRef();
     this.state = {
       code: defaultCode,
+      editor: 'atom',
       'g-recaptcha-response': null,
       isRefactoring: false,
       refactoring: reactFeatures[0].id,
@@ -43,6 +51,8 @@ class TryPage extends Component {
   onCopyToInput = () => this.setState((prevState) => ({
     code: prevState.refactoredCode
   }));
+
+  onEditorChange = (editor) => this.setState({ editor });
 
   onRefactoringChange = (refactoring) => this.setState({ refactoring });
 
@@ -71,17 +81,18 @@ class TryPage extends Component {
   onVerify = (recaptcha) => this.setState({ 'g-recaptcha-response': recaptcha });
 
   generateSettings = () => {
-    const { settings } = this.state;
+    const { editor, settings } = this.state;
     const indent = settings.indent === 'tab' ? '\t' : settings.indent;
     const sortedSettings = {};
     Object.keys(settings).sort().forEach((key) => {
-      sortedSettings[key] = settings[key];
+      const prefixedKey = editor === 'vscode' ? `r-factor.${key}` : key;
+      sortedSettings[prefixedKey] = settings[key];
     });
     return JSON.stringify(sortedSettings, null, indent);
   };
 
   render() {
-    const { code, isRefactoring, refactoring, refactoredCode, settings } = this.state;
+    const { code, editor, isRefactoring, refactoring, refactoredCode, settings } = this.state;
     const lineSeparator = settings['end-of-line'];
     const tabSize = settings.indent === 'tab' ? 4 : settings.indent;
     const generatedSettings = this.generateSettings();
@@ -167,6 +178,13 @@ class TryPage extends Component {
                 Copy to clipboard
               </Button>
             </h3>
+            <RadioSetting
+              id="editor"
+              label="Editor"
+              horizontal
+              options={editorOptions}
+              value={editor}
+              onChange={this.onEditorChange} />
             <Code
               className="mb-4"
               disabled
