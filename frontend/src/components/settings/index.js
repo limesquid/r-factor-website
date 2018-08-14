@@ -40,6 +40,10 @@ const SETTINGS = [
     Component: RadioSetting
   },
   {
+    ...require('data/configuration/svg-component-type').default,
+    Component: RadioSetting
+  },
+  {
     ...require('data/configuration/modules-order').default,
     Component: ModulesOrder
   },

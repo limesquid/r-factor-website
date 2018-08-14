@@ -19,7 +19,8 @@ export default {
         Wraps exported (returned, if it's a HOC) component with <code>connect</code> (if not present)
       </li>
       <li>
-        Uses <code>mergeProps</code> with aforementioned <code>connect</code> (replacing <code>null</code> values if present)
+        Uses <code>mergeProps</code> with
+        aforementioned <code>connect</code> (replacing <code>null</code> values if present)
       </li>
       <li>
         Adds <code>connect</code> import statement (if not present)
