@@ -148,7 +148,7 @@ class TryPage extends Component {
         </Row>
 
         <Row style={{ minHeight: 600 }}>
-          <Col lg={6}>
+          <Col lg={12}>
             <Form>
               <h3 className="d-flex justify-content-between">
                 <span>Settings</span>
