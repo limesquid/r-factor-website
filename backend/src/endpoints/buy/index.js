@@ -2,16 +2,20 @@ const express = require('express');
 const { generateLicence } = require('./utils');
 const { createPayment } = require('./paypal');
 const licensesDb = require('../../utils/licenses-db');
+const sendPaymentConfirmation = require('./send-payment-confirmation');
 
-const createNewPayment = async(request, response) => {
+const createNewPayment = async (request, response) => {
   const payment = await createPayment();
-  const { fullName, email } = request.body;
+  const { address, companyName, fullName, email, vatin } = request.body;
 
   licensesDb.create({
+    address,
+    companyName,
+    email,
+    fullName,
     paymentId: payment.id,
     paymentMethod: 'paypal',
-    fullName,
-    email
+    vatin
   });
 
   response.send({
@@ -26,9 +30,10 @@ const completePayment = (request, response) => {
     response.status(404).send('Wrong payment id');
     return;
   }
-  const { fullName, email } = licenseDetails;
+  const { address, companyName, email, fullName, vatin } = licenseDetails;
   const licenseKey = generateLicence({ fullName, email });
   licensesDb.setLicenseKey(paymentId, licenseKey);
+  sendPaymentConfirmation({ address, companyName, email, fullName, licenseKey, vatin });
   response.send({ licenseKey });
 };
 

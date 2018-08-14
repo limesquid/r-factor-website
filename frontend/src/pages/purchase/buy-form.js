@@ -15,11 +15,34 @@ const paypalButtonStyle = {
   tagline: false
 };
 
+const inputs = [
+  {
+    title: 'Full name',
+    name: 'fullName'
+  },
+  {
+    title: 'Email',
+    name: 'email',
+    type: 'email'
+  },
+  {
+    title: 'Address',
+    name: 'address'
+  },
+  {
+    title: 'Company name',
+    name: 'companyName'
+  }
+];
+
 class BuyForm extends Component {
   state = {
+    address: '',
+    companyName: '',
     email: '',
     fullName: '',
-    licenseKey: null
+    licenseKey: null,
+    vatin: ''
   };
 
   onAuthorize = async (data, actions) => actions.payment.execute().then(async () => {
@@ -38,12 +61,15 @@ class BuyForm extends Component {
   }
 
   payment = () => createPayment({
+    address: this.state.address,
+    companyName: this.state.companyName,
     email: this.state.email,
-    fullName: this.state.fullName
+    fullName: this.state.fullName,
+    vatin: this.state.vatin
   });
 
   render() {
-    const { licenseKey } = this.state;
+    const { licenseKey, companyName } = this.state;
 
     if (licenseKey) {
       return (
@@ -67,26 +93,29 @@ class BuyForm extends Component {
 
     return (
       <Form onSubmit={this.onSubmit}>
-        <FormGroup row>
-          <Label sm={3} size="sm">Full name:</Label>
-          <Col sm={9}>
-            <Input
-              type="text"
-              name="fullName"
-              bsSize="sm"
-              onChange={this.onInputChange} />
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label sm={3} size="sm">Email</Label>
-          <Col sm={9}>
-            <Input
-              type="email"
-              name="email"
-              bsSize="sm"
-              onChange={this.onInputChange} />
-          </Col>
-        </FormGroup>
+        {inputs.map((input) => (
+          <FormGroup row key={input.name}>
+            <Label sm={4} size="sm">{input.title}:</Label>
+            <Col sm={8}>
+              <Input
+                type={input.type}
+                name={input.name}
+                bsSize="sm"
+                onChange={this.onInputChange} />
+            </Col>
+          </FormGroup>
+        ))}
+        {companyName && (
+          <FormGroup row>
+            <Label sm={4} size="sm">NIP / VATIN:</Label>
+            <Col sm={8}>
+              <Input
+                name="vatin"
+                bsSize="sm"
+                onChange={this.onInputChange} />
+            </Col>
+          </FormGroup>
+        )}
         <PayPalButton
           commit
           className="float-right"

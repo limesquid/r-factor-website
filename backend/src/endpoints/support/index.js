@@ -1,7 +1,6 @@
 const btoa = require('btoa');
 const sgMail = require('@sendgrid/mail');
 const {
-  OUR_EMAIL,
   MAX_CODE_LENGTH,
   MAX_MESSAGE_LENGTH,
   RECAPTCHA_MESSAGE,
@@ -9,6 +8,8 @@ const {
   TOO_LONG_INPUT_MESSAGE,
   TYPES_STRING
 } = require('./constants');
+
+const OUR_EMAIL = process.env.OUR_EMAIL;
 
 module.exports = (request, response) => {
   const payload = parseRequest(request);
