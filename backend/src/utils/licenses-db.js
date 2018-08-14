@@ -12,14 +12,17 @@ class LicensesDb {
     this.db.defaults({ licenses: [] }).write();
   }
 
-  create({ fullName, email, paymentMethod, paymentId }) {
+  create({ address, companyName, email, fullName, paymentMethod, paymentId, vatin }) {
     const license = {
+      address,
+      companyName,
       email,
       fullName,
       paymentId,
       paymentMethod,
       createdAt: new Date(),
-      status: STATUS_UNPAID
+      status: STATUS_UNPAID,
+      vatin
     };
 
     this.db.get('licenses').push(license).write();
@@ -36,8 +39,20 @@ class LicensesDb {
       .write();
   }
 
+  getLicensesByDate(date) {
+    return this.db.get('licenses')
+      .filter(({ paidAt }) => {
+        if (!paidAt) {
+          return false;
+        }
+        const paidAtDate = new Date(paidAt);
+        return paidAtDate.getYear() === date.getFullYear() && paidAtDate.getMonth() === date.getMonth();
+      })
+      .value();
+  }
+
   getByPaymentId(paymentId) {
-    return this.db.get('licenses').find({ paymentId });
+    return this.db.get('licenses').find({ paymentId }).value();
   }
 }
 
