@@ -46,7 +46,7 @@ class LicensesDb {
           return false;
         }
         const paidAtDate = new Date(paidAt);
-        return paidAtDate.getYear() === date.getFullYear() && paidAtDate.getMonth() === date.getMonth();
+        return paidAtDate.getFullYear() === date.getFullYear() && paidAtDate.getMonth() === date.getMonth();
       })
       .value();
   }
