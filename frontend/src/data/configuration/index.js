@@ -12,6 +12,7 @@ import modulesOrder from './modules-order';
 import NODE_BIN from './NODE_BIN';
 import quotes from './quotes';
 import semicolons from './semicolons';
+import svgComponentType from './svg-component-type';
 import trailingCommas from './trailing-commas';
 import useMapDispatchToPropsShorthand from './use-map-dispatch-to-props-shorthand';
 
@@ -30,6 +31,7 @@ export default [
   NODE_BIN,
   quotes,
   semicolons,
+  svgComponentType,
   trailingCommas,
   useMapDispatchToPropsShorthand
 ].sort((a, b) => a.name.localeCompare(b.name));

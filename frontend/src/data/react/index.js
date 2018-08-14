@@ -1,4 +1,5 @@
 import addClassname from './add-classname';
+import convertSvgToComponent from './convert-svg-to-component';
 import convertToArrowComponent from './convert-to-arrow-component';
 import convertToFunctionComponent from './convert-to-function-component';
 import convertToClassComponent from './convert-to-class-component';
@@ -10,6 +11,7 @@ import toggleWithrouterHoc from './toggle-withrouter-hoc';
 
 export default [
   addClassname,
+  convertSvgToComponent,
   convertToArrowComponent,
   convertToFunctionComponent,
   convertToClassComponent,
