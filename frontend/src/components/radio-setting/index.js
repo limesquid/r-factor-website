@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import FormGroup from 'reactstrap/lib/FormGroup';
 import CustomInput from 'reactstrap/lib/CustomInput';
 import Label from 'reactstrap/lib/Label';
+import './styles.css';
 
 class RadioSetting extends Component {
   static propTypes = {
     children: PropTypes.node,
+    horizontal: PropTypes.bool,
     id: PropTypes.any,
     label: PropTypes.any,
     options: PropTypes.array.isRequired,
@@ -17,7 +20,7 @@ class RadioSetting extends Component {
   createOnChange = (value) => () => this.props.onChange(value);
 
   render() {
-    const { children, id, label, options, value } = this.props;
+    const { children, horizontal, id, label, options, value } = this.props;
 
     return (
       <FormGroup>
@@ -25,7 +28,15 @@ class RadioSetting extends Component {
           {label}
         </Label>
 
-        <div className="position-relative text-muted">
+        <div
+          className={classNames(
+            'options',
+            'position-relative',
+            'text-muted',
+            {
+              horizontal
+            }
+          )}>
           {options.map((option) => (
             <CustomInput
               key={option.value}
