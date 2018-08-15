@@ -9,55 +9,6 @@
       "status": "paid",
       "licenseKey": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJhN2UzNzU0MDc5ZDRmNmQ5OTYyZmNiZjdmMGY3MWYzNzVkMGZhOTI5Y2Y2ZDljMzI4MWYyZmFkZmEyNjM3YWI4IiwiaWF0IjoxNTM0MjA3NDgzfQ.cGzMX0XseWS04VnrYEeiOGlivrj1mc6JMVK0K0uFi8ydsWyqtJJ0y2bP3GJ0CtzGj5xhF8K4uwVrstMnWJGnNaujFr4QndUj049kwbMsCAx463p18_dcYSrP4RX-CybE1FZZt-wtFp6jCr7deWc8nYbMIkfiq3e6PaeZtbxd3KfhBPJIaYFUiF2cGY_5ZZyIfzfPa8PNp3vImYBKDiytSGvLPdfjODvyQ3vvq1idkwnD0Gz_s73mERSygbOMBCXyEgMRrnYsYJ1xjYUx5QiDY0gFii9x2xJFm4TqqP5mihalab-g-oHzMkE4Lt0kLrPPGa7i5V_960xCIv6SRZh88w",
       "paidAt": "2018-08-14T00:44:43.519Z"
-    },
-    {
-      "email": "yakym.yuriy@gmail.com",
-      "fullName": "Yuriy Yakym",
-      "paymentId": "PAY-3CT97824F77878052LNZCM5A",
-      "paymentMethod": "paypal",
-      "createdAt": "2018-08-14T00:46:44.802Z",
-      "status": "paid",
-      "licenseKey": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJhN2UzNzU0MDc5ZDRmNmQ5OTYyZmNiZjdmMGY3MWYzNzVkMGZhOTI5Y2Y2ZDljMzI4MWYyZmFkZmEyNjM3YWI4IiwiaWF0IjoxNTM0MjA3NjIxfQ.lzlzbG9xlusy9Wgpx5crIAs36dWX9KPQ7HXDtr1hcHjSN4fKfR1-eB5gFexziZS-3KdKLT4_9VbeNXkTSDIlkxoqeL6axa9mdNPnwQFiI4nTjI0ssP89Bo559QKgL5T2-XPZ37t8lF889lXRxuVYCHDnX4hej_eWOkL4oS5sKWe1E8UviTkFnmiTQSSaHu-HuPN66BQuekKgK1DW8wFbt7IyeORmjdkTp2P2M7ItO0-KKt79kPuGWpxFRzIHkW-fcNtDzzIqTy0FiP8nU7s_KL89nt1goJHrsMdWq1IffzngCiRd7nKPR8dcXSTzLnJzseMXBWP4zkF44vKH39L13Q",
-      "paidAt": "2018-08-14T00:47:01.339Z"
-    },
-    {
-      "address": "Grodowa 22/5, 44-100 Gliwice",
-      "companyName": "Codiart Yuriy Yakym",
-      "email": "ximik.yura@gmail.com",
-      "fullName": "Yuriy Yakym",
-      "paymentId": "PAY-6VU27872W70372713LNZCOWA",
-      "paymentMethod": "paypal",
-      "createdAt": "2018-08-14T00:50:32.299Z",
-      "status": "paid",
-      "vatin": "",
-      "licenseKey": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJhN2UzNzU0MDc5ZDRmNmQ5OTYyZmNiZjdmMGY3MWYzNzVkMGZhOTI5Y2Y2ZDljMzI4MWYyZmFkZmEyNjM3YWI4IiwiaWF0IjoxNTM0MjA3ODYwfQ.i6DdpdpNB4uf9poj_YHZE985YLqGy05ZF3VyM2IX_giP88YwnSK8r1nF0UP_UM5tLSTanZtxbRPlxa_ZpJFC1dVoNhmDxqugR0b13JSJDnmQMIjqqrgy_ZQXlqSRh9uZqvc1TkUJ-qCUuYK4OeGV0LQVK6VXMl_2fp_f4W3qfYPi9ne7bgDFrdRjw30RHvqVvHg9_Wl0lhPvB92077vfSIDFG-fl-LMj2dwRRFePd6ala3Ks19seirY9U49zwAaaNHAaU8F1vOXJeaQeNqfxcUST7q6D3ak2Xqxl1cttnkskuhCFs2DEVBNcG9sV0xOw4l-86Dae18Ua5LCauil8mQ",
-      "paidAt": "2018-08-14T00:51:00.783Z"
-    },
-    {
-      "address": "Grodowa 22/5, 44-100 Gliwice",
-      "companyName": "Codiart Yuriy Yakym",
-      "email": "yakym.yuriy@gmail.com",
-      "fullName": "Yuriy Yakym",
-      "paymentId": "PAY-44T83545JC883612RLNZCP4Q",
-      "paymentMethod": "paypal",
-      "createdAt": "2018-08-14T00:53:06.563Z",
-      "status": "paid",
-      "vatin": "",
-      "licenseKey": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJhN2UzNzU0MDc5ZDRmNmQ5OTYyZmNiZjdmMGY3MWYzNzVkMGZhOTI5Y2Y2ZDljMzI4MWYyZmFkZmEyNjM3YWI4IiwiaWF0IjoxNTM0MjA4MDA0fQ.KpbELBfzcfJTG502nW7gU4B7KICmZnRppRfyTu9kpYYYMeQJHW6Ys4UpKUaweDJVUcvh0ebjJhNq15lT3DxjP46PqcfLlt_gtRktw44YPLi1kDxzIbx-oLtZlZ6aJiIy4w_zM6JrwHJcZv2mS3Wu5x31bxcSs8efFvUun7HjqjVYd8U7zauZgYkt1ZFp9YW1WuNC-tzgtsOfEAL6QAFTp9MKBDUt0yX2IWrjEo9dFHTSm49tGyAL3ZR0FQhlAjGH6NKbi9rcK38pX91BAf9qUMc-4mD1t9iWx24GsAcRXCSVg9HgllzxR979vEfEArQAkw1XkYRw4VEIyqCqcUxjBg",
-      "paidAt": "2018-08-14T00:53:24.316Z"
-    },
-    {
-      "address": "Grodowa 22/5, 44-100 Gliwice",
-      "companyName": "Codiart Yuriy Yakym",
-      "email": "yakym.yuriy@gmail.com",
-      "fullName": "Yuriy Yakym",
-      "paymentId": "PAY-85914648S1934854PLNZCRKA",
-      "paymentMethod": "paypal",
-      "createdAt": "2018-08-14T00:56:08.805Z",
-      "status": "paid",
-      "vatin": "",
-      "licenseKey": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsTmFtZSI6Ill1cml5IFlha3ltIiwiZW1haWwiOiJ5YWt5bS55dXJpeUBnbWFpbC5jb20iLCJrZXkiOiJhMjZiNDU0MTg0ZGQwOTZhYTA1MWUzM2M5NTQyYjJjMzQ0MWZkZGJiNGEwZDgzZDNhZWQ3MTgxYjVkNWEwMTc3IiwiaWF0IjoxNTM0MjA4MjA0fQ.JMRcTTMK_b-jfeJOTuajKZYPRYZY3Kdi0KVkVFB4PWtu6bZwRYcKeF_4w5copEcnFH4Z9-L2aYjgY0KIjOvFMAKsxHUcXstxxVvGNuyR5AVm_rB28WstgZbqGBR22jgaBooe9RZzgWnpPF66MJJDguQviFTfH06giMW0cLAyVpI7DnoIUZmRl3zGoYEih1cxrkulD3LLKgVHBbSvbZ7SNjDpwTwsmZ7RyjalWjV8tLU_nrChqJ77yA4L2u_VK_R4EhAVjQ7vP69I8KrMEkXMXtWr-DDWRUiGOgbkK58qjJhQxLSsETIRkXNV-QuESF_EQtOdaHQ3UPQLbzCSi1v3fQ",
-      "paidAt": "2018-08-14T00:56:44.146Z"
     }
   ]
 }

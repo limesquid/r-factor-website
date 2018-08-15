@@ -41,10 +41,8 @@ class LicensesDb {
 
   getLicensesByDate(date) {
     return this.db.get('licenses')
+      .filter(({ paidAt }) => Boolean(paidAt))
       .filter(({ paidAt }) => {
-        if (!paidAt) {
-          return false;
-        }
         const paidAtDate = new Date(paidAt);
         return paidAtDate.getFullYear() === date.getFullYear() && paidAtDate.getMonth() === date.getMonth();
       })
