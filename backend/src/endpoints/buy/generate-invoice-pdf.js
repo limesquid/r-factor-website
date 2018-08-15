@@ -37,7 +37,11 @@ const createInvoicePayload = ({ address, companyName, vatin, fullName }) => {
   const licenseNumber = licensesDb.getLicensesByDate(date).length + 1;
 
   return {
-    from: `${process.env.COMPANY_NAME},\n${process.env.COMPANY_ADDRESS},\nNIP / VATIN: ${process.env.COMPANY_ID}`,
+    from: [
+      process.env.COMPANY_NAME,
+      process.env.COMPANY_ADDRESS,
+      `NIP / VATIN: ${process.env.COMPANY_ID}`
+    ].join('\n'),
     to: companyName
       ? `${companyName},\n${address}\nNIP / VATIN:${vatin}`
       : `${fullName},\n${address}`,
