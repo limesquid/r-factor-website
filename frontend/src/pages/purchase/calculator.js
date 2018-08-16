@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { InputGroup, InputGroupAddon, Input } from 'reactstrap';
 import { reactFeatures, reduxFeatures } from 'data';
 
+const DAYS_IN_MONTH = 21;
+const DAYS_IN_YEAR = 365;
+
 const calculateTime = (refactoringsDetails) => {
   const seconds = refactoringsDetails.reduce(
     (result, refactoringDetails) => result + refactoringDetails.dailyCount * refactoringDetails.manualDuration,
@@ -9,7 +12,8 @@ const calculateTime = (refactoringsDetails) => {
   );
   return {
     minutes: Math.floor(seconds / 60),
-    seconds: seconds - Math.floor(seconds / 60) * 60
+    seconds: seconds - Math.floor(seconds / 60) * 60,
+    totalSeconds: seconds
   };
 };
 
@@ -45,6 +49,8 @@ class Calculator extends Component {
   render() {
     const { refactoringsDetails } = this.state;
     const timeConsumption = calculateTime(refactoringsDetails);
+    const minutesConsumptionMonthly = Math.ceil((timeConsumption.totalSeconds * DAYS_IN_MONTH) / 60);
+    const daysConsumptionYearly = Math.ceil((timeConsumption.totalSeconds * DAYS_IN_YEAR) / 3600 / 8);
     return (
       <div className="calculator col-lg-6">
         <h5 className="mb-4">How many times a day do you perform specific transformation:</h5>
@@ -65,8 +71,15 @@ class Calculator extends Component {
           </InputGroup>
         ))}
 
+        <h3>
+          <code>{timeConsumption.minutes}</code> minutes and <code>{timeConsumption.seconds}</code> seconds
+        </h3>
         <h6>
-          R-Factor will save approximately <b>{timeConsumption.minutes}</b> minutes and <b>{timeConsumption.seconds}</b> seconds of your time every day, so you will be able to drink extra coffee ;)
+          That's the amount of time R-Factor will save you daily on average!
+          <br />
+          It is <code>{minutesConsumptionMonthly}</code> hours monthly or <code>{daysConsumptionYearly}</code> days yearly!
+          <br />
+          Pretty much, isn't it?
         </h6>
       </div>
     );
