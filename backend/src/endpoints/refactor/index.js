@@ -1,12 +1,12 @@
 const { spawn } = require('child_process');
 const {
   MAX_CODE_LENGTH,
-  TIMEOUT,
   RECAPTCHA_MESSAGE,
+  REFACTORINGS,
+  TIMEOUT,
   TIMEOUT_MESSAGE,
-  UNKNOWN_REFACTORING_MESSAGE,
   TOO_LONG_INPUT_MESSAGE,
-  REFACTORINGS
+  UNKNOWN_REFACTORING_MESSAGE
 } = require('./constants');
 
 module.exports = (request, response) => {
@@ -56,5 +56,9 @@ module.exports = (request, response) => {
 const parseRequest = ({ body }) => ({
   code: body.code,
   refactoring: body.refactoring,
-  settings: JSON.stringify(body.settings || {})
+  settings: JSON.stringify(parseSettings(body.settings))
+});
+
+const parseSettings = (settings = {}) => Object.assign({}, settings, {
+  NODE_BIN: 'node'
 });

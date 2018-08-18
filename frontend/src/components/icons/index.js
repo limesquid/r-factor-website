@@ -9,7 +9,6 @@ const ICONS = {
   linux: require('./linux.svg'),
   macos: require('./macos.svg'),
   node: require('./node.svg'),
-  python: require('./python.svg'),
   sublime: require('./sublime.svg'),
   vscode: require('./vscode.svg'),
   windows: require('./windows.svg')

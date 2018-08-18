@@ -1,0 +1,7 @@
+.options.horizontal {
+  display: flex;
+}
+
+.options.horizontal > div {
+  margin-right: 30px;
+}
