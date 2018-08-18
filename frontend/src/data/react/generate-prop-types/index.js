@@ -26,19 +26,25 @@ export default {
   ),
   actions: (
     <React.Fragment>
-      <h5>On function component</h5>
+      <h5>With function component</h5>
       <ul className="text-muted">
         <li>Creates <code>propTypes</code> declaration below the component (if not present)</li>
         <li>Adds <code>propTypes</code> definitions for every prop used in component (if not present)</li>
-        <li>Sorts <code>propTypes</code> definitions</li>
+        <li>
+          If <code>propTypes</code> were sorted, sorting will be kept.
+          If not, new <code>propTypes</code> will be added at the end.
+        </li>
       </ul>
 
-      <h5>On class component</h5>
+      <h5>With class component</h5>
       <ul className="text-muted">
         <li>Transforms <code>propTypes</code> declaration into a static class property (if present)</li>
         <li>Creates static <code>propTypes</code> declaration (if not present)</li>
         <li>Adds <code>propTypes</code> definitions for every prop used in component (if not present)</li>
-        <li>Sorts <code>propTypes</code> definitions</li>
+        <li>
+          If <code>propTypes</code> were sorted, sorting will be kept.
+          If not, new <code>propTypes</code> will be added at the end.
+        </li>
       </ul>
     </React.Fragment>
   ),

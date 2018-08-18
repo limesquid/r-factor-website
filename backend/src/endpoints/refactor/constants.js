@@ -9,6 +9,7 @@ const TOO_LONG_INPUT_MESSAGE = [
 ].join('\n');
 const REFACTORINGS = [
   'add-classname',
+  'convert-svg-to-component',
   'convert-to-arrow-component',
   'convert-to-class-component',
   'convert-to-function-component',

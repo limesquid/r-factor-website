@@ -17,7 +17,10 @@ export default {
       <li>Adds <code>prop-types</code> import statement (if not present)</li>
       <li>Adds <code>propTypes</code> definition to the component (if not present)</li>
       <li>Adds <code>className</code> to <code>propTypes</code> definition (if not present)</li>
-      <li>Sorts <code>propTypes</code> definitions</li>
+      <li>
+        If <code>propTypes</code> were sorted, sorting will be kept.
+        If not, new <code>className</code> will be added at the end.
+      </li>
       <li>Declares <code>className</code> in render body or functional component arguments (if not present)</li>
       <li>
         If <code>className</code> was declared in already existing destructuring statement,
