@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-
 const request = require('request-promise-native');
 const payPalAccessTokenManager = require('../../utils/pay-pal-access-token-manager');
 
@@ -15,8 +13,8 @@ const createPayment = async () => request({
   body: {
     intent: 'sale',
     redirect_urls: {
-      return_url: 'http://r-factor.io/buy?success',
-      cancel_url: 'http://r-factor.io/buy?failure'
+      return_url: 'https://r-factor.io/buy?success',
+      cancel_url: 'https://r-factor.io/buy?failure'
     },
     payer: {
       payment_method: 'paypal'
@@ -24,7 +22,7 @@ const createPayment = async () => request({
     transactions: [
       {
         amount: {
-          total: 35.0,
+          total: process.env.LICENSE_PRICE,
           currency: 'USD'
         }
       }
@@ -32,6 +30,9 @@ const createPayment = async () => request({
   }
 });
 
+const validatePayment = (paymentId) => Promise.resolve(true);
+
 module.exports = {
-  createPayment
+  createPayment,
+  validatePayment
 };

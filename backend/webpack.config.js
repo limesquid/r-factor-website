@@ -46,7 +46,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.key$/,
+        test: /\.(key|license)$/,
         use: 'raw-loader',
         exclude: /node_modules/
       }

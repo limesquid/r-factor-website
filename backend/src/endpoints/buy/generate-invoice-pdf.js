@@ -1,7 +1,9 @@
 /* eslint-disable camelcase */
 
 const https = require('https');
-const licensesDb = require('../../utils/licenses-db');
+const moment = require('moment');
+const licensesDb = require('../../database/licenses-db');
+const { GENERATE_INVOICE_ERROR_MESSAGE } = require('./constants');
 
 module.exports = ({ address, companyName, vatin, fullName }) => new Promise((resolve, reject) => {
   const invoice = createInvoicePayload({ address, companyName, vatin, fullName });
@@ -17,26 +19,25 @@ module.exports = ({ address, companyName, vatin, fullName }) => new Promise((res
   };
 
   const chunks = [];
-  const req = https.request(options, (res) => {
-    res.on('data', (chunk) => chunks.push(chunk));
-    res.on('end', () => {
+  const reqest = https.request(options, (response) => {
+    response.on('data', (chunk) => chunks.push(chunk));
+    response.on('end', () => {
       const invoicePdf = Buffer.concat(chunks);
       resolve(invoicePdf);
     });
   });
-  req.on('error', reject);
-  req.write(postData);
-  req.end();
+  reqest.on('error', () => reject(new Error(GENERATE_INVOICE_ERROR_MESSAGE)));
+  reqest.write(postData);
+  reqest.end();
 });
 
 const createInvoicePayload = ({ address, companyName, vatin, fullName }) => {
-  const date = new Date();
-  const year = String(date.getFullYear());
-  const month = String(date.getMonth()).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  const licenseNumber = licensesDb.getLicensesByDate(date).length + 1;
+  const licenseNumber = licensesDb.getLicensesByDate(new Date()).length + 1;
+  const date = moment().format('YYYY-MM-DD');
+  const invoiceNumber = `${moment().format('YYYY/MM')}/${licenseNumber}`;
 
   return {
+    date,
     from: [
       process.env.COMPANY_NAME,
       process.env.COMPANY_ADDRESS,
@@ -45,14 +46,13 @@ const createInvoicePayload = ({ address, companyName, vatin, fullName }) => {
     to: companyName
       ? `${companyName},\n${address}\nNIP / VATIN:${vatin}`
       : `${fullName},\n${address}`,
-    date: `${year}-${month}-${day}`,
-    number: `${year}/${month}/${licenseNumber}`,
+    number: invoiceNumber,
     payment_terms: 'Charged - Do Not Pay',
     items: [
       {
         name: 'R-Factor',
         quantity: 1,
-        unit_cost: 35
+        unit_cost: process.env.LICENSE_PRICE
       }
     ],
     fields: {

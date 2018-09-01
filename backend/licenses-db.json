@@ -1,14 +1,3 @@
 {
-  "licenses": [
-    {
-      "email": "yakym.yuriy@gmail.com",
-      "fullName": "Yuriy Yakym",
-      "paymentId": "PAY-9LN01579MY442354ALNZCL2Q",
-      "paymentMethod": "paypal",
-      "createdAt": "2018-08-14T00:44:26.839Z",
-      "status": "paid",
-      "licenseKey": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJhN2UzNzU0MDc5ZDRmNmQ5OTYyZmNiZjdmMGY3MWYzNzVkMGZhOTI5Y2Y2ZDljMzI4MWYyZmFkZmEyNjM3YWI4IiwiaWF0IjoxNTM0MjA3NDgzfQ.cGzMX0XseWS04VnrYEeiOGlivrj1mc6JMVK0K0uFi8ydsWyqtJJ0y2bP3GJ0CtzGj5xhF8K4uwVrstMnWJGnNaujFr4QndUj049kwbMsCAx463p18_dcYSrP4RX-CybE1FZZt-wtFp6jCr7deWc8nYbMIkfiq3e6PaeZtbxd3KfhBPJIaYFUiF2cGY_5ZZyIfzfPa8PNp3vImYBKDiytSGvLPdfjODvyQ3vvq1idkwnD0Gz_s73mERSygbOMBCXyEgMRrnYsYJ1xjYUx5QiDY0gFii9x2xJFm4TqqP5mihalab-g-oHzMkE4Lt0kLrPPGa7i5V_960xCIv6SRZh88w",
-      "paidAt": "2018-08-14T00:44:43.519Z"
-    }
-  ]
+  "licenses": []
 }
