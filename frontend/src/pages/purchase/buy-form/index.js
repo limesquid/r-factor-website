@@ -1,30 +1,13 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import paypal from 'paypal-checkout';
 import { Form } from 'reactstrap';
-import { completePayment, createPayment } from './api';
+// import { completePayment, createPayment } from './api';
 import FormInput from './form-input';
 import LicenseKey from './license-key';
-
-const PayPalButton = paypal.Button.driver('react', { React, ReactDOM });
-const PAY_PAL_ENV = process.env.NODE_ENV === 'production'
-  ? 'production'
-  : 'sandbox';
-
-const paypalButtonStyle = {
-  label: 'buynow',
-  fundingicons: true,
-  branding: true,
-  size: 'medium',
-  shape: 'rect',
-  color: 'blue',
-  tagline: false
-};
+import Bolt from './bolt';
 
 class BuyForm extends Component {
   constructor(props) {
     super(props);
-    this.paypalActions = null;
     this.state = {
       address: '',
       companyName: '',
@@ -36,14 +19,6 @@ class BuyForm extends Component {
     };
   }
 
-  onAuthorize = async (data, actions) => actions.payment.execute().then(
-    async () => {
-      const { paymentID: paymentId } = data;
-      const licenseKey = await completePayment(paymentId);
-      this.setState({ licenseKey });
-    }
-  );
-
   onLicenseClick = (event) => event.target.select();
 
   onInputChange = (event) => {
@@ -51,32 +26,8 @@ class BuyForm extends Component {
     this.setState({ [name]: value }, this.validate);
   }
 
-  payment = () => createPayment({
-    address: this.state.address,
-    companyName: this.state.companyName,
-    email: this.state.email,
-    fullName: this.state.fullName,
-    vatin: this.state.vatin
-  });
-
   enableValidation = () => {
     this.setState({ shouldValidate: true });
-  };
-
-  setPayPalActions = (actions) => {
-    actions.disable();
-    this.actions = actions;
-  };
-
-  validate = () => {
-    const { fullName, email, address, companyName, vatin } = this.state;
-
-    if (fullName && email && address && (!companyName || vatin)) {
-      this.actions.enable();
-      return;
-    }
-
-    this.actions.disable();
   };
 
   render() {
@@ -133,18 +84,7 @@ class BuyForm extends Component {
         )}
 
         <div className="text-center mt-5">
-          <PayPalButton
-            commit
-            style={paypalButtonStyle}
-            env={PAY_PAL_ENV}
-            client={{
-              sandbox: process.env.REACT_APP_PAYPAL_CLIENT_ID,
-              production: process.env.REACT_APP_PAYPAL_CLIENT_ID
-            }}
-            onClick={this.enableValidation}
-            validate={this.setPayPalActions}
-            payment={(data, actions) => this.payment(data, actions)}
-            onAuthorize={(data, actions) => this.onAuthorize(data, actions)} />
+          <Bolt />
         </div>
       </Form>
     );
