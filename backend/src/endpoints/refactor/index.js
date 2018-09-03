@@ -9,7 +9,6 @@ const {
   UNKNOWN_REFACTORING_MESSAGE
 } = require('./constants');
 const devLicense = require('../../../license/dev.license');
-console.log(devLicense);
 
 module.exports = (request, response) => {
   const { code, refactoring, settings } = parseRequest(request);

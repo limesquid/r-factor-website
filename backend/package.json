@@ -28,10 +28,7 @@
       "env": {
         "API_HOST": "https://r-factor.io",
         "API_PORT": "80",
-        "NODE_ENV": "production",
-        "PAY_PAL_API": "https://api.sandbox.paypal.com/v1",
-        "PAY_PAL_CLIENT_ID": "AbVN-wqVfrRx8CQbaVANr0PfbE5cCtMbe4u3ZRI87FIsxokZsbtss6pvY5Y1kMTmVt8qSJgU19w0KbBY",
-        "PAY_PAL_SECRET": ""
+        "NODE_ENV": "production"
       }
     },
     "start": {
@@ -39,10 +36,7 @@
       "env": {
         "API_HOST": "http://127.0.0.1",
         "API_PORT": "8080",
-        "NODE_ENV": "development",
-        "PAY_PAL_API": "https://api.sandbox.paypal.com/v1",
-        "PAY_PAL_CLIENT_ID": "AbVN-wqVfrRx8CQbaVANr0PfbE5cCtMbe4u3ZRI87FIsxokZsbtss6pvY5Y1kMTmVt8qSJgU19w0KbBY",
-        "PAY_PAL_SECRET": ""
+        "NODE_ENV": "development"
       }
     },
     "start:prod": {

@@ -1,6 +1,5 @@
 const express = require('express');
 const { generateLicence, validateClientData, validatePayment } = require('./utils');
-const { createPayment } = require('./paypal');
 const licensesDb = require('../../database/licenses-db');
 const sendPaymentConfirmation = require('./send-payment-confirmation');
 const {
@@ -16,20 +15,19 @@ const createNewPayment = async (request, response) => {
   }
 
   try {
-    const payment = await createPayment();
     licensesDb.create({
       address,
       companyName,
       email,
       fullName,
-      paymentId: payment.id,
-      paymentMethod: 'paypal',
+      // paymentId: payment.id,
+      // paymentMethod: 'paypal',
       vatin
     });
 
-    response.send({
-      paymentId: payment.id
-    });
+    // response.send({
+    //   paymentId: payment.id
+    // });
   } catch (error) {
     response.status(500).send(PAYMENT_CREATION_ERROR_MESSAGE);
   }
