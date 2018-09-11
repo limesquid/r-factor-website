@@ -3,7 +3,7 @@ import { Form } from 'reactstrap';
 // import { completePayment, createPayment } from './api';
 import FormInput from './form-input';
 import LicenseKey from './license-key';
-import Bolt from './bolt';
+import PayuWidget from './payu-widget';
 
 class BuyForm extends Component {
   constructor(props) {
@@ -84,7 +84,7 @@ class BuyForm extends Component {
         )}
 
         <div className="text-center mt-5">
-          <Bolt />
+          <PayuWidget email={email} />
         </div>
       </Form>
     );
