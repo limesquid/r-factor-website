@@ -14,6 +14,7 @@ import {
   transparentLogoUrl,
   videoUrl
 } from 'data';
+import './home.css';
 
 const systemsIcons = [
   { id: 'windows', label: 'Windows' },
@@ -38,7 +39,7 @@ const HomePage = () => (
     </Helmet>
 
     <Row className="mb-5">
-      <Col className="d-flex align-items-center justify-content-between flex-wrap">
+      <Col className="d-flex align-items-center justify-content-between flex-wrap home-header-col">
         <div className="d-flex align-items-center mr-4">
           <img
             alt="R-Factor"

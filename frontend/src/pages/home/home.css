@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+    .home-header-col.col {
+        justify-content: center !important;
+    }
+
+    .home-header-col.col > div:first-child {
+        margin-bottom: 2em;
+    }
+}
