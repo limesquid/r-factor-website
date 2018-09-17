@@ -42,7 +42,7 @@ class BuyForm extends Component {
     }
 
     return (
-      <Form onSubmit={this.onSubmit}>
+      <Form onSubmit={event => event.preventDefault()}>
         <FormInput
           required
           name="fullName"
