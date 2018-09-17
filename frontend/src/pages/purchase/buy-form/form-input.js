@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormGroup, FormFeedback, Label, Input, Col } from 'reactstrap';
 
 const FormInput = ({ invalid, name, required, title, type, value, onChange }) => (
-  <FormGroup className row key={name}>
+  <FormGroup row key={name}>
     <Label sm={4} size="sm">
       {title}
       {required && (<sup>&nbsp;<code>*</code>&nbsp;</sup>)}
