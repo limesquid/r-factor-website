@@ -11,6 +11,7 @@ import NotFound from 'pages/not-found';
 import PurchasePage from 'pages/purchase';
 import SupportPage from 'pages/support';
 import TryPage from 'pages/try';
+import CompletePayment from 'pages/complete-payment';
 import 'styles/styles.css';
 
 const App = () => (
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/purchase" component={PurchasePage} />
             <Route path="/support" component={SupportPage} />
             <Route path="/try" component={TryPage} />
+            <Route path="/complete-payment/:internalOrderId" component={CompletePayment} />
             <Route component={NotFound} />
           </Switch>
         </Container>
