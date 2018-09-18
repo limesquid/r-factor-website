@@ -44,7 +44,7 @@ const createInvoicePayload = ({ address, companyName, vatin, fullName }) => {
       `NIP / VATIN: ${process.env.COMPANY_ID}`
     ].join('\n'),
     to: companyName
-      ? `${companyName},\n${address}\nNIP / VATIN:${vatin}`
+      ? `${companyName},\n${address}\nVATIN / NIP:${vatin}`
       : `${fullName},\n${address}`,
     number: invoiceNumber,
     payment_terms: 'Charged - Do Not Pay',

@@ -2,7 +2,7 @@
 const request = require('request-promise-native');
 const logger = require('../logger');
 
-const SESSTION_TIMEOUT_OFFSET = -10000;
+const SESSION_TIMEOUT_OFFSET = -10000;
 
 class PayuTokenManager {
   constructor() {
@@ -27,17 +27,18 @@ class PayuTokenManager {
       });
 
       this.accessToken = tokenDetails.access_token;
-      this.expiresAt = Date.now() + tokenDetails.expires_in * 1000 - SESSTION_TIMEOUT_OFFSET;
+      this.expiresAt = Date.now() + tokenDetails.expires_in * 1000 - SESSION_TIMEOUT_OFFSET;
     } catch (error) {
       if (retries === 0) {
         logger.log('error', 'Error while retrieving access_token');
         throw new Error('Could not retrieve a new access_token');
       }
 
-      await new Promise((resolve) => {
-        setTimeout(async () => {
-          await this.refreshToken(retries - 1);
-          resolve();
+      await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          this.refreshToken(retries - 1)
+            .then(resolve)
+            .catch(reject);
         }, 1000);
       });
     }
@@ -46,7 +47,7 @@ class PayuTokenManager {
   }
 
   async getToken() {
-    if (!this.accessToken || this.expiresAt <= Number(new Date())) {
+    if (!this.accessToken || this.expiresAt <= Date.now()) {
       await this.refreshToken();
     }
     return this.accessToken;
