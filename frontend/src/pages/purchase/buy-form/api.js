@@ -10,14 +10,4 @@ export const createPayment = ({ address, companyName, email, fullName, vatin }) 
   body: JSON.stringify({ address, companyName, fullName, email, vatin })
 })
   .then((response) => response.json())
-  .then(({ paymentId }) => paymentId);
-
-export const completePayment = (paymentId) => fetch(`${BUY_API}/complete-payment`, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({ paymentId })
-})
-  .then((response) => response.json())
-  .then(({ licenseKey }) => licenseKey);
+  .then(({ redirectUri }) => redirectUri);
