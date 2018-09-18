@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
-
 const request = require('request-promise-native');
+const logger = require('../logger');
 
 const SESSTION_TIMEOUT_OFFSET = -10000;
 
@@ -30,6 +30,7 @@ class PayuTokenManager {
       this.expiresAt = Date.now() + tokenDetails.expires_in * 1000 - SESSTION_TIMEOUT_OFFSET;
     } catch (error) {
       if (retries === 0) {
+        logger.log('error', 'Error while retrieving access_token');
         throw new Error('Could not retrieve a new access_token');
       }
 

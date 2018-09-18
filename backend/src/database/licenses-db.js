@@ -12,13 +12,14 @@ class LicensesDb {
     this.db.defaults({ licenses: [] }).write();
   }
 
-  create({ address, companyName, email, fullName, paymentMethod, paymentId, vatin }) {
+  create({ address, companyName, email, fullName, paymentMethod, internalOrderId, externalOrderId, vatin }) {
     const license = {
       address,
       companyName,
       email,
       fullName,
-      paymentId,
+      internalOrderId,
+      externalOrderId,
       paymentMethod,
       createdAt: new Date(),
       status: STATUS_UNPAID,
@@ -28,9 +29,9 @@ class LicensesDb {
     this.db.get('licenses').push(license).write();
   }
 
-  setLicenseKey(paymentId, licenseKey) {
+  setLicenseKey(internalOrderId, licenseKey) {
     this.db.get('licenses')
-      .find({ paymentId })
+      .find({ internalOrderId })
       .assign({
         licenseKey,
         paidAt: new Date(),
@@ -49,8 +50,8 @@ class LicensesDb {
       .value();
   }
 
-  getByPaymentId(paymentId) {
-    return this.db.get('licenses').find({ paymentId }).value();
+  getByPaymentId(internalOrderId) {
+    return this.db.get('licenses').find({ internalOrderId }).value();
   }
 }
 
