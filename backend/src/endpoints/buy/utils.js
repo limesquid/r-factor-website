@@ -3,16 +3,16 @@ const jwt = require('jsonwebtoken');
 const emailValidator = require('email-validator');
 const certificate = require('../../../license/license.key');
 const {
-  BAD_ADDRESS_ERROR_MESSAGE,
-  BAD_COMPANY_NAME,
-  BAD_EMAIL_ERROR_MESSAGE,
-  BAD_FULL_NAME_ERROR_MESSAGE,
-  BAD_VATIN
+  INVALID_ADDRESS_ERROR_MESSAGE,
+  INVALID_COMPANY_NAME,
+  INVALID_EMAIL_ERROR_MESSAGE,
+  INVALID_FULL_NAME_ERROR_MESSAGE,
+  INVALID_VATIN
 } = require('./constants');
 
 const sha256 = (string) => crypto.createHash('sha256').update(string).digest('hex');
 
-const generateLicence = ({ fullName, email }) => {
+const generateLicense = ({ fullName, email }) => {
   const licenseData = {
     fullName,
     email,
@@ -25,17 +25,17 @@ const isValidString = (string) => string && typeof string === 'string';
 
 const validateClientData = ({ address, companyName, fullName, email, vatin, isCompany }) => {
   const errors = {
-    [BAD_EMAIL_ERROR_MESSAGE]: !emailValidator.validate(email),
-    [BAD_FULL_NAME_ERROR_MESSAGE]: !isValidString(fullName),
-    [BAD_ADDRESS_ERROR_MESSAGE]: isCompany && !isValidString(address),
-    [BAD_COMPANY_NAME]: isCompany && !isValidString(companyName),
-    [BAD_VATIN]: isCompany && !isValidString(vatin)
+    [INVALID_EMAIL_ERROR_MESSAGE]: !emailValidator.validate(email),
+    [INVALID_FULL_NAME_ERROR_MESSAGE]: !isValidString(fullName),
+    [INVALID_ADDRESS_ERROR_MESSAGE]: isCompany && !isValidString(address),
+    [INVALID_COMPANY_NAME]: isCompany && !isValidString(companyName),
+    [INVALID_VATIN]: isCompany && !isValidString(vatin)
   };
 
   return Object.keys(errors).filter((errorMessage) => Boolean(errors[errorMessage]));
 };
 
 module.exports = {
-  generateLicence,
+  generateLicense,
   validateClientData
 };

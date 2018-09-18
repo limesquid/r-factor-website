@@ -9,8 +9,6 @@ const {
   TYPES_STRING
 } = require('./constants');
 
-const OUR_EMAIL = process.env.OUR_EMAIL;
-
 module.exports = (request, response) => {
   const payload = parseRequest(request);
   const { configuration, input, message, output } = payload;
@@ -51,9 +49,9 @@ const parseRequest = ({ body }) => ({
 const createEmail = ({ configuration, email, input, message, output, type }) => {
   const emailJson = {
     from: {
-      email: OUR_EMAIL
+      email: process.env.OUR_EMAIL
     },
-    to: OUR_EMAIL,
+    to: process.env.OUR_EMAIL,
     subject: `R-Factor | ${TYPES_STRING[type]}`,
     text: [
       `Email: ${email}`,

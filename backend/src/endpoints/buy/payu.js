@@ -8,7 +8,7 @@ const {
 const MERCHANT_POS_ID = process.env.PAYU_MERCHANT_POS_ID;
 const CURRENCY_CODE = 'PLN';
 const DESCRIPTION = 'R-Factor';
-const TOTAL_AMOUNT = Math.round(Number(process.env.LICENSE_PRICE) * 100);
+const TOTAL_AMOUNT = Math.round(parseFloat(process.env.LICENSE_PRICE) * 100);
 const PAYU_STATUS_COMPLETED = 'COMPLETED';
 const COMPLETE_PAYMENT_URL = process.env.NODE_ENV === 'production'
   ? `${process.env.API_HOST}/complete-payment`
@@ -39,9 +39,9 @@ const createPayment = async ({
     totalAmount: TOTAL_AMOUNT
   };
 
-  const token = await payuTokenManager.getToken();
 
   try {
+    const token = await payuTokenManager.getToken();
     const { orderId, redirectUri, status } = await request({
       method: 'POST',
       url: `${process.env.PAYU_API_HOST}/api/v2_1/orders`,
@@ -65,8 +65,8 @@ const createPayment = async ({
 };
 
 const validatePayment = async (orderId) => {
-  const token = await payuTokenManager.getToken();
   try {
+    const token = await payuTokenManager.getToken();
     const { orders: [ order ] } = await request({
       url: `${process.env.PAYU_API_HOST}/api/v2_1/orders/${orderId}`,
       method: 'GET',
