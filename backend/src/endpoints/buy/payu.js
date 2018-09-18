@@ -8,11 +8,13 @@ const {
 const MERCHANT_POS_ID = process.env.PAYU_MERCHANT_POS_ID;
 const CURRENCY_CODE = 'PLN';
 const DESCRIPTION = 'R-Factor';
-const TOTAL_AMOUNT = process.env.LICENSE_PRICE;
+const TOTAL_AMOUNT = Math.round(Number(process.env.LICENSE_PRICE) * 100);
 const PAYU_STATUS_COMPLETED = 'COMPLETED';
+const COMPLETE_PAYMENT_URL = process.env.NODE_ENV === 'production'
+  ? `${process.env.API_HOST}/complete-payment`
+  : `${process.env.API_HOST}:3000/complete-payment`;
 
 const createPayment = async ({
-  host,
   internalOrderId,
   customerIp,
   buyer
@@ -20,7 +22,7 @@ const createPayment = async ({
   const products = [
     {
       name: 'R-Factor: license key',
-      unitPrice: (Number(process.env.LICENSE_PRICE) * 100).toFixed(2),
+      unitPrice: TOTAL_AMOUNT,
       quantity: 1
     }
   ];
@@ -29,7 +31,7 @@ const createPayment = async ({
     buyer,
     customerIp,
     products,
-    continueUrl: `${host}/complete-payment?externalOrderId=${internalOrderId}`,
+    continueUrl: `${COMPLETE_PAYMENT_URL}/${internalOrderId}`,
     currencyCode: CURRENCY_CODE,
     description: DESCRIPTION,
     extOrderId: internalOrderId,
@@ -40,7 +42,7 @@ const createPayment = async ({
   const token = await payuTokenManager.getToken();
 
   try {
-    const { orderId, redirectUri } = await request({
+    const { orderId, redirectUri, status } = await request({
       method: 'POST',
       url: `${process.env.PAYU_API_HOST}/api/v2_1/orders`,
       headers: {
@@ -51,6 +53,10 @@ const createPayment = async ({
       json: true,
       simple: false
     });
+
+    if (!orderId || !redirectUri) {
+      throw new Error(status.statusCode);
+    }
 
     return { orderId, redirectUri };
   } catch (error) {

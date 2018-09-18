@@ -1,4 +1,4 @@
-/* eslint-disable max-statements, max-depth */
+/* eslint-disable max-statements, max-depth, max-len */
 const express = require('express');
 const uuidv1 = require('uuid/v1');
 const licensesDb = require('../../database/licenses-db');
@@ -20,7 +20,6 @@ const createNewPayment = async (request, response) => {
     return;
   }
 
-  const host = `${request.protocol}://${request.get('host')}`;
   const internalOrderId = uuidv1();
   const customerIp = request.header('x-forwarded-for') || request.connection.remoteAddress;
   const [ firstName, lastName ] = fullName.split(' ');
@@ -30,7 +29,8 @@ const createNewPayment = async (request, response) => {
     let payment = null;
 
     try {
-      payment = await createPayment({ host, internalOrderId, customerIp, buyer });
+      payment = await createPayment({ internalOrderId, customerIp, buyer });
+      console.log(payment);
     } catch (error) {
       logger.log('error', `[Create Payment] Error while creating PayU payment: ${error}`);
       throw error;
@@ -68,6 +68,11 @@ const completePayment = async (request, response) => {
 
   if (!internalOrderId || !licenseDetails) {
     response.status(404).send(WRONG_PAYMENT_ID_ERROR_MESSAGE);
+    return;
+  }
+
+  if (licenseDetails.status === 'paid') {
+    response.status(410).send('Operation has been already completed. This page is reachable only once.');
     return;
   }
 
