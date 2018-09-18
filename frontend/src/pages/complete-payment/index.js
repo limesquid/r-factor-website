@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Clipboard from 'react-clipboard.js';
+import { Helmet } from 'react-helmet';
+import Link from 'components/link';
 import { completePayment } from './api';
 
 class CompletePayment extends Component {
@@ -13,6 +15,7 @@ class CompletePayment extends Component {
   };
 
   state = {
+    error: null,
     loading: true,
     license: null
   };
@@ -40,27 +43,44 @@ class CompletePayment extends Component {
   }
 
   render() {
-    const { loading, license } = this.state;
-
-    if (loading) {
-      return (
-        <div>Loading...</div>
-      );
-    }
-
+    const { error, loading, license } = this.state;
     return (
       <div>
-        <h3>
-          You have successfully bought R-Factor!
-        </h3>
-        <textarea
-          readOnly
-          className="mt-2 w-100"
-          defaultValue={license}
-          onClick={this.onClick} />
-        <Clipboard className="float-right btn btn-primary" data-clipboard-text={license}>
-          Copy
-        </Clipboard>
+        <Helmet>
+          <title>R-Factor - Payment completed</title>
+        </Helmet>
+
+        {loading && !error && (
+          <h1><span className="text-success">Loading...</span></h1>
+        )}
+
+        {!loading && error && (
+          <Fragment>
+            <h1><span className="text-danger">Something went wrong!</span></h1>
+            <h4 className="mb-4">{error}</h4>
+          </Fragment>
+        )}
+
+        {!loading && !error && (
+          <Fragment>
+            <h1><span className="text-success">Congratulations!</span></h1>
+            <h4 className="mb-4">You have successfully bought your R-Factor license key!</h4>
+
+            <p>
+              Please follow this <Link href="/documentation/installation" label="link" /> to find further instructions.
+            </p>
+
+            <textarea
+              readOnly
+              className="mt-2 w-100"
+              defaultValue={license}
+              onClick={this.onClick} />
+
+            <Clipboard className="float-right btn btn-primary" data-clipboard-text={license}>
+              Copy
+            </Clipboard>
+          </Fragment>
+        )}
       </div>
     );
   }
