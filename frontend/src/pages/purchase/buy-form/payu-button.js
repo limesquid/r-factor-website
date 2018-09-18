@@ -41,7 +41,7 @@ class PayuButton extends Component {
     return (
       <div>
         {error && (
-          <Alert bgStyle="danger">
+          <Alert color="danger">
             {error}
           </Alert>
         )}
