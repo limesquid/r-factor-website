@@ -1,8 +1,8 @@
 import fetch from 'utils/fetch';
 
-const BUY_API = `${process.env.REACT_APP_API_URL}/buy/`;
+const BUY_API_URL = `${process.env.REACT_APP_API_URL}/buy`;
 
-export const completePayment = (internalOrderId) => fetch(`${BUY_API}/complete-payment`, {
+export const completePayment = (internalOrderId) => fetch(`${BUY_API_URL}/complete-payment`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'

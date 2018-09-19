@@ -17,7 +17,7 @@ const FormInput = ({ invalid, name, required, title, type, value, onChange }) =>
         invalid={invalid}
         value={value}
         onChange={onChange} />
-      <FormFeedback>This field is required</FormFeedback>
+      <FormFeedback>{title} is required</FormFeedback>
     </Col>
   </FormGroup>
 );

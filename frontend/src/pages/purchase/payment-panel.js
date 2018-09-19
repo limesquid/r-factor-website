@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'components/link';
 import BuyForm from './buy-form';
 
-const PriceDetails = () => (
+const PaymentPanel = () => (
   <div className="col-lg-10 card py-2 border-light">
     <div className="card-header price text-center text-info" style={{ fontSize: '4rem' }}>
       {process.env.REACT_APP_LICENSE_FEE}$
@@ -22,4 +22,4 @@ const PriceDetails = () => (
   </div>
 );
 
-export default PriceDetails;
+export default PaymentPanel;

@@ -21,7 +21,7 @@ class BuyForm extends Component {
   onInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value }, this.validate);
-  }
+  };
 
   enableValidation = () => {
     this.setState({ shouldValidate: true });
@@ -72,7 +72,7 @@ class BuyForm extends Component {
             <FormInput
               required
               name="vatin"
-              title="NIP / VATIN"
+              title="VATIN / NIP"
               value={vatin}
               invalid={shouldValidate && !vatin}
               onChange={this.onInputChange} />

@@ -6,14 +6,14 @@ const DAYS_IN_MONTH = 21;
 const DAYS_IN_YEAR = 365;
 
 const calculateTime = (refactoringsDetails) => {
-  const seconds = refactoringsDetails.reduce(
-    (result, refactoringDetails) => result + refactoringDetails.dailyCount * refactoringDetails.manualDuration,
+  const totalSeconds = refactoringsDetails.reduce(
+    (result, { dailyCount, manualDuration }) => result + dailyCount * manualDuration,
     0
   );
   return {
-    minutes: Math.floor(seconds / 60),
-    seconds: seconds - Math.floor(seconds / 60) * 60,
-    totalSeconds: seconds
+    totalSeconds,
+    minutes: Math.floor(totalSeconds / 60),
+    seconds: totalSeconds - Math.floor(totalSeconds / 60) * 60
   };
 };
 
@@ -52,7 +52,7 @@ class Calculator extends Component {
     const minutesConsumptionMonthly = Math.ceil((timeConsumption.totalSeconds * DAYS_IN_MONTH) / 60);
     const daysConsumptionYearly = Math.ceil((timeConsumption.totalSeconds * DAYS_IN_YEAR) / 3600 / 8);
     return (
-      <div className="calculator col-lg-6">
+      <div className="calculator">
         <h5 className="mb-4">How many times a day do you perform specific transformation:</h5>
 
         {refactoringsDetails.map((refactoringDetails) => (
@@ -77,7 +77,7 @@ class Calculator extends Component {
         <h6>
           That's the amount of time R-Factor will save you daily on average!
           <br />
-          It is <code>{minutesConsumptionMonthly}</code> hours monthly or <code>{daysConsumptionYearly}</code> days yearly!
+          It is <code>{minutesConsumptionMonthly}</code> minutes monthly or <code>{daysConsumptionYearly}</code> days yearly!
           <br />
           Pretty much, isn't it?
         </h6>

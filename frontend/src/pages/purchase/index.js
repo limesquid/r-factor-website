@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import Calculator from './calculator';
-import PriceDetails from './price-details';
+import PaymentPanel from './payment-panel';
 import './styles.css';
 
 const PurchasePage = () => (
@@ -11,9 +11,11 @@ const PurchasePage = () => (
     </Helmet>
     <div className="row">
       <div className="col-lg-6">
-        <PriceDetails />
+        <PaymentPanel />
       </div>
-      <Calculator />
+      <div className="col-lg-6">
+        <Calculator />
+      </div>
     </div>
   </div>
 );
