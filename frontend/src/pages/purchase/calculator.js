@@ -60,7 +60,7 @@ class Calculator extends Component {
             <InputGroupAddon
               className="group-addon"
               addonType="prepend">
-              <InputGroupText>
+              <InputGroupText className="d-block text-left text-truncate" title={refactoringDetails.name}>
                 {refactoringDetails.name}
               </InputGroupText>
             </InputGroupAddon>
