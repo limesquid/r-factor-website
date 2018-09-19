@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Clipboard from 'react-clipboard.js';
 import { Helmet } from 'react-helmet';
 import Link from 'components/link';
+import Spinner from 'components/spinner';
 import { completePayment } from './api';
 
 class CompletePayment extends Component {
@@ -25,7 +26,7 @@ class CompletePayment extends Component {
     this.completePayment(internalOrderId);
   }
 
-  onClick = (event) => event.target.select();
+  onTextareaClick = (event) => event.target.select();
 
   completePayment = async (internalOrderId) => {
     try {
@@ -44,20 +45,26 @@ class CompletePayment extends Component {
 
   render() {
     const { error, loading, license } = this.state;
+
     return (
       <div>
         <Helmet>
           <title>R-Factor - Payment completed</title>
         </Helmet>
 
-        {loading && !error && (
-          <h1><span className="text-success">Loading...</span></h1>
+        {loading && (
+          <div className="spinner-container">
+            <Spinner />
+          </div>
         )}
 
         {!loading && error && (
           <Fragment>
             <h1><span className="text-danger">Something went wrong!</span></h1>
-            <h4 className="mb-4">{error}</h4>
+            <h4 className="mb-4">{String(error)}</h4>
+            <p>
+              Please contact us at <Link href="/support" label="support" /> page in case of any questions.
+            </p>
           </Fragment>
         )}
 
@@ -67,7 +74,7 @@ class CompletePayment extends Component {
             <h4 className="mb-4">You have successfully bought your R-Factor license key!</h4>
 
             <p>
-              Please follow this <Link href="/documentation/installation" label="link" /> to find further instructions.
+              Please follow this <Link href="/documentation/installation" label="link" /> to get further instructions.
             </p>
 
             <textarea
@@ -75,9 +82,9 @@ class CompletePayment extends Component {
               rows={8}
               className="mt-2 w-100"
               defaultValue={license}
-              onClick={this.onClick} />
+              onClick={this.onTextareaClick} />
 
-            <Clipboard className="float-right btn btn-primary" data-clipboard-text={license}>
+            <Clipboard className="btn btn-primary float-right" data-clipboard-text={license}>
               Copy
             </Clipboard>
           </Fragment>
