@@ -43,7 +43,7 @@ export default {
     'semicolons'
   ],
   calculator: {
-    manualDuration: 40,
-    dailyCount: 4
+    manualDuration: 45,
+    dailyCount: 5
   }
 };

@@ -62,7 +62,7 @@ export default {
     'indent'
   ],
   calculator: {
-    manualDuration: 10,
-    dailyCount: 15
+    manualDuration: 30,
+    dailyCount: 5
   }
 };
