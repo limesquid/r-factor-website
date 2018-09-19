@@ -53,7 +53,7 @@ export default {
     'trailing-commas'
   ],
   calculator: {
-    manualDuration: 30,
-    dailyCount: 10
+    manualDuration: 20,
+    dailyCount: 5
   }
 };

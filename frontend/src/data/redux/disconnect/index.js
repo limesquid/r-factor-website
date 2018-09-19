@@ -31,7 +31,7 @@ export default {
     example2
   ],
   calculator: {
-    manualDuration: 20,
-    dailyCount: 15
+    manualDuration: 10,
+    dailyCount: 5
   }
 };

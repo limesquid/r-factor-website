@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { InputGroup, InputGroupAddon, Input } from 'reactstrap';
+import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 import { reactFeatures, reduxFeatures } from 'data';
 
 const DAYS_IN_MONTH = 21;
-const DAYS_IN_YEAR = 365;
+const DAYS_IN_YEAR = 250;
 
 const calculateTime = (refactoringsDetails) => {
   const totalSeconds = refactoringsDetails.reduce(
@@ -53,34 +53,53 @@ class Calculator extends Component {
     const daysConsumptionYearly = Math.ceil((timeConsumption.totalSeconds * DAYS_IN_YEAR) / 3600 / 8);
     return (
       <div className="calculator">
-        <h5 className="mb-4">How many times a day do you perform specific transformation:</h5>
+        <h5 className="mb-4 text-muted">How many times a day do you perform specific transformation:</h5>
 
         {refactoringsDetails.map((refactoringDetails) => (
           <InputGroup className="input-group my-3" key={refactoringDetails.name}>
             <InputGroupAddon
               className="group-addon"
               addonType="prepend">
-              {refactoringDetails.name}
+              <InputGroupText>
+                {refactoringDetails.name}
+              </InputGroupText>
             </InputGroupAddon>
             <Input
               type="number"
+              className="border-dark"
               name={refactoringDetails.name}
               min={0}
               value={refactoringDetails.dailyCount}
               onChange={this.onRefactoringDetailsDailyCountChange} />
+            <InputGroupAddon
+              className="group-addon"
+              addonType="append">
+              <InputGroupText>
+                {refactoringDetails.manualDuration} s
+              </InputGroupText>
+            </InputGroupAddon>
           </InputGroup>
         ))}
 
-        <h3>
-          <code>{timeConsumption.minutes}</code> minutes and <code>{timeConsumption.seconds}</code> seconds
-        </h3>
-        <h6>
-          That's the amount of time R-Factor will save you daily on average!
-          <br />
-          It is <code>{minutesConsumptionMonthly}</code> minutes monthly or <code>{daysConsumptionYearly}</code> days yearly!
-          <br />
-          Pretty much, isn't it?
-        </h6>
+        <p className="text-muted mt-4" style={{ fontSize: '1.7rem' }}>
+          <code style={{ fontSize: '2rem' }}>{timeConsumption.minutes}</code>
+          &nbsp;minutes and&nbsp;
+          <code style={{ fontSize: '2rem' }}>{timeConsumption.seconds}</code>
+          &nbsp;seconds
+        </p>
+        <p className="text-muted mb-1">
+          That's the approximate amount of time R-Factor will save you every day!
+        </p>
+        <p className="text-muted mb-1">
+          It's&nbsp;
+          <code style={{ fontSize: '1rem' }}>{minutesConsumptionMonthly}</code>
+          &nbsp;minutes a month or&nbsp;
+          <code style={{ fontSize: '1rem' }}>{daysConsumptionYearly}</code>
+          &nbsp;man-days a year!
+        </p>
+        <p className="text-muted mb-1">
+          Quite a lot, isn't it?
+        </p>
       </div>
     );
   }

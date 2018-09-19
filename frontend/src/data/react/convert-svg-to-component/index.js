@@ -16,5 +16,9 @@ export default {
     'indent',
     'semicolons',
     'svg-component-type'
-  ]
+  ],
+  calculator: {
+    manualDuration: 120,
+    dailyCount: 1
+  }
 };
