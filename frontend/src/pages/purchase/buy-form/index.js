@@ -18,6 +18,10 @@ class BuyForm extends Component {
     };
   }
 
+  componentDidMount() {
+    document.querySelector('input').focus();
+  }
+
   onInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value }, this.validate);
@@ -64,7 +68,7 @@ class BuyForm extends Component {
 
           <FormInput
             name="companyName"
-            title="Company"
+            title="Company name"
             value={companyName}
             onChange={this.onInputChange} />
 

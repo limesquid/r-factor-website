@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { Row, Col } from 'reactstrap';
 import Calculator from './calculator';
 import PaymentPanel from './payment-panel';
 import './styles.css';
@@ -9,14 +10,14 @@ const PurchasePage = () => (
     <Helmet>
       <title>R-Factor - Purchase</title>
     </Helmet>
-    <div className="row">
-      <div className="col-lg-6">
+    <Row>
+      <Col md={6} className="mb-4">
         <PaymentPanel />
-      </div>
-      <div className="col-lg-6">
+      </Col>
+      <Col md={6}>
         <Calculator />
-      </div>
-    </div>
+      </Col>
+    </Row>
   </div>
 );
 

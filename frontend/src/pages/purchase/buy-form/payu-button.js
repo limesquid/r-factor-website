@@ -46,7 +46,7 @@ class PayuButton extends Component {
           </Alert>
         )}
 
-        <Button onClick={this.onClick}>
+        <Button className="text-white px-4" color="warning" onClick={this.onClick}>
           Buy
         </Button>
       </div>
