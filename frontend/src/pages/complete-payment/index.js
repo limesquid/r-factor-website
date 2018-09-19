@@ -79,7 +79,7 @@ class CompletePayment extends Component {
 
             <textarea
               readOnly
-              rows={8}
+              rows={6}
               className="mt-2 w-100"
               defaultValue={license}
               onClick={this.onTextareaClick} />
