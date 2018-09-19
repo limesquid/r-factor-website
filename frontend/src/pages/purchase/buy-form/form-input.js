@@ -3,33 +3,29 @@ import PropTypes from 'prop-types';
 import { FormGroup, FormFeedback, Label, Input, Col } from 'reactstrap';
 
 const FormInput = ({ invalid, name, required, title, type, value, onChange }) => (
-  <FormGroup row key={name}>
-    <Label sm={4} size="sm">
+  <FormGroup>
+    <Label className="text-nowrap">
       {title}
       {required && (<sup>&nbsp;<code>*</code>&nbsp;</sup>)}
-      :
     </Label>
-    <Col sm={8}>
-      <Input
-        type={type}
-        name={name}
-        bsSize="sm"
-        invalid={invalid}
-        value={value}
-        onChange={onChange} />
-      <FormFeedback>{title} is required</FormFeedback>
-    </Col>
+    <Input
+      type={type}
+      name={name}
+      invalid={invalid}
+      value={value}
+      onChange={onChange} />
+    <FormFeedback>{title} is required</FormFeedback>
   </FormGroup>
 );
 
 FormInput.propTypes = {
   invalid: PropTypes.bool,
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
   required: PropTypes.bool,
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   type: PropTypes.string,
   value: PropTypes.any,
-  onChange: PropTypes.func
+  onChange: PropTypes.func.isRequired
 };
 
 export default FormInput;
