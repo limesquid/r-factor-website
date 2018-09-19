@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Clipboard from 'react-clipboard.js';
+import { Label } from 'reactstrap';
 import { Helmet } from 'react-helmet';
 import Link from 'components/link';
 import Spinner from 'components/spinner';
@@ -61,9 +62,9 @@ class CompletePayment extends Component {
         {!loading && error && (
           <Fragment>
             <h1><span className="text-danger">Something went wrong!</span></h1>
-            <h4 className="mb-4">{String(error)}</h4>
-            <p>
-              Please contact us at <Link href="/support" label="support" /> page in case of any questions.
+            <h4 className="mb-4 text-muted">{String(error)}</h4>
+            <p className="text-muted">
+              You can contact us with above information via our <Link href="/support" label="support page" />.
             </p>
           </Fragment>
         )}
@@ -71,22 +72,28 @@ class CompletePayment extends Component {
         {!loading && !error && (
           <Fragment>
             <h1><span className="text-success">Congratulations!</span></h1>
-            <h4 className="mb-4">You have successfully bought your R-Factor license key!</h4>
+            <h4 className="mb-4 text-muted">You have successfully bought your R-Factor license key!</h4>
 
-            <p>
-              Please follow this <Link href="/documentation/installation" label="link" /> to get further instructions.
-            </p>
+            <div className="d-flex justify-content-between align-items-baseline">
+              <Label className="d-flex justify-content-between">
+                Your license key
+              </Label>
+              <Clipboard className="btn btn-link float-right mt-2" data-clipboard-text={license}>
+                Copy
+              </Clipboard>
+            </div>
 
             <textarea
               readOnly
-              rows={6}
-              className="mt-2 w-100"
+              rows={8}
+              className="mt-2 w-100 border-0 p-2"
               defaultValue={license}
+              style={{ wordBreak: 'break-all' }}
               onClick={this.onTextareaClick} />
 
-            <Clipboard className="btn btn-primary float-right" data-clipboard-text={license}>
-              Copy
-            </Clipboard>
+            <p className="text-muted mt-2">
+              Please follow <Link href="/documentation/installation" label="this link" /> to get further instructions.
+            </p>
           </Fragment>
         )}
       </div>

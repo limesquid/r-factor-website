@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, FormFeedback, Label, Input, Col } from 'reactstrap';
+import { FormGroup, FormFeedback, Label, Input } from 'reactstrap';
 
 const FormInput = ({ invalid, name, required, title, type, value, onChange }) => (
   <FormGroup>
