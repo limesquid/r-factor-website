@@ -15,14 +15,14 @@ const completePayment = async (request, response) => {
   const licenseDetails = licensesDb.getByPaymentId(internalOrderId);
 
   if (!internalOrderId || !licenseDetails) {
-    logger.log('error', `[Complete-Ppayment: ${internalOrderId}]: unknown internalOrderId`);
+    logger.log('error', `[Complete-Payment: ${internalOrderId}]: unknown internalOrderId`);
     response.status(404).send(WRONG_PAYMENT_ID_ERROR_MESSAGE);
     return;
   }
 
   if (licenseDetails.status === 'paid') {
-    logger.log('error', `[Complete-Ppayment: ${internalOrderId}]: operation has already been completed`);
-    response.status(410).send('Operation has been already completed. This page is reachable only once.');
+    logger.log('error', `[Complete-Payment: ${internalOrderId}]: operation has already been completed`);
+    response.status(410).send('Operation has already been completed. This page is reachable only once.');
     return;
   }
 
