@@ -43,5 +43,9 @@ export default {
     'end-of-line',
     'indent',
     'semicolons'
-  ]
+  ],
+  calculator: {
+    manualDuration: 35,
+    dailyCount: 4
+  }
 };
