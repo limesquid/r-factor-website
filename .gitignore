@@ -3,3 +3,4 @@ dist/
 backend/frontend/
 node_modules/
 logs.log
+licenses-db.json
