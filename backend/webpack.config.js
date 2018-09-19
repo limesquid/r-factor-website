@@ -44,6 +44,11 @@ module.exports = {
         test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.(key|license)$/,
+        use: 'raw-loader',
+        exclude: /node_modules/
       }
     ]
   },

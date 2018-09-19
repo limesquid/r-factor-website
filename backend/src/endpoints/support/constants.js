@@ -1,4 +1,3 @@
-const OUR_EMAIL = 'r.factor.js@gmail.com';
 const MAX_CODE_LENGTH = 4000;
 const MAX_MESSAGE_LENGTH = 4000;
 const RECAPTCHA_MESSAGE = 'You did not pass reCAPTCHA.';
@@ -17,7 +16,6 @@ const TYPES_STRING = {
 };
 
 module.exports = {
-  OUR_EMAIL,
   MAX_CODE_LENGTH,
   MAX_MESSAGE_LENGTH,
   RECAPTCHA_MESSAGE,

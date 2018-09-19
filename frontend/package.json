@@ -35,7 +35,7 @@
     "better-npm-run": "^0.1.0",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.9.1",
-    "react-scripts": "^1.1.4",
+    "react-scripts": "^1.1.5",
     "react-snap": "^1.17.0"
   },
   "dependencies": {
@@ -45,6 +45,7 @@
     "codemirror": "^5.39.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
+    "react-clipboard.js": "^2.0.0",
     "react-codemirror2": "^5.0.4",
     "react-cookie-consent-wrapper": "git+https://github.com/yuriyyakym/react-cookie-consent-wrapper.git",
     "react-dom": "^16.4.1",
