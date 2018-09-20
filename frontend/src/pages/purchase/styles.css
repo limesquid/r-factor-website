@@ -1,0 +1,13 @@
+.purchase .calculator .input-group-prepend .input-group-text {
+  width: 230px;
+}
+
+@media (max-width: 400px) {
+  .purchase .calculator .input-group-prepend .input-group-text {
+    width: 120px;
+  }
+}
+
+.purchase .calculator .input-group-append .input-group-text {
+  width: 60px;
+}

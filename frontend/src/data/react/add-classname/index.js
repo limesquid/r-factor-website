@@ -51,5 +51,9 @@ export default {
     'quotes',
     'semicolons',
     'trailing-commas'
-  ]
+  ],
+  calculator: {
+    manualDuration: 20,
+    dailyCount: 5
+  }
 };
