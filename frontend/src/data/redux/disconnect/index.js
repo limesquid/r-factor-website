@@ -29,5 +29,9 @@ export default {
   examples: [
     example1,
     example2
-  ]
+  ],
+  calculator: {
+    manualDuration: 10,
+    dailyCount: 5
+  }
 };

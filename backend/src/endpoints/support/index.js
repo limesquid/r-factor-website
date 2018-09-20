@@ -1,6 +1,6 @@
+const btoa = require('btoa');
 const sgMail = require('@sendgrid/mail');
 const {
-  OUR_EMAIL,
   MAX_CODE_LENGTH,
   MAX_MESSAGE_LENGTH,
   RECAPTCHA_MESSAGE,
@@ -49,9 +49,9 @@ const parseRequest = ({ body }) => ({
 const createEmail = ({ configuration, email, input, message, output, type }) => {
   const emailJson = {
     from: {
-      email: OUR_EMAIL
+      email: process.env.OUR_EMAIL
     },
-    to: OUR_EMAIL,
+    to: process.env.OUR_EMAIL,
     subject: `R-Factor | ${TYPES_STRING[type]}`,
     text: [
       `Email: ${email}`,
@@ -88,9 +88,4 @@ const createEmail = ({ configuration, email, input, message, output, type }) => 
   }
 
   return emailJson;
-};
-
-const btoa = (data) => {
-  const buffer = new Buffer(data);
-  return buffer.toString('base64');
 };

@@ -60,5 +60,9 @@ export default {
   configuration: [
     'end-of-line',
     'indent'
-  ]
+  ],
+  calculator: {
+    manualDuration: 30,
+    dailyCount: 5
+  }
 };
