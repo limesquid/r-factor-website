@@ -5,8 +5,6 @@ const {
   PAYMENT_VALIDATION_ERROR_MESSAGE
 } = require('./constants');
 
-const MERCHANT_POS_ID = process.env.PAYU_MERCHANT_POS_ID;
-const CURRENCY_CODE = 'PLN';
 const DESCRIPTION = 'R-Factor';
 const TOTAL_AMOUNT = Math.round(parseFloat(process.env.LICENSE_PRICE) * 100);
 const PAYU_STATUS_COMPLETED = 'COMPLETED';
@@ -32,10 +30,10 @@ const createPayment = async ({
     customerIp,
     products,
     continueUrl: `${COMPLETE_PAYMENT_URL}/${internalOrderId}`,
-    currencyCode: CURRENCY_CODE,
+    currencyCode: process.env.BASE_CURRENCY_CODE,
     description: DESCRIPTION,
     extOrderId: internalOrderId,
-    merchantPosId: MERCHANT_POS_ID,
+    merchantPosId: process.env.PAYU_MERCHANT_POS_ID,
     totalAmount: TOTAL_AMOUNT
   };
 
