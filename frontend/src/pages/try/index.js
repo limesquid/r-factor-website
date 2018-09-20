@@ -56,7 +56,7 @@ class TryPage extends Component {
 
   onRefactoringChange = (refactoring) => this.setState({ refactoring });
 
-  onRefactor = async() => {
+  onRefactor = async () => {
     this.setState({ isRefactoring: true });
     try {
       const { code: oldCode, refactoring, settings, 'g-recaptcha-response': recaptcha } = this.state;

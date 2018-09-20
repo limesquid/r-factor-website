@@ -52,7 +52,7 @@ class SupportForm extends Component {
   onOutputChange = (output) => this.setState({ output });
   onTypeChange = (type) => this.setState({ type });
 
-  onSubmit = async() => {
+  onSubmit = async () => {
     const validationError = this.validate();
     if (validationError) {
       this.setState({ error: validationError });
