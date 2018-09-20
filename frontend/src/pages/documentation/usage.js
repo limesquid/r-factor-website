@@ -38,7 +38,7 @@ const Usage = () => (
           Command Palette
         </a>
         .
-        {/*TODO: add links to other editors*/}
+        {/* TODO: add links to other editors */}
       </li>
       <li>
         Command name corresponts to a refactoring name, but is prefixed with <code>R-Factor: </code>.
