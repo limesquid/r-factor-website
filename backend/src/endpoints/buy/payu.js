@@ -30,7 +30,7 @@ const createPayment = async ({
     customerIp,
     products,
     continueUrl: `${COMPLETE_PAYMENT_URL}/${internalOrderId}`,
-    currencyCode: process.env.BASE_CURRENCY_CODE,
+    currencyCode: process.env.CURRENCY_CODE,
     description: DESCRIPTION,
     extOrderId: internalOrderId,
     merchantPosId: process.env.PAYU_MERCHANT_POS_ID,
