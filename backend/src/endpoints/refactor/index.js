@@ -27,7 +27,7 @@ module.exports = (request, response) => {
 
   let stdout = '';
   let stderr = '';
-  const child = spawn('node', [ process.env.BIN_PATH, '-r', refactoring, '-s', settings, '-l', devLicense ]);
+  const child = spawn('node', [ './r-factor.js', '-r', refactoring, '-s', settings, '-l', devLicense ]);
   const timeout = setTimeout(() => {
     response.status(500).send(TIMEOUT_MESSAGE);
     child.kill();
