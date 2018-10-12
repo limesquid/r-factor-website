@@ -32,7 +32,6 @@
       "env": {
         "API_HOST": "https://r-factor.io",
         "API_PORT": "80",
-        "BIN_PATH": "./r-factor.js",
         "NODE_ENV": "production",
         "PAYU_API_HOST": "https://secure.payu.com",
         "PAYU_MERCHANT_POS_ID": "339269",
