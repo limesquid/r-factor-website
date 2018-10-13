@@ -9,25 +9,25 @@ const TOO_LONG_INPUT_MESSAGE = [
 ].join('\n');
 const REFACTORINGS = [
   'add-classname',
+  'connect',
+  'connect-map-dispatch-to-props',
+  'connect-map-state-to-props',
+  'connect-merge-props',
   'convert-svg-to-component',
   'convert-to-arrow-component',
   'convert-to-class-component',
   'convert-to-function-component',
+  'disconnect',
+  'disconnect-map-dispatch-to-props',
+  'disconnect-map-state-to-props',
+  'disconnect-merge-props',
   'generate-prop-types',
   'move-default-props-and-prop-types-out-of-class',
   'move-default-props-and-prop-types-to-class',
   'sort-attributes',
   'sort-imports',
   'toggle-component-type',
-  'toggle-withrouter-hoc',
-  'connect',
-  'connect-map-dispatch',
-  'connect-map-state',
-  'connect-merge-props',
-  'disconnect',
-  'disconnect-map-state',
-  'disconnect-map-dispatch',
-  'disconnect-merge-props'
+  'toggle-with-router-hoc'
 ];
 
 module.exports = {

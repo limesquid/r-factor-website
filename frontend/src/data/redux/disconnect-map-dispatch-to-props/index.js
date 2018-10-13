@@ -4,7 +4,7 @@ import example2 from './example2';
 import example3 from './example3';
 
 export default {
-  id: 'disconnect-map-dispatch',
+  id: 'disconnect-map-dispatch-to-props',
   name: 'Disconnect mapDispatchToProps',
   summary: (
     <span>
