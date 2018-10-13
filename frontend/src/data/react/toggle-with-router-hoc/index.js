@@ -3,7 +3,7 @@ import example1 from './example1';
 import example2 from './example2';
 
 export default {
-  id: 'toggle-withrouter-hoc',
+  id: 'toggle-with-router-hoc',
   name: 'Toggle withRouter HOC',
   summary: (
     <span>

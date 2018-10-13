@@ -7,7 +7,7 @@ import generatePropTypes from './generate-prop-types';
 import moveDefaultPropsAndPropTypesOutOfClass from './move-default-props-and-prop-types-out-of-class';
 import moveDefaultPropsAndPropTypesToClass from './move-default-props-and-prop-types-to-class';
 import toggleComponentType from './toggle-component-type';
-import toggleWithrouterHoc from './toggle-withrouter-hoc';
+import toggleWithrouterHoc from './toggle-with-router-hoc';
 
 export default [
   addClassname,

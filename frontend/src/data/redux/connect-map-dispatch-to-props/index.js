@@ -3,23 +3,23 @@ import example1 from './example1';
 import example2 from './example2';
 
 export default {
-  id: 'connect-map-state',
-  name: 'Connect mapStateToProps',
+  id: 'connect-map-dispatch-to-props',
+  name: 'Connect mapDispatchToProps',
   summary: (
     <span>
-      Connects a component to the redux store and generates <code>mapStateToProps</code> only.
+      Connects a component to the redux store and generates <code>mapDispatchToProps</code> only.
     </span>
   ),
   actions: (
     <ul className="text-muted">
       <li>
-        Defines <code>mapStateToProps</code> below the component definition (if not present)
+        Defines <code>mapDispatchToProps</code> below the component definition (if not present)
       </li>
       <li>
         Wraps exported (returned, if it's a HOC) component with <code>connect</code> (if not present)
       </li>
       <li>
-        Uses <code>mapStateToProps</code> with aforementioned <code>connect</code>
+        Uses <code>mapDispatchToProps</code> with aforementioned <code>connect</code>
         {' '}
         (replacing <code>null</code> values if present)
       </li>
@@ -34,7 +34,8 @@ export default {
     'default-hoc-component-name',
     'end-of-line',
     'indent',
-    'map-state-to-props-name',
+    'map-dispatch-to-props-name',
+    'use-map-dispatch-to-props-shorthand',
     'semicolons'
   ],
   examples: [
