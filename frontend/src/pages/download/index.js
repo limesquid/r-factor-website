@@ -24,7 +24,6 @@ const EDITORS = [
   }
 ];
 
-
 const DownloadPage = () => (
   <div>
     <Helmet>
