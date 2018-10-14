@@ -33,13 +33,30 @@ const Usage = () => (
         That's why you should use it for evaluation purposes with some dummy code only.
       </li>
       <li>
-        Every refactoring is available as a command in the
+        Every refactoring is available as a command in your Command Palette
         {' '}
-        <a target="_blank" rel="noopener noreferrer" href="http://docs.sublimetext.info/en/latest/extensibility/command_palette.html">
-          Command Palette
+        (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://flight-manual.atom.io/getting-started/sections/atom-basics/#command-palette">
+          Atom
         </a>
-        .
-        {/* TODO: add links to other editors */}
+        ,&nbsp;
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="http://docs.sublimetext.info/en/latest/extensibility/command_palette.html">
+          Sublime
+        </a>
+        ,&nbsp;
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">
+          VSCode
+        </a>
+        )
       </li>
       <li>
         Command name corresponts to a refactoring name, but is prefixed with <code>R-Factor: </code>.
