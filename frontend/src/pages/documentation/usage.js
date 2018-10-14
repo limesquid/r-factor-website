@@ -79,7 +79,12 @@ const Usage = () => (
 
     <h4>Atom</h4>
     <p className="text-muted">
-      TODO
+      Open up&nbsp;
+      <a href="https://flight-manual.atom.io/getting-started/sections/atom-basics/#settings-and-preferences">
+        Settings View
+      </a>
+      &nbsp;<Icon name="arrow-right" /> <code>Packages</code> <Icon name="arrow-right" />
+      &nbsp;filter by <code>r-factor</code> <Icon name="arrow-right" /> <code>Settings</code>.
     </p>
 
     <h4>Sublime Text 3</h4>
@@ -91,9 +96,11 @@ const Usage = () => (
       <code>Settings - User</code> in Sublime menu.
     </p>
 
-    <h4>VSCode</h4>
+    <h4>Visual Studio Code</h4>
     <p className="text-muted">
-      TODO
+      Open up <code>File</code> <Icon name="arrow-right" /> <code>Preferences</code> <Icon name="arrow-right" />
+      &nbsp;<code>Settings</code> <Icon name="arrow-right" /> <code>Extensions</code> <Icon name="arrow-right" />
+      &nbsp;<code>R-Factor</code>.
     </p>
   </Fragment>
 );
