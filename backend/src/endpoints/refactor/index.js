@@ -12,6 +12,7 @@ const devLicense = require('../../../license/dev.license');
 
 module.exports = (request, response) => {
   const { code, refactoring, settings } = parseRequest(request);
+  const NODE_BIN = process.env.NODE_BIN || 'node';
 
   if (request.recaptcha.error) {
     return response.status(400).send(RECAPTCHA_MESSAGE);
@@ -27,7 +28,7 @@ module.exports = (request, response) => {
 
   let stdout = '';
   let stderr = '';
-  const child = spawn('node', [ './r-factor.js', '-r', refactoring, '-s', settings, '-l', devLicense ]);
+  const child = spawn(NODE_BIN, [ './r-factor.js', '-r', refactoring, '-s', settings, '-l', devLicense ]);
   const timeout = setTimeout(() => {
     response.status(500).send(TIMEOUT_MESSAGE);
     child.kill();
@@ -57,9 +58,5 @@ module.exports = (request, response) => {
 const parseRequest = ({ body }) => ({
   code: body.code,
   refactoring: body.refactoring,
-  settings: JSON.stringify(parseSettings(body.settings))
-});
-
-const parseSettings = (settings = {}) => Object.assign({}, settings, {
-  NODE_BIN: 'node'
+  settings: JSON.stringify(body.settings || {})
 });
