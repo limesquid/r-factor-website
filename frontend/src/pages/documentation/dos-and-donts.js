@@ -20,9 +20,17 @@ const DosAndDonts = () => (
       <li>
         Compensate for missing R-Factor configuration with
         {' '}
-        <a target="_blank" rel="noopener noreferrer" href="https://eslint.org/">ESLint</a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://eslint.org/">
+          ESLint
+        </a>
         {' '}
-        <a target="_blank" rel="noopener noreferrer" href="https://eslint.org/docs/user-guide/migrating-from-jscs#--fix">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://eslint.org/docs/user-guide/migrating-from-jscs#--fix">
           <code>--fix</code>
         </a>
         {' '}
