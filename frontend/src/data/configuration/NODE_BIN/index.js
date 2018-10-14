@@ -6,6 +6,7 @@ export default {
   summary: (
     <span>
       Path to <a target="_blank" rel="noopener noreferrer" href="https://nodejs.org/">node.js</a> binary.
+      Useful only in Sublime Text 3.
     </span>
   ),
   description: (
