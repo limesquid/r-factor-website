@@ -8,7 +8,6 @@ const recaptcha = require('./recaptcha');
 
 const frontendPath = path.resolve(process.cwd(), 'frontend');
 const indexHtmlPath = path.resolve(frontendPath, 'index.html');
-const staticPath = path.resolve(frontendPath, 'static');
 
 const getApiRouter = () => {
   const apiRouter = express.Router();
