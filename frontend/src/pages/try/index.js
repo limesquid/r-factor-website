@@ -1,7 +1,6 @@
 import React, { createRef, Component } from 'react';
 import Button from 'reactstrap/lib/Button';
 import Col from 'reactstrap/lib/Col';
-import Container from 'reactstrap/lib/Container';
 import Form from 'reactstrap/lib/Form';
 import Row from 'reactstrap/lib/Row';
 import { Helmet } from 'react-helmet';
@@ -86,7 +85,7 @@ class TryPage extends Component {
     const sortedSettings = {};
     Object.keys(settings)
       .filter((setting) => {
-        if (['atom', 'vscode'].includes(editor) && setting === 'NODE_BIN') {
+        if ([ 'atom', 'vscode' ].includes(editor) && setting === 'NODE_BIN') {
           return false;
         }
         return true;
@@ -106,7 +105,7 @@ class TryPage extends Component {
     const generatedSettings = this.generateSettings();
 
     return (
-      <Container>
+      <div>
         <Helmet>
           <title>R-Factor - Try it</title>
         </Helmet>
@@ -201,7 +200,7 @@ class TryPage extends Component {
               value={generatedSettings} />
           </Col>
         </Row>
-      </Container>
+      </div>
     );
   }
 }
