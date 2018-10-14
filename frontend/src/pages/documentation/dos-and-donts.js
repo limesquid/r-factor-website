@@ -20,15 +20,15 @@ const DosAndDonts = () => (
       <li>
         Compensate for missing R-Factor configuration with
         {' '}
-        <a href="https://eslint.org/">ESLint</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://eslint.org/">ESLint</a>
         {' '}
-        <a href="https://eslint.org/docs/user-guide/migrating-from-jscs#--fix">
+        <a target="_blank" rel="noopener noreferrer" href="https://eslint.org/docs/user-guide/migrating-from-jscs#--fix">
           <code>--fix</code>
         </a>
         {' '}
         command line option
       </li>
-      <li>Use <a href="https://prettier.io/">Prettier</a></li>
+      <li>Use <a target="_blank" rel="noopener noreferrer" href="https://prettier.io/">Prettier</a></li>
     </ul>
 
     <h5>Don't</h5>
@@ -36,7 +36,7 @@ const DosAndDonts = () => (
       <li>Refactor invalid JavaScript</li>
       <li>Refactor code formatted against provided configuration</li>
       <li>Declare multiple React components in a single file</li>
-      <li>Try any other foolish constructions</li>
+      <li>Try any other foolish things</li>
     </ul>
   </Fragment>
 );

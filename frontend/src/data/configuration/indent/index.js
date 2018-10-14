@@ -15,7 +15,9 @@ export default {
         Set the value to an integer to use space indentation of that size.
       </p>
       <p>
-        Configuration mimics the one in <a href="https://eslint.org/docs/rules/indent">ESLint</a>.
+        Configuration mimics the one in
+        &nbsp;
+        <a target="_blank" rel="noopener noreferrer" href="https://eslint.org/docs/rules/indent">ESLint</a>.
       </p>
     </Fragment>
   ),

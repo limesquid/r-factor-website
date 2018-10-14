@@ -18,7 +18,7 @@ export default {
       </ul>
       <p>
         Configuration is the same as String option
-        in <a href="https://eslint.org/docs/rules/quotes">ESLint</a>.
+        in <a target="_blank" rel="noopener noreferrer" href="https://eslint.org/docs/rules/quotes">ESLint</a>.
       </p>
     </Fragment>
   ),

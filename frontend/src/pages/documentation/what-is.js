@@ -51,7 +51,7 @@ const WhatIs = () => (
         <li>Not break your code</li>
         <li>
           Keep your formatting
-          (but remember: <a href="https://en.wikipedia.org/wiki/Garbage_in,_garbage_out">garbage in, garbage out</a>)
+          (but remember: <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Garbage_in,_garbage_out">garbage in, garbage out</a>)
         </li>
         <li>Refactor reasonably sized files in reasonable time</li>
         <li>Support & prefer the fanciest, sweetest syntax possible (think ES6+)</li>
