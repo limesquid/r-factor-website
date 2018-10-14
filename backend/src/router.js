@@ -46,6 +46,6 @@ module.exports = () => {
   const router = express.Router();
   router.use('/api', getApiRouter());
   router.use('/static', getStaticRouter());
-  router.use('/', getIndexMiddleware());
+  router.use('/*', getIndexMiddleware());
   return router;
 };
