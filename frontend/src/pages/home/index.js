@@ -27,9 +27,9 @@ const requirementsIcons = [
 ];
 
 const editorsIcons = [
-  { id: 'vscode', label: 'VSCode' },
   { id: 'atom', label: 'Atom' },
-  { id: 'sublime', label: 'Sublime Text 3' }
+  { id: 'sublime', label: 'Sublime Text 3' },
+  { id: 'vscode', label: 'VSCode' }
 ];
 
 const HomePage = () => (

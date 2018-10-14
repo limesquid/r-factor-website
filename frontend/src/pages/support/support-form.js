@@ -242,7 +242,7 @@ class SupportForm extends Component {
                     <Code value={input} onChange={this.onInputChange} />
                     <p className="mt-1 mb-4 text-muted">
                       Please make sure that your code is valid JavaScript.
-                      You can do that with <a href="https://astexplorer.net/">astexplorer.net</a>
+                      You can do that with <a target="_blank" rel="noopener noreferrer" href="https://astexplorer.net/">astexplorer.net</a>
                       {' '}
                       with <code>babylon7</code> parser.
                     </p>

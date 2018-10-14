@@ -16,8 +16,9 @@ const Usage = () => (
       <li>Refactoring will be performed on your selection or else on an entire file</li>
       <li>Selection must be a valid JavaScript Program (e.g. <code>{'{ a: 1, b: 2 }'}</code> will not do!)</li>
       <li>
-        You can use <a href="https://astexplorer.net/">astexplorer.net</a> with <code>babylon7</code> parser
-        to validate your code before
+        You can use&nbsp;
+        <a target="_blank" rel="noopener noreferrer" href="https://astexplorer.net/">astexplorer.net</a>
+        &nbsp;with <code>babylon7</code> parser to validate your code before
         you <Link href="/support" label="submit an issue" />
       </li>
       <li>If refactoring cannot be performed nothing will happen to your code</li>
@@ -34,7 +35,7 @@ const Usage = () => (
       <li>
         Every refactoring is available as a command in the
         {' '}
-        <a href="http://docs.sublimetext.info/en/latest/extensibility/command_palette.html">
+        <a target="_blank" rel="noopener noreferrer" href="http://docs.sublimetext.info/en/latest/extensibility/command_palette.html">
           Command Palette
         </a>
         .
