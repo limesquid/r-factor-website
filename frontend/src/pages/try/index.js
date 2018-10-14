@@ -84,10 +84,18 @@ class TryPage extends Component {
     const { editor, settings } = this.state;
     const indent = settings.indent === 'tab' ? '\t' : settings.indent;
     const sortedSettings = {};
-    Object.keys(settings).sort().forEach((key) => {
-      const prefixedKey = editor === 'vscode' ? `r-factor.${key}` : key;
-      sortedSettings[prefixedKey] = settings[key];
-    });
+    Object.keys(settings)
+      .filter((setting) => {
+        if (['atom', 'vscode'].includes(editor) && setting === 'NODE_BIN') {
+          return false;
+        }
+        return true;
+      })
+      .sort()
+      .forEach((key) => {
+        const prefixedKey = editor === 'vscode' ? `r-factor.${key}` : key;
+        sortedSettings[prefixedKey] = settings[key];
+      });
     return JSON.stringify(sortedSettings, null, indent);
   };
 
