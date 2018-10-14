@@ -23,7 +23,7 @@ const getStaticRouter = () => {
     return getDevelopmentMiddleware();
   }
 
-  return express.static(staticPath);
+  return express.static(frontendPath);
 };
 
 const getIndexMiddleware = () => {
@@ -45,7 +45,7 @@ const getDevelopmentMiddleware = () => (request, response) => response.redirect(
 module.exports = () => {
   const router = express.Router();
   router.use('/api', getApiRouter());
-  router.use('/static', getStaticRouter());
-  router.use('/*', getIndexMiddleware());
+  router.use(getStaticRouter());
+  router.get('/*', getIndexMiddleware());
   return router;
 };
