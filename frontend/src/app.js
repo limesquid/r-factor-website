@@ -5,6 +5,7 @@ import CookieConsent from 'components/cookie-consent';
 import Navigation from 'components/navigation';
 import ScrollToTop from 'components/scroll-to-top';
 import DocumentationPage from 'pages/documentation';
+import DownloadPage from 'pages/download';
 import HomePage from 'pages/home';
 import LicensePage from 'pages/license';
 import NotFound from 'pages/not-found';
@@ -24,6 +25,7 @@ const App = () => (
         <Container>
           <Switch>
             <Route exact path="/" component={HomePage} />
+            <Route path="/download" component={DownloadPage} />
             <Route path="/documentation" component={DocumentationPage} />
             <Route path="/eula" component={LicensePage} />
             <Route path="/purchase" component={PurchasePage} />

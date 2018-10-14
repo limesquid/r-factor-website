@@ -18,6 +18,7 @@ import './styles.css';
 const links = [
   { label: 'Overview', to: '/' },
   { label: 'Try it', to: '/try' },
+  { label: 'Download', to: '/download' },
   { label: 'Documentation', to: '/documentation' },
   { label: 'Support', to: '/support' },
   { label: 'EULA', to: '/eula' }

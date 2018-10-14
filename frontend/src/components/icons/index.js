@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import LabeledIcon from 'components/labeled-icon';
 
 const ICON_SIZE = 48;
-const ICONS = {
+export const ICONS = {
   atom: require('./atom.svg'),
   linux: require('./linux.svg'),
   macos: require('./macos.svg'),
