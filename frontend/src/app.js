@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Container from 'reactstrap/lib/Container';
-import CookieConsent from 'components/cookie-consent';
 import Navigation from 'components/navigation';
 import ScrollToTop from 'components/scroll-to-top';
 import DocumentationPage from 'pages/documentation';
@@ -19,7 +18,6 @@ const App = () => (
   <BrowserRouter>
     <ScrollToTop>
       <div>
-        <CookieConsent />
         <Navigation />
 
         <Container>
