@@ -5,7 +5,7 @@ import { IndexLinkContainer } from 'react-router-bootstrap';
 import './styles.css';
 
 const Navigation = ({ links }) => (
-  <ul className="documentation-navigation">
+  <ul className="documentation-navigation-list">
     {links.map(({ label, to }) => (
       <li key={to}>
         <IndexLinkContainer activeClassName="active" to={to}>

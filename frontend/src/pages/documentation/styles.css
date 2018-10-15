@@ -1,8 +1,14 @@
-.documentation-navigation {
+@media (max-width: 767px) {
+  .documentation-page {
+    flex-direction: column-reverse;
+  }
+}
+
+.documentation-navigation-list {
   -webkit-padding-start: 20px;
   padding-left: 20px;
 }
 
-.documentation-navigation a.active {
+.documentation-navigation-list a.active {
   color: var(--green) !important;
 }
