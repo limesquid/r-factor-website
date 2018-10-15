@@ -1,7 +1,7 @@
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 
-const DB_PATH = './licenses-db.json';
+const DB_PATH = process.env.DB_PATH || './licenses-db.json';
 const STATUS_PAID = 'paid';
 const STATUS_UNPAID = 'unpaid';
 
