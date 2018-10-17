@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Form } from 'reactstrap';
+import Link from 'components/link';
 import FormInput from './form-input';
 import PayuButton from './payu-button';
 
@@ -82,7 +83,14 @@ class BuyForm extends Component {
               onChange={this.onInputChange} />
           )}
 
-          <div className="text-center mt-5">
+          <div className="text-justify text-muted mt-4">
+            License keys are issued by <span className="text-body">{process.env.REACT_APP_AUTHOR}</span>
+            {' '}(Tarnów, Poland), and covered by the
+            {' '}<Link label="End-User License Agreement (EULA)" href="/eula" />.
+            When you buy a license, you agree to its terms.
+          </div>
+
+          <div className="text-center mt-4">
             <PayuButton
               email={email}
               address={address}

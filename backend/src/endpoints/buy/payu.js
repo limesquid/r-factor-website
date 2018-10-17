@@ -6,7 +6,7 @@ const {
 } = require('./constants');
 
 const DESCRIPTION = 'R-Factor';
-const TOTAL_AMOUNT = Math.round(parseFloat(process.env.LICENSE_PRICE) * 100);
+const TOTAL_AMOUNT = Math.round(parseFloat(process.env.LICENSE_FEE) * 100);
 const PAYU_STATUS_COMPLETED = 'COMPLETED';
 const COMPLETE_PAYMENT_URL = process.env.NODE_ENV === 'production'
   ? `${process.env.API_HOST}/complete-payment`
@@ -30,7 +30,7 @@ const createPayment = async ({
     customerIp,
     products,
     continueUrl: `${COMPLETE_PAYMENT_URL}/${internalOrderId}`,
-    currencyCode: process.env.CURRENCY_CODE,
+    currencyCode: process.env.LICENSE_CURRENCY_CODE,
     description: DESCRIPTION,
     extOrderId: internalOrderId,
     merchantPosId: process.env.PAYU_MERCHANT_POS_ID,

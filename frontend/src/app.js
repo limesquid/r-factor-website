@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Container from 'reactstrap/lib/Container';
 import Navigation from 'components/navigation';
+import Footer from 'components/footer';
 import ScrollToTop from 'components/scroll-to-top';
 import DocumentationPage from 'pages/documentation';
 import DownloadPage from 'pages/download';
@@ -33,6 +34,8 @@ const App = () => (
             <Route component={NotFound} />
           </Switch>
         </Container>
+
+        <Footer />
       </div>
     </ScrollToTop>
   </BrowserRouter>

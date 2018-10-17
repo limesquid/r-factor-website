@@ -39,7 +39,7 @@ const WhatIs = () => (
         .
       </p>
       <p>
-        As I am writing this we have over <span className="text-info">30</span> ideas for other features,
+        As I am writing this we have over <span className="text-body">30</span> ideas for other features,
         which would take months to implement.
         And yes, some of them go beyond React & Redux.
         First, we want to see how much interest is this tool going to get.
