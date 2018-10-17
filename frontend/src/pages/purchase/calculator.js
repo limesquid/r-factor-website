@@ -81,14 +81,14 @@ class Calculator extends Component {
           </InputGroup>
         ))}
 
-        <p className="text-muted mt-4" style={{ fontSize: '1.7rem' }}>
+        <p className="text-muted mt-4" style={{ fontSize: '1.4rem' }}>
           <code style={{ fontSize: '2rem' }}>{timeConsumption.minutes}</code>
           &nbsp;minutes and&nbsp;
           <code style={{ fontSize: '2rem' }}>{timeConsumption.seconds}</code>
           &nbsp;seconds
         </p>
         <p className="text-muted mb-1">
-          That's the approximate amount of time R-Factor will save you every day!
+          That's the approx. amount of time R-Factor will save you every day!
         </p>
         <p className="text-muted mb-1">
           It's&nbsp;

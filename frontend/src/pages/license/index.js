@@ -5,7 +5,6 @@ import { Helmet } from 'react-helmet';
 
 const NAME = 'R-FACTOR';
 const EVALUATION_TOOL_NAME = 'TRY IT tool';
-const COPYRIGHTS_OWNER = 'R-FACTOR Sp. z o.o.';
 
 const LicensePage = () => (
   <div>
@@ -70,7 +69,7 @@ const LicensePage = () => (
         <li className="mb-2">
           COPYRIGHT
           <br />
-          All title, including but not limited to copyrights, in and to {NAME} and any copies thereof are owned by {COPYRIGHTS_OWNER} (AUTHOR).
+          All title, including but not limited to copyrights, in and to {NAME} and any copies thereof are owned by {process.env.REACT_APP_AUTHOR} (AUTHOR).
         </li>
 
         <li className="mb-2">

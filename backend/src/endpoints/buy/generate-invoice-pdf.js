@@ -52,7 +52,7 @@ const createInvoicePayload = ({ address, companyName, vatin, fullName }) => {
       {
         name: 'R-Factor',
         quantity: 1,
-        unit_cost: process.env.LICENSE_PRICE
+        unit_cost: process.env.LICENSE_FEE
       }
     ],
     fields: {
