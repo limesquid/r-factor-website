@@ -13,7 +13,7 @@ const getYears = () => {
 };
 
 const Footer = ({  }) => (
-  <Container className="mt-5 text-right text-muted">
+  <Container className="py-5 text-center text-muted">
     © {getYears()} <span className="text-body">{process.env.REACT_APP_AUTHOR}</span>. All rights reserved.
   </Container>
 );
