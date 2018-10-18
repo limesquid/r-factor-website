@@ -11,10 +11,10 @@ const PurchasePage = () => (
       <title>R-Factor - Purchase</title>
     </Helmet>
     <Row>
-      <Col md={6} xl={{ size: 5, offset: 1 }} className="mb-4">
+      <Col md={6} xl={5} className="mb-4">
         <PaymentPanel />
       </Col>
-      <Col md={6} xl={{ size: 5, offset: 1 }} className="mb-4">
+      <Col md={6} xl={{ size: 5, offset: 2 }} className="mb-4">
         <Calculator />
       </Col>
     </Row>
