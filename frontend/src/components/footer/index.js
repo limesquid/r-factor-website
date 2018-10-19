@@ -14,7 +14,8 @@ const getYears = () => {
 
 const Footer = ({  }) => (
   <Container className="py-5 text-center text-muted">
-    © {getYears()} <span className="text-body">{process.env.REACT_APP_AUTHOR}</span>. All rights reserved.
+    © {getYears()} <span className="text-body">Kamil Mielnik</span> & <span className="text-body">Yuriy Yakym</span>.
+    All rights reserved.
   </Container>
 );
 
