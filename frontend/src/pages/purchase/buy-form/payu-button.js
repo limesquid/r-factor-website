@@ -65,7 +65,7 @@ class PayuButton extends Component {
         )}
 
         <div className="d-flex justify-content-center">
-          <Button className="text-white px-4 mr-2" color="warning" onClick={this.onClick}>
+          <Button className="text-white px-4 mr-4" color="warning" onClick={this.onClick}>
             Buy
           </Button>
 

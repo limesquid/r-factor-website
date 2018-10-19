@@ -11,7 +11,7 @@ const getYears = () => {
 };
 
 const Footer = () => (
-  <div className="py-5 mt-5 text-center text-muted" style={{ background: 'black' }}>
+  <div className="py-5 px-2 mt-5 text-center text-muted" style={{ background: 'black' }}>
     © {getYears()} <span className="text-body">Kamil Mielnik</span> & <span className="text-body">Yuriy Yakym</span>.
     All rights reserved.
   </div>
