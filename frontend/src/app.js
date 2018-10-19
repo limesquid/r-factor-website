@@ -18,25 +18,23 @@ import 'styles/styles.css';
 const App = () => (
   <BrowserRouter>
     <ScrollToTop>
-      <div>
-        <Navigation />
+      <Navigation />
 
-        <Container>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/download" component={DownloadPage} />
-            <Route path="/documentation" component={DocumentationPage} />
-            <Route path="/eula" component={LicensePage} />
-            <Route path="/purchase" component={PurchasePage} />
-            <Route path="/support" component={SupportPage} />
-            <Route path="/try" component={TryPage} />
-            <Route path="/complete-payment/:internalOrderId" component={CompletePaymentPage} />
-            <Route component={NotFound} />
-          </Switch>
-        </Container>
+      <Container id="content">
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/download" component={DownloadPage} />
+          <Route path="/documentation" component={DocumentationPage} />
+          <Route path="/eula" component={LicensePage} />
+          <Route path="/purchase" component={PurchasePage} />
+          <Route path="/support" component={SupportPage} />
+          <Route path="/try" component={TryPage} />
+          <Route path="/complete-payment/:internalOrderId" component={CompletePaymentPage} />
+          <Route component={NotFound} />
+        </Switch>
+      </Container>
 
-        <Footer />
-      </div>
+      <Footer />
     </ScrollToTop>
   </BrowserRouter>
 );

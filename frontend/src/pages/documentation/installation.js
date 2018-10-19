@@ -72,7 +72,8 @@ const Installation = () => (
         Extract <a href="https://r-factor.io/static/r-factor-sublime.zip">r-factor-sublime.zip</a> there.
       </li>
       <li>
-        In Sublime, go to <code>Preferences</code> <Icon name="arrow-right" /> <code>Package Settings</code> <Icon name="arrow-right" /> <code>R-Factor</code>
+        In Sublime, go to <code>Preferences</code> <Icon name="arrow-right" /> <code>Package Settings</code>
+        &nbsp;<Icon name="arrow-right" /> <code>R-Factor</code>
         &nbsp;<Icon name="arrow-right" /> <code>Enter license</code>.
       </li>
       <li>
