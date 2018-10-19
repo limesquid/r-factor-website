@@ -5,12 +5,13 @@ const { generateLicense } = require('./utils');
 const { validatePayment } = require('./payu');
 const sendPaymentConfirmation = require('./send-payment-confirmation');
 const {
-  PAYMENT_VALIDATION_ERROR_MESSAGE,
   PAYMENT_NOT_COMPLETED_ERROR_MESSAGE,
+  PAYMENT_VALIDATION_ERROR_MESSAGE,
   WRONG_PAYMENT_ID_ERROR_MESSAGE
 } = require('./constants');
 
 const completePayment = async (request, response) => {
+  let invoicePdf;
   const { internalOrderId } = request.body;
   const licenseDetails = licensesDb.getByPaymentId(internalOrderId);
 
@@ -42,9 +43,9 @@ const completePayment = async (request, response) => {
     }
 
     const { address, companyName, email, fullName, vatin } = licenseDetails;
-    const licenseKey = generateLicense({ fullName, email });
+    const licenseKey = generateLicense({ email, fullName });
 
-    const paymentParams = JSON.stringify({ address, companyName, email, fullName, vatin, licenseKey });
+    const paymentParams = JSON.stringify({ address, companyName, email, fullName, licenseKey, vatin });
     logger.log('info', `${loggerPrefix} Payment completed and license generated with params: ${paymentParams}`);
 
     try {
@@ -54,9 +55,15 @@ const completePayment = async (request, response) => {
     }
 
     try {
-      sendPaymentConfirmation({ address, companyName, email, fullName, licenseKey, vatin });
+      invoicePdf = await generateInvoicePdf({ address, companyName, fullName, vatin });
     } catch (error) {
-      logger.log('error', `${loggerPrefix} Error while sending confirmation email to user`);
+      logger.log('error', `${loggerPrefix} Error while generating invoice pdf: ${error}`);
+    }
+
+    try {
+      sendPaymentConfirmation({ email, fullName, invoicePdf, licenseKey });
+    } catch (error) {
+      logger.log('error', `${loggerPrefix} Error while sending confirmation email to user: ${error}`);
     }
 
     response.send({ licenseKey });
