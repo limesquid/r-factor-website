@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Helmet } from 'react-helmet';
 import Link from 'components/link';
 import { transparentLogoUrl } from 'data';
 
@@ -6,6 +7,9 @@ const IMAGE_SIZE = 160;
 
 const WhatIs = () => (
   <Fragment>
+    <Helmet>
+      <title>R-Factor - What is R-Factor?</title>
+    </Helmet>
     <h1>What is R-Factor?</h1>
     <div className="d-flex justify-content-center my-4">
       <img
