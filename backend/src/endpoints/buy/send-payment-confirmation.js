@@ -1,6 +1,5 @@
 const btoa = require('btoa');
 const sgMail = require('@sendgrid/mail');
-const generateInvoicePdf = require('./generate-invoice-pdf');
 const { INVOICE_SENDING_ERROR_MESSAGE } = require('./constants');
 
 module.exports = async ({ email, fullName, invoicePdf, licenseKey }) => {
