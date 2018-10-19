@@ -91,7 +91,7 @@ class SupportForm extends Component {
       return 'You did not pass reCAPTCHA.';
     }
     if (!type) {
-      return 'Please indicate whether you\'re reporting an issue, submitting an idea or wanting to contact us.';
+      return 'Please indicate whether you\'re reporting an issue, submitting an idea or just trying to contact us.';
     }
     if (message.length < MIN_INPUT_LENGTH) {
       return 'Message is too short.';
