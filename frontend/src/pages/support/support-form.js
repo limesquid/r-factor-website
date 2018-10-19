@@ -87,7 +87,7 @@ class SupportForm extends Component {
       type
     } = this.state;
 
-    if (process.env.REACT_APP_ENABLE_RECAPTCHA && !recaptcha) {
+    if (process.env.REACT_APP_ENABLE_RECAPTCHA === 'true' && !recaptcha) {
       return 'You did not pass reCAPTCHA.';
     }
     if (!type) {
