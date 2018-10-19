@@ -13,16 +13,16 @@ const Usage = () => (
 
     <h3>Instructions</h3>
     <ul className="text-muted mb-4">
-      <li>Refactoring will be performed on your selection or else on an entire file</li>
-      <li>Selection must be a valid JavaScript Program (e.g. <code>{'{ a: 1, b: 2 }'}</code> will not do!)</li>
+      <li>Refactoring will be performed on your selection or else on an entire file.</li>
+      <li>Selection must be a valid JavaScript Program (e.g. <code>{'{ a: 1, b: 2 }'}</code> will not do!).</li>
       <li>
         You can use&nbsp;
         <a target="_blank" rel="noopener noreferrer" href="https://astexplorer.net/">astexplorer.net</a>
         &nbsp;with <code>babylon7</code> parser to validate your code before
-        you <Link href="/support" label="submit an issue" />
+        you <Link href="/support" label="submit an issue" />.
       </li>
-      <li>If refactoring cannot be performed nothing will happen to your code</li>
-      <li>If refactoring can be partially performed it may be partially performed</li>
+      <li>If refactoring cannot be performed nothing will happen to your code.</li>
+      <li>If refactoring can be partially performed it may be partially performed.</li>
       <li>
         Code is refactored on your machine. When you use the plugin, no code is ever
         transmitted over the network. The plugin works offline. You're safe.
@@ -56,7 +56,7 @@ const Usage = () => (
           href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">
           VSCode
         </a>
-        )
+        ).
       </li>
       <li>
         Command name corresponts to a refactoring name, but is prefixed with <code>R-Factor: </code>.
