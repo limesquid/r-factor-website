@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import { randyUrl } from 'data';
 
+const IMAGE_DESCRIPTION = 'One of our testers after using R-Factor';
+
 const Quality = () => (
   <Fragment>
     <h1>Quality</h1>
@@ -14,13 +16,13 @@ const Quality = () => (
       </p>
       <img
         src={randyUrl}
-        alt="One of our testers after using R-Factor"
-        title="One of our testers after using R-Factor"
+        alt={IMAGE_DESCRIPTION}
+        title={IMAGE_DESCRIPTION}
         style={{
           width: '100%',
           margin: '8px 0'
         }} />
-      <p className="text-center">One of our testers after using R-Factor</p>
+      <p className="text-center">{IMAGE_DESCRIPTION}</p>
     </div>
   </Fragment>
 );
