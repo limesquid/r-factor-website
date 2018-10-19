@@ -1,5 +1,6 @@
 /* eslint-disable max-statements, max-depth, max-len */
-const licensesDb = require('../../database/licenses-db');
+const moment = require('moment');
+const { invoicesDb, licensesDb } = require('../../database');
 const logger = require('../../logger');
 const { generateLicense } = require('./utils');
 const { validatePayment } = require('./payu');
@@ -56,7 +57,10 @@ const completePayment = async (request, response) => {
     }
 
     try {
-      invoicePdf = await generateInvoicePdf({ address, companyName, fullName, vatin });
+      const licenseNumber = licensesDb.getLicensesByDate(new Date()).length + 1;
+      const invoiceNumber = `${moment().format('YYYY/MM')}/${licenseNumber}`;
+      invoicePdf = await generateInvoicePdf({ address, companyName, fullName, invoiceNumber, vatin });
+      invoicesDb.create(internalOrderId, invoicePdf);
     } catch (error) {
       logger.log('error', `${loggerPrefix} Error while generating invoice pdf: ${error}`);
     }
