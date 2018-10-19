@@ -1,6 +1,5 @@
 import React from 'react';
-import { Card, CardBody, CardFooter, CardHeader, ListGroup, ListGroupItem } from 'reactstrap';
-import Link from 'components/link';
+import { Card, CardBody, CardHeader, ListGroup, ListGroupItem } from 'reactstrap';
 import BuyForm from './buy-form';
 
 const LICENSE_FEE = (process.env.REACT_APP_LICENSE_FEE / 100).toFixed(2);
