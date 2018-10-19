@@ -3,6 +3,16 @@ body {
   padding-top: 120px;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 120px);
+}
+
+#content {
+  flex: 1;
+}
+
 .CodeMirror {
   font-size: 12px;
 }

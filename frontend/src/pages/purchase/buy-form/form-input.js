@@ -6,7 +6,7 @@ const FormInput = ({ invalid, name, required, title, type, value, onChange }) =>
   <FormGroup>
     <Label className="text-nowrap">
       {title}
-      {required && (<sup>&nbsp;<code>*</code>&nbsp;</sup>)}
+      {required && (<sup>{' '}<code>*</code>{' '}</sup>)}
     </Label>
     <Input
       type={type}

@@ -87,17 +87,17 @@ class SupportForm extends Component {
       type
     } = this.state;
 
-    if (process.env.REACT_APP_ENABLE_RECAPTCHA && !recaptcha) {
+    if (process.env.REACT_APP_ENABLE_RECAPTCHA === 'true' && !recaptcha) {
       return 'You did not pass reCAPTCHA.';
     }
     if (!type) {
-      return 'Please indicate whether you\'re reporting an issue, submitting an idea or wanting to contact us.';
+      return 'Please indicate whether you\'re reporting an issue, submitting an idea or just trying to contact us.';
     }
     if (message.length < MIN_INPUT_LENGTH) {
       return 'Message is too short.';
     }
     if (email && !isEmail(email)) {
-      return 'Email is invalid. You do not have to provide one.';
+      return 'Email is invalid. You do not have to provide one if you don\'t want us to contact you.';
     }
     if (attachConfiguration) {
       try {
@@ -242,7 +242,7 @@ class SupportForm extends Component {
                     <Code value={input} onChange={this.onInputChange} />
                     <p className="mt-1 mb-4 text-muted">
                       Please make sure that your code is valid JavaScript.
-                      You can do that with&nbsp;
+                      You can do that with{' '}
                       <a target="_blank" rel="noopener noreferrer" href="https://astexplorer.net/">astexplorer.net</a>
                       {' '}
                       with <code>babylon7</code> parser.
