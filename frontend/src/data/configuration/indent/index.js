@@ -16,7 +16,7 @@ export default {
       </p>
       <p>
         Configuration mimics the one in
-        &nbsp;
+        {' '}
         <a target="_blank" rel="noopener noreferrer" href="https://eslint.org/docs/rules/indent">ESLint</a>.
       </p>
     </Fragment>

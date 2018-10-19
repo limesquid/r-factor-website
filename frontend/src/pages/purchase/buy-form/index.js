@@ -84,7 +84,7 @@ class BuyForm extends Component {
           )}
 
           <div className="text-justify text-muted mt-4">
-            License keys are issued by <span className="text-body">{process.env.REACT_APP_AUTHOR}</span>
+            License keys are issued by <span className="text-body">Kamil Mielnik</span>
             {' '}(Kraków, Poland), and covered by the
             {' '}<Link label="End-User License Agreement (EULA)" href="/eula" />.
             When you buy a license, you agree to its terms.

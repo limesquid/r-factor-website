@@ -20,13 +20,13 @@ const Setting = ({ id, setting }) => {
             <h3>Interface</h3>
             <h6>
               <Badge color="primary">Name</Badge>
-              &nbsp;&nbsp;&nbsp;
+              {'   '}
               <code>{id}</code>
             </h6>
 
             <h6>
               <Badge color="primary">Type</Badge>
-              &nbsp;&nbsp;&nbsp;
+              {'   '}
               {Array.isArray(setting.type) && (
                 <code>
                   {setting.type.join(', ')}
@@ -40,7 +40,7 @@ const Setting = ({ id, setting }) => {
 
             <h6>
               <Badge color="primary">Default value</Badge>
-              &nbsp;&nbsp;&nbsp;
+              {'   '}
               <code style={{ whiteSpace: 'pre' }}>
                 {JSON.stringify(setting.defaultValue, null, 2)}
               </code>

@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Container from 'reactstrap/lib/Container';
 
 const FIRST_YEAR = 2018;
 const CURRENT_YEAR = new Date().getFullYear();
@@ -12,10 +10,11 @@ const getYears = () => {
   return `${FIRST_YEAR} - ${CURRENT_YEAR}`;
 };
 
-const Footer = ({  }) => (
-  <Container className="py-5 text-center text-muted">
-    © {getYears()} <span className="text-body">{process.env.REACT_APP_AUTHOR}</span>. All rights reserved.
-  </Container>
+const Footer = () => (
+  <div className="py-5 px-2 mt-5 text-center text-muted" style={{ background: 'black' }}>
+    © {getYears()} <span className="text-body">Kamil Mielnik</span> & <span className="text-body">Yuriy Yakym</span>.
+    All rights reserved.
+  </div>
 );
 
 export default Footer;

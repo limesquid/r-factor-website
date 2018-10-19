@@ -83,19 +83,19 @@ class Calculator extends Component {
 
         <p className="text-muted mt-4" style={{ fontSize: '1.4rem' }}>
           <code style={{ fontSize: '2rem' }}>{timeConsumption.minutes}</code>
-          &nbsp;minutes and&nbsp;
+          {' '}minutes and{' '}
           <code style={{ fontSize: '2rem' }}>{timeConsumption.seconds}</code>
-          &nbsp;seconds
+          {' '}seconds
         </p>
         <p className="text-muted mb-1">
           That's the approx. amount of time R-Factor will save you every day!
         </p>
         <p className="text-muted mb-1">
-          It's&nbsp;
+          It's{' '}
           <code style={{ fontSize: '1rem' }}>{minutesConsumptionMonthly}</code>
-          &nbsp;minutes a month or&nbsp;
+          {' '}minutes a month or{' '}
           <code style={{ fontSize: '1rem' }}>{daysConsumptionYearly}</code>
-          &nbsp;man-days a year!
+          {' '}man-days a year!
         </p>
         <p className="text-muted mb-1">
           Quite a lot, isn't it?
