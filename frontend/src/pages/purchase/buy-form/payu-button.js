@@ -43,7 +43,13 @@ class PayuButton extends Component {
       const redirectUri = await createPayment({ email, address, companyName, fullName, vatin });
       window.location.href = redirectUri;
     } catch (error) {
-      this.setState({ error });
+      if (typeof error === 'string') {
+        this.setState({ error });
+      } else if (error && error.message === 'Failed to fetch') {
+        this.setState({ error: 'Network error occurred. Check your internet connection and try again.' });
+      } else {
+        this.setState({ error: 'Unknown error. Please try again or contact support.' });
+      }
     }
   };
 
