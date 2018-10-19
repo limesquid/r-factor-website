@@ -4,6 +4,7 @@ const logger = require('../../logger');
 const { generateLicense } = require('./utils');
 const { validatePayment } = require('./payu');
 const sendPaymentConfirmation = require('./send-payment-confirmation');
+const generateInvoicePdf = require('./generate-invoice-pdf');
 const {
   PAYMENT_NOT_COMPLETED_ERROR_MESSAGE,
   PAYMENT_VALIDATION_ERROR_MESSAGE,
@@ -11,7 +12,7 @@ const {
 } = require('./constants');
 
 const completePayment = async (request, response) => {
-  let invoicePdf;
+  let invoicePdf = null;
   const { internalOrderId } = request.body;
   const licenseDetails = licensesDb.getByPaymentId(internalOrderId);
 
