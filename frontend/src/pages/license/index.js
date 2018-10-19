@@ -69,7 +69,7 @@ const LicensePage = () => (
         <li className="mb-2">
           COPYRIGHT
           <br />
-          All title, including but not limited to copyrights, in and to {NAME} and any copies thereof are owned by {process.env.REACT_APP_AUTHOR} (AUTHOR).
+          All title, including but not limited to copyrights, in and to {NAME} and any copies thereof are owned by Kamil Mielnik (AUTHOR).
         </li>
 
         <li className="mb-2">
