@@ -2,7 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'reactstrap/lib/Button';
 import Alert from 'reactstrap/lib/Alert';
+import { payuLogoUrl } from 'data';
 import { createPayment } from './api';
+
+const PAYU_URL = 'https://www.payu.com/';
+
+const payuLogoStyle = {
+  display: 'block',
+  width: 70,
+  height: 36,
+  backgroundImage: `url(${payuLogoUrl})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'contain'
+};
 
 class PayuButton extends Component {
   static propTypes = {
@@ -46,9 +58,18 @@ class PayuButton extends Component {
           </Alert>
         )}
 
-        <Button className="text-white px-4" color="warning" onClick={this.onClick}>
-          Buy
-        </Button>
+        <div className="d-flex justify-content-center">
+          <Button className="text-white px-4 mr-2" color="warning" onClick={this.onClick}>
+            Buy
+          </Button>
+
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={PAYU_URL}
+            style={payuLogoStyle}
+            title="Payments secured by PayU" />
+        </div>
       </div>
     );
   }
