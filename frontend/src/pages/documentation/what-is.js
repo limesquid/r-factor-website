@@ -55,7 +55,7 @@ const WhatIs = () => (
         <li>Not break your code</li>
         <li>
           Keep your formatting
-          (but remember:&nbsp;
+          (but remember:{' '}
           <a
             target="_blank"
             rel="noopener noreferrer"

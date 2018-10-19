@@ -16,9 +16,9 @@ const Usage = () => (
       <li>Refactoring will be performed on your selection or else on an entire file.</li>
       <li>Selection must be a valid JavaScript Program (e.g. <code>{'{ a: 1, b: 2 }'}</code> will not do!).</li>
       <li>
-        You can use&nbsp;
+        You can use{' '}
         <a target="_blank" rel="noopener noreferrer" href="https://astexplorer.net/">astexplorer.net</a>
-        &nbsp;with <code>babylon7</code> parser to validate your code before
+        {' '}with <code>babylon7</code> parser to validate your code before
         you <Link href="/support" label="submit an issue" />.
       </li>
       <li>If refactoring cannot be performed nothing will happen to your code.</li>
@@ -42,14 +42,14 @@ const Usage = () => (
           href="https://flight-manual.atom.io/getting-started/sections/atom-basics/#command-palette">
           Atom
         </a>
-        ,&nbsp;
+        ,{' '}
         <a
           target="_blank"
           rel="noopener noreferrer"
           href="http://docs.sublimetext.info/en/latest/extensibility/command_palette.html">
           Sublime
         </a>
-        ,&nbsp;
+        ,{' '}
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -79,12 +79,12 @@ const Usage = () => (
 
     <h4>Atom</h4>
     <p className="text-muted">
-      Open up&nbsp;
+      Open up{' '}
       <a href="https://flight-manual.atom.io/getting-started/sections/atom-basics/#settings-and-preferences">
         Settings View
       </a>
-      &nbsp;<Icon name="arrow-right" /> <code>Packages</code> <Icon name="arrow-right" />
-      &nbsp;filter by <code>r-factor</code> <Icon name="arrow-right" /> <code>Settings</code>.
+      {' '}<Icon name="arrow-right" /> <code>Packages</code> <Icon name="arrow-right" />
+      {' '}filter by <code>r-factor</code> <Icon name="arrow-right" /> <code>Settings</code>.
     </p>
 
     <h4>Sublime Text 3</h4>
@@ -99,8 +99,8 @@ const Usage = () => (
     <h4>Visual Studio Code</h4>
     <p className="text-muted">
       Open up <code>File</code> <Icon name="arrow-right" /> <code>Preferences</code> <Icon name="arrow-right" />
-      &nbsp;<code>Settings</code> <Icon name="arrow-right" /> <code>Extensions</code> <Icon name="arrow-right" />
-      &nbsp;<code>R-Factor</code>.
+      {' '}<code>Settings</code> <Icon name="arrow-right" /> <code>Extensions</code> <Icon name="arrow-right" />
+      {' '}<code>R-Factor</code>.
     </p>
   </Fragment>
 );
