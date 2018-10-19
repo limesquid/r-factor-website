@@ -14,6 +14,9 @@ const Quality = () => (
         projects with different settings. We've gathered feedback from a few idependent developers.
         It's still just a software, but we feel we did our best.
       </p>
+      <p>
+        It's worth noting that not once have we experienced performance issues.
+      </p>
       <img
         src={randyUrl}
         alt={IMAGE_DESCRIPTION}
