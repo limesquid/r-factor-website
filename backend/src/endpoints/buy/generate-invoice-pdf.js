@@ -2,20 +2,19 @@
 
 const https = require('https');
 const moment = require('moment');
-const licensesDb = require('../../database/licenses-db');
 const { GENERATE_INVOICE_ERROR_MESSAGE } = require('./constants');
 
-module.exports = ({ address, companyName, vatin, fullName }) => new Promise((resolve, reject) => {
-  const invoice = createInvoicePayload({ address, companyName, vatin, fullName });
+module.exports = ({ address, companyName, fullName, vatin }) => new Promise((resolve, reject) => {
+  const invoice = createInvoicePayload({ address, companyName, fullName, vatin });
   const postData = JSON.stringify(invoice);
   const options = {
-    hostname: 'invoice-generator.com',
-    port: 443,
-    path: '/',
-    method: 'POST',
     headers: {
       'Content-Type': 'application/json'
-    }
+    },
+    hostname: 'invoice-generator.com',
+    method: 'POST',
+    path: '/',
+    port: 443
   };
 
   const chunks = [];
@@ -31,23 +30,19 @@ module.exports = ({ address, companyName, vatin, fullName }) => new Promise((res
   reqest.end();
 });
 
-const createInvoicePayload = ({ address, companyName, vatin, fullName }) => {
-  const licenseNumber = licensesDb.getLicensesByDate(new Date()).length + 1;
+const createInvoicePayload = ({ address, companyName, fullName, invoiceNumber, vatin }) => {
   const date = moment().format('YYYY-MM-DD');
-  const invoiceNumber = `${moment().format('YYYY/MM')}/${licenseNumber}`;
 
   return {
     date,
+    fields: {
+      tax_title: 'VAT'
+    },
     from: [
       process.env.COMPANY_NAME,
       process.env.COMPANY_ADDRESS,
-      `NIP / VATIN: ${process.env.COMPANY_ID}`
+      `VATIN: ${process.env.COMPANY_ID}`
     ].join('\n'),
-    to: companyName
-      ? `${companyName},\n${address}\nVATIN / NIP:${vatin}`
-      : `${fullName},\n${address}`,
-    number: invoiceNumber,
-    payment_terms: 'Charged - Do Not Pay',
     items: [
       {
         name: 'R-Factor',
@@ -55,10 +50,12 @@ const createInvoicePayload = ({ address, companyName, vatin, fullName }) => {
         unit_cost: process.env.LICENSE_FEE
       }
     ],
-    fields: {
-      tax_title: 'VAT'
-    },
+    number: invoiceNumber,
+    payment_terms: 'Charged - Do Not Pay',
     tax: 0,
-    terms: 'No need to submit payment. You will be auto-billed for this invoice.'
+    terms: 'No need to submit payment. You will be auto-billed for this invoice.',
+    to: companyName
+      ? `${companyName},\n${address}\nVATIN / NIP:${vatin}`
+      : `${fullName},\n${address}`
   };
 };

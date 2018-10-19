@@ -1,6 +1,6 @@
 /* eslint-disable max-statements, max-depth, max-len */
 const uuidv1 = require('uuid/v1');
-const licensesDb = require('../../database/licenses-db');
+const { licensesDb } = require('../../database');
 const logger = require('../../logger');
 const { validateClientData } = require('./utils');
 const { createPayment } = require('./payu');

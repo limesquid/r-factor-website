@@ -1,13 +1,13 @@
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 
-const DB_PATH = process.env.DB_PATH || './licenses-db.json';
+const LICENSES_DB_PATH = process.env.LICENSES_DB_PATH || './licenses-db.json';
 const STATUS_PAID = 'paid';
 const STATUS_UNPAID = 'unpaid';
 
 class LicensesDb {
   constructor() {
-    const adapter = new FileSync(DB_PATH);
+    const adapter = new FileSync(LICENSES_DB_PATH);
     this.db = low(adapter);
     this.db.defaults({ licenses: [] }).write();
   }
