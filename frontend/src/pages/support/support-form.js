@@ -97,7 +97,7 @@ class SupportForm extends Component {
       return 'Message is too short.';
     }
     if (email && !isEmail(email)) {
-      return 'Email is invalid. You do not have to provide one.';
+      return 'Email is invalid. You do not have to provide one if you don\'t want us to contact you.';
     }
     if (attachConfiguration) {
       try {
