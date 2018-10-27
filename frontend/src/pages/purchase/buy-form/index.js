@@ -88,6 +88,8 @@ class BuyForm extends Component {
             {' '}(Kraków, Poland), and covered by the
             {' '}<Link label="End-User License Agreement (EULA)" href="/eula" />.
             When you buy a license, you agree to its terms.
+            <br />
+            Familiarize yourself with our <Link label="Privacy Policy" href="/privacy-policy" />.
           </div>
 
           <div className="text-center mt-4">
