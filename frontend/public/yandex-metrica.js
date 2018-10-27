@@ -1,6 +1,11 @@
 const html = `<!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
-    if(navigator.userAgent !== 'ReactSnap') {
+    var isYandexMetricaInitialized = false;
+    function initializeYandexMetrica() {
+        if (isYandexMetricaInitialized) {
+            return;
+        }
+        isYandexMetricaInitialized = true;
         (function (d, w, c) {
             (w[c] = w[c] || []).push(function() {
                 try {

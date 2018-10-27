@@ -13,7 +13,20 @@ const html = `
             background: '#14a7d0'
           }
         },
-        position: 'bottom-right'
+        position: 'bottom-right',
+        content: {
+          href: '/privacy-policy',
+        },
+        type: 'opt-out',
+        allow: 'Allow cookies',
+        deny: 'Decline',
+        onStatusChange: function(status) {
+          if (this.hasConsented()) {
+            initializeYandexMetrica();
+          } else {
+            document.location.reload(true);
+          }
+        },
       });
     });
   }
