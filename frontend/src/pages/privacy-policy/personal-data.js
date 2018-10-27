@@ -94,9 +94,9 @@ const PersonalData = () => (
       fulfilment of our legal obligations related to the complaint procedure.
     </p>
 
-    <h5 className="mt-4">E-mail/Website form contact</h5>
+    <h5 className="mt-4">Contact form</h5>
     <p>
-      By contacting us through e-mail or any of website forms, you provide us with your e-mail address which shall be
+      By contacting us through any of website forms, you provide us with your e-mail address which shall be
       associated with the sender. What is more, in the message you can include other personal information.
     </p>
     <p>
