@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'components/link';
 
-const Cookies = () => (
-  <div className="mt-5">
+const Cookies = ({ className }) => (
+  <div className={className}>
     <h3>Cookies and tracking technologies</h3>
     <p>
       Our website, like almost all other websites, uses cookies to provide you with the best browsing experience.
@@ -16,7 +17,10 @@ const Cookies = () => (
     </p>
     <ol>
       <li>
-        use analytical tools,
+        use analytical tools
+      </li>
+      <li>
+        preserve your settings
       </li>
     </ol>
     <p>
@@ -40,18 +44,19 @@ const Cookies = () => (
 
     <h5 className="mt-4">Analysis and statistics</h5>
     <p>
-      This site uses the Yandex.Metrica web analytics service provided by the company
-      Yandex Oy Limited Company - Moreenikatu 6, 04600 Mantsala, Finland
+      This site uses the <Link label="Yandex.Metrica" href="https://yandex.com/support/metrica/index.html" /> web
+      analytics service provided by the company Yandex Oy Limited Company - Moreenikatu 6, 04600 Mantsala, Finland.
     </p>
     <p>
-      Yandex.Metrica uses “cookies,” small text files placed on users’ computers to analyze user activity.
+      Yandex.Metrica uses “cookies” small text files placed on user’s computers to analyze user activity.
     </p>
     <p>
       Information collected by cookies does not reveal your identity, but it can help us to improve our website
       performance. Information about your use of this website collected by cookies will be transferred to Yandex
       and stored on Yandex’s server in the EU and the Russian Federation. Yandex will process this information to
       assess how you use the website, compile reports for us on our website operation, and provide other services.
-      Yandex processes this information as specified in the Terms of Use of Yandex.Metrica Service.
+      Yandex processes this information as specified in
+      the <Link label="Terms of Use" href="https://yandex.com/legal/metrica_termsofuse/" /> of Yandex.Metrica Service.
     </p>
     <p>
       You can stop using cookies be making relevant adjustments in browser settings.
@@ -62,10 +67,15 @@ const Cookies = () => (
 
     <h5 className="mt-4">Payment system</h5>
     <p>
-      We use PayU payment system. PayU is not integrated with the Website.
+      We use <Link label="PayU" href="https://www.payu.pl/en" /> payment system.
+      PayU is not integrated with the Website.
       The payment is made entirely via PayU service.
     </p>
   </div>
 );
+
+Cookies.propTypes = {
+  className: PropTypes.string
+};
 
 export default Cookies;

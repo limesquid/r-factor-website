@@ -15,10 +15,10 @@ const PrivacyPolicy = () => (
 
     <h1>Privacy Policy</h1>
     <div className="text-muted">
-      <Introduction />
-      <ShortVersion />
-      <PersonalData />
-      <Cookies />
+      <Introduction className="mt-2" />
+      <ShortVersion className="mt-5" />
+      <PersonalData className="mt-5" />
+      <Cookies className="mt-5" />
     </div>
   </div>
 );
