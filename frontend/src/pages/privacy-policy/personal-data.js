@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const PersonalData = () => (
-  <div className="mt-5">
+const PersonalData = ({ className }) => (
+  <div className={className}>
     <h3>Personal Data</h3>
     <p>
       The Administrator of your personal data, in accordance with the Act on the Protection of personal data,
@@ -18,21 +19,21 @@ const PersonalData = () => (
       You have the following rights concerning our processing of your personal data:
     </p>
     <ol>
-      <li className="mb-2">
+      <li>
         the right to request access to your personal data as well as its rectification,
         removal or restriction of processing,
       </li>
-      <li className="mb-2">
+      <li>
         the right to object to the processing,
       </li>
-      <li className="mb-2">
+      <li>
         the right to transfer data,
       </li>
-      <li className="mb-2">
+      <li>
         the right to withdraw consent for the processing of personal data for a specific purpose,
         if such consent has been previously given,
       </li>
-      <li className="mb-2">
+      <li>
         the right to bring a complaint to the supervisory authority in connection with the processing of personal data.
       </li>
     </ol>
@@ -53,10 +54,10 @@ const PersonalData = () => (
 
     <p>We entrust the processing of personal data to the following entities:</p>
     <ol>
-      <li className="mb-2">
+      <li>
         Some entity
       </li>
-      <li className="mb-2">
+      <li>
         Some entity 2
       </li>
     </ol>
@@ -109,5 +110,9 @@ const PersonalData = () => (
     </p>
   </div>
 );
+
+PersonalData.propTypes = {
+  className: PropTypes.string
+};
 
 export default PersonalData;

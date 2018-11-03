@@ -20,7 +20,7 @@ const html = `
         type: 'opt-out',
         allow: 'Allow cookies',
         deny: 'Decline',
-        onStatusChange: function(status) {
+        onStatusChange: function() {
           if (this.hasConsented()) {
             initializeYandexMetrica();
           } else {
