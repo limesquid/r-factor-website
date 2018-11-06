@@ -21,7 +21,8 @@ const links = [
   { label: 'Download', to: '/download' },
   { label: 'Documentation', to: '/documentation' },
   { label: 'Support', to: '/support' },
-  { label: 'EULA', to: '/eula' }
+  { label: 'EULA', to: '/eula' },
+  { label: 'Privacy Policy', to: '/privacy-policy' }
 ];
 
 const isActive = (location, to) => {
