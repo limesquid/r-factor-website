@@ -52,16 +52,6 @@ const PersonalData = ({ className }) => (
       Personal data is collected with due diligence and adequately protected against access by unauthorized persons.
     </p>
 
-    <p>We entrust the processing of personal data to the following entities:</p>
-    <ol>
-      <li>
-        Some entity
-      </li>
-      <li>
-        Some entity 2
-      </li>
-    </ol>
-
     <p>
       All entities entrusted with the processing of personal data guarantee the use of
       adequate security measures and personal data protection required by law.

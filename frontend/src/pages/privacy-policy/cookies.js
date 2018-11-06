@@ -10,7 +10,7 @@ const Cookies = ({ className }) => (
     </p>
     <p>
       Cookies are small pieces of text information stored on your end device
-      (computer, tablet, smartphone) that can be read by our ICT system.
+      (computer, tablet, smartphone) that can be read by our Information and Communications Technology system.
     </p>
     <p>
       Cookies allow us to:
