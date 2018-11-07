@@ -6,6 +6,7 @@ import { payuLogoUrl } from 'data';
 import { createPayment } from './api';
 
 const PAYU_URL = 'https://www.payu.com/';
+const LICENSE_FEE = (process.env.REACT_APP_LICENSE_FEE / 100).toFixed(2);
 
 const payuLogoStyle = {
   position: 'relative',
@@ -68,11 +69,11 @@ class PayuButton extends Component {
 
         <div className="d-flex justify-content-center">
           <Button className="text-white px-4" color="warning" onClick={this.onClick}>
-            Buy
+            Buy R-Factor for {LICENSE_FEE} {process.env.REACT_APP_LICENSE_CURRENCY_CODE}
           </Button>
         </div>
 
-        <div className="d-flex justify-content-center align-items-center mt-2 text-muted">
+        <div className="d-flex justify-content-center align-items-center mt-4 text-muted">
           Payments secured by{' '}
           <a
             className="ml-2"
