@@ -54,7 +54,7 @@ const HomePage = () => (
           </div>
         </div>
 
-        <Icons className="py-2 my-2" hideLabels icons={editorsIcons} size={64} />
+        <Icons className="py-2 my-2" icons={editorsIcons} size={64} />
       </Col>
     </Row>
 
