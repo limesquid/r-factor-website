@@ -22,7 +22,9 @@ const html = `
         deny: 'Decline',
         onStatusChange: function() {
           if (this.hasConsented()) {
-            initializeYandexMetrica();
+            if (window.initializeYandexMetrica) {
+              window.initializeYandexMetrica();
+            }
           } else {
             document.location.reload(true);
           }

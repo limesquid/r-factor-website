@@ -21,6 +21,20 @@ body {
   height: auto;
 }
 
+.cc-revoke,
+.cc-window {
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.cc-revoke {
+  padding: 0.5em 1em;
+}
+
+.cc-link {
+  padding: 0;
+  padding-top: 0.5em;
+}
+
 .modal-lg {
   max-width: 980px !important;
 }
