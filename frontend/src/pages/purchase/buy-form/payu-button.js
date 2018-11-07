@@ -8,9 +8,11 @@ import { createPayment } from './api';
 const PAYU_URL = 'https://www.payu.com/';
 
 const payuLogoStyle = {
+  position: 'relative',
+  top: -1,
   display: 'block',
-  width: 70,
-  height: 36,
+  width: 50,
+  height: 25,
   backgroundImage: `url(${payuLogoUrl})`,
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'contain'
@@ -65,11 +67,15 @@ class PayuButton extends Component {
         )}
 
         <div className="d-flex justify-content-center">
-          <Button className="text-white px-4 mr-4" color="warning" onClick={this.onClick}>
+          <Button className="text-white px-4" color="warning" onClick={this.onClick}>
             Buy
           </Button>
+        </div>
 
+        <div className="d-flex justify-content-center align-items-center mt-2 text-muted">
+          Payments secured by{' '}
           <a
+            className="ml-2"
             target="_blank"
             rel="noopener noreferrer"
             href={PAYU_URL}
