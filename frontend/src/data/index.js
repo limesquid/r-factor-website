@@ -3,7 +3,7 @@ import otherFeatures from './other';
 import reactFeatures from './react';
 import reduxFeatures from './redux';
 import transparentLogoUrl from 'assets/logo-transparent.png';
-import payuLogoUrl from 'assets/payu-logo.png';
+import payuLogoUrl from 'assets/payu-logo-small.png';
 import randyUrl from 'assets/randy.jpg';
 
 export const videoUrl = '';
