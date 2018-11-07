@@ -58,18 +58,20 @@ const HomePage = () => (
       </Col>
     </Row>
 
-    <Row>
-      <Col>
-        <div className="embed-responsive embed-responsive-16by9">
-          <iframe
-            allowFullScreen
-            className="embed-responsive-item"
-            frameBorder="0"
-            src={videoUrl}
-            title="R-Factor demo" />
-        </div>
-      </Col>
-    </Row>
+    {videoUrl && (
+      <Row>
+        <Col>
+          <div className="embed-responsive embed-responsive-16by9">
+            <iframe
+              allowFullScreen
+              className="embed-responsive-item"
+              frameBorder="0"
+              src={videoUrl}
+              title="R-Factor demo" />
+          </div>
+        </Col>
+      </Row>
+    )}
 
     <Row className="my-5">
       <Col className="d-flex justify-content-center">
