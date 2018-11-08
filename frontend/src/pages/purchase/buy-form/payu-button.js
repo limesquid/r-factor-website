@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'reactstrap/lib/Button';
 import Alert from 'reactstrap/lib/Alert';
-import { payuLogoUrl } from 'data';
+import { mastercardLogoUrl, payuLogoUrl, visaLogoUrl } from 'data';
 import { createPayment } from './api';
 
 const PAYU_URL = 'https://www.payu.com/';
 const LICENSE_FEE = (process.env.REACT_APP_LICENSE_FEE / 100).toFixed(2);
+
+const CREDIT_CARD_IMAGE_HEIGHT = 35;
 
 const payuLogoStyle = {
   position: 'relative',
@@ -73,7 +75,12 @@ class PayuButton extends Component {
           </Button>
         </div>
 
-        <div className="d-flex justify-content-center align-items-center mt-4 text-muted">
+        <div className="d-flex justify-content-center align-items-center mt-3 text-muted">
+          <img alt="Mastercard" title="Mastercard" height={CREDIT_CARD_IMAGE_HEIGHT} src={mastercardLogoUrl} className="mr-1" />
+          <img alt="Visa" title="Visa" height={CREDIT_CARD_IMAGE_HEIGHT} src={visaLogoUrl} />
+        </div>
+
+        <div className="d-flex justify-content-center align-items-center mt-2 text-muted">
           Payments secured by{' '}
           <a
             className="ml-2"
