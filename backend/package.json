@@ -22,9 +22,9 @@
         "API_PORT": "3000",
         "NODE_ENV": "production",
         "PAYU_API_HOST": "https://secure.payu.com",
-        "PAYU_MERCHANT_POS_ID": "339269",
-        "PAYU_CLIENT_ID": "339269",
-        "PAYU_CLIENT_SECRET": "f2dc72dfe98b81f025a634b4730d70d5"
+        "PAYU_MERCHANT_POS_ID": "947734",
+        "PAYU_CLIENT_ID": "947734",
+        "PAYU_CLIENT_SECRET": "5c0dad0cee304585b973aa32048896bc"
       }
     },
     "build:prod": {
@@ -34,9 +34,9 @@
         "API_PORT": "80",
         "NODE_ENV": "production",
         "PAYU_API_HOST": "https://secure.payu.com",
-        "PAYU_MERCHANT_POS_ID": "339269",
-        "PAYU_CLIENT_ID": "339269",
-        "PAYU_CLIENT_SECRET": "f2dc72dfe98b81f025a634b4730d70d5"
+        "PAYU_MERCHANT_POS_ID": "947734",
+        "PAYU_CLIENT_ID": "947734",
+        "PAYU_CLIENT_SECRET": "5c0dad0cee304585b973aa32048896bc"
       }
     },
     "start": {
