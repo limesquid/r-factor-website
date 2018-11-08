@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Link from 'components/link';
 
 const ShortVersion = ({ className }) => (
   <Fragment>
@@ -12,12 +11,22 @@ const ShortVersion = ({ className }) => (
 
     <ul className="text-muted">
       <li>
-        We use the <Link label="Yandex.Metrica" href="https://yandex.com/support/metrica/index.html" /> web analytics
+        We use the&nbsp;
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://yandex.com/support/metrica/index.html">Yandex.Metrica</a>
+        &nbsp;web analytics
         service provided by the company Yandex Oy Limited Company - Moreenikatu 6, 04600 Mantsala, Finland,
       </li>
 
       <li>
-        We use <Link label="PayU" href="https://www.payu.pl/en" /> payment system.
+        We use&nbsp;
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.payu.pl/en" />
+        &nbsp;payment system.
       </li>
     </ul>
 

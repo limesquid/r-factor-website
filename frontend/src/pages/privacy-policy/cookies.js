@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Link from 'components/link';
 
 const Cookies = ({ className }) => (
   <Fragment>
@@ -44,7 +43,12 @@ const Cookies = ({ className }) => (
 
     <h5>Analysis and statistics</h5>
     <p className="text-muted">
-      This site uses the <Link label="Yandex.Metrica" href="https://yandex.com/support/metrica/index.html" /> web
+      This site uses the&nbsp;
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://yandex.com/support/metrica/index.html">Yandex.Metrica</a>
+      &nbsp;web
       analytics service provided by the company Yandex Oy Limited Company - Moreenikatu 6, 04600 Mantsala, Finland.
     </p>
     <p className="text-muted">
@@ -56,18 +60,31 @@ const Cookies = ({ className }) => (
       and stored on Yandex’s server in the EU and the Russian Federation. Yandex will process this information to
       assess how you use the website, compile reports for us on our website operation, and provide other services.
       Yandex processes this information as specified in
-      the <Link label="Terms of Use" href="https://yandex.com/legal/metrica_termsofuse/" /> of Yandex.Metrica Service.
+      the&nbsp;
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://yandex.com/legal/metrica_termsofuse/">Terms Of Use</a> of Yandex.Metrica Service.
     </p>
     <p className="text-muted">
       You can stop using cookies be making relevant adjustments in browser settings.
-      You can also use the <Link label="tool" href="https://yandex.com/support/metrika/general/opt-out.html" />.
+      You can also use the&nbsp;
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://yandex.com/support/metrika/general/opt-out.html">tool</a>.
       However, it can affect some website functions. By using this website, you agree that
       Yandex can process your data in the above manner and for the above purposes.
     </p>
 
     <h5>Payment system</h5>
     <p className="text-muted">
-      We use <Link label="PayU" href="https://www.payu.pl/en" /> payment system.
+      We use&nbsp;
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.payu.pl/en">PayU</a>
+      &nbsp;payment system.
       PayU is not integrated with the Website.
       The payment is made entirely via PayU service.
     </p>
