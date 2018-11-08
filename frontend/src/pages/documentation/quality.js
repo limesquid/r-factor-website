@@ -10,7 +10,7 @@ const Quality = () => (
       <p>
         R-Factor has been thoroughly tested. We have <span className="text-body">100%</span> test coverage.
         Every statement, every branch, every function & every line is covered.
-        {' '}<span className="text-body">833</span> test cases, all <span className="text-success">green</span>!
+        {' '}<span className="text-body">836</span> test cases, all <span className="text-success">green</span>!
         We have ran this tool on over <span className="text-body">20</span> different
         projects with different settings. We've gathered feedback from a few idependent developers.
         It's still just software, but we feel we did pretty damn good.

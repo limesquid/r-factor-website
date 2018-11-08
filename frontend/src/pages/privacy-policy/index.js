@@ -14,12 +14,10 @@ const PrivacyPolicy = () => (
     </Helmet>
 
     <h1>Privacy Policy</h1>
-    <div className="text-muted">
-      <Introduction className="mt-2" />
-      <ShortVersion className="mt-5" />
-      <PersonalData className="mt-5" />
-      <Cookies className="mt-5" />
-    </div>
+    <Introduction />
+    <ShortVersion />
+    <PersonalData />
+    <Cookies />
   </div>
 );
 

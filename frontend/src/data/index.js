@@ -6,7 +6,7 @@ import transparentLogoUrl from 'assets/logo-transparent.png';
 import payuLogoUrl from 'assets/payu-logo.png';
 import randyUrl from 'assets/randy.jpg';
 
-export const videoUrl = 'https://www.youtube.com/embed/dQw4w9WgXcQ';
+export const videoUrl = '';
 
 export const allFeatures = [ ...reactFeatures, ...reduxFeatures, ...otherFeatures ].sort(
   (a, b) => a.name.localeCompare(b.name)

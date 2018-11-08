@@ -54,22 +54,24 @@ const HomePage = () => (
           </div>
         </div>
 
-        <Icons className="py-2 my-2" hideLabels icons={editorsIcons} size={64} />
+        <Icons className="py-2 my-2" icons={editorsIcons} size={64} />
       </Col>
     </Row>
 
-    <Row>
-      <Col>
-        <div className="embed-responsive embed-responsive-16by9">
-          <iframe
-            allowFullScreen
-            className="embed-responsive-item"
-            frameBorder="0"
-            src={videoUrl}
-            title="R-Factor demo" />
-        </div>
-      </Col>
-    </Row>
+    {videoUrl && (
+      <Row>
+        <Col>
+          <div className="embed-responsive embed-responsive-16by9">
+            <iframe
+              allowFullScreen
+              className="embed-responsive-item"
+              frameBorder="0"
+              src={videoUrl}
+              title="R-Factor demo" />
+          </div>
+        </Col>
+      </Row>
+    )}
 
     <Row className="my-5">
       <Col className="d-flex justify-content-center">
