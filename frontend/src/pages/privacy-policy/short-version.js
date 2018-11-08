@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 const ShortVersion = ({ className }) => (
-  <div className={className}>
+  <Fragment>
     <h3>Short version – key information</h3>
-    <p>
+    <p className="text-muted">
       We care about your privacy and value your time. That is why we have prepared
       a short version of the most important rules related to privacy protection.
     </p>
 
-    <ul>
+    <ul className="text-muted">
       <li>
         We use the&nbsp;
         <a
@@ -30,10 +30,10 @@ const ShortVersion = ({ className }) => (
       </li>
     </ul>
 
-    <p>
+    <p className="text-muted">
       If the above information is not enough for you, you will find further details below.
     </p>
-  </div>
+  </Fragment>
 );
 
 ShortVersion.propTypes = {
