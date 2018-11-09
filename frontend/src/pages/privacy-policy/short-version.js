@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ShortVersion = ({ className }) => (
   <Fragment>
-    <h3>Short version – key information</h3>
+    <h3>TLDR</h3>
     <p className="text-muted">
       We care about your privacy and value your time. That is why we have prepared
       a short version of the most important rules related to privacy protection.
@@ -19,18 +19,18 @@ const ShortVersion = ({ className }) => (
           Yandex.Metrica
         </a>
         &nbsp;web analytics
-        service provided by the company Yandex Oy Limited Company - Moreenikatu 6, 04600 Mantsala, Finland,
+        service provided by the company Yandex Oy Limited Company - Moreenikatu 6, 04600 Mantsala, Finland
       </li>
 
       <li>
-        We use&nbsp;
+        We use the&nbsp;
         <a
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.payu.pl/en">
           PayU
         </a>
-        &nbsp;payment system.
+        &nbsp;payment system provided by the company PayU S.A. - Grunwaldzka 182, 60-166, Poznań, Poland
       </li>
     </ul>
 
