@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 import Link from 'components/link';
 
 const NotFound = () => (
-  <div>
+  <Fragment>
     <Helmet>
       <title>R-Factor - 404 - Not found</title>
     </Helmet>
@@ -14,7 +14,7 @@ const NotFound = () => (
       If you think this is an issue and <code>{window.location.href}</code> is a valid URL,
       please report it <Link href="/support" label="here" />.
     </p>
-  </div>
+  </Fragment>
 );
 
 export default NotFound;
