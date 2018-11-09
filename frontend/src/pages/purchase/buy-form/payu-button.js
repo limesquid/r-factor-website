@@ -88,7 +88,7 @@ class PayuButton extends Component {
             rel="noopener noreferrer"
             href={PAYU_URL}
             style={payuLogoStyle}
-            title="Payments secured by PayU" />
+            title="PayU" />
         </div>
       </div>
     );
