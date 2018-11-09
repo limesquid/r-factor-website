@@ -15,7 +15,9 @@ const ShortVersion = ({ className }) => (
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://yandex.com/support/metrica/index.html">Yandex.Metrica</a>
+          href="https://yandex.com/support/metrica/index.html">
+          Yandex.Metrica
+        </a>
         &nbsp;web analytics
         service provided by the company Yandex Oy Limited Company - Moreenikatu 6, 04600 Mantsala, Finland,
       </li>
@@ -25,7 +27,9 @@ const ShortVersion = ({ className }) => (
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.payu.pl/en" />
+          href="https://www.payu.pl/en">
+          PayU
+        </a>
         &nbsp;payment system.
       </li>
     </ul>
