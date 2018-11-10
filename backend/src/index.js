@@ -7,7 +7,7 @@ const router = require('./router');
 const initializeSendgrid = () => sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const createApp = () => {
-  const middlewares = [ useBodyParser, useCors, useRouter ];
+  const middlewares = [ trustProxy, useBodyParser, useCors, useRouter ];
   return middlewares.reduce((app, middleware) => middleware(app), express());
 };
 
@@ -26,6 +26,11 @@ const useCors = (app) => {
 
 const useRouter = (app) => {
   app.use(router());
+  return app;
+};
+
+const trustProxy = (app) => {
+  app.enable('trust proxy');
   return app;
 };
 

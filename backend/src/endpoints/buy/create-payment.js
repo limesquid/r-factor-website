@@ -16,7 +16,7 @@ const createNewPayment = async (request, response) => {
   }
 
   const internalOrderId = uuidv1();
-  const customerIp = request.header('x-forwarded-for') || request.connection.remoteAddress;
+  const customerIp = request.ip;
   const buyer = { address, email, firstName: fullName };
 
   try {

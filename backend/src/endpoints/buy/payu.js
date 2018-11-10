@@ -37,7 +37,6 @@ const createPayment = async ({
     totalAmount: TOTAL_AMOUNT
   };
 
-
   try {
     const token = await payuTokenManager.getToken();
     const { orderId, redirectUri, status } = await request({
