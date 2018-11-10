@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import Button from 'reactstrap/lib/Button';
 
 const ThankYou = () => (
-  <div>
+  <Fragment>
     <h1 className="text-success">
       Thank you!
     </h1>
@@ -19,7 +19,7 @@ const ThankYou = () => (
         Report something else
       </Button>
     </LinkContainer>
-  </div>
+  </Fragment>
 );
 
 export default ThankYou;
