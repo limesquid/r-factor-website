@@ -6,6 +6,14 @@ import CustomInput from 'reactstrap/lib/CustomInput';
 import Label from 'reactstrap/lib/Label';
 import './styles.css';
 
+const valueToSlug = (value) => {
+  if (typeof value === 'string') {
+    return value.replace(/\\r/g, '\\r').replace(/\\n/g, '\\n');
+  }
+
+  return value;
+};
+
 class RadioSetting extends Component {
   static propTypes = {
     children: PropTypes.node,
@@ -43,7 +51,7 @@ class RadioSetting extends Component {
               className="text-nowrap"
               type="radio"
               checked={value === option.value}
-              id={`${id}-${option.value}`}
+              id={`${id}-${valueToSlug(option.value)}`}
               label={option.label}
               name={`${id}-radio`}
               value={option.value}
