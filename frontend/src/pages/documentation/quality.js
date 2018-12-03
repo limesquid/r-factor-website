@@ -12,7 +12,7 @@ const Quality = () => (
         Every statement, every branch, every function & every line is covered.
         {' '}<span className="text-body">836</span> test cases, all <span className="text-success">green</span>!
         We have run this tool on over <span className="text-body">20</span> different
-        projects with different settings. We've gathered feedback from a few idependent developers.
+        projects with different settings. We've gathered feedback from a few independent developers.
         It's still just software, but we feel we did pretty damn good.
       </p>
       <p>
