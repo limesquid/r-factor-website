@@ -8,7 +8,7 @@ import './styles.css';
 
 const valueToSlug = (value) => {
   if (typeof value === 'string') {
-    return value.replace(/\\r/g, '\\r').replace(/\\n/g, '\\n');
+    return value.replace(/\r/g, '\\r').replace(/\n/g, '\\n');
   }
 
   return value;
