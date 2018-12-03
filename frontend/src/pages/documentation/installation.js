@@ -13,7 +13,10 @@ const Installation = () => (
     <h3>Prerequisites</h3>
     <ul className="text-muted mb-4">
       <li>
-        You must have{' '}
+        You must have R-Factor <Link href="/purchase" label="license key" />.
+      </li>
+      <li>
+        Sublime Text 3 only: You must have{' '}
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -21,9 +24,6 @@ const Installation = () => (
           Node.js
         </a>
         {' '}<code>6.0.0</code> or later installed. The newer the better.
-      </li>
-      <li>
-        You must have R-Factor <Link href="/purchase" label="license key" />.
       </li>
     </ul>
 
