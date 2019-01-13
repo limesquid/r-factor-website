@@ -1,9 +1,10 @@
 /* eslint-disable max-statements, max-depth, max-len */
-const moment = require('moment');
+const moment = require('moment-business-days');
 const { invoicesDb, licensesDb } = require('../../database');
 const logger = require('../../logger');
 const { generateLicense } = require('./utils');
 const { validatePayment } = require('./payu');
+const { getUsdRate } = require('../../utils/currency-rates');
 const sendPaymentConfirmation = require('./send-payment-confirmation');
 const generateInvoicePdf = require('./generate-invoice-pdf');
 const {
@@ -14,6 +15,7 @@ const {
 
 const completePayment = async (request, response) => {
   let invoicePdf = null;
+  let usdRate = null;
   const { internalOrderId } = request.body;
   const licenseDetails = licensesDb.getByPaymentId(internalOrderId);
 
@@ -44,7 +46,7 @@ const completePayment = async (request, response) => {
       throw new Error(PAYMENT_VALIDATION_ERROR_MESSAGE);
     }
 
-    const { address, companyName, email, fullName, vatin } = licenseDetails;
+    const { address, companyName, email, fullName, isPolishCustomer, vatin } = licenseDetails;
     const licenseKey = generateLicense({ email, fullName });
 
     const paymentParams = JSON.stringify({ address, companyName, email, fullName, licenseKey, vatin });
@@ -57,9 +59,24 @@ const completePayment = async (request, response) => {
     }
 
     try {
+      const rateDate = moment().prevBusinessDay().format('YYYY-MM-DD');
+      usdRate = await getUsdRate(rateDate);
+    } catch (error) {
+      logger.log('error', `${loggerPrefix} Error while fetching USD rate: ${error}`);
+    }
+
+    try {
       const licenseNumber = licensesDb.getLicensesByDate(new Date()).length + 1;
       const invoiceNumber = `${moment().format('YYYY/MM')}/${licenseNumber}`;
-      invoicePdf = await generateInvoicePdf({ address, companyName, fullName, invoiceNumber, vatin });
+      invoicePdf = await generateInvoicePdf({
+        address,
+        companyName,
+        fullName,
+        invoiceNumber,
+        isPolishCustomer,
+        usdRate,
+        vatin
+      });
       invoicesDb.create(internalOrderId, invoicePdf);
     } catch (error) {
       logger.log('error', `${loggerPrefix} Error while generating invoice pdf: ${error}`);
