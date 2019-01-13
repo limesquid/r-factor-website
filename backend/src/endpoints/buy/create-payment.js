@@ -7,7 +7,7 @@ const { createPayment } = require('./payu');
 const { PAYMENT_CREATION_ERROR_MESSAGE } = require('./constants');
 
 const createNewPayment = async (request, response) => {
-  const { address, companyName, fullName, email, isCompany, vatin } = request.body;
+  const { address, companyName, fullName, email, isCompany, isPolishCustomer, vatin } = request.body;
   const validationErrors = validateClientData({ address, companyName, fullName, email, isCompany, vatin });
 
   if (validationErrors.length > 0) {
@@ -36,6 +36,7 @@ const createNewPayment = async (request, response) => {
         email,
         fullName,
         internalOrderId,
+        isPolishCustomer,
         externalOrderId: payment.orderId,
         paymentMethod: 'payu',
         vatin

@@ -4,8 +4,15 @@ const https = require('https');
 const moment = require('moment');
 const { GENERATE_INVOICE_ERROR_MESSAGE } = require('./constants');
 
-module.exports = ({ address, companyName, fullName, vatin }) => new Promise((resolve, reject) => {
-  const invoice = createInvoicePayload({ address, companyName, fullName, vatin });
+module.exports = ({
+  address,
+  companyName,
+  fullName,
+  isPolishCustomer,
+  usdRate,
+  vatin
+}) => new Promise((resolve, reject) => {
+  const invoice = createInvoicePayload({ address, companyName, fullName, isPolishCustomer, usdRate, vatin });
   const postData = JSON.stringify(invoice);
   const options = {
     headers: {
@@ -30,14 +37,26 @@ module.exports = ({ address, companyName, fullName, vatin }) => new Promise((res
   reqest.end();
 });
 
-const createInvoicePayload = ({ address, companyName, fullName, invoiceNumber, vatin }) => {
+const createInvoicePayload = ({
+  address,
+  isPolishCustomer,
+  companyName,
+  fullName,
+  invoiceNumber,
+  usdRate,
+  vatin
+}) => {
   const date = moment().format('YYYY-MM-DD');
+  const vatRate = 23;
+
+  const vatInPln = isPolishCustomer
+    ? Number(process.env.LICENSE_FEE) * (vatRate / 100) * usdRate
+    : 'np';
 
   return {
     date,
-    fields: {
-      tax_title: 'VAT'
-    },
+    due_date: date,
+    tax_title: 'VAT',
     from: [
       process.env.COMPANY_NAME,
       process.env.COMPANY_ADDRESS,
@@ -52,7 +71,11 @@ const createInvoicePayload = ({ address, companyName, fullName, invoiceNumber, v
     ],
     number: invoiceNumber,
     payment_terms: 'Charged - Do Not Pay',
-    tax: 0,
+    tax: vatRate,
+    notes: [
+      `VAT in PLN: ${vatInPln.toFixed(2)}`,
+      `Payment date: ${date}`
+    ].join('\n'),
     terms: 'No need to submit payment. You will be auto-billed for this invoice.',
     to: companyName
       ? `${companyName},\n${address}\nVATIN / NIP:${vatin}`
