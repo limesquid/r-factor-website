@@ -6,7 +6,7 @@ export default (hoc) => ({ prop }) => (
 `;
 
 const output = `import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 export default (hoc) => {
   const InnerComponent = ({ prop }) => (
