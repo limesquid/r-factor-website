@@ -7,7 +7,7 @@ export default {
   name: 'Toggle withRouter HOC',
   summary: (
     <span>
-      Either unwraps or wraps your component with <code>withRouter</code> from <code>react-router</code>.
+      Either unwraps or wraps your component with <code>withRouter</code> from <code>react-router-dom</code>.
     </span>
   ),
   description: (
@@ -33,7 +33,7 @@ export default {
   worksWith: [ 'arrow', 'function', 'class', 'hoc-arrow', 'hoc-function', 'hoc-class' ],
   dependencies: [
     { name: 'react', type: 'always' },
-    { name: 'react-router', type: 'always' }
+    { name: 'react-router-dom', type: 'always' }
   ],
   examples: [
     example1,

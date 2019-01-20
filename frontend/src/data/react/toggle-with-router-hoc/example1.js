@@ -10,7 +10,7 @@ export default Button;
 `;
 
 const output = `import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 const Button = ({ children }) => (
   <div className="button">
