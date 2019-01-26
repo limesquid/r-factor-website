@@ -57,7 +57,6 @@ class RadioSetting extends Component {
               value={option.value}
               onChange={this.createOnChange(option.value)} />
           ))}
-
           {children}
         </div>
       </FormGroup>

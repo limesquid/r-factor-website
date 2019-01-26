@@ -7,13 +7,21 @@ export const createPayment = ({
   companyName,
   email,
   fullName,
+  isPolishCustomer,
   vatin
 }) => fetch(`${BUY_API_URL}/create-payment`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
   },
-  body: JSON.stringify({ address, companyName, fullName, email, vatin })
+  body: JSON.stringify({
+    address,
+    companyName,
+    fullName,
+    email,
+    isPolishCustomer,
+    vatin
+  })
 })
   .then((response) => response.json())
   .then(({ redirectUri }) => redirectUri);

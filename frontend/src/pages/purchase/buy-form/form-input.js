@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormGroup, FormFeedback, Label, Input } from 'reactstrap';
 
-const FormInput = ({ invalid, name, required, title, type, value, onChange }) => (
-  <FormGroup>
-    <Label className="text-nowrap">
+const FormInput = ({ className, invalid, name, required, row, title, type, value, onChange }) => (
+  <FormGroup className={className} row={row}>
+    <Label className="text-nowrap" >
       {title}
       {required && (<sup>{' '}<code>*</code>{' '}</sup>)}
     </Label>
@@ -19,9 +19,11 @@ const FormInput = ({ invalid, name, required, title, type, value, onChange }) =>
 );
 
 FormInput.propTypes = {
+  className: PropTypes.string,
   invalid: PropTypes.bool,
   name: PropTypes.string.isRequired,
   required: PropTypes.bool,
+  row: PropTypes.bool,
   title: PropTypes.string.isRequired,
   type: PropTypes.string,
   value: PropTypes.any,

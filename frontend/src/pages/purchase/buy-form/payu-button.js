@@ -7,6 +7,7 @@ import { createPayment } from './api';
 
 const PAYU_URL = 'https://www.payu.com/';
 const LICENSE_FEE = (process.env.REACT_APP_LICENSE_FEE / 100).toFixed(2);
+const VAT_RATE = Number(process.env.REACT_APP_VAT_RATE);
 
 const CREDIT_CARD_IMAGE_HEIGHT = 35;
 
@@ -24,6 +25,7 @@ const payuLogoStyle = {
 class PayuButton extends Component {
   static propTypes = {
     email: PropTypes.any,
+    isPolishCustomer: PropTypes.bool,
     isValid: PropTypes.bool,
     onShowErrorMessages: PropTypes.func.isRequired
   };
@@ -43,9 +45,9 @@ class PayuButton extends Component {
   };
 
   onCreatePayment = async () => {
-    const { email, address, companyName, fullName, vatin } = this.props;
+    const { email, address, companyName, fullName, isPolishCustomer, vatin } = this.props;
     try {
-      const redirectUri = await createPayment({ email, address, companyName, fullName, vatin });
+      const redirectUri = await createPayment({ email, address, companyName, fullName, isPolishCustomer, vatin });
       window.location.href = redirectUri;
     } catch (error) {
       if (typeof error === 'string') {
@@ -59,7 +61,11 @@ class PayuButton extends Component {
   };
 
   render() {
+    const { isPolishCustomer } = this.props;
     const { error } = this.state;
+    const vatInUsd = isPolishCustomer
+      ? Number(LICENSE_FEE) * (VAT_RATE / 100)
+      : 0;
 
     return (
       <div>
@@ -72,6 +78,11 @@ class PayuButton extends Component {
         <div className="d-flex justify-content-center">
           <Button className="text-white px-4" color="warning" onClick={this.onClick}>
             Buy R-Factor for {LICENSE_FEE} {process.env.REACT_APP_LICENSE_CURRENCY_CODE}
+            {isPolishCustomer && (
+              <span>
+                &nbsp;+ {vatInUsd.toFixed(2)} {process.env.REACT_APP_LICENSE_CURRENCY_CODE} <sub>VAT</sub>
+              </span>
+            )}
           </Button>
         </div>
 
