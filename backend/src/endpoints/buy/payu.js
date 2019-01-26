@@ -6,7 +6,8 @@ const {
 } = require('./constants');
 
 const DESCRIPTION = 'R-Factor';
-const TOTAL_AMOUNT = Math.round(parseFloat(process.env.LICENSE_FEE) * 100);
+const LICENSE_PRICE = Math.round(parseFloat(process.env.LICENSE_FEE) * 100);
+const VAT_RATE = Number(process.env.VAT_RATE);
 const PAYU_STATUS_COMPLETED = 'COMPLETED';
 const COMPLETE_PAYMENT_URL = process.env.NODE_ENV === 'production'
   ? `${process.env.API_HOST}/complete-payment`
@@ -14,13 +15,18 @@ const COMPLETE_PAYMENT_URL = process.env.NODE_ENV === 'production'
 
 const createPayment = async ({
   internalOrderId,
+  isPolishCustomer,
   customerIp,
   buyer
 }) => {
+  const vatInUsd = isPolishCustomer
+    ? Math.round(Number(LICENSE_PRICE) * (VAT_RATE / 100))
+    : 0;
+  const totalAmount = LICENSE_PRICE + vatInUsd;
   const products = [
     {
       name: 'R-Factor: license key',
-      unitPrice: TOTAL_AMOUNT,
+      unitPrice: totalAmount,
       quantity: 1
     }
   ];
@@ -29,12 +35,12 @@ const createPayment = async ({
     buyer,
     customerIp,
     products,
+    totalAmount,
     continueUrl: `${COMPLETE_PAYMENT_URL}/${internalOrderId}`,
     currencyCode: process.env.LICENSE_CURRENCY_CODE,
     description: DESCRIPTION,
     extOrderId: internalOrderId,
-    merchantPosId: process.env.PAYU_MERCHANT_POS_ID,
-    totalAmount: TOTAL_AMOUNT
+    merchantPosId: process.env.PAYU_MERCHANT_POS_ID
   };
 
   try {

@@ -47,10 +47,9 @@ const createInvoicePayload = ({
   vatin
 }) => {
   const date = moment().format('YYYY-MM-DD');
-  const vatRate = 23;
-
+  const vatInUsd = Number(process.env.LICENSE_FEE) * (process.env.VAT_RATE / 100)
   const vatInPln = isPolishCustomer
-    ? Number(process.env.LICENSE_FEE) * (vatRate / 100) * usdRate
+    ? (vatInUsd * usdRate).toFixed(2)
     : 'np';
 
   return {
@@ -71,9 +70,11 @@ const createInvoicePayload = ({
     ],
     number: invoiceNumber,
     payment_terms: 'Charged - Do Not Pay',
-    tax: vatRate,
+    tax: isPolishCustomer
+      ? process.env.VAT_RATE
+      : undefined,
     notes: [
-      `VAT in PLN: ${vatInPln.toFixed(2)}`,
+      `VAT in PLN: ${vatInPln}`,
       `Payment date: ${date}`
     ].join('\n'),
     terms: 'No need to submit payment. You will be auto-billed for this invoice.',
