@@ -23,7 +23,7 @@ const createNewPayment = async (request, response) => {
     let payment = null;
 
     try {
-      payment = await createPayment({ internalOrderId, customerIp, buyer });
+      payment = await createPayment({ internalOrderId, isPolishCustomer, customerIp, buyer });
     } catch (error) {
       logger.log('error', `[Create Payment] Error while creating PayU payment: ${error}`);
       throw error;
