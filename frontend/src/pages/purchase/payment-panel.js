@@ -7,7 +7,7 @@ const LICENSE_FEE = (process.env.REACT_APP_LICENSE_FEE / 100).toFixed(2);
 const PaymentPanel = () => (
   <Card className="py-3 border-light">
     <CardHeader className="text-center text-body mx-3 px-0" style={{ fontSize: '3rem' }}>
-      {LICENSE_FEE} {process.env.REACT_APP_LICENSE_CURRENCY_CODE}
+      {LICENSE_FEE} {process.env.REACT_APP_LICENSE_CURRENCY_CODE} <sub>netto</sub>
     </CardHeader>
 
     <CardBody>

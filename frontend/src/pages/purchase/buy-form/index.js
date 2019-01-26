@@ -4,6 +4,7 @@ import { Form } from 'reactstrap';
 import Link from 'components/link';
 import FormInput from './form-input';
 import PayuButton from './payu-button';
+import './styles.css';
 
 class BuyForm extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class BuyForm extends Component {
       fullName: '',
       licenseKey: null,
       vatin: '',
+      isPolishCustomer: false,
       shouldValidate: false
     };
   }
@@ -28,12 +30,17 @@ class BuyForm extends Component {
     this.setState({ [name]: value }, this.validate);
   };
 
+  onCheckboxInputChang = (event) => {
+    const { name, checked } = event.target;
+    this.setState({ [name]: checked }, this.validate);
+  };
+
   enableValidation = () => {
     this.setState({ shouldValidate: true });
   };
 
   render() {
-    const { address, companyName, email, fullName, shouldValidate, vatin } = this.state;
+    const { address, companyName, email, fullName, isPolishCustomer, shouldValidate, vatin } = this.state;
     const isValid = Boolean(email && fullName && address && (!companyName || companyName && vatin));
 
     return (
@@ -68,6 +75,15 @@ class BuyForm extends Component {
             onChange={this.onInputChange} />
 
           <FormInput
+            row
+            className="checkbox-form-group"
+            type="checkbox"
+            name="isPolishCustomer"
+            title="Polish customer"
+            value={isPolishCustomer}
+            onChange={this.onCheckboxInputChang} />
+
+          <FormInput
             name="companyName"
             title="Company name"
             value={companyName}
@@ -97,6 +113,7 @@ class BuyForm extends Component {
               companyName={companyName}
               fullName={fullName}
               vatin={vatin}
+              isPolishCustomer={isPolishCustomer}
               isValid={isValid}
               onShowErrorMessages={this.enableValidation} />
           </div>
