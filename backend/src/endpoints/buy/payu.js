@@ -20,7 +20,7 @@ const createPayment = async ({
   buyer
 }) => {
   const vatInUsd = isPolishCustomer
-    ? Math.round(Number(LICENSE_PRICE) * (VAT_RATE / 100))
+    ? Math.round(LICENSE_PRICE * (VAT_RATE / 100))
     : 0;
   const totalAmount = LICENSE_PRICE + vatInUsd;
   const products = [
