@@ -4,6 +4,9 @@ const https = require('https');
 const moment = require('moment');
 const { GENERATE_INVOICE_ERROR_MESSAGE } = require('./constants');
 
+const LICENSE_FEE = Number(process.env.LICENSE_FEE);
+const VAT_RATE = Number(process.env.VAT_RATE);
+
 module.exports = ({
   address,
   companyName,
@@ -47,10 +50,15 @@ const createInvoicePayload = ({
   vatin
 }) => {
   const date = moment().format('YYYY-MM-DD');
-  const vatInUsd = Number(process.env.LICENSE_FEE) * (process.env.VAT_RATE / 100)
+  const vatInUsd = LICENSE_FEE * (VAT_RATE / 100);
   const vatInPln = isPolishCustomer
     ? (vatInUsd * usdRate).toFixed(2)
-    : 'np';
+    : 'n/a';
+  const notes = [];
+
+  if (isPolishCustomer) {
+    notes.push(`VAT in PLN: ${vatInPln}`);
+  }
 
   return {
     date,
@@ -68,15 +76,14 @@ const createInvoicePayload = ({
         unit_cost: process.env.LICENSE_FEE
       }
     ],
+    notes: notes.length
+      ? notes.join('\n')
+      : undefined,
     number: invoiceNumber,
     payment_terms: 'Charged - Do Not Pay',
     tax: isPolishCustomer
       ? process.env.VAT_RATE
       : undefined,
-    notes: [
-      `VAT in PLN: ${vatInPln}`,
-      `Payment date: ${date}`
-    ].join('\n'),
     terms: 'No need to submit payment. You will be auto-billed for this invoice.',
     to: companyName
       ? `${companyName},\n${address}\nVATIN / NIP:${vatin}`
