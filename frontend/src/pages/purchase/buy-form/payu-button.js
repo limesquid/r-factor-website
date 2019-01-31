@@ -6,7 +6,7 @@ import { mastercardLogoUrl, payuLogoUrl, visaLogoUrl } from 'data';
 import { createPayment } from './api';
 
 const PAYU_URL = 'https://www.payu.com/';
-const LICENSE_FEE = (process.env.REACT_APP_LICENSE_FEE / 100).toFixed(2);
+const LICENSE_FEE = Number(process.env.REACT_APP_LICENSE_FEE) / 100;
 const VAT_RATE = Number(process.env.REACT_APP_VAT_RATE);
 
 const CREDIT_CARD_IMAGE_HEIGHT = 35;
@@ -64,7 +64,7 @@ class PayuButton extends Component {
     const { isPolishCustomer } = this.props;
     const { error } = this.state;
     const vatInUsd = isPolishCustomer
-      ? Number(LICENSE_FEE) * (VAT_RATE / 100)
+      ? LICENSE_FEE * (VAT_RATE / 100)
       : 0;
 
     return (
@@ -77,7 +77,7 @@ class PayuButton extends Component {
 
         <div className="d-flex justify-content-center">
           <Button className="text-white px-4" color="warning" onClick={this.onClick}>
-            Buy R-Factor for {LICENSE_FEE} {process.env.REACT_APP_LICENSE_CURRENCY_CODE}
+            Buy R-Factor for {LICENSE_FEE.toFixed(2)} {process.env.REACT_APP_LICENSE_CURRENCY_CODE}
             {isPolishCustomer && (
               <span>
                 &nbsp;+ {vatInUsd.toFixed(2)} {process.env.REACT_APP_LICENSE_CURRENCY_CODE} <sub>VAT</sub>
