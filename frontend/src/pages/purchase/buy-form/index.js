@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import { Form } from 'reactstrap';
+import { Form, FormGroup, Label } from 'reactstrap';
 import Link from 'components/link';
 import FormInput from './form-input';
 import PayuButton from './payu-button';
-import './styles.css';
 
 class BuyForm extends Component {
   constructor(props) {
@@ -25,12 +24,12 @@ class BuyForm extends Component {
     document.querySelector('input').focus();
   }
 
-  onInputChange = (event) => {
+  onTextInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value }, this.validate);
   };
 
-  onCheckboxInputChang = (event) => {
+  onCheckboxInputChange = (event) => {
     const { name, checked } = event.target;
     this.setState({ [name]: checked }, this.validate);
   };
@@ -56,7 +55,7 @@ class BuyForm extends Component {
             title="Full name"
             value={fullName}
             invalid={shouldValidate && !fullName}
-            onChange={this.onInputChange} />
+            onChange={this.onTextInputChange} />
 
           <FormInput
             required
@@ -64,7 +63,7 @@ class BuyForm extends Component {
             title="Email"
             value={email}
             invalid={shouldValidate && !email}
-            onChange={this.onInputChange} />
+            onChange={this.onTextInputChange} />
 
           <FormInput
             required
@@ -72,22 +71,13 @@ class BuyForm extends Component {
             title="Address"
             value={address}
             invalid={shouldValidate && !address}
-            onChange={this.onInputChange} />
-
-          <FormInput
-            row
-            className="checkbox-form-group"
-            type="checkbox"
-            name="isPolishCustomer"
-            title="Polish customer"
-            value={isPolishCustomer}
-            onChange={this.onCheckboxInputChang} />
+            onChange={this.onTextInputChange} />
 
           <FormInput
             name="companyName"
             title="Company name"
             value={companyName}
-            onChange={this.onInputChange} />
+            onChange={this.onTextInputChange} />
 
           {companyName && (
             <FormInput
@@ -96,7 +86,7 @@ class BuyForm extends Component {
               title="VATIN / NIP"
               value={vatin}
               invalid={shouldValidate && !vatin}
-              onChange={this.onInputChange} />
+              onChange={this.onTextInputChange} />
           )}
 
           <div className="text-justify text-muted mt-4">
@@ -105,6 +95,17 @@ class BuyForm extends Component {
             {' '}<Link label="End-User License Agreement (EULA)" href="/eula" />.
             When you buy a license, you agree to its terms.
           </div>
+
+          <FormGroup className="mt-3" check inline>
+            <Label check>
+              <input
+                type="checkbox"
+                name="isPolishCustomer"
+                value={isPolishCustomer}
+                onChange={this.onCheckboxInputChange} />
+              {' '}Polish customer
+            </Label>
+          </FormGroup>
 
           <div className="text-center mt-4">
             <PayuButton
