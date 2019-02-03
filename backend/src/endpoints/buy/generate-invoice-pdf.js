@@ -4,8 +4,8 @@ const https = require('https');
 const moment = require('moment');
 const { GENERATE_INVOICE_ERROR_MESSAGE } = require('./constants');
 
-const LICENSE_FEE = Number(process.env.LICENSE_FEE);
-const VAT_RATE = Number(process.env.VAT_RATE);
+const LICENSE_FEE = parseFloat(process.env.LICENSE_FEE);
+const VAT_RATE = parseInt(process.env.VAT_RATE, 10);
 
 module.exports = ({
   address,
