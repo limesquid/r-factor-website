@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Form, FormGroup, Label } from 'reactstrap';
+import { validate as validateEmail } from 'email-validator';
 import Link from 'components/link';
+import countries from './countries';
 import FormInput from './form-input';
 import PayuButton from './payu-button';
 
@@ -15,7 +17,7 @@ class BuyForm extends Component {
       fullName: '',
       licenseKey: null,
       vatin: '',
-      isPolishCustomer: false,
+      countryCode: '',
       shouldValidate: false
     };
   }
@@ -24,14 +26,9 @@ class BuyForm extends Component {
     document.querySelector('input').focus();
   }
 
-  onTextInputChange = (event) => {
+  onInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value }, this.validate);
-  };
-
-  onCheckboxInputChange = (event) => {
-    const { name, checked } = event.target;
-    this.setState({ [name]: checked }, this.validate);
   };
 
   enableValidation = () => {
@@ -39,8 +36,10 @@ class BuyForm extends Component {
   };
 
   render() {
-    const { address, companyName, email, fullName, isPolishCustomer, shouldValidate, vatin } = this.state;
-    const isValid = Boolean(email && fullName && address && (!companyName || companyName && vatin));
+    const { address, companyName, countryCode, email, fullName, shouldValidate, vatin } = this.state;
+    const isEmailValid = validateEmail(email);
+    const areCompanyDetailsValid = (!companyName || companyName && vatin);
+    const isValid = Boolean(countryCode && isEmailValid && fullName && address && areCompanyDetailsValid);
 
     return (
       <div>
@@ -55,29 +54,21 @@ class BuyForm extends Component {
             title="Full name"
             value={fullName}
             invalid={shouldValidate && !fullName}
-            onChange={this.onTextInputChange} />
+            onChange={this.onInputChange} />
 
           <FormInput
             required
             name="email"
             title="Email"
             value={email}
-            invalid={shouldValidate && !email}
-            onChange={this.onTextInputChange} />
-
-          <FormInput
-            required
-            name="address"
-            title="Address"
-            value={address}
-            invalid={shouldValidate && !address}
-            onChange={this.onTextInputChange} />
+            invalid={shouldValidate && !isEmailValid}
+            onChange={this.onInputChange} />
 
           <FormInput
             name="companyName"
             title="Company name"
             value={companyName}
-            onChange={this.onTextInputChange} />
+            onChange={this.onInputChange} />
 
           {companyName && (
             <FormInput
@@ -86,8 +77,31 @@ class BuyForm extends Component {
               title="VATIN / NIP"
               value={vatin}
               invalid={shouldValidate && !vatin}
-              onChange={this.onTextInputChange} />
+              onChange={this.onInputChange} />
           )}
+
+          <FormInput
+            required
+            name="address"
+            title="Address"
+            value={address}
+            invalid={shouldValidate && !address}
+            onChange={this.onInputChange} />
+
+          <FormInput
+            required
+            type="select"
+            name="countryCode"
+            title="Country"
+            value={countryCode}
+            invalid={shouldValidate && !countryCode}
+            onChange={this.onInputChange}>
+            <option disabled value="">Select country</option>
+            {countries.map(({ code, name }) => (
+              <option key={code} value={code}>{name}</option>
+            ))}
+            <option value="other">Other</option>
+          </FormInput>
 
           <div className="text-justify text-muted mt-4">
             License keys are issued by <span className="text-body">Kamil Mielnik</span>
@@ -96,17 +110,6 @@ class BuyForm extends Component {
             When you buy a license, you agree to its terms.
           </div>
 
-          <FormGroup className="mt-3" check inline>
-            <Label check>
-              <input
-                type="checkbox"
-                name="isPolishCustomer"
-                value={isPolishCustomer}
-                onChange={this.onCheckboxInputChange} />
-              {' '}Polish customer
-            </Label>
-          </FormGroup>
-
           <div className="text-center mt-4">
             <PayuButton
               email={email}
@@ -114,7 +117,7 @@ class BuyForm extends Component {
               companyName={companyName}
               fullName={fullName}
               vatin={vatin}
-              isPolishCustomer={isPolishCustomer}
+              isPolishCustomer={countryCode === 'PL'}
               isValid={isValid}
               onShowErrorMessages={this.enableValidation} />
           </div>
