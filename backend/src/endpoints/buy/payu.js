@@ -6,8 +6,8 @@ const {
 } = require('./constants');
 
 const DESCRIPTION = 'R-Factor';
-const LICENSE_PRICE = Math.round(parseFloat(process.env.LICENSE_FEE) * 100);
-const VAT_RATE = Number(process.env.VAT_RATE);
+const LICENSE_FEE_IN_CENTS = Math.round(parseFloat(process.env.LICENSE_FEE) * 100);
+const VAT_RATE = parseInt(process.env.VAT_RATE, 10);
 const PAYU_STATUS_COMPLETED = 'COMPLETED';
 const COMPLETE_PAYMENT_URL = process.env.NODE_ENV === 'production'
   ? `${process.env.API_HOST}/complete-payment`
@@ -20,9 +20,9 @@ const createPayment = async ({
   buyer
 }) => {
   const vatInUsd = isPolishCustomer
-    ? Math.round(LICENSE_PRICE * (VAT_RATE / 100))
+    ? Math.round(LICENSE_FEE_IN_CENTS * (VAT_RATE / 100))
     : 0;
-  const totalAmount = LICENSE_PRICE + vatInUsd;
+  const totalAmount = LICENSE_FEE_IN_CENTS + vatInUsd;
   const products = [
     {
       name: 'R-Factor: license key',
