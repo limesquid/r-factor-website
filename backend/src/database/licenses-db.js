@@ -19,7 +19,7 @@ class LicensesDb {
     fullName,
     paymentMethod,
     internalOrderId,
-    isPolishCustomer,
+    countryCode,
     externalOrderId,
     vatin
   }) {
@@ -29,7 +29,7 @@ class LicensesDb {
       email,
       fullName,
       internalOrderId,
-      isPolishCustomer,
+      countryCode,
       externalOrderId,
       paymentMethod,
       createdAt: new Date(),
