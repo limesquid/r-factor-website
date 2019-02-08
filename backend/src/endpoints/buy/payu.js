@@ -4,6 +4,7 @@ const {
   PAYMENT_CREATION_ERROR_MESSAGE,
   PAYMENT_VALIDATION_ERROR_MESSAGE
 } = require('./constants');
+const { shouldIncludeVat } = require('./utils');
 
 const DESCRIPTION = 'R-Factor';
 const LICENSE_FEE_IN_CENTS = Math.round(parseFloat(process.env.LICENSE_FEE) * 100);
@@ -15,11 +16,11 @@ const COMPLETE_PAYMENT_URL = process.env.NODE_ENV === 'production'
 
 const createPayment = async ({
   internalOrderId,
-  isPolishCustomer,
+  countryCode,
   customerIp,
   buyer
 }) => {
-  const vatInUsd = isPolishCustomer
+  const vatInUsd = shouldIncludeVat(countryCode)
     ? Math.round(LICENSE_FEE_IN_CENTS * (VAT_RATE / 100))
     : 0;
   const totalAmount = LICENSE_FEE_IN_CENTS + vatInUsd;

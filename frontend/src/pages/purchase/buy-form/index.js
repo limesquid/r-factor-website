@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import { Form, FormGroup, Label } from 'reactstrap';
-import { validate as validateEmail } from 'email-validator';
+import { Form } from 'reactstrap';
+import isEmail from 'validator/lib/isEmail';
 import Link from 'components/link';
 import countries from './countries';
 import FormInput from './form-input';
@@ -37,7 +37,7 @@ class BuyForm extends Component {
 
   render() {
     const { address, companyName, countryCode, email, fullName, shouldValidate, vatin } = this.state;
-    const isEmailValid = validateEmail(email);
+    const isEmailValid = isEmail(email);
     const areCompanyDetailsValid = (!companyName || companyName && vatin);
     const isValid = Boolean(countryCode && isEmailValid && fullName && address && areCompanyDetailsValid);
 
@@ -100,7 +100,6 @@ class BuyForm extends Component {
             {countries.map(({ code, name }) => (
               <option key={code} value={code}>{name}</option>
             ))}
-            <option value="other">Other</option>
           </FormInput>
 
           <div className="text-justify text-muted mt-4">
@@ -115,9 +114,9 @@ class BuyForm extends Component {
               email={email}
               address={address}
               companyName={companyName}
+              countryCode={countryCode}
               fullName={fullName}
               vatin={vatin}
-              isPolishCustomer={countryCode === 'PL'}
               isValid={isValid}
               onShowErrorMessages={this.enableValidation} />
           </div>

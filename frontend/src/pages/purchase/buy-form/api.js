@@ -5,9 +5,9 @@ const BUY_API_URL = `${process.env.REACT_APP_API_URL}/buy`;
 export const createPayment = ({
   address,
   companyName,
+  countryCode,
   email,
   fullName,
-  isPolishCustomer,
   vatin
 }) => fetch(`${BUY_API_URL}/create-payment`, {
   method: 'POST',
@@ -17,9 +17,9 @@ export const createPayment = ({
   body: JSON.stringify({
     address,
     companyName,
+    countryCode,
     fullName,
     email,
-    isPolishCustomer,
     vatin
   })
 })

@@ -46,7 +46,7 @@ const completePayment = async (request, response) => {
       throw new Error(PAYMENT_VALIDATION_ERROR_MESSAGE);
     }
 
-    const { address, companyName, email, fullName, isPolishCustomer, vatin } = licenseDetails;
+    const { address, companyName, email, fullName, countryCode, vatin } = licenseDetails;
     const licenseKey = generateLicense({ email, fullName });
 
     const paymentParams = JSON.stringify({ address, companyName, email, fullName, licenseKey, vatin });
@@ -73,7 +73,7 @@ const completePayment = async (request, response) => {
         companyName,
         fullName,
         invoiceNumber,
-        isPolishCustomer,
+        countryCode,
         usdRate,
         vatin
       });
