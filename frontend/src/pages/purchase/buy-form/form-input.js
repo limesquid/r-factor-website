@@ -15,12 +15,13 @@ const FormInput = ({ children, invalid, name, required, title, type, value, onCh
       value={value}
       onChange={onChange}>
       {children}
-     </Input>
+    </Input>
     <FormFeedback>{title} is required</FormFeedback>
   </FormGroup>
 );
 
 FormInput.propTypes = {
+  children: PropTypes.node,
   invalid: PropTypes.bool,
   name: PropTypes.string.isRequired,
   required: PropTypes.bool,
