@@ -3,9 +3,20 @@
 const https = require('https');
 const moment = require('moment');
 const { GENERATE_INVOICE_ERROR_MESSAGE } = require('./constants');
+const { getCountryNameByCountryCode, shouldIncludeVat } = require('./utils');
 
-module.exports = ({ address, companyName, fullName, vatin }) => new Promise((resolve, reject) => {
-  const invoice = createInvoicePayload({ address, companyName, fullName, vatin });
+const LICENSE_FEE = parseFloat(process.env.LICENSE_FEE);
+const VAT_RATE = parseInt(process.env.VAT_RATE, 10);
+
+module.exports = ({
+  address,
+  companyName,
+  countryCode,
+  fullName,
+  usdRate,
+  vatin
+}) => new Promise((resolve, reject) => {
+  const invoice = createInvoicePayload({ address, companyName, fullName, countryCode, usdRate, vatin });
   const postData = JSON.stringify(invoice);
   const options = {
     headers: {
@@ -30,14 +41,32 @@ module.exports = ({ address, companyName, fullName, vatin }) => new Promise((res
   reqest.end();
 });
 
-const createInvoicePayload = ({ address, companyName, fullName, invoiceNumber, vatin }) => {
+const createInvoicePayload = ({
+  address,
+  countryCode,
+  companyName,
+  fullName,
+  invoiceNumber,
+  usdRate,
+  vatin
+}) => {
   const date = moment().format('YYYY-MM-DD');
+  const vatInUsd = LICENSE_FEE * (VAT_RATE / 100);
+  const country = getCountryNameByCountryCode(countryCode);
+  const isVatIncluded = shouldIncludeVat(countryCode);
+  const vatInPln = isVatIncluded
+    ? (vatInUsd * usdRate).toFixed(2)
+    : 'n/a';
+  const notes = [];
+
+  if (isVatIncluded) {
+    notes.push(`VAT in PLN: ${vatInPln}`);
+  }
 
   return {
     date,
-    fields: {
-      tax_title: 'VAT'
-    },
+    due_date: date,
+    tax_title: 'VAT',
     from: [
       process.env.COMPANY_NAME,
       process.env.COMPANY_ADDRESS,
@@ -50,12 +79,17 @@ const createInvoicePayload = ({ address, companyName, fullName, invoiceNumber, v
         unit_cost: process.env.LICENSE_FEE
       }
     ],
+    notes: notes.length
+      ? notes.join('\n')
+      : undefined,
     number: invoiceNumber,
     payment_terms: 'Charged - Do Not Pay',
-    tax: 0,
+    tax: isVatIncluded
+      ? process.env.VAT_RATE
+      : undefined,
     terms: 'No need to submit payment. You will be auto-billed for this invoice.',
     to: companyName
-      ? `${companyName},\n${address}\nVATIN / NIP:${vatin}`
-      : `${fullName},\n${address}`
+      ? `${companyName},\n${address}, ${country}\nVATIN / NIP:${vatin}`
+      : `${fullName},\n${address}, ${country}`
   };
 };

@@ -7,8 +7,8 @@ const { createPayment } = require('./payu');
 const { PAYMENT_CREATION_ERROR_MESSAGE } = require('./constants');
 
 const createNewPayment = async (request, response) => {
-  const { address, companyName, fullName, email, isCompany, vatin } = request.body;
-  const validationErrors = validateClientData({ address, companyName, fullName, email, isCompany, vatin });
+  const { address, companyName, fullName, email, isCompany, countryCode, vatin } = request.body;
+  const validationErrors = validateClientData({ address, companyName, countryCode, fullName, email, isCompany, vatin });
 
   if (validationErrors.length > 0) {
     response.status(400).send(validationErrors.join('\n\n'));
@@ -23,7 +23,7 @@ const createNewPayment = async (request, response) => {
     let payment = null;
 
     try {
-      payment = await createPayment({ internalOrderId, customerIp, buyer });
+      payment = await createPayment({ internalOrderId, countryCode, customerIp, buyer });
     } catch (error) {
       logger.log('error', `[Create Payment] Error while creating PayU payment: ${error}`);
       throw error;
@@ -33,6 +33,7 @@ const createNewPayment = async (request, response) => {
       licensesDb.create({
         address,
         companyName,
+        countryCode,
         email,
         fullName,
         internalOrderId,
