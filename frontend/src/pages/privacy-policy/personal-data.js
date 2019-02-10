@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 
-const PersonalData = ({ className }) => (
+const PersonalData = () => (
   <Fragment>
     <h3>Personal Data</h3>
     <p className="text-muted">
@@ -95,9 +94,5 @@ const PersonalData = ({ className }) => (
     </p>
   </Fragment>
 );
-
-PersonalData.propTypes = {
-  className: PropTypes.string
-};
 
 export default PersonalData;

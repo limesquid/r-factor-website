@@ -12,20 +12,20 @@ const VAT_COUNTRY_CODES = [ 'PL' ];
 const CREDIT_CARD_IMAGE_HEIGHT = 35;
 
 const payuLogoStyle = {
-  position: 'relative',
-  top: -1,
-  display: 'block',
-  width: 50,
-  height: 25,
   backgroundImage: `url(${payuLogoUrl})`,
   backgroundRepeat: 'no-repeat',
-  backgroundSize: 'contain'
+  backgroundSize: 'contain',
+  display: 'block',
+  height: 25,
+  position: 'relative',
+  top: -1,
+  width: 50
 };
 
 class PayuButton extends Component {
   static propTypes = {
-    email: PropTypes.any,
     countryCode: PropTypes.string,
+    email: PropTypes.any,
     isValid: PropTypes.bool,
     onShowErrorMessages: PropTypes.func.isRequired
   };
@@ -45,9 +45,9 @@ class PayuButton extends Component {
   };
 
   onCreatePayment = async () => {
-    const { email, address, companyName, fullName, countryCode, vatin } = this.props;
+    const { address, companyName, countryCode, email, fullName, vatin } = this.props;
     try {
-      const redirectUri = await createPayment({ email, address, companyName, fullName, countryCode, vatin });
+      const redirectUri = await createPayment({ address, companyName, countryCode, email, fullName, vatin });
       window.location.href = redirectUri;
     } catch (error) {
       if (typeof error === 'string') {
@@ -83,7 +83,12 @@ class PayuButton extends Component {
         </div>
 
         <div className="d-flex justify-content-center align-items-center mt-3 text-muted">
-          <img alt="Mastercard" title="Mastercard" height={CREDIT_CARD_IMAGE_HEIGHT} src={mastercardLogoUrl} className="mr-1" />
+          <img
+            className="mr-1"
+            alt="Mastercard"
+            title="Mastercard"
+            height={CREDIT_CARD_IMAGE_HEIGHT}
+            src={mastercardLogoUrl} />
           <img alt="Visa" title="Visa" height={CREDIT_CARD_IMAGE_HEIGHT} src={visaLogoUrl} />
         </div>
 
