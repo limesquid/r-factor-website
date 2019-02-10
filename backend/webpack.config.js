@@ -72,7 +72,8 @@ module.exports = {
       'COMPANY_ADDRESS',
       'COMPANY_ID',
       'LICENSE_FEE',
-      'LICENSE_CURRENCY_CODE'
+      'LICENSE_CURRENCY_CODE',
+      'VAT_RATE'
     ])
   ].filter(Boolean)
 };
