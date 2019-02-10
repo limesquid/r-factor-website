@@ -3,7 +3,11 @@
 const https = require('https');
 const moment = require('moment');
 const { GENERATE_INVOICE_ERROR_MESSAGE } = require('./constants');
-const { getCountryNameByCountryCode, shouldIncludeVat } = require('./utils');
+const {
+  getCountryNameByCountryCode,
+  shouldIncludeVat,
+  shouldReverseCharge
+} = require('./utils');
 
 const LICENSE_FEE = parseFloat(process.env.LICENSE_FEE);
 const VAT_RATE = parseInt(process.env.VAT_RATE, 10);
@@ -57,16 +61,25 @@ const createInvoicePayload = ({
   const vatInPln = isVatIncluded
     ? (vatInUsd * usdRate).toFixed(2)
     : 'n/a';
+  const vatinTitle = countryCode === 'PL'
+    ? 'NIP'
+    : 'VATIN';
   const notes = [];
 
   if (isVatIncluded) {
     notes.push(`VAT in PLN: ${vatInPln}`);
   }
 
+  if (shouldReverseCharge(countryCode)) {
+    notes.push('Reverse charge');
+  }
+
   return {
     date,
     due_date: date,
     tax_title: 'VAT',
+    date_title: 'Date of invoice',
+    due_date_title: 'Date of delivery/service',
     from: [
       process.env.COMPANY_NAME,
       process.env.COMPANY_ADDRESS,
@@ -89,7 +102,7 @@ const createInvoicePayload = ({
       : undefined,
     terms: 'No need to submit payment. You will be auto-billed for this invoice.',
     to: companyName
-      ? `${companyName},\n${address}, ${country}\nVATIN / NIP:${vatin}`
+      ? `${companyName},\n${address}, ${country}\n${vatinTitle}: ${vatin}`
       : `${fullName},\n${address}, ${country}`
   };
 };
