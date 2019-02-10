@@ -59,12 +59,12 @@ const createPayment = async ({
     });
 
     if (!orderId || !redirectUri) {
-      throw new Error(status.statusCode);
+      throw status;
     }
 
     return { orderId, redirectUri };
   } catch (error) {
-    throw new Error(`${PAYMENT_CREATION_ERROR_MESSAGE}: ${error}`);
+    throw new Error(`${PAYMENT_CREATION_ERROR_MESSAGE}: ${JSON.stringify(error)}`);
   }
 };
 
