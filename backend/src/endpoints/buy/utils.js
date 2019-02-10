@@ -3,14 +3,15 @@ const jwt = require('jsonwebtoken');
 const emailValidator = require('email-validator');
 const certificate = require('../../../license/license.key');
 const {
+  COUNTRY_CODES,
+  EU_COUNTRY_CODES,
   INVALID_ADDRESS_ERROR_MESSAGE,
   INVALID_COMPANY_NAME,
   INVALID_COUNTRY_CODE,
   INVALID_EMAIL_ERROR_MESSAGE,
   INVALID_FULL_NAME_ERROR_MESSAGE,
   INVALID_VATIN,
-  VAT_COUNTRY_CODES,
-  COUNTRY_CODES
+  VAT_COUNTRY_CODES
 } = require('./constants');
 const countries = require('./countries');
 
@@ -30,6 +31,8 @@ const isValidString = (string) => string && typeof string === 'string';
 const isValidCountryCode = (countryCode) => COUNTRY_CODES.includes(countryCode);
 
 const shouldIncludeVat = (countryCode) => VAT_COUNTRY_CODES.includes(countryCode);
+
+const shouldReverseCharge = (countryCode) => countryCode !== 'PL' && EU_COUNTRY_CODES.includes(countryCode);
 
 const validateClientData = ({ address, companyName, countryCode, fullName, email, vatin, isCompany }) => {
   const errors = {
@@ -53,5 +56,6 @@ module.exports = {
   generateLicense,
   getCountryNameByCountryCode,
   shouldIncludeVat,
+  shouldReverseCharge,
   validateClientData
 };
