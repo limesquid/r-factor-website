@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Form } from 'reactstrap';
+import isEmail from 'validator/lib/isEmail';
 import Link from 'components/link';
+import countries from './countries';
 import FormInput from './form-input';
 import PayuButton from './payu-button';
 
@@ -15,6 +17,7 @@ class BuyForm extends Component {
       fullName: '',
       licenseKey: null,
       vatin: '',
+      countryCode: '',
       shouldValidate: false
     };
   }
@@ -33,8 +36,10 @@ class BuyForm extends Component {
   };
 
   render() {
-    const { address, companyName, email, fullName, shouldValidate, vatin } = this.state;
-    const isValid = Boolean(email && fullName && address && (!companyName || companyName && vatin));
+    const { address, companyName, countryCode, email, fullName, shouldValidate, vatin } = this.state;
+    const isEmailValid = isEmail(email);
+    const areCompanyDetailsValid = (!companyName || companyName && vatin);
+    const isValid = Boolean(countryCode && isEmailValid && fullName && address && areCompanyDetailsValid);
 
     return (
       <div>
@@ -56,15 +61,7 @@ class BuyForm extends Component {
             name="email"
             title="Email"
             value={email}
-            invalid={shouldValidate && !email}
-            onChange={this.onInputChange} />
-
-          <FormInput
-            required
-            name="address"
-            title="Address"
-            value={address}
-            invalid={shouldValidate && !address}
+            invalid={shouldValidate && !isEmailValid}
             onChange={this.onInputChange} />
 
           <FormInput
@@ -83,6 +80,28 @@ class BuyForm extends Component {
               onChange={this.onInputChange} />
           )}
 
+          <FormInput
+            required
+            name="address"
+            title="Address"
+            value={address}
+            invalid={shouldValidate && !address}
+            onChange={this.onInputChange} />
+
+          <FormInput
+            required
+            type="select"
+            name="countryCode"
+            title="Country"
+            value={countryCode}
+            invalid={shouldValidate && !countryCode}
+            onChange={this.onInputChange}>
+            <option disabled value="">Select country</option>
+            {countries.map(({ code, name }) => (
+              <option key={code} value={code}>{name}</option>
+            ))}
+          </FormInput>
+
           <div className="text-justify text-muted mt-4">
             License keys are issued by <span className="text-body">Kamil Mielnik</span>
             {' '}(Tarnów, Poland), and covered by the
@@ -95,6 +114,7 @@ class BuyForm extends Component {
               email={email}
               address={address}
               companyName={companyName}
+              countryCode={countryCode}
               fullName={fullName}
               vatin={vatin}
               isValid={isValid}

@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 
-const Cookies = ({ className }) => (
+const Cookies = () => (
   <Fragment>
     <h3>Cookies and tracking technologies</h3>
     <p className="text-muted">
@@ -90,9 +89,5 @@ const Cookies = ({ className }) => (
     </p>
   </Fragment>
 );
-
-Cookies.propTypes = {
-  className: PropTypes.string
-};
 
 export default Cookies;

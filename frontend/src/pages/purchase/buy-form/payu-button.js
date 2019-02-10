@@ -6,23 +6,25 @@ import { mastercardLogoUrl, payuLogoUrl, visaLogoUrl } from 'data';
 import { createPayment } from './api';
 
 const PAYU_URL = 'https://www.payu.com/';
-const LICENSE_FEE = (process.env.REACT_APP_LICENSE_FEE / 100).toFixed(2);
+const LICENSE_FEE = parseInt(process.env.REACT_APP_LICENSE_FEE, 10) / 100;
+const VAT_COUNTRY_CODES = [ 'PL' ];
 
 const CREDIT_CARD_IMAGE_HEIGHT = 35;
 
 const payuLogoStyle = {
-  position: 'relative',
-  top: -1,
-  display: 'block',
-  width: 50,
-  height: 25,
   backgroundImage: `url(${payuLogoUrl})`,
   backgroundRepeat: 'no-repeat',
-  backgroundSize: 'contain'
+  backgroundSize: 'contain',
+  display: 'block',
+  height: 25,
+  position: 'relative',
+  top: -1,
+  width: 50
 };
 
 class PayuButton extends Component {
   static propTypes = {
+    countryCode: PropTypes.string,
     email: PropTypes.any,
     isValid: PropTypes.bool,
     onShowErrorMessages: PropTypes.func.isRequired
@@ -43,9 +45,9 @@ class PayuButton extends Component {
   };
 
   onCreatePayment = async () => {
-    const { email, address, companyName, fullName, vatin } = this.props;
+    const { address, companyName, countryCode, email, fullName, vatin } = this.props;
     try {
-      const redirectUri = await createPayment({ email, address, companyName, fullName, vatin });
+      const redirectUri = await createPayment({ address, companyName, countryCode, email, fullName, vatin });
       window.location.href = redirectUri;
     } catch (error) {
       if (typeof error === 'string') {
@@ -59,7 +61,9 @@ class PayuButton extends Component {
   };
 
   render() {
+    const { countryCode } = this.props;
     const { error } = this.state;
+    const isVatIncluded = VAT_COUNTRY_CODES.includes(countryCode);
 
     return (
       <div>
@@ -71,12 +75,20 @@ class PayuButton extends Component {
 
         <div className="d-flex justify-content-center">
           <Button className="text-white px-4" color="warning" onClick={this.onClick}>
-            Buy R-Factor for {LICENSE_FEE} {process.env.REACT_APP_LICENSE_CURRENCY_CODE}
+            Buy R-Factor for {LICENSE_FEE.toFixed(2)} {process.env.REACT_APP_LICENSE_CURRENCY_CODE}
+            {isVatIncluded && (
+              <span>&nbsp;(+{process.env.REACT_APP_VAT_RATE}% VAT)</span>
+            )}
           </Button>
         </div>
 
         <div className="d-flex justify-content-center align-items-center mt-3 text-muted">
-          <img alt="Mastercard" title="Mastercard" height={CREDIT_CARD_IMAGE_HEIGHT} src={mastercardLogoUrl} className="mr-1" />
+          <img
+            className="mr-1"
+            alt="Mastercard"
+            title="Mastercard"
+            height={CREDIT_CARD_IMAGE_HEIGHT}
+            src={mastercardLogoUrl} />
           <img alt="Visa" title="Visa" height={CREDIT_CARD_IMAGE_HEIGHT} src={visaLogoUrl} />
         </div>
 

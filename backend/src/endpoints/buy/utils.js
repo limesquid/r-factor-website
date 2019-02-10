@@ -5,10 +5,14 @@ const certificate = require('../../../license/license.key');
 const {
   INVALID_ADDRESS_ERROR_MESSAGE,
   INVALID_COMPANY_NAME,
+  INVALID_COUNTRY_CODE,
   INVALID_EMAIL_ERROR_MESSAGE,
   INVALID_FULL_NAME_ERROR_MESSAGE,
-  INVALID_VATIN
+  INVALID_VATIN,
+  VAT_COUNTRY_CODES,
+  COUNTRY_CODES
 } = require('./constants');
+const countries = require('./countries');
 
 const sha256 = (string) => crypto.createHash('sha256').update(string).digest('hex');
 
@@ -23,19 +27,31 @@ const generateLicense = ({ fullName, email }) => {
 
 const isValidString = (string) => string && typeof string === 'string';
 
-const validateClientData = ({ address, companyName, fullName, email, vatin, isCompany }) => {
+const isValidCountryCode = (countryCode) => COUNTRY_CODES.includes(countryCode);
+
+const shouldIncludeVat = (countryCode) => VAT_COUNTRY_CODES.includes(countryCode);
+
+const validateClientData = ({ address, companyName, countryCode, fullName, email, vatin, isCompany }) => {
   const errors = {
     [INVALID_EMAIL_ERROR_MESSAGE]: !emailValidator.validate(email),
     [INVALID_FULL_NAME_ERROR_MESSAGE]: !isValidString(fullName),
     [INVALID_ADDRESS_ERROR_MESSAGE]: isCompany && !isValidString(address),
     [INVALID_COMPANY_NAME]: isCompany && !isValidString(companyName),
+    [INVALID_COUNTRY_CODE]: !isValidCountryCode(countryCode),
     [INVALID_VATIN]: isCompany && !isValidString(vatin)
   };
 
   return Object.keys(errors).filter((errorMessage) => Boolean(errors[errorMessage]));
 };
 
+const getCountryNameByCountryCode = (countryCode) => {
+  const { name } = countries.find(({ code }) => code === countryCode);
+  return name;
+};
+
 module.exports = {
   generateLicense,
+  getCountryNameByCountryCode,
+  shouldIncludeVat,
   validateClientData
 };
