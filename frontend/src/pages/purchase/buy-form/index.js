@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Form } from 'reactstrap';
+import isEmail from 'validator/lib/isEmail';
 import Link from 'components/link';
+import { COUNTRIES, isEuCountry } from '../../../utils/countries';
 import FormInput from './form-input';
 import PayuButton from './payu-button';
 
@@ -15,6 +17,7 @@ class BuyForm extends Component {
       fullName: '',
       licenseKey: null,
       vatin: '',
+      countryCode: '',
       shouldValidate: false
     };
   }
@@ -33,8 +36,10 @@ class BuyForm extends Component {
   };
 
   render() {
-    const { address, companyName, email, fullName, shouldValidate, vatin } = this.state;
-    const isValid = Boolean(email && fullName && address && (!companyName || companyName && vatin));
+    const { address, companyName, countryCode, email, fullName, shouldValidate, vatin } = this.state;
+    const isEmailValid = isEmail(email);
+    const areCompanyDetailsValid = (!companyName || companyName && vatin);
+    const isValid = Boolean(countryCode && isEmailValid && fullName && address && areCompanyDetailsValid);
 
     return (
       <div>
@@ -56,7 +61,7 @@ class BuyForm extends Component {
             name="email"
             title="Email"
             value={email}
-            invalid={shouldValidate && !email}
+            invalid={shouldValidate && !isEmailValid}
             onChange={this.onInputChange} />
 
           <FormInput
@@ -68,6 +73,20 @@ class BuyForm extends Component {
             onChange={this.onInputChange} />
 
           <FormInput
+            required
+            type="select"
+            name="countryCode"
+            title="Country"
+            value={countryCode}
+            invalid={shouldValidate && !countryCode}
+            onChange={this.onInputChange}>
+            <option disabled value="">Select country</option>
+            {COUNTRIES.map(({ code, name }) => (
+              <option key={code} value={code}>{name}</option>
+            ))}
+          </FormInput>
+
+          <FormInput
             name="companyName"
             title="Company name"
             value={companyName}
@@ -75,9 +94,9 @@ class BuyForm extends Component {
 
           {companyName && (
             <FormInput
-              required
+              required={companyName && isEuCountry(countryCode)}
               name="vatin"
-              title="VATIN / NIP"
+              title="NIP / VAT"
               value={vatin}
               invalid={shouldValidate && !vatin}
               onChange={this.onInputChange} />
@@ -95,6 +114,7 @@ class BuyForm extends Component {
               email={email}
               address={address}
               companyName={companyName}
+              countryCode={countryCode}
               fullName={fullName}
               vatin={vatin}
               isValid={isValid}

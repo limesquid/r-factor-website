@@ -12,13 +12,24 @@ class LicensesDb {
     this.db.defaults({ licenses: [] }).write();
   }
 
-  create({ address, companyName, email, fullName, paymentMethod, internalOrderId, externalOrderId, vatin }) {
+  create({
+    address,
+    companyName,
+    email,
+    fullName,
+    paymentMethod,
+    internalOrderId,
+    countryCode,
+    externalOrderId,
+    vatin
+  }) {
     const license = {
       address,
       companyName,
       email,
       fullName,
       internalOrderId,
+      countryCode,
       externalOrderId,
       paymentMethod,
       createdAt: new Date(),
