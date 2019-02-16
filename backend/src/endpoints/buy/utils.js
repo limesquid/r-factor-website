@@ -30,9 +30,11 @@ const isValidString = (string) => string && typeof string === 'string';
 
 const isValidCountryCode = (countryCode) => COUNTRY_CODES.includes(countryCode);
 
+const isEuCountry = (countryCode) => EU_COUNTRY_CODES.includes(countryCode);
+
 const shouldIncludeVat = (countryCode) => VAT_COUNTRY_CODES.includes(countryCode);
 
-const shouldReverseCharge = (countryCode) => countryCode !== 'PL' && EU_COUNTRY_CODES.includes(countryCode);
+const shouldReverseCharge = (countryCode) => countryCode !== 'PL' && isEuCountry(countryCode);
 
 const validateClientData = ({ address, companyName, countryCode, fullName, email, vatin, isCompany }) => {
   const errors = {
@@ -41,7 +43,7 @@ const validateClientData = ({ address, companyName, countryCode, fullName, email
     [INVALID_ADDRESS_ERROR_MESSAGE]: isCompany && !isValidString(address),
     [INVALID_COMPANY_NAME]: isCompany && !isValidString(companyName),
     [INVALID_COUNTRY_CODE]: !isValidCountryCode(countryCode),
-    [INVALID_VATIN]: isCompany && !isValidString(vatin)
+    [INVALID_VATIN]: isCompany && isEuCountry(countryCode) && !isValidString(vatin)
   };
 
   return Object.keys(errors).filter((errorMessage) => Boolean(errors[errorMessage]));
