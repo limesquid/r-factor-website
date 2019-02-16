@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://r-factor.io/</loc>
+  <lastmod>2019-02-16T12:30:56+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/try/</loc>
+  <lastmod>2019-02-16T12:31:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/download/</loc>
+  <lastmod>2019-02-16T12:30:57+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/</loc>
+  <lastmod>2019-02-16T12:30:57+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/support/</loc>
+  <lastmod>2019-02-16T12:31:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/eula/</loc>
+  <lastmod>2019-02-16T12:31:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/privacy-policy/</loc>
+  <lastmod>2019-02-16T12:30:57+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/purchase/</loc>
+  <lastmod>2019-02-16T12:30:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/convert-svg-to-component/</loc>
+  <lastmod>2019-02-16T12:31:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/installation/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/what-is-r-factor/</loc>
+  <lastmod>2019-02-16T12:31:02+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/usage/</loc>
+  <lastmod>2019-02-16T12:31:02+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/dos-and-donts/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/quality/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/add-classname/</loc>
+  <lastmod>2019-02-16T12:31:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/convert-to-arrow-component/</loc>
+  <lastmod>2019-02-16T12:31:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/convert-to-function-component/</loc>
+  <lastmod>2019-02-16T12:31:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/convert-to-class-component/</loc>
+  <lastmod>2019-02-16T12:31:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/generate-prop-types/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/move-default-props-and-prop-types-out-of-class/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/move-default-props-and-prop-types-to-class/</loc>
+  <lastmod>2019-02-16T12:31:02+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/toggle-component-type/</loc>
+  <lastmod>2019-02-16T12:31:02+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/toggle-with-router-hoc/</loc>
+  <lastmod>2019-02-16T12:31:02+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/connect/</loc>
+  <lastmod>2019-02-16T12:31:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/connect-map-dispatch-to-props/</loc>
+  <lastmod>2019-02-16T12:31:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/connect-map-state-to-props/</loc>
+  <lastmod>2019-02-16T12:31:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/connect-merge-props/</loc>
+  <lastmod>2019-02-16T12:31:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/disconnect/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/disconnect-map-dispatch-to-props/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/disconnect-map-state-to-props/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/disconnect-merge-props/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/sort-attributes/</loc>
+  <lastmod>2019-02-16T12:31:02+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/sort-imports/</loc>
+  <lastmod>2019-02-16T12:31:02+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/component-name-collision-pattern/</loc>
+  <lastmod>2019-02-16T12:31:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/component-superclass/</loc>
+  <lastmod>2019-02-16T12:31:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/map-dispatch-to-props-name/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/map-state-to-props-name/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/merge-props-name/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/default-component-name/</loc>
+  <lastmod>2019-02-16T12:31:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/default-hoc-component-name/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/end-of-line/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/functional-component-type/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/indent/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/modules-order/</loc>
+  <lastmod>2019-02-16T12:31:01+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/NODE_BIN/</loc>
+  <lastmod>2019-02-16T12:31:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/quotes/</loc>
+  <lastmod>2019-02-16T12:31:02+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/semicolons/</loc>
+  <lastmod>2019-02-16T12:31:02+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/svg-component-type/</loc>
+  <lastmod>2019-02-16T12:31:02+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/trailing-commas/</loc>
+  <lastmod>2019-02-16T12:31:02+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/use-map-dispatch-to-props-shorthand/</loc>
+  <lastmod>2019-02-16T12:31:02+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://r-factor.io/documentation/sort-object-attributes/</loc>
+  <lastmod>2019-02-16T12:31:02+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
