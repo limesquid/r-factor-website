@@ -10,7 +10,7 @@ const {
   INVALID_COUNTRY_CODE,
   INVALID_EMAIL_ERROR_MESSAGE,
   INVALID_FULL_NAME_ERROR_MESSAGE,
-  INVALID_VATIN,
+  INVALID_VAT,
   VAT_COUNTRY_CODES
 } = require('./constants');
 const countries = require('./countries');
@@ -43,7 +43,7 @@ const validateClientData = ({ address, companyName, countryCode, fullName, email
     [INVALID_ADDRESS_ERROR_MESSAGE]: isCompany && !isValidString(address),
     [INVALID_COMPANY_NAME]: isCompany && !isValidString(companyName),
     [INVALID_COUNTRY_CODE]: !isValidCountryCode(countryCode),
-    [INVALID_VATIN]: isCompany && isEuCountry(countryCode) && !isValidString(vatin)
+    [INVALID_VAT]: isCompany && isEuCountry(countryCode) && !isValidString(vatin)
   };
 
   return Object.keys(errors).filter((errorMessage) => Boolean(errors[errorMessage]));

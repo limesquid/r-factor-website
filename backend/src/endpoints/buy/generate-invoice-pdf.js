@@ -45,6 +45,18 @@ module.exports = ({
   reqest.end();
 });
 
+const createCustomerDetails = ({ address, companyName, country, fullName, vatin }) => {
+  if (!companyName) {
+    return `${fullName},\n${address}, ${country}`;
+  }
+
+  if (vatin) {
+    return `${companyName},\n${address}, ${country}\nNIP / VAT: ${vatin}`;
+  }
+
+  return `${companyName},\n${address}, ${country}`;
+};
+
 const createInvoicePayload = ({
   address,
   countryCode,
@@ -61,9 +73,6 @@ const createInvoicePayload = ({
   const vatInPln = isVatIncluded
     ? (vatInUsd * usdRate).toFixed(2)
     : 'n/a';
-  const vatinTitle = countryCode === 'PL'
-    ? 'NIP'
-    : 'VATIN';
   const notes = [];
 
   if (isVatIncluded) {
@@ -83,7 +92,8 @@ const createInvoicePayload = ({
     from: [
       process.env.COMPANY_NAME,
       process.env.COMPANY_ADDRESS,
-      `VATIN: ${process.env.COMPANY_ID}`
+      // this is on odpierdol (works because there is PL in process.env.COMPANY_ID)
+      `NIP / VAT: ${process.env.COMPANY_ID.replace(countryCode, '')}`
     ].join('\n'),
     items: [
       {
@@ -101,8 +111,6 @@ const createInvoicePayload = ({
       ? process.env.VAT_RATE
       : undefined,
     terms: 'No need to submit payment. You will be auto-billed for this invoice.',
-    to: companyName
-      ? `${companyName},\n${address}, ${country}\n${vatinTitle}: ${vatin}`
-      : `${fullName},\n${address}, ${country}`
+    to: createCustomerDetails({ address, companyName, country, fullName, vatin })
   };
 };
