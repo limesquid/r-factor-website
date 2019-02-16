@@ -8,7 +8,7 @@ import payuLogoUrl from 'assets/payu-logo-small.png';
 import randyUrl from 'assets/randy.jpg';
 import visaLogoUrl from 'assets/visa.svg';
 
-export const videoUrl = '';
+export const videoUrl = 'https://mega.nz/embed#!GrQgxIhQ!1glB3ceOFK2KaUxc57ol8b5XMYdfycM2W9fAuLLoBhE';
 
 export const allFeatures = [ ...reactFeatures, ...reduxFeatures, ...otherFeatures ].sort(
   (a, b) => a.name.localeCompare(b.name)

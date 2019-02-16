@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 
-const ShortVersion = ({ className }) => (
+const ShortVersion = () => (
   <Fragment>
     <h3>TLDR</h3>
     <p className="text-muted">
@@ -39,9 +38,5 @@ const ShortVersion = ({ className }) => (
     </p>
   </Fragment>
 );
-
-ShortVersion.propTypes = {
-  className: PropTypes.string
-};
 
 export default ShortVersion;

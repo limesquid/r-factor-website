@@ -3,9 +3,24 @@
 const https = require('https');
 const moment = require('moment');
 const { GENERATE_INVOICE_ERROR_MESSAGE } = require('./constants');
+const {
+  getCountryNameByCountryCode,
+  shouldIncludeVat,
+  shouldReverseCharge
+} = require('./utils');
 
-module.exports = ({ address, companyName, fullName, vatin }) => new Promise((resolve, reject) => {
-  const invoice = createInvoicePayload({ address, companyName, fullName, vatin });
+const LICENSE_FEE = parseFloat(process.env.LICENSE_FEE);
+const VAT_RATE = parseInt(process.env.VAT_RATE, 10);
+
+module.exports = ({
+  address,
+  companyName,
+  countryCode,
+  fullName,
+  usdRate,
+  vatin
+}) => new Promise((resolve, reject) => {
+  const invoice = createInvoicePayload({ address, companyName, fullName, countryCode, usdRate, vatin });
   const postData = JSON.stringify(invoice);
   const options = {
     headers: {
@@ -30,18 +45,55 @@ module.exports = ({ address, companyName, fullName, vatin }) => new Promise((res
   reqest.end();
 });
 
-const createInvoicePayload = ({ address, companyName, fullName, invoiceNumber, vatin }) => {
+const createCustomerDetails = ({ address, companyName, country, fullName, vatin }) => {
+  if (!companyName) {
+    return `${fullName},\n${address}, ${country}`;
+  }
+
+  if (vatin) {
+    return `${companyName},\n${address}, ${country}\nNIP / VAT: ${vatin}`;
+  }
+
+  return `${companyName},\n${address}, ${country}`;
+};
+
+const createInvoicePayload = ({
+  address,
+  countryCode,
+  companyName,
+  fullName,
+  invoiceNumber,
+  usdRate,
+  vatin
+}) => {
   const date = moment().format('YYYY-MM-DD');
+  const vatInUsd = LICENSE_FEE * (VAT_RATE / 100);
+  const country = getCountryNameByCountryCode(countryCode);
+  const isVatIncluded = shouldIncludeVat(countryCode);
+  const vatInPln = isVatIncluded
+    ? (vatInUsd * usdRate).toFixed(2)
+    : 'n/a';
+  const notes = [];
+
+  if (isVatIncluded) {
+    notes.push(`VAT in PLN: ${vatInPln}`);
+  }
+
+  if (shouldReverseCharge(countryCode)) {
+    notes.push('Reverse charge');
+  }
 
   return {
     date,
-    fields: {
-      tax_title: 'VAT'
-    },
+    due_date: date,
+    tax_title: 'VAT',
+    date_title: 'Date of invoice',
+    due_date_title: 'Date of delivery/service',
     from: [
       process.env.COMPANY_NAME,
       process.env.COMPANY_ADDRESS,
-      `VATIN: ${process.env.COMPANY_ID}`
+      // this is on odpierdol (works because there is PL in process.env.COMPANY_ID)
+      `NIP / VAT: ${process.env.COMPANY_ID.replace(countryCode, '')}`
     ].join('\n'),
     items: [
       {
@@ -50,12 +102,15 @@ const createInvoicePayload = ({ address, companyName, fullName, invoiceNumber, v
         unit_cost: process.env.LICENSE_FEE
       }
     ],
+    notes: notes.length
+      ? notes.join('\n')
+      : undefined,
     number: invoiceNumber,
     payment_terms: 'Charged - Do Not Pay',
-    tax: 0,
+    tax: isVatIncluded
+      ? process.env.VAT_RATE
+      : undefined,
     terms: 'No need to submit payment. You will be auto-billed for this invoice.',
-    to: companyName
-      ? `${companyName},\n${address}\nVATIN / NIP:${vatin}`
-      : `${fullName},\n${address}`
+    to: createCustomerDetails({ address, companyName, country, fullName, vatin })
   };
 };

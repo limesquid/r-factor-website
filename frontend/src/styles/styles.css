@@ -45,6 +45,7 @@ body {
 
 input,
 input:focus,
+select,
 textarea,
 textarea:focus {
   color: #999 !important;
