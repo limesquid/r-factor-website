@@ -96,7 +96,7 @@ class BuyForm extends Component {
             <FormInput
               required={companyName && isEuCountry(countryCode)}
               name="vatin"
-              title="VATIN / NIP"
+              title="NIP / VAT"
               value={vatin}
               invalid={shouldValidate && !vatin}
               onChange={this.onInputChange} />
