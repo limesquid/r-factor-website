@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Form } from 'reactstrap';
 import isEmail from 'validator/lib/isEmail';
 import Link from 'components/link';
-import countries from './countries';
+import { COUNTRIES, isEuCountry } from '../../../utils/countries';
 import FormInput from './form-input';
 import PayuButton from './payu-button';
 
@@ -65,22 +65,6 @@ class BuyForm extends Component {
             onChange={this.onInputChange} />
 
           <FormInput
-            name="companyName"
-            title="Company name"
-            value={companyName}
-            onChange={this.onInputChange} />
-
-          {companyName && (
-            <FormInput
-              required
-              name="vatin"
-              title="VATIN / NIP"
-              value={vatin}
-              invalid={shouldValidate && !vatin}
-              onChange={this.onInputChange} />
-          )}
-
-          <FormInput
             required
             name="address"
             title="Address"
@@ -97,10 +81,26 @@ class BuyForm extends Component {
             invalid={shouldValidate && !countryCode}
             onChange={this.onInputChange}>
             <option disabled value="">Select country</option>
-            {countries.map(({ code, name }) => (
+            {COUNTRIES.map(({ code, name }) => (
               <option key={code} value={code}>{name}</option>
             ))}
           </FormInput>
+
+          <FormInput
+            name="companyName"
+            title="Company name"
+            value={companyName}
+            onChange={this.onInputChange} />
+
+          {companyName && (
+            <FormInput
+              required={companyName && isEuCountry(countryCode)}
+              name="vatin"
+              title="VATIN / NIP"
+              value={vatin}
+              invalid={shouldValidate && !vatin}
+              onChange={this.onInputChange} />
+          )}
 
           <div className="text-justify text-muted mt-4">
             License keys are issued by <span className="text-body">Kamil Mielnik</span>
