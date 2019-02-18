@@ -38,7 +38,7 @@ class BuyForm extends Component {
   render() {
     const { address, companyName, countryCode, email, fullName, shouldValidate, vatin } = this.state;
     const isEmailValid = isEmail(email);
-    const areCompanyDetailsValid = (!companyName || companyName && vatin);
+    const areCompanyDetailsValid = !companyName || !isEuCountry(countryCode) || vatin;
     const isValid = Boolean(countryCode && isEmailValid && fullName && address && areCompanyDetailsValid);
 
     return (
@@ -94,11 +94,11 @@ class BuyForm extends Component {
 
           {companyName && (
             <FormInput
-              required={companyName && isEuCountry(countryCode)}
+              required={isEuCountry(countryCode)}
               name="vatin"
               title="NIP / VAT"
               value={vatin}
-              invalid={shouldValidate && !vatin}
+              invalid={shouldValidate && !vatin && isEuCountry(countryCode)}
               onChange={this.onInputChange} />
           )}
 
