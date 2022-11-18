@@ -33,7 +33,7 @@ module.exports = (request, response) => {
     const result = rFactor({ code, refactoring, settings });
     response.send(result);
   } catch (error) {
-    response.status(500).send(error);
+    response.status(500).send(String(error));
   }
 
   return null;
