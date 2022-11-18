@@ -4,3 +4,4 @@ backend/frontend/
 node_modules/
 licenses-db.json
 *.log
+.env.development
