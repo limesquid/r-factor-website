@@ -8,237 +8,237 @@
 
 
 <url>
-  <loc>https://r-factor.io/</loc>
+  <loc>https://r-factor.org/</loc>
   <lastmod>2019-02-16T12:30:56+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/try/</loc>
+  <loc>https://r-factor.org/try/</loc>
   <lastmod>2019-02-16T12:31:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/download/</loc>
+  <loc>https://r-factor.org/download/</loc>
   <lastmod>2019-02-16T12:30:57+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/</loc>
+  <loc>https://r-factor.org/documentation/</loc>
   <lastmod>2019-02-16T12:30:57+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/convert-svg-to-component/</loc>
+  <loc>https://r-factor.org/documentation/convert-svg-to-component/</loc>
   <lastmod>2019-02-16T12:31:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/installation/</loc>
+  <loc>https://r-factor.org/documentation/installation/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/what-is-r-factor/</loc>
+  <loc>https://r-factor.org/documentation/what-is-r-factor/</loc>
   <lastmod>2019-02-16T12:31:02+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/usage/</loc>
+  <loc>https://r-factor.org/documentation/usage/</loc>
   <lastmod>2019-02-16T12:31:02+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/dos-and-donts/</loc>
+  <loc>https://r-factor.org/documentation/dos-and-donts/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/quality/</loc>
+  <loc>https://r-factor.org/documentation/quality/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/add-classname/</loc>
+  <loc>https://r-factor.org/documentation/add-classname/</loc>
   <lastmod>2019-02-16T12:31:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/convert-to-arrow-component/</loc>
+  <loc>https://r-factor.org/documentation/convert-to-arrow-component/</loc>
   <lastmod>2019-02-16T12:31:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/convert-to-function-component/</loc>
+  <loc>https://r-factor.org/documentation/convert-to-function-component/</loc>
   <lastmod>2019-02-16T12:31:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/convert-to-class-component/</loc>
+  <loc>https://r-factor.org/documentation/convert-to-class-component/</loc>
   <lastmod>2019-02-16T12:31:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/generate-prop-types/</loc>
+  <loc>https://r-factor.org/documentation/generate-prop-types/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/move-default-props-and-prop-types-out-of-class/</loc>
+  <loc>https://r-factor.org/documentation/move-default-props-and-prop-types-out-of-class/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/move-default-props-and-prop-types-to-class/</loc>
+  <loc>https://r-factor.org/documentation/move-default-props-and-prop-types-to-class/</loc>
   <lastmod>2019-02-16T12:31:02+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/toggle-component-type/</loc>
+  <loc>https://r-factor.org/documentation/toggle-component-type/</loc>
   <lastmod>2019-02-16T12:31:02+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/toggle-with-router-hoc/</loc>
+  <loc>https://r-factor.org/documentation/toggle-with-router-hoc/</loc>
   <lastmod>2019-02-16T12:31:02+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/connect/</loc>
+  <loc>https://r-factor.org/documentation/connect/</loc>
   <lastmod>2019-02-16T12:31:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/connect-map-dispatch-to-props/</loc>
+  <loc>https://r-factor.org/documentation/connect-map-dispatch-to-props/</loc>
   <lastmod>2019-02-16T12:31:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/connect-map-state-to-props/</loc>
+  <loc>https://r-factor.org/documentation/connect-map-state-to-props/</loc>
   <lastmod>2019-02-16T12:31:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/connect-merge-props/</loc>
+  <loc>https://r-factor.org/documentation/connect-merge-props/</loc>
   <lastmod>2019-02-16T12:31:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/disconnect/</loc>
+  <loc>https://r-factor.org/documentation/disconnect/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/disconnect-map-dispatch-to-props/</loc>
+  <loc>https://r-factor.org/documentation/disconnect-map-dispatch-to-props/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/disconnect-map-state-to-props/</loc>
+  <loc>https://r-factor.org/documentation/disconnect-map-state-to-props/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/disconnect-merge-props/</loc>
+  <loc>https://r-factor.org/documentation/disconnect-merge-props/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/sort-attributes/</loc>
+  <loc>https://r-factor.org/documentation/sort-attributes/</loc>
   <lastmod>2019-02-16T12:31:02+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/sort-imports/</loc>
+  <loc>https://r-factor.org/documentation/sort-imports/</loc>
   <lastmod>2019-02-16T12:31:02+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/component-name-collision-pattern/</loc>
+  <loc>https://r-factor.org/documentation/component-name-collision-pattern/</loc>
   <lastmod>2019-02-16T12:31:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/component-superclass/</loc>
+  <loc>https://r-factor.org/documentation/component-superclass/</loc>
   <lastmod>2019-02-16T12:31:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/map-dispatch-to-props-name/</loc>
+  <loc>https://r-factor.org/documentation/map-dispatch-to-props-name/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/map-state-to-props-name/</loc>
+  <loc>https://r-factor.org/documentation/map-state-to-props-name/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/merge-props-name/</loc>
+  <loc>https://r-factor.org/documentation/merge-props-name/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/default-component-name/</loc>
+  <loc>https://r-factor.org/documentation/default-component-name/</loc>
   <lastmod>2019-02-16T12:31:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/default-hoc-component-name/</loc>
+  <loc>https://r-factor.org/documentation/default-hoc-component-name/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/end-of-line/</loc>
+  <loc>https://r-factor.org/documentation/end-of-line/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/functional-component-type/</loc>
+  <loc>https://r-factor.org/documentation/functional-component-type/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/indent/</loc>
+  <loc>https://r-factor.org/documentation/indent/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/modules-order/</loc>
+  <loc>https://r-factor.org/documentation/modules-order/</loc>
   <lastmod>2019-02-16T12:31:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/NODE_BIN/</loc>
+  <loc>https://r-factor.org/documentation/NODE_BIN/</loc>
   <lastmod>2019-02-16T12:31:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/quotes/</loc>
+  <loc>https://r-factor.org/documentation/quotes/</loc>
   <lastmod>2019-02-16T12:31:02+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/semicolons/</loc>
+  <loc>https://r-factor.org/documentation/semicolons/</loc>
   <lastmod>2019-02-16T12:31:02+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/svg-component-type/</loc>
+  <loc>https://r-factor.org/documentation/svg-component-type/</loc>
   <lastmod>2019-02-16T12:31:02+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/trailing-commas/</loc>
+  <loc>https://r-factor.org/documentation/trailing-commas/</loc>
   <lastmod>2019-02-16T12:31:02+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/use-map-dispatch-to-props-shorthand/</loc>
+  <loc>https://r-factor.org/documentation/use-map-dispatch-to-props-shorthand/</loc>
   <lastmod>2019-02-16T12:31:02+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://r-factor.io/documentation/sort-object-attributes/</loc>
+  <loc>https://r-factor.org/documentation/sort-object-attributes/</loc>
   <lastmod>2019-02-16T12:31:02+00:00</lastmod>
   <priority>0.64</priority>
 </url>
