@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
-import Link from 'components/link';
 
 const NotFound = () => (
   <Fragment>
