@@ -15,28 +15,34 @@ const DosAndDonts = () => (
       <li>Use the most recent JavaScript features</li>
       <li>Commit before you refactor</li>
       <li>
-        <Link href="/support" label="Submit ideas & report bugs" />
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/limesquid/r-factor/issues"
+        >
+          Submit ideas &amp; report bugs
+        </a>
       </li>
       <li>
-        Compensate for missing R-Factor configuration with
-        {' '}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://eslint.org/">
+        Compensate for missing R-Factor configuration with{' '}
+        <a target="_blank" rel="noopener noreferrer" href="https://eslint.org/">
           ESLint
-        </a>
-        {' '}
+        </a>{' '}
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://eslint.org/docs/user-guide/migrating-from-jscs#--fix">
+          href="https://eslint.org/docs/user-guide/migrating-from-jscs#--fix"
+        >
           <code>--fix</code>
-        </a>
-        {' '}
+        </a>{' '}
         command line option
       </li>
-      <li>Use <a target="_blank" rel="noopener noreferrer" href="https://prettier.io/">Prettier</a></li>
+      <li>
+        Use{' '}
+        <a target="_blank" rel="noopener noreferrer" href="https://prettier.io/">
+          Prettier
+        </a>
+      </li>
     </ul>
 
     <h5>Don't</h5>
