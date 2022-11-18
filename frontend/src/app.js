@@ -9,7 +9,6 @@ import DownloadPage from 'pages/download';
 import HomePage from 'pages/home';
 import LicensePage from 'pages/license';
 import NotFound from 'pages/not-found';
-import PrivacyPolicy from 'pages/privacy-policy';
 import PurchasePage from 'pages/purchase';
 import SupportPage from 'pages/support';
 import TryPage from 'pages/try';
@@ -27,7 +26,6 @@ const App = () => (
           <Route path="/download" component={DownloadPage} />
           <Route path="/documentation" component={DocumentationPage} />
           <Route path="/eula" component={LicensePage} />
-          <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/purchase" component={PurchasePage} />
           <Route path="/support" component={SupportPage} />
           <Route path="/try" component={TryPage} />
