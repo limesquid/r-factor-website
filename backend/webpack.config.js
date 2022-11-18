@@ -57,23 +57,12 @@ module.exports = {
     IS_DEV_ENV && new webpack.HotModuleReplacementPlugin(),
     new webpack.EnvironmentPlugin([
       'API_HOST',
+      'API_PORT',
       'NODE_ENV',
-      'PAYU_API_HOST',
-      'PAYU_MERCHANT_POS_ID',
-      'PAYU_CLIENT_ID',
-      'PAYU_CLIENT_SECRET',
       'ENABLE_RECAPTCHA',
       'SENDGRID_API_KEY',
       'RECAPTCHA_SITE_KEY',
-      'RECAPTCHA_SECRET_KEY',
-      'LICENSE_SECRET',
-      'OUR_EMAIL',
-      'COMPANY_NAME',
-      'COMPANY_ADDRESS',
-      'COMPANY_ID',
-      'LICENSE_FEE',
-      'LICENSE_CURRENCY_CODE',
-      'VAT_RATE'
+      'RECAPTCHA_SECRET_KEY'
     ])
   ].filter(Boolean)
 };

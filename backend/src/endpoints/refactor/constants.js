@@ -1,11 +1,11 @@
-const MAX_CODE_LENGTH = 4000;
+const MAX_CODE_LENGTH = 10000;
 const TIMEOUT = 30 * 1000;
 const RECAPTCHA_MESSAGE = 'You did not pass reCAPTCHA.';
 const TIMEOUT_MESSAGE = `Refactoring timed out (${TIMEOUT / 1000}s).`;
 const UNKNOWN_REFACTORING_MESSAGE = 'Unknown refactoring method.';
 const TOO_LONG_INPUT_MESSAGE = [
   `You cannot refactor more than ${MAX_CODE_LENGTH} characters here.`,
-  'The plugin does not have this limit though.'
+  'Editor extensions do not have this limit.'
 ].join('\n');
 const REFACTORINGS = [
   'add-classname',
