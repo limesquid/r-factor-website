@@ -72,6 +72,7 @@
     "email-validator": "^2.0.4",
     "express": "^4.16.3",
     "express-recaptcha": "^4.0.2",
+    "r-factor": "^1.0.0",
     "request": "^2.87.0",
     "request-promise-native": "^1.0.5"
   }
