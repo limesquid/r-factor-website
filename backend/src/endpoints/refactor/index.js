@@ -8,7 +8,6 @@ const {
   TOO_LONG_INPUT_MESSAGE,
   UNKNOWN_REFACTORING_MESSAGE
 } = require('./constants');
-const devLicense = require('../../../license/dev.license');
 
 module.exports = (request, response) => {
   const { code, refactoring, settings } = parseRequest(request);
@@ -28,7 +27,7 @@ module.exports = (request, response) => {
 
   let stdout = '';
   let stderr = '';
-  const child = spawn(NODE_BIN, [ './r-factor.js', '-r', refactoring, '-s', settings, '-l', devLicense ]);
+  const child = spawn(NODE_BIN, [ './r-factor.js', '-r', refactoring, '-s', settings ]);
   const timeout = setTimeout(() => {
     response.status(500).send(TIMEOUT_MESSAGE);
     child.kill();
