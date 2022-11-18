@@ -20,8 +20,7 @@ const links = [
   { label: 'Try it', to: '/try' },
   { label: 'Download', to: '/download' },
   { label: 'Documentation', to: '/documentation' },
-  { label: 'Support', to: '/support' },
-  { label: 'EULA', to: '/eula' }
+  { label: 'Support', to: '/support' }
 ];
 
 const isActive = (location, to) => {
