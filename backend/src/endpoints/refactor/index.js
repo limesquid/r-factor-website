@@ -1,5 +1,6 @@
 const rFactor = require('r-factor');
 const {
+  INVALID_PAYLOAD,
   MAX_CODE_LENGTH,
   RECAPTCHA_MESSAGE,
   REFACTORINGS,
@@ -8,7 +9,13 @@ const {
 } = require('./constants');
 
 module.exports = (request, response) => {
-  const { code, refactoring, settings } = parseRequest(request);
+  const code = request.body.code;
+  const refactoring = request.body.refactoring;
+  const settings = request.body.settings;
+
+  if (typeof code !== 'string'|| typeof refactoring !== 'string' || typeof settings !== 'string'){
+    return response.status(400).send(INVALID_PAYLOAD);
+  }
 
   if (request.recaptcha.error) {
     return response.status(400).send(RECAPTCHA_MESSAGE);
@@ -31,9 +38,3 @@ module.exports = (request, response) => {
 
   return null;
 };
-
-const parseRequest = ({ body }) => ({
-  code: body.code,
-  refactoring: body.refactoring,
-  settings: JSON.stringify(body.settings || {})
-});

@@ -1,5 +1,6 @@
 const MAX_CODE_LENGTH = 10000;
 const RECAPTCHA_MESSAGE = 'You did not pass reCAPTCHA.';
+const INVALID_PAYLOAD = 'Invalid payload.';
 const UNKNOWN_REFACTORING_MESSAGE = 'Unknown refactoring method.';
 const TOO_LONG_INPUT_MESSAGE = [
   `You cannot refactor more than ${MAX_CODE_LENGTH} characters here.`,
