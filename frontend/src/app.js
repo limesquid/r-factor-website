@@ -8,7 +8,6 @@ import DocumentationPage from 'pages/documentation';
 import DownloadPage from 'pages/download';
 import HomePage from 'pages/home';
 import NotFound from 'pages/not-found';
-import SupportPage from 'pages/support';
 import TryPage from 'pages/try';
 
 import 'styles/styles.css';
@@ -23,7 +22,6 @@ const App = () => (
           <Route exact path="/" component={HomePage} />
           <Route path="/download" component={DownloadPage} />
           <Route path="/documentation" component={DocumentationPage} />
-          <Route path="/support" component={SupportPage} />
           <Route path="/try" component={TryPage} />
           <Route component={NotFound} />
         </Switch>

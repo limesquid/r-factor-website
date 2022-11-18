@@ -15,12 +15,18 @@ const NotFound = () => (
         <h1>
           <span className="text-danger">404</span> - Not found
         </h1>
-        <h4 className="mb-4">
-          We don't know what you're looking for, but it's not here.
-        </h4>
+        <h4 className="mb-4">We don't know what you're looking for, but it's not here.</h4>
         <p>
-          If you think this is an issue and <code>{window.location.href}</code>{' '}
-          is a valid URL, please report it <Link href="/support" label="here" />.
+          If you think this is an issue and <code>{window.location.href}</code> is a valid URL,
+          please report it on{' '}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/limesquid/r-factor/issues"
+          >
+            GitHub
+          </a>
+          .
         </p>
       </Col>
     </Row>
