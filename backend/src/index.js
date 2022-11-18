@@ -1,10 +1,7 @@
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
-const sgMail = require('@sendgrid/mail');
 const router = require('./router');
-
-const initializeSendgrid = () => sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const createApp = () => {
   const middlewares = [ trustProxy, useBodyParser, useCors, useRouter ];
@@ -33,8 +30,6 @@ const trustProxy = (app) => {
   app.enable('trust proxy');
   return app;
 };
-
-initializeSendgrid();
 
 createApp().listen(process.env.API_PORT, () => {
   // eslint-disable-next-line no-console

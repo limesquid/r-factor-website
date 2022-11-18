@@ -60,7 +60,6 @@ module.exports = {
       'API_PORT',
       'NODE_ENV',
       'ENABLE_RECAPTCHA',
-      'SENDGRID_API_KEY',
       'RECAPTCHA_SITE_KEY',
       'RECAPTCHA_SECRET_KEY'
     ])
