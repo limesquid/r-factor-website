@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import Col from 'reactstrap/lib/Col';
 import Row from 'reactstrap/lib/Row';
 import { Helmet } from 'react-helmet';
-import BuyButton from 'components/buy-button';
+import DownloadButton from 'components/download-button';
 import Features from 'components/features';
 import Icons from 'components/icons';
 import TryButton from 'components/try-button';
@@ -46,11 +46,16 @@ const HomePage = () => (
             title="R-Factor"
             className="mr-3"
             src={transparentLogoUrl}
-            width="111" />
+            width="111"
+          />
 
           <div>
-            <h1 className="mb-0 text-nowrap" style={{ fontSize: 46, fontWeight: 300 }}>R-Factor</h1>
-            <h4 className="mb-0" style={{ fontSize: 20, fontWeight: 300 }}>React & Redux Refactoring Tools</h4>
+            <h1 className="mb-0 text-nowrap" style={{ fontSize: 46, fontWeight: 300 }}>
+              R-Factor
+            </h1>
+            <h4 className="mb-0" style={{ fontSize: 20, fontWeight: 300 }}>
+              React & Redux Refactoring Tools
+            </h4>
           </div>
         </div>
 
@@ -67,7 +72,8 @@ const HomePage = () => (
               className="embed-responsive-item"
               frameBorder="0"
               src={videoUrl}
-              title="R-Factor demo" />
+              title="R-Factor demo"
+            />
           </div>
         </Col>
       </Row>
@@ -76,7 +82,7 @@ const HomePage = () => (
     <Row className="my-5">
       <Col className="d-flex justify-content-center">
         <TryButton className="mx-3 px-5" size="lg" />
-        <BuyButton className="mx-3 px-5" size="lg" />
+        <DownloadButton className="mx-3 px-5" size="lg" />
       </Col>
     </Row>
 
@@ -116,7 +122,7 @@ const HomePage = () => (
     <Row>
       <Col className="d-flex justify-content-center my-5">
         <TryButton className="mx-3 px-5" size="lg" />
-        <BuyButton className="mx-3 px-5" size="lg" />
+        <DownloadButton className="mx-3 px-5" size="lg" />
       </Col>
     </Row>
   </Fragment>

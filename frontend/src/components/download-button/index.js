@@ -4,16 +4,16 @@ import classNames from 'classnames';
 import { LinkContainer } from 'react-router-bootstrap';
 import Button from 'reactstrap/lib/Button';
 
-const BuyButton = ({ className, ...props }) => (
-  <LinkContainer to="/purchase">
+const DownloadButton = ({ className, ...props }) => (
+  <LinkContainer to="/download">
     <Button className={classNames('text-white', className)} color="warning" {...props}>
-      Buy
+      Download
     </Button>
   </LinkContainer>
 );
 
-BuyButton.propTypes = {
+DownloadButton.propTypes = {
   className: PropTypes.string
 };
 
-export default BuyButton;
+export default DownloadButton;
