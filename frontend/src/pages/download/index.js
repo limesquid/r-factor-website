@@ -46,7 +46,7 @@ const DownloadPage = () => (
             </h2>
 
             <div className="text-muted">
-              <a href={`https://r-factor.io/static/${filename}`}>
+              <a href={`https://r-factor.org/static/${filename}`}>
                 {filename}
               </a>
             </div>
