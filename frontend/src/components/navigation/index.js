@@ -11,7 +11,7 @@ import NavbarBrand from 'reactstrap/lib/NavbarBrand';
 import NavItem from 'reactstrap/lib/NavItem';
 import NavLink from 'reactstrap/lib/NavLink';
 import UncontrolledDropdown from 'reactstrap/lib/UncontrolledDropdown';
-import BuyButton from 'components/buy-button';
+import DownloadButton from 'components/download-button';
 import { transparentLogoUrl } from 'data';
 import './styles.css';
 
@@ -68,10 +68,6 @@ const Navigation = ({ location }) => (
             ))}
           </DropdownMenu>
         </UncontrolledDropdown>
-
-        <NavItem className="ml-2">
-          <BuyButton />
-        </NavItem>
       </Nav>
     </Container>
   </Navbar>
