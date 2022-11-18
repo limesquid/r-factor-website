@@ -13,10 +13,7 @@ const Installation = () => (
     <h3>Prerequisites</h3>
     <ul className="text-muted mb-4">
       <li>
-        You must have R-Factor <Link href="/purchase" label="license key" />.
-      </li>
-      <li>
-        Sublime Text 3 only: You must have{' '}
+        You must have{' '}
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -48,19 +45,6 @@ const Installation = () => (
       <li>
         Restart Atom.
       </li>
-      <li>
-        Open up your{' '}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://flight-manual.atom.io/getting-started/sections/atom-basics/#command-palette">
-          command palette
-        </a>
-        , type <code>R-Factor: Enter License Key</code> and hit <code>Enter</code>.
-      </li>
-      <li>
-        Paste your license key and hit <code>Enter</code>.
-      </li>
     </ol>
 
     <h4>Sublime Text 3</h4>
@@ -70,14 +54,6 @@ const Installation = () => (
       </li>
       <li>
         Extract <a href="https://r-factor.io/static/r-factor-sublime.zip">r-factor-sublime.zip</a> there.
-      </li>
-      <li>
-        In Sublime, go to <code>Preferences</code> <Icon name="arrow-right" /> <code>Package Settings</code>
-        {' '}<Icon name="arrow-right" /> <code>R-Factor</code>
-        {' '}<Icon name="arrow-right" /> <code>Enter license</code>.
-      </li>
-      <li>
-        Paste your license key and hit <code>Enter</code>.
       </li>
     </ol>
 
@@ -89,19 +65,6 @@ const Installation = () => (
       </li>
       <li>
         Restart Visual Studio Code.
-      </li>
-      <li>
-        Open up your{' '}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">
-          command palette
-        </a>
-        , type <code>R-Factor: Enter License Key</code> and hit <code>Enter</code>.
-      </li>
-      <li>
-        Paste your license key and hit <code>Enter</code>.
       </li>
     </ol>
   </Fragment>
