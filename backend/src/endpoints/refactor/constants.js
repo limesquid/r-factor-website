@@ -1,7 +1,5 @@
 const MAX_CODE_LENGTH = 10000;
-const TIMEOUT = 30 * 1000;
 const RECAPTCHA_MESSAGE = 'You did not pass reCAPTCHA.';
-const TIMEOUT_MESSAGE = `Refactoring timed out (${TIMEOUT / 1000}s).`;
 const UNKNOWN_REFACTORING_MESSAGE = 'Unknown refactoring method.';
 const TOO_LONG_INPUT_MESSAGE = [
   `You cannot refactor more than ${MAX_CODE_LENGTH} characters here.`,
@@ -32,9 +30,7 @@ const REFACTORINGS = [
 
 module.exports = {
   MAX_CODE_LENGTH,
-  TIMEOUT,
   RECAPTCHA_MESSAGE,
-  TIMEOUT_MESSAGE,
   UNKNOWN_REFACTORING_MESSAGE,
   TOO_LONG_INPUT_MESSAGE,
   REFACTORINGS
