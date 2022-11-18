@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 import Icon from 'components/icon';
-import Link from 'components/link';
 
 const Installation = () => (
   <Fragment>
