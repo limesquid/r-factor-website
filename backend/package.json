@@ -2,10 +2,12 @@
   "name": "r-factor-website-backend",
   "version": "1.0.0",
   "main": "src/index.js",
-  "homepage": "https://bitbucket.org/kamilmielnik/r-factor-website#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://kamilmielnik@bitbucket.org/kamilmielnik/r-factor-website.git"
+    "url": "git+https://github.com/limesquid/r-factor-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/limesquid/r-factor-website/issues"
   },
   "scripts": {
     "build": "better-npm-run build",
