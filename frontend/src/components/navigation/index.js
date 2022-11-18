@@ -11,7 +11,6 @@ import NavbarBrand from 'reactstrap/lib/NavbarBrand';
 import NavItem from 'reactstrap/lib/NavItem';
 import NavLink from 'reactstrap/lib/NavLink';
 import UncontrolledDropdown from 'reactstrap/lib/UncontrolledDropdown';
-import DownloadButton from 'components/download-button';
 import { transparentLogoUrl } from 'data';
 import './styles.css';
 
