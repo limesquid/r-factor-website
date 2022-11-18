@@ -18,7 +18,7 @@ const links = [
   { label: 'Overview', to: '/' },
   { label: 'Try it', to: '/try' },
   { label: 'Download', to: '/download' },
-  { label: 'Documentation', to: '/documentation' }
+  { label: 'Documentation', to: '/documentation' },
 ];
 
 const isActive = (location, to) => {
@@ -33,8 +33,16 @@ const Navigation = ({ location }) => (
     <Container>
       <LinkContainer to="/">
         <NavbarBrand className="d-flex align-items-center">
-          <img height="46" src={transparentLogoUrl} alt="R-Factor" title="R-Factor" style={{ margin: '-8px 0' }} />
-          <span className="pl-2" style={{ fontSize: 20, fontWeight: 300 }}>R-Factor</span>
+          <img
+            height="46"
+            src={transparentLogoUrl}
+            alt="R-Factor"
+            title="R-Factor"
+            style={{ margin: '-8px 0' }}
+          />
+          <span className="pl-2" style={{ fontSize: 20, fontWeight: 300 }}>
+            R-Factor
+          </span>
         </NavbarBrand>
       </LinkContainer>
 
@@ -42,12 +50,21 @@ const Navigation = ({ location }) => (
         {links.map(({ label, to }, index) => (
           <NavItem key={index} active={isActive(location, to)} className="mx-2 hide-md">
             <IndexLinkContainer to={to}>
-              <NavLink>
-                {label}
-              </NavLink>
+              <NavLink>{label}</NavLink>
             </IndexLinkContainer>
           </NavItem>
         ))}
+
+        <NavItem className="mx-2 hide-md">
+          <a
+            className="nav-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/limesquid/r-factor"
+          >
+            GitHub
+          </a>
+        </NavItem>
 
         <UncontrolledDropdown className="hide-lg">
           <DropdownToggle nav caret>
@@ -58,12 +75,21 @@ const Navigation = ({ location }) => (
             {links.map(({ label, to }, index) => (
               <NavItem key={index} active={isActive(location, to)} className="mx-2">
                 <IndexLinkContainer to={to}>
-                  <NavLink>
-                    {label}
-                  </NavLink>
+                  <NavLink>{label}</NavLink>
                 </IndexLinkContainer>
               </NavItem>
             ))}
+
+            <NavItem className="mx-2">
+              <a
+                className="nav-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://github.com/limesquid/r-factor"
+              >
+                GitHub
+              </a>
+            </NavItem>
           </DropdownMenu>
         </UncontrolledDropdown>
       </Nav>
@@ -73,8 +99,8 @@ const Navigation = ({ location }) => (
 
 Navigation.propTypes = {
   location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired
-  }).isRequired
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default withRouter(Navigation);
