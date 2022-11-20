@@ -14,6 +14,8 @@ import { reactFeatures, configurationFeatures } from 'data';
 import { formatError } from 'utils';
 import { postRefactor } from './api';
 
+const ENABLE_RECAPTCHA = process.env.REACT_APP_ENABLE_RECAPTCHA === 'true';
+
 const defaultSettings = configurationFeatures.reduce(
   (settings, feature) => ({
     ...settings,
@@ -121,10 +123,12 @@ class TryPage extends Component {
           </Col>
 
           <Col md={6}>
-            <Recaptcha
-              className="mb-4"
-              recaptchaRef={this.recaptchaRef}
-              onVerify={this.onVerify} />
+            {ENABLE_RECAPTCHA && (
+              <Recaptcha
+                className="mb-4"
+                recaptchaRef={this.recaptchaRef}
+                onVerify={this.onVerify} />
+            )}
           </Col>
         </Row>
 
