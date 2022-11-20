@@ -6,7 +6,7 @@ services:
     build:
       context: ./
       args:
-        ENABLE_RECAPTCHA: true
+        ENABLE_RECAPTCHA: 'true'
         RECAPTCHA_SITE_KEY: ${RECAPTCHA_SITE_KEY}
         RECAPTCHA_SECRET_KEY: ${RECAPTCHA_SECRET_KEY}
     ports:
