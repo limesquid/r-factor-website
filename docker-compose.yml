@@ -10,4 +10,4 @@ services:
         RECAPTCHA_SITE_KEY: ${RECAPTCHA_SITE_KEY}
         RECAPTCHA_SECRET_KEY: ${RECAPTCHA_SECRET_KEY}
     ports:
-      - 80:8002
+      - 8003:3000
