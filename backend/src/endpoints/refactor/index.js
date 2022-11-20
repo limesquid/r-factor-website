@@ -13,7 +13,7 @@ module.exports = (request, response) => {
   const refactoring = request.body.refactoring;
   const settings = request.body.settings;
 
-  if (typeof code !== 'string'|| typeof refactoring !== 'string' || typeof settings !== 'string'){
+  if (typeof code !== 'string' || typeof refactoring !== 'string' || typeof settings !== 'object') {
     return response.status(400).send(INVALID_PAYLOAD);
   }
 
