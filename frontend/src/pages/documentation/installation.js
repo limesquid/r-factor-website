@@ -19,7 +19,7 @@ const Installation = () => (
           href="https://nodejs.org/en/download/">
           Node.js
         </a>
-        {' '}<code>6.0.0</code> or later installed. The newer the better.
+        {' '}<code>8.0.0</code> or later installed. The newer the better.
       </li>
     </ul>
 
