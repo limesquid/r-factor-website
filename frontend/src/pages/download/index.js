@@ -33,7 +33,6 @@ const DownloadPage = () => (
     <h1>Download R-Factor</h1>
     <div className="text-muted mb-4">
       <p>See <Link href="/documentation/installation" label="documentation" /> for installation instructions.</p>
-      <p>R-Factor will not work without a license key. Get one <Link href="/purchase" label="here" />.</p>
     </div>
 
     <Row>
