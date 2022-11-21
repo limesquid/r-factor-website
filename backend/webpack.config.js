@@ -58,10 +58,7 @@ module.exports = {
     new webpack.EnvironmentPlugin([
       'API_HOST',
       'API_PORT',
-      'NODE_ENV',
-      'ENABLE_RECAPTCHA',
-      'RECAPTCHA_SITE_KEY',
-      'RECAPTCHA_SECRET_KEY'
+      'NODE_ENV'
     ])
   ].filter(Boolean)
 };

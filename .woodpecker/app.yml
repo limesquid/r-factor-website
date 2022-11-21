@@ -10,9 +10,6 @@ pipeline:
       - /var/run/docker.sock:/var/run/docker.sock
     commands:
       - /bin/bash build.sh
-    secrets:
-      - RECAPTCHA_SITE_KEY
-      - RECAPTCHA_SECRET_KEY
 
   deploy:
     image: devforth/drone-builder

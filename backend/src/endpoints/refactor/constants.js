@@ -1,5 +1,4 @@
 const MAX_CODE_LENGTH = 10000;
-const RECAPTCHA_MESSAGE = 'You did not pass reCAPTCHA.';
 const INVALID_PAYLOAD = 'Invalid payload.';
 const UNKNOWN_REFACTORING_MESSAGE = 'Unknown refactoring method.';
 const TOO_LONG_INPUT_MESSAGE = [
@@ -31,7 +30,7 @@ const REFACTORINGS = [
 
 module.exports = {
   MAX_CODE_LENGTH,
-  RECAPTCHA_MESSAGE,
+  INVALID_PAYLOAD,
   UNKNOWN_REFACTORING_MESSAGE,
   TOO_LONG_INPUT_MESSAGE,
   REFACTORINGS

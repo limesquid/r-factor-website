@@ -2,7 +2,6 @@ const rFactor = require('r-factor');
 const {
   INVALID_PAYLOAD,
   MAX_CODE_LENGTH,
-  RECAPTCHA_MESSAGE,
   REFACTORINGS,
   TOO_LONG_INPUT_MESSAGE,
   UNKNOWN_REFACTORING_MESSAGE
@@ -15,10 +14,6 @@ module.exports = (request, response) => {
 
   if (typeof code !== 'string' || typeof refactoring !== 'string' || typeof settings !== 'object') {
     return response.status(400).send(INVALID_PAYLOAD);
-  }
-
-  if (request.recaptcha.error) {
-    return response.status(400).send(RECAPTCHA_MESSAGE);
   }
 
   if (!REFACTORINGS.includes(refactoring)) {
