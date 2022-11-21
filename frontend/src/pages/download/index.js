@@ -10,17 +10,20 @@ const EDITORS = [
   {
     name: 'Atom',
     icon: ICONS.atom,
-    filename: 'r-factor-atom.zip'
+    repository: 'r-factor-atom',
+    filename: 'r-factor-atom-1.0.0.zip'
   },
   {
     name: 'Sublime',
     icon: ICONS.sublime,
-    filename: 'r-factor-sublime.zip'
+    repository: 'r-factor-sublime',
+    filename: 'r-factor-sublime-1.0.0.zip'
   },
   {
     name: 'VSCode',
     icon: ICONS.vscode,
-    filename: 'r-factor-vscode.zip'
+    repository: 'r-factor-vscode',
+    filename: 'r-factor-vscode-1.0.0.zip'
   }
 ];
 
@@ -32,12 +35,15 @@ const DownloadPage = () => (
 
     <h1>Download R-Factor</h1>
     <div className="text-muted mb-4">
-      <p>See <Link href="/documentation/installation" label="documentation" /> for installation instructions.</p>
+      <p>
+        See <Link href="/documentation/installation" label="documentation" /> for installation
+        instructions.
+      </p>
     </div>
 
     <Row>
-      {EDITORS.map(({ filename, icon, name }) => (
-        <Col key={name} xl={2} md={3} sm={4}>
+      {EDITORS.map(({ repository, filename, icon, name }) => (
+        <Col key={name} xl={3} md={4} sm={5}>
           <div className="mb-4">
             <h2 className="d-flex align-items-center">
               <img className="mr-3" alt={name} src={icon} height={ICON_SIZE} title={name} />
@@ -45,7 +51,7 @@ const DownloadPage = () => (
             </h2>
 
             <div className="text-muted">
-              <a href={`https://r-factor.org/static/${filename}`}>
+              <a href={`https://github.com/limesquid/${repository}/archive/refs/tags/1.0.0.zip`}>
                 {filename}
               </a>
             </div>
@@ -53,7 +59,6 @@ const DownloadPage = () => (
         </Col>
       ))}
     </Row>
-
   </div>
 );
 
