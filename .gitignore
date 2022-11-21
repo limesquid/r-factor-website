@@ -2,6 +2,5 @@ build/
 dist/
 backend/frontend/
 node_modules/
-licenses-db.json
-*.log
+**/*.log
 .env.development
