@@ -12,8 +12,7 @@
   "scripts": {
     "build": "better-npm-run build",
     "lint": "eslint src/",
-    "start": "better-npm-run start",
-    "postbuild": "react-snap"
+    "start": "better-npm-run start"
   },
   "betterScripts": {
     "build": {
@@ -33,19 +32,12 @@
       }
     }
   },
-  "reactSnap": {
-    "puppeteerArgs": [
-      "--no-sandbox",
-      "--disable-setuid-sandbox"
-    ]
-  },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
     "better-npm-run": "^0.1.0",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.9.1",
-    "react-scripts": "^1.1.5",
-    "react-snap": "^1.23.0"
+    "react-scripts": "^1.1.5"
   },
   "dependencies": {
     "bootstrap": "^4.1.1",
