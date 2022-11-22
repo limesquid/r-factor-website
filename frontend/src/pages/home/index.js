@@ -38,7 +38,7 @@ const HomePage = () => (
       <title>R-Factor - React & Redux Refactoring Tools</title>
     </Helmet>
 
-    <Row className="mb-5">
+    <Row className="mb-3">
       <Col className="d-flex align-items-center justify-content-between flex-wrap home-header-col">
         <div className="d-flex align-items-center mr-4">
           <img
@@ -62,6 +62,21 @@ const HomePage = () => (
         <Icons className="py-2 my-2" icons={editorsIcons} size={64} />
       </Col>
     </Row>
+
+    <a
+      className="d-flex align-items-center justify-content-center mb-5"
+      href="https://www.producthunt.com/posts/r-factor?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-r-factor"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="R-Factor - React & Redux Refactoring Tools | Product Hunt"
+        src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=368261&theme=neutral"
+        style={{ width: 250, height: 54 }}
+        width="250"
+        height="54"
+      />
+    </a>
 
     {videoUrl && (
       <Row>
