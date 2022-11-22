@@ -11,19 +11,19 @@ const EDITORS = [
     name: 'Atom',
     icon: ICONS.atom,
     repository: 'r-factor-atom',
-    filename: 'r-factor-atom-1.0.0.zip'
+    filename: 'r-factor-atom-1.0.1.zip'
   },
   {
     name: 'Sublime',
     icon: ICONS.sublime,
     repository: 'r-factor-sublime',
-    filename: 'r-factor-sublime-1.0.0.zip'
+    filename: 'r-factor-sublime-1.0.1.zip'
   },
   {
     name: 'VSCode',
     icon: ICONS.vscode,
     repository: 'r-factor-vscode',
-    filename: 'r-factor-vscode-1.0.0.zip'
+    filename: 'r-factor-vscode-1.0.1.zip'
   }
 ];
 
@@ -51,7 +51,7 @@ const DownloadPage = () => (
             </h2>
 
             <div className="text-muted">
-              <a href={`https://github.com/limesquid/${repository}/archive/refs/tags/1.0.0.zip`}>
+              <a href={`https://github.com/limesquid/${repository}/archive/refs/tags/1.0.1.zip`}>
                 {filename}
               </a>
             </div>

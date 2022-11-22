@@ -38,7 +38,7 @@ const Installation = () => (
     <h4>Atom</h4>
     <ol className="text-muted mb-4">
       <li>
-        Extract <a href="https://github.com/limesquid/r-factor-atom/archive/refs/tags/1.0.0.zip">r-factor-atom-1.0.0.zip</a>
+        Extract <a href="https://github.com/limesquid/r-factor-atom/archive/refs/tags/1.0.1.zip">r-factor-atom-1.0.1.zip</a>
         {' '}to <code>~/.atom/packages/</code>. Create this directory if it doesn't exist.
       </li>
       <li>
@@ -52,14 +52,14 @@ const Installation = () => (
         In Sublime, go to <code>Preferences</code> <Icon name="arrow-right" /> <code>Browse Packages</code>.
       </li>
       <li>
-        Extract <a href="https://github.com/limesquid/r-factor-sublime/archive/refs/tags/1.0.0.zip">r-factor-sublime-1.0.0.zip</a> there.
+        Extract <a href="https://github.com/limesquid/r-factor-sublime/archive/refs/tags/1.0.1.zip">r-factor-sublime-1.0.1.zip</a> there.
       </li>
     </ol>
 
     <h4>Visual Studio Code</h4>
     <ol className="text-muted mb-4">
       <li>
-        Extract <a href="https://github.com/limesquid/r-factor-vscode/archive/refs/tags/1.0.0.zip">r-factor-vscode-1.0.0.zip</a>
+        Extract <a href="https://github.com/limesquid/r-factor-vscode/archive/refs/tags/1.0.1.zip">r-factor-vscode-1.0.1.zip</a>
         {' '}to <code>~/.vscode/extensions/</code>. Create this directory if it doesn't exist.
       </li>
       <li>
