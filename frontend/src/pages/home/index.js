@@ -23,7 +23,7 @@ const systemsIcons = [
 ];
 
 const requirementsIcons = [
-  { id: 'node', label: 'Node.js', subLabel: '>= 6.x.x' }
+  { id: 'node', label: 'Node.js', subLabel: '>= 8.0.0' }
 ];
 
 const editorsIcons = [
